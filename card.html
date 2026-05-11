@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personalize Your Card — Smartass Support Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#1C1209;
+  --bg2:#251810;
+  --bg3:#2E1E12;
+  --bdr:#3D2A1A;
+  --cream:#F2E4C8;
+  --cream2:#D9C9A8;
+  --red:#C13B1B;
+  --red2:#E04820;
+  --gold:#C8922A;
+  --white:#FDF8EF;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh}
+
+/* HEADER */
+.hdr{background:var(--bg);border-bottom:1px solid var(--bdr);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.hdr-logo img{height:36px;object-fit:contain}
+.back-link{color:var(--cream2);text-decoration:none;font-size:13px;font-weight:500;opacity:0.7;display:flex;align-items:center;gap:6px;transition:opacity 0.2s}
+.back-link:hover{opacity:1}
+
+/* STEPS */
+.steps{background:var(--bg2);border-bottom:1px solid var(--bdr);padding:12px 32px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--cream2);opacity:0.7}
+.step-dot{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.step-dot.done{background:var(--bdr);color:var(--gold)}
+.step-dot.active{background:var(--red2);color:var(--white)}
+.step-dot.pending{background:var(--bdr);color:var(--cream2);opacity:0.5}
+.step-line{flex:1;height:1px;background:var(--bdr)}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 112px)}
+
+/* LEFT - PREVIEW */
+.preview-col{background:var(--bg2);border-right:1px solid var(--bdr);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 32px;position:sticky;top:112px;height:calc(100vh - 112px)}
+.card-wrap{width:100%;max-width:380px;aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+.card-content{position:relative;z-index:2;text-align:center;padding:24px;width:100%}
+.card-title-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--cream);line-height:1.4;margin-bottom:14px;text-shadow:0 2px 8px rgba(0,0,0,0.8)}
+.anim-badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.7);color:var(--cream);font-size:10px;padding:4px 10px;border-radius:100px;display:flex;align-items:center;gap:6px;z-index:3;font-weight:500}
+.pdot{width:6px;height:6px;background:var(--red2);border-radius:50%;animation:pd 1.5s infinite;flex-shrink:0}
+@keyframes pd{0%,100%{opacity:1}50%{opacity:0.3}}
+.live-msg{font-size:13px;color:var(--cream2);font-style:italic;opacity:0;transition:opacity 0.3s;line-height:1.5;margin-bottom:6px}
+.live-sig{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--cream);opacity:0;transition:opacity 0.3s}
+.live-msg.vis,.live-sig.vis{opacity:1}
+.preview-hint{font-size:11px;color:var(--cream2);opacity:0.4;margin-top:16px;text-align:center;text-transform:uppercase;letter-spacing:0.8px}
+
+/* RIGHT - FORM */
+.form-col{padding:40px 40px 60px;overflow-y:auto}
+.form-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--cream);margin-bottom:6px}
+.form-sub{font-size:13px;color:var(--cream2);opacity:0.6;margin-bottom:32px;line-height:1.6}
+.flabel{display:block;font-size:11px;font-weight:600;color:var(--cream2);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;opacity:0.75}
+.finput{width:100%;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;padding:11px 14px;color:var(--cream);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s;margin-bottom:20px}
+.finput:focus{border-color:var(--red)}
+.finput::placeholder{color:var(--cream2);opacity:0.35}
+textarea.finput{resize:none;height:90px;line-height:1.6}
+.char-count{font-size:11px;color:var(--cream2);opacity:0.4;text-align:right;margin-top:-16px;margin-bottom:20px}
+
+/* EMOJI */
+.emoji-grid{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:24px}
+.ebtn{background:var(--bg2);border:1px solid var(--bdr);border-radius:6px;padding:7px 10px;font-size:18px;cursor:pointer;transition:all 0.15s;line-height:1;position:relative}
+.ebtn:hover,.ebtn.on{border-color:var(--red);background:var(--bg3);transform:scale(1.1)}
+.ebtn.on::after{content:'✓';position:absolute;top:-5px;right:-5px;background:var(--red2);color:white;font-size:9px;width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-weight:700}
+
+/* RECIPIENT BOX */
+.rec-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:18px 20px;margin-bottom:24px}
+.rec-box-label{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.invite-btn{width:100%;background:transparent;border:1px dashed var(--bdr);border-radius:5px;color:var(--cream2);font-size:13px;padding:9px 14px;cursor:pointer;font-family:'DM Sans',sans-serif;text-align:left;margin-top:10px;transition:all 0.2s;display:flex;align-items:center;gap:8px}
+.invite-btn:hover{border-color:var(--red);color:var(--cream)}
+.stag{display:inline-flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--bdr);border-radius:100px;padding:4px 12px;font-size:12px;color:var(--cream);margin:3px}
+.stag-x{cursor:pointer;opacity:0.5;font-size:14px;line-height:1}
+.stag-x:hover{opacity:1}
+
+/* PRICE & SUBMIT */
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:16px}
+.price-label{font-size:13px;color:var(--cream2);opacity:0.65}
+.price-val{font-size:22px;font-weight:700;color:var(--gold)}
+.submit-btn{width:100%;background:var(--red2);color:var(--white);border:none;border-radius:5px;padding:15px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
+.submit-btn:hover{background:var(--red)}
+.submit-btn:disabled{opacity:0.5;cursor:not-allowed}
+.error-msg{font-size:12px;color:#E04820;margin-top:8px;display:none}
+
+/* MOBILE */
+@media(max-width:768px){
+  .layout{grid-template-columns:1fr}
+  .preview-col{position:relative;top:0;height:auto;min-height:280px;padding:24px 20px}
+  .card-wrap{max-width:260px}
+  .form-col{padding:24px 20px 48px}
+  .hdr{padding:0 16px}
+  .steps{padding:10px 16px}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-logo">
+    <a href="/"><img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards"></a>
+  </div>
+  <a href="/" class="back-link">← Back to cards</a>
+</header>
+
+<div class="steps">
+  <div class="step-dot done">✓</div>
+  <div class="step-line"></div>
+  <div class="step-dot active">2</div>
+  <div class="step-line"></div>
+  <div class="step-dot pending">3</div>
+  <span style="margin-left:8px">Personalize your card</span>
+</div>
+
+<div class="layout">
+
+  <!-- LEFT: LIVE PREVIEW -->
+  <div class="preview-col">
+    <div class="card-wrap" id="card-wrap">
+      <div class="anim-badge"><div class="pdot"></div> Animated</div>
+      <img class="card-img" id="card-img" src="" alt="">
+      <div class="card-overlay"></div>
+      <div class="card-content">
+        <div class="card-title-text" id="card-title-text"></div>
+        <div class="live-msg" id="live-msg"></div>
+        <div class="live-sig" id="live-sig"></div>
+      </div>
+    </div>
+    <div class="preview-hint">Live preview updates as you type</div>
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="form-col">
+    <div class="form-title">Make it personal</div>
+    <div class="form-sub">Add your message and sign it. They'll see all of this when they open the card.</div>
+
+    <label class="flabel">Your name</label>
+    <input type="text" class="finput" id="inp-name" placeholder="e.g. Sarah" maxlength="40" oninput="updateLive()">
+
+    <label class="flabel">Your message</label>
+    <textarea class="finput" id="inp-msg" placeholder="Write something real. Or funny. Ideally both." maxlength="280" oninput="updateLive();updateCount()"></textarea>
+    <div class="char-count"><span id="char-count">0</span>/280</div>
+
+    <label class="flabel">Add an emoji (optional)</label>
+    <div class="emoji-grid" id="emoji-grid"></div>
+
+    <div class="rec-box">
+      <div class="rec-box-label">Who's it for?</div>
+      <label class="flabel">Recipient's name</label>
+      <input type="text" class="finput" id="inp-recip-name" placeholder="e.g. Alex">
+      <label class="flabel">Recipient's email</label>
+      <input type="email" class="finput" id="inp-recip-email" placeholder="They'll receive a link to the card here">
+      <button class="invite-btn" onclick="addSigner()">
+        <span style="font-size:16px;line-height:1">+</span> Invite others to sign too (optional)
+      </button>
+      <div id="signer-tags" style="margin-top:8px"></div>
+    </div>
+
+    <div class="price-row">
+      <span class="price-label">Card total</span>
+      <span class="price-val" id="card-price">$2.99</span>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Send this card — $2.99</button>
+    <div class="error-msg" id="error-msg">Please fill in your name, a message, and the recipient's email.</div>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// CARD DATA — must match index.html
+// ============================================================
+const CARDS = [
+  {
+    id: 1,
+    title: "Sorry your life is a dumpster fire right now",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/cc4cc060-b03e-414d-9567-9581a7ccd012/Screenshot+2025-09-19+225606+-+Edited.png",
+    price: "$2.99"
+  },
+  {
+    id: 2,
+    title: "This does not define you. But that haircut in high school does.",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3d637e30-ba71-46ea-86e4-7c154d828867/Screenshot+2025-09-19+225723+-+Edited.png",
+    price: "$2.99"
+  },
+  {
+    id: 3,
+    title: "You shouldn't be alone today. Let's get lunch — your turn to buy.",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/a39dc885-9068-4591-b4a1-3db0f213273d/Screenshot+2025-09-19+225808+-+Edited.png",
+    price: "$2.99"
+  },
+  {
+    id: 4,
+    title: "Sorry for your loss. But guess what part of your body won't miss your pet.",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/90d1167b-7d85-407f-b8b0-bba21728bbcf/96ea7fde-824f-4900-9db5-14dd208a3b09.png",
+    price: "$2.99"
+  },
+];
+
+const EMOJIS = ["❤️","💀","🔥","😂","🤦","💪","🙏","✨","🫂","😭","🥂","💩","🎉","😤","🌈"];
+// ============================================================
+
+let selEmoji = "";
+let selCard = null;
+let signers = [];
+
+// Load card from URL param
+function loadCard() {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id'));
+  selCard = CARDS.find(c => c.id === id) || CARDS[0];
+  document.getElementById('card-img').src = selCard.img;
+  document.getElementById('card-title-text').textContent = selCard.title;
+  document.getElementById('card-price').textContent = selCard.price;
+  document.getElementById('submit-btn').textContent = `Send this card — ${selCard.price}`;
+  document.title = selCard.title + ' — Smartass Support Cards';
+}
+
+// Render emoji picker
+function renderEmojis() {
+  document.getElementById('emoji-grid').innerHTML = EMOJIS.map(e =>
+    `<button class="ebtn" onclick="pickEmoji('${e}', this)" title="${e}">${e}</button>`
+  ).join('');
+}
+
+function pickEmoji(e, btn) {
+  selEmoji = selEmoji === e ? "" : e;
+  document.querySelectorAll('.ebtn').forEach(b => b.classList.remove('on'));
+  if (selEmoji) btn.classList.add('on');
+  updateLive();
+}
+
+function updateLive() {
+  const name = document.getElementById('inp-name').value.trim();
+  const msg = document.getElementById('inp-msg').value.trim();
+  const sig = document.getElementById('live-sig');
+  const msgEl = document.getElementById('live-msg');
+  sig.textContent = name ? `— ${name} ${selEmoji}` : '';
+  sig.classList.toggle('vis', !!name);
+  const display = msg.length > 80 ? msg.slice(0, 80) + '…' : msg;
+  msgEl.textContent = display ? `"${display}"` : '';
+  msgEl.classList.toggle('vis', !!msg);
+}
+
+function updateCount() {
+  const len = document.getElementById('inp-msg').value.length;
+  document.getElementById('char-count').textContent = len;
+}
+
+function addSigner() {
+  const name = prompt('Enter their name:');
+  if (!name || !name.trim()) return;
+  signers.push(name.trim());
+  renderSigners();
+}
+
+function removeSigner(i) {
+  signers.splice(i, 1);
+  renderSigners();
+}
+
+function renderSigners() {
+  document.getElementById('signer-tags').innerHTML = signers.map((s, i) =>
+    `<span class="stag">${s} <span class="stag-x" onclick="removeSigner(${i})">×</span></span>`
+  ).join('');
+}
+
+function handleSubmit() {
+  const name = document.getElementById('inp-name').value.trim();
+  const msg = document.getElementById('inp-msg').value.trim();
+  const email = document.getElementById('inp-recip-email').value.trim();
+  const recipName = document.getElementById('inp-recip-name').value.trim();
+  const errEl = document.getElementById('error-msg');
+
+  if (!name || !msg || !email) {
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+
+  // Build recipient page URL with all data encoded
+  const params = new URLSearchParams({
+    id: selCard.id,
+    from: name,
+    msg: msg,
+    emoji: selEmoji,
+    to: recipName,
+    signers: signers.join(',')
+  });
+
+  // In production this will go through Stripe payment first
+  // For now, redirect straight to recipient page for testing
+  window.location.href = `/recipient.html?${params.toString()}`;
+}
+
+loadCard();
+renderEmojis();
+</script>
+
+</body>
+</html>
