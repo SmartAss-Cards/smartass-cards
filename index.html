@@ -56,8 +56,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 .cprev{position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg3)}
 .cprev iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none}
-.cprev-click{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;padding:14px;background:linear-gradient(transparent 50%,rgba(0,0,0,0.8))}
-.cprev-title{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--cream);line-height:1.4}
+.cprev-click{position:absolute;inset:0;z-index:2}
 .sound-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.65);color:var(--cream);font-size:10px;padding:3px 8px;border-radius:100px;z-index:3;display:flex;align-items:center;gap:4px;font-family:'DM Sans',sans-serif}
 .cfoot{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bdr)}
 .ccat{font-size:11px;color:var(--cream2);opacity:0.65}
@@ -169,9 +168,7 @@ function cardHTML(card) {
       <div class="cprev">
         <iframe src="${embedUrl}" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
         <div class="sound-badge">🔊 Sound</div>
-        <div class="cprev-click">
-          <div class="cprev-title">${card.title}</div>
-        </div>
+        <div class="cprev-click"></div>
         ${card.badge ? `<div class="cbadge">${card.badge}</div>` : ''}
       </div>
       <div class="cfoot">
