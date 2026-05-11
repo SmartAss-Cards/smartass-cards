@@ -34,7 +34,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .preview-col{background:var(--bg2);border-right:1px solid var(--bdr);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 32px;position:sticky;top:112px;height:calc(100vh - 112px)}
 .video-wrap{width:100%;max-width:380px;aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;background:var(--bg3)}
 .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-.preview-hint{font-size:11px;color:var(--cream2);opacity:0.4;margin-top:16px;text-align:center;text-transform:uppercase;letter-spacing:0.8px}
+.preview-hint{font-size:11px;color:var(--cream);opacity:0.65;margin-top:16px;text-align:center;text-transform:uppercase;letter-spacing:0.8px}
 .sig-overlay{margin-top:14px;width:100%;max-width:380px;background:rgba(0,0,0,0.4);border-radius:6px;padding:10px 14px;min-height:48px;transition:all 0.3s}
 .live-msg{font-size:13px;color:var(--cream2);font-style:italic;opacity:0;transition:opacity 0.3s;line-height:1.5;margin-bottom:4px}
 .live-sig{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--cream);opacity:0;transition:opacity 0.3s}
@@ -159,7 +159,8 @@ function loadCard() {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get('id'));
   selCard = CARDS.find(c => c.id === id) || CARDS[0];
-  document.getElementById('preview-iframe').src = selCard.previewUrl;
+  const embedBase = selCard.previewUrl.replace('player.mediadelivery.net/play/', 'player.mediadelivery.net/embed/');
+  document.getElementById('preview-iframe').src = embedBase + '?autoplay=true&loop=true&muted=true&preload=true&responsive=true';
   document.getElementById('card-price').textContent = selCard.price;
   document.getElementById('submit-btn').textContent = `Send this card — ${selCard.price}`;
   document.title = selCard.title + ' — Smartass Support Cards';
