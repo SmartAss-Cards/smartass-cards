@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartass Support Cards — Animated eCards with Personality</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#1C1209;
+  --bg2:#251810;
+  --bg3:#2E1E12;
+  --bdr:#3D2A1A;
+  --cream:#F2E4C8;
+  --cream2:#D9C9A8;
+  --red:#C13B1B;
+  --red2:#E04820;
+  --gold:#C8922A;
+  --white:#FDF8EF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh}
+
+/* HEADER */
+.hdr{background:var(--bg);border-bottom:1px solid var(--bdr);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.hdr-logo img{height:36px;object-fit:contain}
+.hdr-nav{display:flex;gap:24px;align-items:center}
+.hdr-nav a{color:var(--cream2);text-decoration:none;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:0.8px;opacity:0.75;transition:opacity 0.2s}
+.hdr-nav a:hover{opacity:1}
+.hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
+.hdr-cart:hover{background:var(--red2)}
+
+/* HERO */
+.hero{background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:380px}
+.hero-left{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
+.hero-eyebrow{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+.hero-h1{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:var(--cream);line-height:1.15;margin-bottom:14px}
+.hero-h1 em{color:var(--red2);font-style:italic}
+.hero-sub{font-size:14px;color:var(--cream2);opacity:0.75;line-height:1.65;margin-bottom:24px;max-width:400px}
+.hero-bullets{list-style:none;margin-bottom:30px}
+.hero-bullets li{font-size:13px;color:var(--cream2);padding:5px 0 5px 20px;position:relative;opacity:0.8;line-height:1.5}
+.hero-bullets li::before{content:"✦";position:absolute;left:0;color:var(--red2);font-size:10px;top:7px}
+.hero-cta{background:var(--red2);color:var(--white);border:none;padding:14px 30px;border-radius:3px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.8px;text-transform:uppercase;align-self:flex-start;transition:background 0.2s;text-decoration:none;display:inline-block}
+.hero-cta:hover{background:var(--red)}
+.hero-right{display:flex;align-items:center;justify-content:center;padding:32px;background:var(--bg3)}
+.hero-right img{max-width:100%;max-height:300px;object-fit:contain}
+
+/* SECTION */
+.section{padding:40px 32px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.section-head h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--cream)}
+.section-head img{height:22px}
+
+/* FILTER */
+.filter-strip{display:flex;gap:8px;padding:12px 0 20px;overflow-x:auto}
+.fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+
+/* CARD GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.cthumb{background:var(--bg2);border:1px solid var(--bdr);border-radius:6px;overflow:hidden;cursor:pointer;transition:transform 0.2s,border-color 0.2s;text-decoration:none;display:block}
+.cthumb:hover{transform:translateY(-4px);border-color:var(--red)}
+.cprev{position:relative;aspect-ratio:1;overflow:hidden}
+.cprev img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+.cthumb:hover .cprev img{transform:scale(1.04)}
+.cprev-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:flex-end;padding:14px}
+.cprev-title{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--cream);line-height:1.4}
+.cbadge{position:absolute;top:10px;right:10px;background:var(--gold);color:var(--bg);font-size:9px;font-weight:700;padding:3px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:0.5px}
+.cnew{background:var(--red2);color:var(--white)}
+.cfoot{padding:10px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bdr)}
+.ccat{font-size:11px;color:var(--cream2);opacity:0.65}
+.cprice{font-size:14px;font-weight:700;color:var(--gold)}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--bdr);margin:0 32px}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;display:flex;align-items:center;justify-content:space-between;margin-top:40px}
+footer img{height:28px;object-fit:contain;opacity:0.7}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12px;color:var(--cream2);opacity:0.5;text-decoration:none;transition:opacity 0.2s}
+.footer-links a:hover{opacity:1}
+.footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:32px 20px}
+  .hero-h1{font-size:28px}
+  .hdr{padding:0 16px}
+  .hdr-nav a{display:none}
+  .section{padding:28px 16px}
+  .divider{margin:0 16px}
+  footer{flex-direction:column;gap:16px;padding:24px 16px;text-align:center}
+  .footer-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-logo">
+    <a href="/"><img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards"></a>
+  </div>
+  <nav class="hdr-nav">
+    <a href="#ecards">eCards</a>
+    <a href="#paper">Paper Cards</a>
+    <a href="#">Merch</a>
+    <button class="hdr-cart">Cart (0)</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">✦ Animated eCards with Actual Personality</div>
+    <h1 class="hero-h1">Because life's too short<br>for <em>empty platitudes</em></h1>
+    <p class="hero-sub">Funny, irreverent, and warm cards for when you care but don't know what to say.</p>
+    <ul class="hero-bullets">
+      <li>For friends grieving who need more than "thoughts & prayers"</li>
+      <li>For breakups, job loss, and life's dumpster fires</li>
+      <li>Sign it, personalize it — they'll remember it</li>
+    </ul>
+    <a href="#ecards" class="hero-cta">Shop eCards</a>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
+  </div>
+</section>
+
+<section class="section" id="ecards">
+  <div class="section-head">
+    <h2>eCards</h2>
+    <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/db25fde2-5eb1-4913-908c-bf7122741803/Star.png" alt="">
+  </div>
+  <div class="filter-strip">
+    <button class="fbtn on" data-cat="all">All</button>
+    <button class="fbtn" data-cat="Sympathy">Sympathy</button>
+    <button class="fbtn" data-cat="Get Well">Get Well</button>
+    <button class="fbtn" data-cat="Breakup">Breakup</button>
+    <button class="fbtn" data-cat="Job Loss">Job Loss</button>
+    <button class="fbtn" data-cat="Birthday">Birthday</button>
+    <button class="fbtn" data-cat="Just Because">Just Because</button>
+  </div>
+  <div class="grid" id="ecard-grid"></div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="paper">
+  <div class="section-head">
+    <h2>Paper Cards</h2>
+    <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/db25fde2-5eb1-4913-908c-bf7122741803/Star.png" alt="">
+  </div>
+  <div class="grid" id="paper-grid"></div>
+</section>
+
+<footer>
+  <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards">
+  <div class="footer-links">
+    <a href="#">FAQ</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+  <div class="footer-copy">© 2026 Smartass Support Cards</div>
+</footer>
+
+<script>
+// ============================================================
+// CARD DATA — edit this list to add or update cards
+// ============================================================
+const ECARDS = [
+  {
+    id: 1,
+    title: "Sorry your life is a dumpster fire right now",
+    category: "Sympathy",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/cc4cc060-b03e-414d-9567-9581a7ccd012/Screenshot+2025-09-19+225606+-+Edited.png",
+    price: "$2.99",
+    badge: "Best Seller",
+    badgeType: "gold"
+  },
+  {
+    id: 2,
+    title: "This does not define you. But that haircut in high school does.",
+    category: "Sympathy",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3d637e30-ba71-46ea-86e4-7c154d828867/Screenshot+2025-09-19+225723+-+Edited.png",
+    price: "$2.99",
+    badge: null
+  },
+  {
+    id: 3,
+    title: "You shouldn't be alone today. Let's get lunch — your turn to buy.",
+    category: "Just Because",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/a39dc885-9068-4591-b4a1-3db0f213273d/Screenshot+2025-09-19+225808+-+Edited.png",
+    price: "$2.99",
+    badge: null
+  },
+  {
+    id: 4,
+    title: "Sorry for your loss. But guess what part of your body won't miss your pet.",
+    category: "Sympathy",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/90d1167b-7d85-407f-b8b0-bba21728bbcf/96ea7fde-824f-4900-9db5-14dd208a3b09.png",
+    price: "$2.99",
+    badge: "New",
+    badgeType: "new"
+  },
+];
+
+const PAPER_CARDS = [
+  {
+    id: 101,
+    title: "Life Hits Like a Bike With No Seat",
+    category: "Sympathy",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/cc4cc060-b03e-414d-9567-9581a7ccd012/Screenshot+2025-09-19+225606+-+Edited.png",
+    price: "$6.99",
+    badge: null
+  },
+  {
+    id: 102,
+    title: "This Does Not Define You (But That Haircut Did)",
+    category: "Sympathy",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3d637e30-ba71-46ea-86e4-7c154d828867/Screenshot+2025-09-19+225723+-+Edited.png",
+    price: "$6.99",
+    badge: null
+  },
+  {
+    id: 103,
+    title: "You Shouldn't Be Alone Today",
+    category: "Just Because",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/a39dc885-9068-4591-b4a1-3db0f213273d/Screenshot+2025-09-19+225808+-+Edited.png",
+    price: "$6.99",
+    badge: null
+  },
+  {
+    id: 104,
+    title: "Funny Pet Loss Card",
+    category: "Sympathy",
+    img: "https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/90d1167b-7d85-407f-b8b0-bba21728bbcf/96ea7fde-824f-4900-9db5-14dd208a3b09.png",
+    price: "$6.99",
+    badge: null
+  },
+];
+// ============================================================
+
+function cardHTML(card) {
+  return `
+    <a class="cthumb" href="/card.html?id=${card.id}">
+      <div class="cprev">
+        <img src="${card.img}" alt="${card.title}" loading="lazy">
+        <div class="cprev-overlay">
+          <div class="cprev-title">${card.title}</div>
+        </div>
+        ${card.badge ? `<div class="cbadge ${card.badgeType === 'new' ? 'cnew' : ''}">${card.badge}</div>` : ''}
+      </div>
+      <div class="cfoot">
+        <span class="ccat">${card.category}</span>
+        <span class="cprice">${card.price}</span>
+      </div>
+    </a>`;
+}
+
+function renderGrid(cards, containerId) {
+  document.getElementById(containerId).innerHTML = cards.map(cardHTML).join('');
+}
+
+renderGrid(ECARDS, 'ecard-grid');
+renderGrid(PAPER_CARDS, 'paper-grid');
+
+// Filter buttons
+document.querySelectorAll('.fbtn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
+    this.classList.add('on');
+    const cat = this.dataset.cat;
+    const filtered = cat === 'all' ? ECARDS : ECARDS.filter(c => c.category === cat);
+    renderGrid(filtered, 'ecard-grid');
+  });
+});
+</script>
+
+</body>
+</html>
