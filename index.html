@@ -21,6 +21,8 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh}
+
+/* HEADER */
 .hdr{background:var(--bg);border-bottom:1px solid var(--bdr);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
 .hdr-logo img{height:36px;object-fit:contain}
 .hdr-nav{display:flex;gap:24px;align-items:center}
@@ -28,6 +30,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .hdr-nav a:hover{opacity:1}
 .hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
 .hdr-cart:hover{background:var(--red2)}
+
+/* HERO - DESKTOP */
 .hero{background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:380px}
 .hero-left{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
 .hero-eyebrow{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
@@ -41,44 +45,70 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .hero-cta:hover{background:var(--red)}
 .hero-right{display:flex;align-items:center;justify-content:center;padding:32px;background:var(--bg3)}
 .hero-right img{max-width:100%;max-height:300px;object-fit:contain}
+
+/* HERO MOBILE IMAGE BANNER */
+.hero-mobile-img{display:none;width:100%;background:var(--bg3);border-bottom:2px solid var(--red)}
+.hero-mobile-img img{width:100%;max-height:220px;object-fit:contain;display:block;margin:0 auto;padding:20px}
+
+/* SECTION */
 .section{padding:40px 32px}
 .section-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
 .section-head h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--cream)}
 .section-head img{height:22px}
+
+/* FILTER */
 .filter-strip{display:flex;gap:8px;padding:12px 0 20px;overflow-x:auto}
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.cthumb{background:var(--bg2);border:1px solid var(--bdr);border-radius:6px;overflow:hidden;cursor:pointer;transition:transform 0.2s,border-color 0.2s;text-decoration:none;display:block}
-.cthumb:hover{transform:translateY(-4px);border-color:var(--red)}
+
+/* SOUND NOTE */
+.sound-note{font-size:12px;color:var(--cream2);opacity:0.55;margin-bottom:20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
+
+/* CARD GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+.cthumb{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;overflow:hidden;cursor:pointer;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;text-decoration:none;display:block}
+.cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+
+/* VIDEO PREVIEW */
 .cprev{position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg3)}
 .cprev iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none}
-.cprev-click{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;padding:14px;background:linear-gradient(transparent 40%,rgba(0,0,0,0.75))}
+.cprev-click{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;padding:14px;background:linear-gradient(transparent 50%,rgba(0,0,0,0.8))}
 .cprev-title{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--cream);line-height:1.4}
 .cbadge{position:absolute;top:10px;right:10px;background:var(--gold);color:var(--bg);font-size:9px;font-weight:700;padding:3px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:0.5px;z-index:3}
 .cnew{background:var(--red2);color:var(--white)}
-.play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:rgba(0,0,0,0.6);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:3;transition:background 0.2s}
-.cthumb:hover .play-icon{background:var(--red2)}
-.play-icon svg{width:16px;height:16px;fill:white;margin-left:3px}
-.cfoot{padding:10px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bdr)}
+.sound-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.65);color:var(--cream);font-size:10px;padding:3px 8px;border-radius:100px;z-index:3;display:flex;align-items:center;gap:4px;font-family:'DM Sans',sans-serif}
+
+.cfoot{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bdr)}
 .ccat{font-size:11px;color:var(--cream2);opacity:0.65}
 .cprice{font-size:14px;font-weight:700;color:var(--gold)}
+
+/* FOOTER */
 footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;display:flex;align-items:center;justify-content:space-between;margin-top:40px}
 footer img{height:28px;object-fit:contain;opacity:0.7}
 .footer-links{display:flex;gap:20px}
 .footer-links a{font-size:12px;color:var(--cream2);opacity:0.5;text-decoration:none;transition:opacity 0.2s}
 .footer-links a:hover{opacity:1}
 .footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
+
+/* MOBILE */
 @media(max-width:768px){
   .hero{grid-template-columns:1fr}
   .hero-right{display:none}
-  .hero-left{padding:32px 20px}
-  .hero-h1{font-size:28px}
+  .hero-left{padding:28px 20px}
+  .hero-h1{font-size:26px}
+  .hero-mobile-img{display:block}
   .hdr{padding:0 16px}
   .hdr-nav a{display:none}
-  .section{padding:28px 16px}
+  .section{padding:24px 16px}
+  .grid{grid-template-columns:1fr 1fr;gap:14px}
+  .cprev-title{font-size:11px}
   footer{flex-direction:column;gap:16px;padding:24px 16px;text-align:center}
-  .footer-links{justify-content:center}
+  .footer-links{justify-content:center;flex-wrap:wrap}
+  .sound-note{font-size:11px}
+}
+
+@media(max-width:400px){
+  .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -95,6 +125,7 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
   </nav>
 </header>
 
+<!-- DESKTOP HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">✦ Animated eCards with Actual Personality</div>
@@ -112,6 +143,11 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
   </div>
 </section>
 
+<!-- MOBILE HERO IMAGE -->
+<div class="hero-mobile-img">
+  <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
+</div>
+
 <section class="section" id="ecards">
   <div class="section-head">
     <h2>eCards</h2>
@@ -123,6 +159,7 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
     <button class="fbtn" data-cat="Birthday">Birthday</button>
     <button class="fbtn" data-cat="Thank You">Thank You</button>
   </div>
+  <div class="sound-note">🔊 These cards have sound — best experienced with audio on</div>
   <div class="grid" id="ecard-grid"></div>
 </section>
 
@@ -212,10 +249,8 @@ function cardHTML(card) {
   return `
     <a class="cthumb" href="/card.html?id=${card.id}">
       <div class="cprev">
-        <iframe src="${card.previewUrl}" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
-        <div class="play-icon">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
+        <iframe src="${card.previewUrl}?muted=true&autoplay=true&loop=true&preload=true" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        <div class="sound-badge">🔊 Sound</div>
         <div class="cprev-click">
           <div class="cprev-title">${card.title}</div>
         </div>
