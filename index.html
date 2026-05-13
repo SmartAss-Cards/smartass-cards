@@ -35,6 +35,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .hero{background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:420px}
 .hero-left{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
 .hero-savage{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--red2);line-height:1.1;margin-bottom:14px}
+.hero-savage .savage-word{color:var(--cream)}
 .hero-sub{font-size:14px;color:var(--cream2);opacity:0.75;line-height:1.65;margin-bottom:24px;max-width:400px}
 .hero-bullets{list-style:none;margin-bottom:30px}
 .hero-bullets li{font-size:13px;color:var(--cream2);padding:5px 0 5px 20px;position:relative;opacity:0.85;line-height:1.5}
@@ -130,7 +131,7 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
 <!-- DESKTOP HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-savage">Savage &amp;<br>Funny Cards</div>
+    <div class="hero-savage"><span class="savage-word">Savage</span> &amp;<br>Funny Cards</div>
     <p class="hero-sub">Specializing in funny sympathy &amp; support e‑cards because life is too short for empty platitudes.</p>
     <ul class="hero-bullets">
       <li>For loved ones who need more than "thoughts &amp; prayers"</li>
@@ -158,7 +159,7 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
     <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
   </div>
   <div class="hero-mobile-text">
-    <div class="hero-savage">Savage &amp;<br>Funny Cards</div>
+    <div class="hero-savage"><span class="savage-word">Savage</span> &amp;<br>Funny Cards</div>
     <ul class="hero-bullets">
       <li>For loved ones who need more than "thoughts &amp; prayers"</li>
       <li>For breakups, job loss, and life's other dumpster fires</li>
@@ -200,13 +201,13 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
 
 <script>
 const ECARDS = [
-  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", category:"Support", previewId:"4decfe9c-4f55-4520-ad04-277edf8bbfb4", purchaseUrl:"https://player.mediadelivery.net/embed/655040/e0beb112-ea33-4068-9b70-59966cde2bf4?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.99", badge:null },
-  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", category:"Support", previewId:"fe3a2410-9329-4bce-a024-2e9dc6d7cfcb", purchaseUrl:"https://player.mediadelivery.net/embed/655040/0d31369f-e31c-493e-8efa-fe9f960af952?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.99", badge:null },
-  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", category:"Support", previewId:"fe38131d-d706-4c79-bb39-7808a12850b4", purchaseUrl:"https://player.mediadelivery.net/embed/655040/dc8ca812-8174-43f6-b04b-6b4b4a940fbb?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.99", badge:null },
-  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", category:"Support", previewId:"6e597bb7-1ac4-47e4-a0d0-46fb7421e9eb", purchaseUrl:"https://player.mediadelivery.net/embed/655040/72328498-2dd9-45fb-8210-d8432857e492?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.99", badge:null },
-  { id:5, title:"The Lord Replied.", category:"Support", previewId:"026693bf-115e-4687-b6c2-2a98fb80870c", purchaseUrl:"https://player.mediadelivery.net/embed/655040/7d26eda2-7c47-4d63-bc89-f90ea280d644?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.99", badge:null },
-  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", category:"Birthday", previewId:"b15eddd1-02b2-4044-96a9-54df503e42df", purchaseUrl:"https://player.mediadelivery.net/embed/655040/5d5e606f-0b5c-43a7-a489-573403b21e95?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.99", badge:null },
-  { id:7, title:"You Could Have Done More. But Didn't.", category:"Thank You", previewId:"3e6854e9-1f1b-4c79-af09-2dea7c108807", purchaseUrl:"https://player.mediadelivery.net/embed/655040/979bd0c5-c7fd-466a-a5dd-89f6abb1322c?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.99", badge:null },
+  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", category:"Support", previewId:"4decfe9c-4f55-4520-ad04-277edf8bbfb4", purchaseUrl:"https://player.mediadelivery.net/embed/655040/e0beb112-ea33-4068-9b70-59966cde2bf4?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
+  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", category:"Support", previewId:"fe3a2410-9329-4bce-a024-2e9dc6d7cfcb", purchaseUrl:"https://player.mediadelivery.net/embed/655040/0d31369f-e31c-493e-8efa-fe9f960af952?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
+  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", category:"Support", previewId:"fe38131d-d706-4c79-bb39-7808a12850b4", purchaseUrl:"https://player.mediadelivery.net/embed/655040/dc8ca812-8174-43f6-b04b-6b4b4a940fbb?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
+  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", category:"Support", previewId:"6e597bb7-1ac4-47e4-a0d0-46fb7421e9eb", purchaseUrl:"https://player.mediadelivery.net/embed/655040/72328498-2dd9-45fb-8210-d8432857e492?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
+  { id:5, title:"The Lord Replied.", category:"Support", previewId:"026693bf-115e-4687-b6c2-2a98fb80870c", purchaseUrl:"https://player.mediadelivery.net/embed/655040/7d26eda2-7c47-4d63-bc89-f90ea280d644?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
+  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", category:"Birthday", previewId:"b15eddd1-02b2-4044-96a9-54df503e42df", purchaseUrl:"https://player.mediadelivery.net/embed/655040/5d5e606f-0b5c-43a7-a489-573403b21e95?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
+  { id:7, title:"You Could Have Done More. But Didn't.", category:"Thank You", previewId:"3e6854e9-1f1b-4c79-af09-2dea7c108807", purchaseUrl:"https://player.mediadelivery.net/embed/655040/979bd0c5-c7fd-466a-a5dd-89f6abb1322c?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
 ];
 
 const LIB = "655040";

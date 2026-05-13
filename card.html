@@ -130,23 +130,23 @@ textarea.finput{resize:none;height:90px;line-height:1.6}
 
     <div class="price-row">
       <span class="price-label">Card total</span>
-      <span class="price-val" id="card-price">$2.99</span>
+      <span class="price-val" id="card-price">$2.00</span>
     </div>
 
-    <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Send this card — $2.99</button>
+    <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Send this card — $2.00</button>
     <div class="error-msg" id="error-msg">Please fill in your name, a message, and the recipient's email.</div>
   </div>
 </div>
 
 <script>
 const CARDS = [
-  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", previewUrl:"https://player.mediadelivery.net/play/655040/4decfe9c-4f55-4520-ad04-277edf8bbfb4", purchaseUrl:"https://player.mediadelivery.net/play/655040/e0beb112-ea33-4068-9b70-59966cde2bf4", price:"$2.99" },
-  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", previewUrl:"https://player.mediadelivery.net/play/655040/fe3a2410-9329-4bce-a024-2e9dc6d7cfcb", purchaseUrl:"https://player.mediadelivery.net/play/655040/0d31369f-e31c-493e-8efa-fe9f960af952", price:"$2.99" },
-  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", previewUrl:"https://player.mediadelivery.net/play/655040/fe38131d-d706-4c79-bb39-7808a12850b4", purchaseUrl:"https://player.mediadelivery.net/play/655040/dc8ca812-8174-43f6-b04b-6b4b4a940fbb", price:"$2.99" },
-  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", previewUrl:"https://player.mediadelivery.net/play/655040/6e597bb7-1ac4-47e4-a0d0-46fb7421e9eb", purchaseUrl:"https://player.mediadelivery.net/play/655040/72328498-2dd9-45fb-8210-d8432857e492", price:"$2.99" },
-  { id:5, title:"The Lord Replied.", previewUrl:"https://player.mediadelivery.net/play/655040/026693bf-115e-4687-b6c2-2a98fb80870c", purchaseUrl:"https://player.mediadelivery.net/play/655040/7d26eda2-7c47-4d63-bc89-f90ea280d644", price:"$2.99" },
-  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", previewUrl:"https://player.mediadelivery.net/play/655040/b15eddd1-02b2-4044-96a9-54df503e42df", purchaseUrl:"https://player.mediadelivery.net/play/655040/5d5e606f-0b5c-43a7-a489-573403b21e95", price:"$2.99" },
-  { id:7, title:"You Could Have Done More. But Didn't.", previewUrl:"https://player.mediadelivery.net/play/655040/3e6854e9-1f1b-4c79-af09-2dea7c108807", purchaseUrl:"https://player.mediadelivery.net/play/655040/979bd0c5-c7fd-466a-a5dd-89f6abb1322c", price:"$2.99" },
+  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", previewUrl:"https://player.mediadelivery.net/play/655040/4decfe9c-4f55-4520-ad04-277edf8bbfb4", purchaseUrl:"https://player.mediadelivery.net/play/655040/e0beb112-ea33-4068-9b70-59966cde2bf4", price:"$2.00" },
+  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", previewUrl:"https://player.mediadelivery.net/play/655040/fe3a2410-9329-4bce-a024-2e9dc6d7cfcb", purchaseUrl:"https://player.mediadelivery.net/play/655040/0d31369f-e31c-493e-8efa-fe9f960af952", price:"$2.00" },
+  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", previewUrl:"https://player.mediadelivery.net/play/655040/fe38131d-d706-4c79-bb39-7808a12850b4", purchaseUrl:"https://player.mediadelivery.net/play/655040/dc8ca812-8174-43f6-b04b-6b4b4a940fbb", price:"$2.00" },
+  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", previewUrl:"https://player.mediadelivery.net/play/655040/6e597bb7-1ac4-47e4-a0d0-46fb7421e9eb", purchaseUrl:"https://player.mediadelivery.net/play/655040/72328498-2dd9-45fb-8210-d8432857e492", price:"$2.00" },
+  { id:5, title:"The Lord Replied.", previewUrl:"https://player.mediadelivery.net/play/655040/026693bf-115e-4687-b6c2-2a98fb80870c", purchaseUrl:"https://player.mediadelivery.net/play/655040/7d26eda2-7c47-4d63-bc89-f90ea280d644", price:"$2.00" },
+  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", previewUrl:"https://player.mediadelivery.net/play/655040/b15eddd1-02b2-4044-96a9-54df503e42df", purchaseUrl:"https://player.mediadelivery.net/play/655040/5d5e606f-0b5c-43a7-a489-573403b21e95", price:"$2.00" },
+  { id:7, title:"You Could Have Done More. But Didn't.", previewUrl:"https://player.mediadelivery.net/play/655040/3e6854e9-1f1b-4c79-af09-2dea7c108807", purchaseUrl:"https://player.mediadelivery.net/play/655040/979bd0c5-c7fd-466a-a5dd-89f6abb1322c", price:"$2.00" },
 ];
 
 const EMOJIS = ["❤️","💀","🔥","😂","🤦","💪","🙏","✨","🫂","😭","🥂","💩","🎉","😤","🌈"];
