@@ -46,31 +46,31 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .hero-cta span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;padding-right:12px}
 .hero-cta:hover img.btn-shape{filter:hue-rotate(0deg) saturate(2) brightness(0.9) sepia(1) hue-rotate(320deg)}
 
-/* HERO RIGHT — couple with shapes */
-.hero-right{display:flex;align-items:center;justify-content:center;padding:32px;background:var(--bg3);position:relative;overflow:hidden}
-.hero-couple{max-width:100%;max-height:320px;object-fit:contain;position:relative;z-index:2}
+/* HERO RIGHT — couple blended, no box */
+.hero-right{display:flex;align-items:center;justify-content:center;padding:24px 32px;background:var(--bg2);position:relative;overflow:hidden}
+.hero-couple{max-width:100%;max-height:340px;object-fit:contain;position:relative;z-index:2}
 .star-shape{position:absolute;z-index:3}
-.star-tl{top:10%;left:5%;width:65px;animation:twinkle 2.8s ease-in-out infinite}
-.star-br{bottom:10%;right:5%;width:55px;animation:twinkle 3.4s ease-in-out infinite 0.8s}
-@keyframes twinkle{
-  0%,100%{opacity:0.9;transform:scale(1)}
-  50%{opacity:0.35;transform:scale(0.85)}
+.star-tl{top:8%;left:4%;width:65px;color:red;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 8s linear infinite}
+.star-br{bottom:8%;right:4%;width:55px;filter:sepia(1) saturate(4) hue-rotate(140deg) brightness(1.4);animation:spin-slow 10s linear infinite reverse}
+@keyframes spin-slow{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
 }
 
 /* MOBILE HERO — stacked: couple top, text below */
 .hero-mobile{display:none;flex-direction:column;background:var(--bg2);border-bottom:2px solid var(--red)}
-.hero-mobile-img{background:var(--bg3);position:relative;overflow:hidden;text-align:center;padding:24px 20px 16px}
-.hero-mobile-img .hero-couple{width:72%;max-height:220px;object-fit:contain;position:relative;z-index:2}
+.hero-mobile-img{background:var(--bg2);position:relative;overflow:hidden;text-align:center;padding:24px 20px 0}
+.hero-mobile-img .hero-couple{width:80%;max-height:240px;object-fit:contain;position:relative;z-index:2}
 .hero-mobile-img .star-shape{opacity:0.9}
 .hero-mobile-img .star-tl{width:42px;top:12px;left:12px}
-.hero-mobile-img .star-br{width:38px;bottom:12px;right:12px}
-.hero-mobile-text{padding:20px 20px 28px}
+.hero-mobile-img .star-br{width:38px;bottom:0;right:12px}
+.hero-mobile-text{padding:20px 20px 28px;background:var(--bg2)}
 .hero-mobile-text .hero-savage{font-size:28px;margin-bottom:10px}
 .hero-mobile-text .hero-bullets{margin-bottom:22px}
 .hero-mobile-text .hero-cta img.btn-shape{width:180px}
 
 /* SECTION */
-.section{padding:40px 32px}
+.section{padding:32px 32px 40px}
 .section-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
 .section-head h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--cream)}
 .section-head img{height:22px}
@@ -133,7 +133,7 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
     <div class="hero-savage">Savage &amp;<br>Funny Cards</div>
     <p class="hero-sub">Specializing in funny sympathy &amp; support e‑cards because life is too short for empty platitudes.</p>
     <ul class="hero-bullets">
-      <li>For loved ones grieving who need more than "thoughts &amp; prayers"</li>
+      <li>For loved ones who need more than "thoughts &amp; prayers"</li>
       <li>For breakups, job loss, and life's other dumpster fires</li>
       <li>For medical diagnoses that deserve more than a casserole</li>
       <li>Sign it, personalize it — they'll never forget it</li>
@@ -160,7 +160,7 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
   <div class="hero-mobile-text">
     <div class="hero-savage">Savage &amp;<br>Funny Cards</div>
     <ul class="hero-bullets">
-      <li>For loved ones grieving who need more than "thoughts &amp; prayers"</li>
+      <li>For loved ones who need more than "thoughts &amp; prayers"</li>
       <li>For breakups, job loss, and life's other dumpster fires</li>
       <li>For medical diagnoses that deserve more than a casserole</li>
       <li>Sign it, personalize it — they'll never forget it</li>
