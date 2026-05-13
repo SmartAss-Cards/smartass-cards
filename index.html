@@ -21,6 +21,8 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh}
+
+/* HEADER */
 .hdr{background:var(--bg);border-bottom:1px solid var(--bdr);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
 .hdr-logo img{height:36px;object-fit:contain}
 .hdr-nav{display:flex;gap:24px;align-items:center}
@@ -28,26 +30,46 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .hdr-nav a:hover{opacity:1}
 .hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
 .hdr-cart:hover{background:var(--red2)}
-.hero{background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:380px}
+
+/* HERO — DESKTOP: couple right, text left */
+.hero{background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:420px}
 .hero-left{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
-.hero-eyebrow{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
-.hero-h1{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:var(--cream);line-height:1.15;margin-bottom:14px}
-.hero-h1 em{color:var(--red2);font-style:italic}
+.hero-savage{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--red2);line-height:1.1;margin-bottom:14px}
 .hero-sub{font-size:14px;color:var(--cream2);opacity:0.75;line-height:1.65;margin-bottom:24px;max-width:400px}
 .hero-bullets{list-style:none;margin-bottom:30px}
-.hero-bullets li{font-size:13px;color:var(--cream2);padding:5px 0 5px 20px;position:relative;opacity:0.8;line-height:1.5}
+.hero-bullets li{font-size:13px;color:var(--cream2);padding:5px 0 5px 20px;position:relative;opacity:0.85;line-height:1.5}
 .hero-bullets li::before{content:"✦";position:absolute;left:0;color:var(--red2);font-size:10px;top:7px}
-.hero-cta{background:var(--red2);color:var(--white);border:none;padding:14px 30px;border-radius:3px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.8px;text-transform:uppercase;align-self:flex-start;transition:background 0.2s;text-decoration:none;display:inline-block}
-.hero-cta:hover{background:var(--red)}
+
+/* BUTTON using button_1 shape */
+.hero-cta{position:relative;display:inline-block;text-decoration:none;cursor:pointer;background:none;border:none;padding:0;align-self:flex-start}
+.hero-cta img.btn-shape{width:220px;display:block;filter:hue-rotate(0deg) saturate(2) brightness(0.7) sepia(1) hue-rotate(320deg)}
+.hero-cta span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;padding-right:12px}
+.hero-cta:hover img.btn-shape{filter:hue-rotate(0deg) saturate(2) brightness(0.9) sepia(1) hue-rotate(320deg)}
+
+/* HERO RIGHT — couple with shapes */
 .hero-right{display:flex;align-items:center;justify-content:center;padding:32px;background:var(--bg3);position:relative;overflow:hidden}
-.hero-couple{max-width:100%;max-height:300px;object-fit:contain;position:relative;z-index:2}
-.shape{position:absolute;z-index:3;opacity:0.9}
-.shape-tl{top:12%;left:4%;width:60px}
-.shape-br{bottom:10%;right:4%;width:55px}
-.hero-mobile-img{display:none;width:100%;background:var(--bg3);border-bottom:2px solid var(--red);position:relative;overflow:hidden;text-align:center;padding:20px 0}
-.hero-mobile-img .hero-couple{width:65%;max-height:200px;object-fit:contain;position:relative;z-index:2}
-.hero-mobile-img .shape-tl{width:40px;top:10px;left:14px}
-.hero-mobile-img .shape-br{width:38px;bottom:10px;right:14px}
+.hero-couple{max-width:100%;max-height:320px;object-fit:contain;position:relative;z-index:2}
+.star-shape{position:absolute;z-index:3}
+.star-tl{top:10%;left:5%;width:65px;animation:twinkle 2.8s ease-in-out infinite}
+.star-br{bottom:10%;right:5%;width:55px;animation:twinkle 3.4s ease-in-out infinite 0.8s}
+@keyframes twinkle{
+  0%,100%{opacity:0.9;transform:scale(1)}
+  50%{opacity:0.35;transform:scale(0.85)}
+}
+
+/* MOBILE HERO — stacked: couple top, text below */
+.hero-mobile{display:none;flex-direction:column;background:var(--bg2);border-bottom:2px solid var(--red)}
+.hero-mobile-img{background:var(--bg3);position:relative;overflow:hidden;text-align:center;padding:24px 20px 16px}
+.hero-mobile-img .hero-couple{width:72%;max-height:220px;object-fit:contain;position:relative;z-index:2}
+.hero-mobile-img .star-shape{opacity:0.9}
+.hero-mobile-img .star-tl{width:42px;top:12px;left:12px}
+.hero-mobile-img .star-br{width:38px;bottom:12px;right:12px}
+.hero-mobile-text{padding:20px 20px 28px}
+.hero-mobile-text .hero-savage{font-size:28px;margin-bottom:10px}
+.hero-mobile-text .hero-bullets{margin-bottom:22px}
+.hero-mobile-text .hero-cta img.btn-shape{width:180px}
+
+/* SECTION */
 .section{padding:40px 32px}
 .section-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
 .section-head h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--cream)}
@@ -66,23 +88,23 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .cfoot{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bdr)}
 .ccat{font-size:11px;color:var(--cream2);opacity:0.65}
 .cprice{font-size:14px;font-weight:700;color:var(--gold)}
-footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;display:flex;align-items:center;justify-content:space-between;margin-top:40px}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;display:flex;align-items:center;justify-content:space-between;margin-top:0}
 footer img{height:28px;object-fit:contain;opacity:0.7}
 .footer-links{display:flex;gap:20px}
 .footer-links a{font-size:12px;color:var(--cream2);opacity:0.5;text-decoration:none;transition:opacity 0.2s}
 .footer-links a:hover{opacity:1}
 .footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
+
+/* MOBILE */
 @media(max-width:768px){
-  .hero{grid-template-columns:1fr}
-  .hero-right{display:none}
-  .hero-left{padding:28px 20px}
-  .hero-h1{font-size:26px}
-  .hero-mobile-img{display:block}
+  .hero{display:none}
+  .hero-mobile{display:flex}
   .hdr{padding:0 16px}
   .hdr-nav a{display:none}
   .section{padding:24px 16px}
   .grid{grid-template-columns:1fr 1fr;gap:14px}
-  .cprev-title{font-size:11px}
   footer{flex-direction:column;gap:16px;padding:24px 16px;text-align:center}
   .footer-links{justify-content:center;flex-wrap:wrap}
   .sound-note{font-size:11px}
@@ -105,30 +127,49 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
   </nav>
 </header>
 
+<!-- DESKTOP HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">✦ Animated eCards with Actual Personality</div>
-    <h1 class="hero-h1">Because life's too short<br>for <em>empty platitudes</em></h1>
-    <p class="hero-sub">Funny, irreverent, and warm cards for when you care but don't know what to say.</p>
+    <div class="hero-savage">Savage &amp;<br>Funny Cards</div>
+    <p class="hero-sub">Specializing in funny sympathy &amp; support e‑cards because life is too short for empty platitudes.</p>
     <ul class="hero-bullets">
-      <li>For loved ones grieving who need more than "thoughts & prayers"</li>
+      <li>For loved ones grieving who need more than "thoughts &amp; prayers"</li>
       <li>For breakups, job loss, and life's other dumpster fires</li>
       <li>For medical diagnoses that deserve more than a casserole</li>
       <li>Sign it, personalize it — they'll never forget it</li>
     </ul>
-    <a href="#ecards" class="hero-cta">Shop eCards</a>
+    <a href="#ecards" class="hero-cta">
+      <img class="btn-shape" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/button_1.png" alt="">
+      <span>Shop eCards</span>
+    </a>
   </div>
   <div class="hero-right">
-    <img class="shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-    <img class="shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+    <img class="star-shape star-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
+    <img class="star-shape star-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
     <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
   </div>
 </section>
 
-<div class="hero-mobile-img">
-  <img class="shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-  <img class="shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
-  <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
+<!-- MOBILE HERO: couple on top, text below -->
+<div class="hero-mobile">
+  <div class="hero-mobile-img">
+    <img class="star-shape star-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
+    <img class="star-shape star-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+    <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
+  </div>
+  <div class="hero-mobile-text">
+    <div class="hero-savage">Savage &amp;<br>Funny Cards</div>
+    <ul class="hero-bullets">
+      <li>For loved ones grieving who need more than "thoughts &amp; prayers"</li>
+      <li>For breakups, job loss, and life's other dumpster fires</li>
+      <li>For medical diagnoses that deserve more than a casserole</li>
+      <li>Sign it, personalize it — they'll never forget it</li>
+    </ul>
+    <a href="#ecards" class="hero-cta">
+      <img class="btn-shape" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/button_1.png" alt="">
+      <span>Shop eCards</span>
+    </a>
+  </div>
 </div>
 
 <section class="section" id="ecards">
