@@ -40,19 +40,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .hero-cta{background:var(--red2);color:var(--white);border:none;padding:14px 30px;border-radius:3px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.8px;text-transform:uppercase;align-self:flex-start;transition:background 0.2s;text-decoration:none;display:inline-block}
 .hero-cta:hover{background:var(--red)}
 .hero-right{display:flex;align-items:center;justify-content:center;padding:32px;background:var(--bg3);position:relative;overflow:hidden}
-.hero-right img.couple{max-width:100%;max-height:300px;object-fit:contain;position:relative;z-index:2}
-.shape{position:absolute;z-index:1;opacity:0.9}
-.shape-tl{top:8%;left:4%;width:75px;transform:rotate(-15deg)}
-.shape-tr{top:6%;right:5%;width:65px;transform:rotate(20deg)}
-.shape-bl{bottom:8%;left:6%;width:55px;transform:rotate(10deg)}
-.shape-br{bottom:10%;right:4%;width:70px;transform:rotate(-12deg)}
-.hero-mobile-img{display:none;width:100%;background:var(--bg3);border-bottom:2px solid var(--red);position:relative;overflow:hidden;text-align:center}
-.hero-mobile-img img.couple{width:65%;max-height:200px;object-fit:contain;padding:20px;position:relative;z-index:2}
-.hero-mobile-img .shape{opacity:0.8}
-.hero-mobile-img .shape-tl{width:44px;top:10px;left:10px}
-.hero-mobile-img .shape-tr{width:40px;top:8px;right:10px}
-.hero-mobile-img .shape-bl{width:36px;bottom:10px;left:10px}
-.hero-mobile-img .shape-br{width:44px;bottom:8px;right:10px}
+.hero-couple{max-width:100%;max-height:300px;object-fit:contain;position:relative;z-index:2}
+.shape{position:absolute;z-index:3;opacity:0.9}
+.shape-tl{top:12%;left:4%;width:60px}
+.shape-br{bottom:10%;right:4%;width:55px}
+.hero-mobile-img{display:none;width:100%;background:var(--bg3);border-bottom:2px solid var(--red);position:relative;overflow:hidden;text-align:center;padding:20px 0}
+.hero-mobile-img .hero-couple{width:65%;max-height:200px;object-fit:contain;position:relative;z-index:2}
+.hero-mobile-img .shape-tl{width:40px;top:10px;left:14px}
+.hero-mobile-img .shape-br{width:38px;bottom:10px;right:14px}
 .section{padding:40px 32px}
 .section-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
 .section-head h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--cream)}
@@ -124,20 +119,16 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
     <a href="#ecards" class="hero-cta">Shop eCards</a>
   </div>
   <div class="hero-right">
-    <img class="shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/snofflake_star.png" alt="">
-    <img class="shape shape-tr" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-    <img class="shape shape-bl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-    <img class="shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/snofflake_star.png" alt="">
-    <img class="couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
+    <img class="shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
+    <img class="shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+    <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
   </div>
 </section>
 
 <div class="hero-mobile-img">
-  <img class="shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/snofflake_star.png" alt="">
-  <img class="shape shape-tr" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-  <img class="shape shape-bl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-  <img class="shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/snofflake_star.png" alt="">
-  <img class="couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
+  <img class="shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
+  <img class="shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+  <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
 </div>
 
 <section class="section" id="ecards">
