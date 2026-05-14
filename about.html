@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Smartass Support Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#1C1209;
+  --bg2:#251810;
+  --bg3:#2E1E12;
+  --bdr:#3D2A1A;
+  --cream:#F2E4C8;
+  --cream2:#D9C9A8;
+  --red:#C13B1B;
+  --red2:#E04820;
+  --gold:#C8922A;
+  --white:#FDF8EF;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh}
+.hdr{background:var(--bg);border-bottom:1px solid var(--bdr);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.hdr-logo img{height:36px;object-fit:contain}
+.hdr-nav{display:flex;gap:24px;align-items:center}
+.hdr-nav a{color:var(--cream2);text-decoration:none;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:0.8px;opacity:0.75;transition:opacity 0.2s}
+.hdr-nav a:hover{opacity:1}
+.hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase}
+
+/* PAGE */
+.page{max-width:720px;margin:0 auto;padding:64px 32px 80px}
+
+/* EYEBROW */
+.eyebrow{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+
+/* HEADING */
+.page-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--cream);line-height:1.1;margin-bottom:40px}
+.page-title em{color:var(--red2);font-style:italic}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--bdr);margin:40px 0}
+
+/* BODY TEXT */
+.body-text{font-size:16px;color:var(--cream2);line-height:1.8;margin-bottom:24px;opacity:0.9}
+.body-text strong{color:var(--cream);font-weight:600}
+
+/* CLOSING LINE */
+.closing{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--cream);line-height:1.6;margin-bottom:32px;border-left:3px solid var(--red2);padding-left:20px}
+
+/* SIGNATURE */
+.signature{font-size:14px;color:var(--cream2);opacity:0.7;margin-bottom:48px}
+.signature span{display:block;line-height:1.8}
+
+/* PHOTO */
+.founders-photo{width:100%;border-radius:10px;overflow:hidden;margin-bottom:16px;border:1px solid var(--bdr)}
+.founders-photo img{width:100%;object-fit:cover;display:block}
+.founders-caption{font-size:13px;color:var(--cream2);opacity:0.55;text-align:center;margin-bottom:48px}
+
+/* CTA */
+.cta-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:28px 32px;text-align:center}
+.cta-box p{font-size:14px;color:var(--cream2);opacity:0.7;margin-bottom:16px;line-height:1.6}
+.cta-btn{background:var(--red2);color:var(--white);text-decoration:none;padding:12px 28px;border-radius:3px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;display:inline-block;transition:background 0.2s}
+.cta-btn:hover{background:var(--red)}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;display:flex;align-items:center;justify-content:space-between}
+footer img{height:28px;object-fit:contain;opacity:0.7}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12px;color:var(--cream2);opacity:0.5;text-decoration:none;transition:opacity 0.2s}
+.footer-links a:hover{opacity:1}
+.footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
+
+@media(max-width:768px){
+  .hdr{padding:0 16px}
+  .hdr-nav a{display:none}
+  .page{padding:40px 20px 60px}
+  .page-title{font-size:30px}
+  .closing{font-size:16px}
+  footer{flex-direction:column;gap:16px;padding:24px 16px;text-align:center}
+  .footer-links{justify-content:center;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-logo">
+    <a href="/"><img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards"></a>
+  </div>
+  <nav class="hdr-nav">
+    <a href="/">Home</a>
+    <a href="/#ecards">eCards</a>
+    <a href="#">Merch</a>
+    <button class="hdr-cart">Cart (0)</button>
+  </nav>
+</header>
+
+<div class="page">
+
+  <div class="eyebrow">✦ Our Story</div>
+  <h1 class="page-title">About <em>Smartass</em><br>Support Cards</h1>
+
+  <p class="body-text">We started Smartass Support Cards to offer an authentic alternative for those navigating grief, depression, anxiety, or any of life's toughest challenges.</p>
+
+  <p class="body-text">After losing five close family members all in the span of just five years, I found the most healing messages weren't traditional condolence cards — they were irreverent, unexpected laughs from friends. Often times, just text messages with extremely foul language. My wife Victoria and I created this brand to offer an alternative: a reason to smile when it's needed most.</p>
+
+  <p class="body-text">We've experienced loss firsthand — my mom, several close family members, and all three of our cats (Sophie, Bucky, and Nina), which was hard because they were crutches in dealing with all the human loss. We know what grief feels like, in all its heaviness. And we know that sometimes the only thing that helps is laughter — the kind that comes from remembering things that would drive us bonkers about our loved ones.</p>
+
+  <p class="body-text">That's why Smartass Support Cards exist: not to offer empty platitudes, but to show up with how people actually talk to one another.</p>
+
+  <div class="divider"></div>
+
+  <p class="body-text">Our cards don't fit a single demographic. They're for people who have loved someone through something hard, probably have been through something hard themselves, and already believe what we believe —</p>
+
+  <div class="closing">"Laughing in the dark isn't disrespectful. Laughing in the dark is the light that is needed to survive."</div>
+
+  <div class="signature">
+    <span>— Shawn Gnandt, Co-Founder</span>
+    <span>Vikki Xiong-Gnandt, Co-Founder</span>
+  </div>
+
+  <div class="founders-photo">
+    <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/7996e66f-1352-48ad-b283-6f714f374343/AboutImage.png" alt="Shawn and Vikki Gnandt, Founders of Smartass Support Cards">
+  </div>
+
+  <div class="cta-box">
+    <p>Ready to send a card that actually means something?</p>
+    <a href="/#ecards" class="cta-btn">Shop eCards</a>
+  </div>
+
+</div>
+
+<footer>
+  <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards">
+  <div class="footer-links">
+    <a href="#">FAQ</a>
+    <a href="/about.html">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+  <div class="footer-copy">© 2026 Smartass Support Cards</div>
+</footer>
+
+</body>
+</html>
