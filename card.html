@@ -211,7 +211,7 @@ function removeSigner(i) {
   ).join('');
 }
 
-function handleSubmit() {
+async function handleSubmit() {
   const name = document.getElementById('inp-name').value.trim();
   const msg = document.getElementById('inp-msg').value.trim();
   const email = document.getElementById('inp-recip-email').value.trim();
@@ -219,16 +219,43 @@ function handleSubmit() {
   const errEl = document.getElementById('error-msg');
   if (!name || !msg || !email) { errEl.style.display = 'block'; return; }
   errEl.style.display = 'none';
-  const params = new URLSearchParams({
-    id: selCard.id,
-    from: name,
-    msg: msg,
-    emoji: selEmoji,
-    to: recipName,
-    signers: signers.join(',')
-  });
-  // Stripe payment will go here before redirect
-  window.location.href = `/recipient.html?${params.toString()}`;
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Redirecting to payment...';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('/functions/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        cardId: selCard.id,
+        cardTitle: selCard.title,
+        from: name,
+        msg: msg,
+        emoji: selEmoji,
+        to: recipName,
+        recipientEmail: email,
+        signers: signers.join(',')
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      errEl.textContent = data.error || 'Something went wrong. Please try again.';
+      errEl.style.display = 'block';
+      btn.textContent = `Send this card — ${selCard.price}`;
+      btn.disabled = false;
+    }
+  } catch (err) {
+    errEl.textContent = 'Connection error. Please try again.';
+    errEl.style.display = 'block';
+    btn.textContent = `Send this card — ${selCard.price}`;
+    btn.disabled = false;
+  }
 }
 
 loadCard();
