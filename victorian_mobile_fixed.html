@@ -26,48 +26,73 @@ body{font-family:'DM Sans',sans-serif;background:#1C1209}
 .shape-br{bottom:16px;right:18px;width:40px;animation:spin1 16s linear infinite reverse}
 @keyframes spin1{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes flicker{0%,100%{opacity:0.35;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
-.to-label{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C8922A;margin-bottom:4px;text-align:center;margin-top:20px;position:relative;z-index:5;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
-.recip-name{font-family:'Playfair Display',serif;font-size:32px;color:#F2E4C8;font-weight:500;margin-bottom:16px;text-align:center;position:relative;z-index:5;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
 
-/* ENVELOPE + CARD CONTAINER — clips card sliding up */
-.env-card-container{position:relative;width:300px;z-index:5}
+.to-label{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C8922A;margin-bottom:4px;text-align:center;position:relative;z-index:5;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
+.recip-name{font-family:'Playfair Display',serif;font-size:32px;color:#F2E4C8;font-weight:500;margin-bottom:20px;text-align:center;position:relative;z-index:5;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
 
-/* Envelope sits at bottom of container */
-.env-wrap{position:relative;width:300px;height:220px;cursor:pointer;filter:drop-shadow(0 12px 32px rgba(0,0,0,0.7));z-index:2}
-.env-closed{width:300px;height:220px;display:block;transition:opacity 0.25s}
-.env-closed.gone{opacity:0;pointer-events:none}
-.env-open-body{position:absolute;inset:0;width:300px;height:220px;opacity:0;transition:opacity 0.25s 0.15s}
-.env-open-body.show{opacity:1}
-.env-seal{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:8;width:40px;height:40px;background:#C13B1B;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;color:#F2E4C8;border:2px solid #D94520;font-family:Georgia,serif;transition:transform 0.35s ease,opacity 0.25s}
+/* STACK: envelope behind, card in front */
+.stack{position:relative;width:300px;z-index:5}
+
+/* ENVELOPE — sits at bottom of stack */
+.env-wrap{
+  position:relative;
+  width:300px;
+  height:220px;
+  cursor:pointer;
+  z-index:2;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+}
+.env-svg{width:300px;height:220px;display:block;transition:opacity 0.3s}
+.env-svg.gone{opacity:0;pointer-events:none}
+.env-open{position:absolute;inset:0;width:300px;height:220px;opacity:0;transition:opacity 0.3s}
+.env-open.show{opacity:1}
+.env-seal{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:8;width:40px;height:40px;
+  background:#C13B1B;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;color:#F2E4C8;border:2px solid #D94520;
+  font-family:Georgia,serif;
+  transition:transform 0.35s ease,opacity 0.25s;
+}
 .env-seal.gone{transform:translate(-50%,-50%) scale(0);opacity:0}
 
-/* CARD — starts hidden below envelope, slides up through it */
+/* CARD — absolutely positioned over envelope, starts hidden, slides up */
 .card-wrap{
   position:absolute;
-  bottom:0;
+  bottom:10px;
   left:10px;
   right:10px;
   z-index:1;
   opacity:0;
-  transform:translateY(0px);
-  transition:transform 1s cubic-bezier(0.2,0.85,0.3,1) 0.35s, opacity 0.4s ease 0.35s;
+  transform:translateY(10px);
+  transition:transform 1.1s cubic-bezier(0.15,0.85,0.25,1) 0.3s,
+             opacity 0.5s ease 0.3s,
+             z-index 0s linear 0.3s;
 }
 .card-wrap.risen{
   opacity:1;
-  transform:translateY(-260px);
-  z-index:10;
+  transform:translateY(-230px);
+  z-index:20;
 }
-.card{background:#251810;border-radius:10px;overflow:hidden;border:1px solid #3D2A1A;box-shadow:0 20px 48px rgba(0,0,0,0.85)}
+.card{
+  background:#251810;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid #3D2A1A;
+  box-shadow:0 24px 56px rgba(0,0,0,0.9);
+}
 .card-placeholder{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#2E1E12,#1C1209);display:flex;align-items:center;justify-content:center;padding:20px}
 .card-placeholder-text{font-family:'Playfair Display',serif;font-size:14px;color:#D9C9A8;text-align:center;line-height:1.5;font-style:italic}
 .card-msg-area{padding:14px 16px;border-top:1px solid #3D2A1A}
 .msg-text{font-family:'Playfair Display',serif;font-size:13px;color:#D9C9A8;font-style:italic;line-height:1.6;margin-bottom:6px}
 .msg-sig{font-size:12px;color:#C8922A}
 
-.hint{font-family:'Playfair Display',serif;font-size:12px;color:#F2E4C8;margin-top:16px;text-align:center;animation:pulse 2s ease-in-out infinite;position:relative;z-index:5;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
+.hint{font-family:'Playfair Display',serif;font-size:12px;color:#F2E4C8;margin-top:14px;text-align:center;animation:pulse 2s ease-in-out infinite;position:relative;z-index:5;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
 .hint.gone{visibility:hidden}
 @keyframes pulse{0%,100%{opacity:0.3}50%{opacity:0.9}}
-.reset-btn{margin-top:280px;font-size:12px;color:#D9C9A8;background:rgba(28,18,9,0.75);border:1px solid #3D2A1A;border-radius:4px;padding:6px 18px;cursor:pointer;font-family:'DM Sans',sans-serif;position:relative;z-index:5;opacity:0;transition:opacity 0.4s 1s;display:block;margin-left:auto;margin-right:auto}
+.reset-btn{margin-top:16px;font-size:12px;color:#D9C9A8;background:rgba(28,18,9,0.75);border:1px solid #3D2A1A;border-radius:4px;padding:6px 18px;cursor:pointer;font-family:'DM Sans',sans-serif;position:relative;z-index:5;opacity:0;transition:opacity 0.4s 1.2s;display:block;margin-left:auto;margin-right:auto}
 .reset-btn.show{opacity:1}
 </style>
 </head>
@@ -89,9 +114,9 @@ body{font-family:'DM Sans',sans-serif;background:#1C1209}
   <div class="to-label">A card for</div>
   <div class="recip-name">Alex</div>
 
-  <div class="env-card-container">
+  <div class="stack">
 
-    <!-- CARD sits behind envelope, rises through it -->
+    <!-- CARD in front, starts hidden -->
     <div class="card-wrap" id="cardWrap">
       <div class="card">
         <div class="card-placeholder">
@@ -104,33 +129,35 @@ body{font-family:'DM Sans',sans-serif;background:#1C1209}
       </div>
     </div>
 
-    <!-- ENVELOPE on top -->
+    <!-- ENVELOPE behind card -->
     <div class="env-wrap" id="envWrap" onclick="openEnv()">
-      <!-- Closed envelope -->
-      <svg class="env-closed" id="envClosed" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- CLOSED: cream envelope, flap pointing down, wax seal -->
+      <svg class="env-svg" id="envClosed" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="2" width="296" height="216" rx="6" fill="#F2E4C8"/>
         <line x1="2" y1="218" x2="150" y2="130" stroke="#D4C090" stroke-width="1.2"/>
         <line x1="298" y1="218" x2="150" y2="130" stroke="#D4C090" stroke-width="1.2"/>
         <line x1="2" y1="2" x2="2" y2="218" stroke="#D4C090" stroke-width="0.8"/>
         <line x1="298" y1="2" x2="298" y2="218" stroke="#D4C090" stroke-width="0.8"/>
-        <!-- Closed flap pointing down -->
         <polygon points="2,2 298,2 150,120" fill="#EDD9A3"/>
         <line x1="2" y1="2" x2="150" y2="120" stroke="#D4C090" stroke-width="1"/>
         <line x1="298" y1="2" x2="150" y2="120" stroke="#D4C090" stroke-width="1"/>
         <line x1="2" y1="2" x2="298" y2="2" stroke="#C8A870" stroke-width="1"/>
       </svg>
-      <!-- Open envelope body with light torn top edge -->
-      <svg class="env-open-body" id="envOpenBody" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- OPEN: cream envelope body, off-white torn top edge -->
+      <svg class="env-open" id="envOpen" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="2" width="296" height="216" rx="6" fill="#F2E4C8"/>
         <line x1="2" y1="218" x2="150" y2="130" stroke="#D4C090" stroke-width="1.2"/>
         <line x1="298" y1="218" x2="150" y2="130" stroke="#D4C090" stroke-width="1.2"/>
         <line x1="2" y1="2" x2="2" y2="218" stroke="#D4C090" stroke-width="0.8"/>
         <line x1="298" y1="2" x2="298" y2="218" stroke="#D4C090" stroke-width="0.8"/>
-        <!-- Off-white open top — looks torn/opened -->
+        <!-- Off-white open top -->
         <rect x="2" y="2" width="296" height="32" rx="4" fill="#F8F2E4"/>
-        <line x1="2" y1="34" x2="298" y2="34" stroke="#E0D0A0" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="2" y1="34" x2="298" y2="34" stroke="#D4C090" stroke-width="1" stroke-dasharray="5,4"/>
         <line x1="2" y1="2" x2="298" y2="2" stroke="#E0D0A0" stroke-width="1"/>
       </svg>
+
       <div class="env-seal" id="envSeal">✦</div>
     </div>
 
@@ -148,20 +175,18 @@ function openEnv(){
   document.getElementById('envWrap').style.cursor='default';
   document.getElementById('hint').classList.add('gone');
   document.getElementById('envSeal').classList.add('gone');
-  setTimeout(function(){
-    document.getElementById('envClosed').classList.add('gone');
-    document.getElementById('envOpenBody').classList.add('show');
-    document.getElementById('cardWrap').classList.add('risen');
-    document.getElementById('resetBtn').classList.add('show');
-  },250);
+  document.getElementById('envClosed').classList.add('gone');
+  document.getElementById('envOpen').classList.add('show');
+  document.getElementById('cardWrap').classList.add('risen');
+  document.getElementById('resetBtn').classList.add('show');
 }
 function reset(){
   opened=false;
   document.getElementById('envWrap').style.cursor='pointer';
   document.getElementById('hint').classList.remove('gone');
-  document.getElementById('envClosed').classList.remove('gone');
   document.getElementById('envSeal').classList.remove('gone');
-  document.getElementById('envOpenBody').classList.remove('show');
+  document.getElementById('envClosed').classList.remove('gone');
+  document.getElementById('envOpen').classList.remove('show');
   document.getElementById('cardWrap').classList.remove('risen');
   document.getElementById('resetBtn').classList.remove('show');
 }
