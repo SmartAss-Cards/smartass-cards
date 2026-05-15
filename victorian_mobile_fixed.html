@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview — Victorian Background</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100vh}
+body{font-family:'DM Sans',sans-serif;background:#1C1209}
+
+.env-stage{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;position:relative;overflow:hidden}
+.env-bg{position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/victorian_wallpaper.png');background-size:cover;background-position:center;opacity:0.85}
+.env-bg-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,18,9,0.35) 0%,rgba(28,18,9,0.2) 40%,rgba(28,18,9,0.65) 100%)}
+.ribbon{background:#E04820;width:100%;padding:9px;text-align:center;font-size:10px;font-weight:700;color:#FDF8EF;letter-spacing:2px;text-transform:uppercase;position:absolute;top:0;left:0;right:0;z-index:10}
+
+.retro-frame{position:absolute;inset:36px 12px 12px 12px;border:1px solid rgba(200,146,42,0.45);pointer-events:none;z-index:3}
+.retro-frame::before{content:'';position:absolute;inset:5px;border:1px solid rgba(200,146,42,0.2)}
+.corner{position:absolute;width:18px;height:18px}
+.corner-tl{top:-1px;left:-1px;border-top:2px solid #C8922A;border-left:2px solid #C8922A}
+.corner-tr{top:-1px;right:-1px;border-top:2px solid #C8922A;border-right:2px solid #C8922A}
+.corner-bl{bottom:-1px;left:-1px;border-bottom:2px solid #C8922A;border-left:2px solid #C8922A}
+.corner-br{bottom:-1px;right:-1px;border-bottom:2px solid #C8922A;border-right:2px solid #C8922A}
+
+.retro-shape{position:absolute;pointer-events:none;z-index:4}
+.shape-tl{top:48px;left:18px;width:44px;animation:spin1 12s linear infinite}
+.shape-bl{bottom:18px;left:20px;width:32px;animation:flicker 4s ease-in-out infinite 1s}
+.shape-br{bottom:16px;right:18px;width:40px;animation:spin1 16s linear infinite reverse}
+@keyframes spin1{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes flicker{0%,100%{opacity:0.35;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+
+.to-label{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C8922A;margin-bottom:4px;text-align:center;margin-top:20px;position:relative;z-index:5;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
+.recip-name{font-family:'Playfair Display',serif;font-size:32px;color:#F2E4C8;font-weight:500;margin-bottom:24px;text-align:center;position:relative;z-index:5;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
+
+/* ENVELOPE — no 3D transforms, works on all browsers */
+.env-wrap{position:relative;width:300px;height:400px;cursor:pointer;z-index:5}
+
+/* SVG envelope body stays fixed */
+.env-body-svg{position:absolute;top:100px;left:0;width:300px;z-index:2;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.6))}
+
+/* FLAP — animates upward and fades out */
+.env-flap-svg{position:absolute;top:0;left:0;width:300px;z-index:6;transform-origin:center top;transition:transform 0.7s cubic-bezier(0.4,0,0.2,1),opacity 0.5s ease}
+.env-flap-svg.open{transform:scaleY(0) translateY(-20px);opacity:0}
+
+/* SEAL sits on top of flap */
+.env-seal{position:absolute;top:185px;left:50%;transform:translateX(-50%);z-index:7;width:44px;height:44px;background:#C13B1B;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:#F2E4C8;border:2px solid #D94520;transition:opacity 0.3s;font-family:Georgia,serif;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
+.env-seal.gone{opacity:0}
+
+/* CARD rises from inside envelope */
+.card-out{position:absolute;left:10px;right:10px;top:110px;background:#251810;border-radius:10px;overflow:hidden;border:1px solid #3D2A1A;box-shadow:0 20px 48px rgba(0,0,0,0.85);opacity:0;transform:translateY(60px);transition:transform 0.9s cubic-bezier(0.2,0.8,0.3,1) 0.4s,opacity 0.7s ease 0.4s;z-index:4}
+.card-out.risen{transform:translateY(-90px);opacity:1}
+
+.card-placeholder{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#2E1E12,#1C1209);display:flex;align-items:center;justify-content:center;padding:20px}
+.card-placeholder-text{font-family:'Playfair Display',serif;font-size:14px;color:#D9C9A8;text-align:center;line-height:1.5;font-style:italic}
+.card-msg-area{padding:14px 16px;border-top:1px solid #3D2A1A}
+.msg-text{font-family:'Playfair Display',serif;font-size:13px;color:#D9C9A8;font-style:italic;line-height:1.6;margin-bottom:6px}
+.msg-sig{font-size:12px;color:#C8922A}
+
+.hint{font-family:'Playfair Display',serif;font-size:12px;color:#F2E4C8;margin-top:16px;text-align:center;animation:pulse 2s ease-in-out infinite;position:relative;z-index:5;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
+.hint.gone{visibility:hidden}
+@keyframes pulse{0%,100%{opacity:0.3}50%{opacity:0.9}}
+
+.reset-btn{margin-top:16px;font-size:12px;color:#D9C9A8;background:rgba(28,18,9,0.75);border:1px solid #3D2A1A;border-radius:4px;padding:6px 18px;cursor:pointer;font-family:'DM Sans',sans-serif;position:relative;z-index:5;opacity:0;transition:opacity 0.4s}
+.reset-btn.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="env-stage">
+  <div class="env-bg"></div>
+  <div class="env-bg-overlay"></div>
+  <div class="ribbon">✦ You've got a Smartass Support Card ✦</div>
+  <div class="retro-frame">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+  </div>
+  <img class="retro-shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
+  <img class="retro-shape shape-bl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/snofflake_star.png" alt="">
+  <img class="retro-shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+
+  <div class="to-label">A card for</div>
+  <div class="recip-name">Alex</div>
+
+  <div class="env-wrap" id="envWrap" onclick="openEnv()">
+
+    <!-- ENVELOPE BODY (stays put) -->
+    <svg class="env-body-svg" viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="0" width="296" height="156" rx="6" fill="#F2E4C8"/>
+      <line x1="2" y1="156" x2="150" y2="80" stroke="#D4C090" stroke-width="1.2"/>
+      <line x1="298" y1="156" x2="150" y2="80" stroke="#D4C090" stroke-width="1.2"/>
+      <line x1="2" y1="0" x2="2" y2="156" stroke="#D4C090" stroke-width="0.8"/>
+      <line x1="298" y1="0" x2="298" y2="156" stroke="#D4C090" stroke-width="0.8"/>
+      <line x1="2" y1="0" x2="298" y2="0" stroke="#D4C090" stroke-width="0.8"/>
+    </svg>
+
+    <!-- FLAP (animates away) -->
+    <svg class="env-flap-svg" id="envFlap" viewBox="0 0 300 110" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="2,0 298,0 150,108" fill="#EDD9A3"/>
+      <line x1="2" y1="0" x2="150" y2="108" stroke="#D4C090" stroke-width="1"/>
+      <line x1="298" y1="0" x2="150" y2="108" stroke="#D4C090" stroke-width="1"/>
+      <line x1="2" y1="0" x2="298" y2="0" stroke="#C8A870" stroke-width="1"/>
+    </svg>
+
+    <!-- WAX SEAL -->
+    <div class="env-seal" id="envSeal">✦</div>
+
+    <!-- CARD -->
+    <div class="card-out" id="cardOut">
+      <div class="card-placeholder">
+        <div class="card-placeholder-text">"The Lord Replied."</div>
+      </div>
+      <div class="card-msg-area">
+        <div class="msg-text">"Thinking of you. You've got this."</div>
+        <div class="msg-sig">— Sarah ❤️</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hint" id="hint">Tap the envelope to open</div>
+  <button class="reset-btn" id="resetBtn" onclick="reset()">Start over</button>
+</div>
+
+<script>
+let opened=false;
+function openEnv(){
+  if(opened)return;
+  opened=true;
+  document.getElementById('envWrap').style.cursor='default';
+  document.getElementById('envFlap').classList.add('open');
+  document.getElementById('envSeal').classList.add('gone');
+  document.getElementById('hint').classList.add('gone');
+  setTimeout(()=>{
+    document.getElementById('cardOut').classList.add('risen');
+    document.getElementById('resetBtn').classList.add('show');
+  },500);
+}
+function reset(){
+  opened=false;
+  document.getElementById('envWrap').style.cursor='pointer';
+  document.getElementById('envFlap').classList.remove('open');
+  document.getElementById('envSeal').classList.remove('gone');
+  document.getElementById('hint').classList.remove('gone');
+  document.getElementById('cardOut').classList.remove('risen');
+  document.getElementById('resetBtn').classList.remove('show');
+}
+</script>
+</body>
+</html>
