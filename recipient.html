@@ -19,88 +19,162 @@
   --gold:#C8922A;
   --white:#FDF8EF;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh}
-.ribbon{background:var(--red2);padding:10px 20px;text-align:center}
-.ribbon span{font-size:11px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:2px}
-.page{display:flex;flex-direction:column;align-items:center;padding:40px 20px 80px}
-.from-label{font-size:11px;font-weight:600;color:var(--cream2);opacity:0.55;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;text-align:center}
-.from-name{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--cream);text-align:center;margin-bottom:28px}
-.video-wrap{width:100%;max-width:480px;aspect-ratio:1;border-radius:12px;overflow:hidden;position:relative;margin-bottom:24px;background:var(--bg3)}
-.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-.msg-box{width:100%;max-width:480px;background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:22px 26px;margin-bottom:16px}
-.box-label{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-.msg-text{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--cream);line-height:1.7;margin-bottom:14px}
-.msg-sig{font-size:14px;color:var(--cream2);opacity:0.85;display:flex;align-items:center;gap:8px}
-.msg-emoji{font-size:20px}
-.signers-box{width:100%;max-width:480px;background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:18px 26px;margin-bottom:28px}
-.signer-item{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--bdr)}
+html,body{min-height:100vh;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}
+
+/* ENVELOPE STAGE */
+.env-stage{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;position:relative;overflow:hidden;background:var(--bg)}
+.env-bg{position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats_plant.png');background-size:cover;background-position:center top;opacity:0.85}
+.env-bg-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,18,9,0.3) 0%,rgba(28,18,9,0.2) 40%,rgba(28,18,9,0.6) 100%)}
+.ribbon{background:var(--red2);width:100%;padding:9px;text-align:center;font-size:10px;font-weight:700;color:var(--white);letter-spacing:2px;text-transform:uppercase;position:absolute;top:0;left:0;right:0;font-family:'DM Sans',sans-serif;z-index:10}
+
+/* RETRO FRAME */
+.retro-frame{position:absolute;inset:36px 12px 12px 12px;border:1px solid rgba(200,146,42,0.45);pointer-events:none;z-index:3}
+.retro-frame::before{content:'';position:absolute;inset:5px;border:1px solid rgba(200,146,42,0.2)}
+.corner{position:absolute;width:18px;height:18px}
+.corner-tl{top:-1px;left:-1px;border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
+.corner-tr{top:-1px;right:-1px;border-top:2px solid var(--gold);border-right:2px solid var(--gold)}
+.corner-bl{bottom:-1px;left:-1px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold)}
+.corner-br{bottom:-1px;right:-1px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
+
+/* RETRO SHAPES */
+.retro-shape{position:absolute;pointer-events:none;z-index:4}
+.shape-tl{top:48px;left:18px;width:44px;animation:spin1 12s linear infinite}
+.shape-bl{bottom:18px;left:20px;width:32px;animation:flicker 4s ease-in-out infinite 1s}
+.shape-br{bottom:16px;right:18px;width:40px;animation:spin1 16s linear infinite reverse}
+@keyframes spin1{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes flicker{0%,100%{opacity:0.35;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+
+/* ENVELOPE CONTENT */
+.to-label{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;text-align:center;margin-top:20px;position:relative;z-index:5;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
+.recip-name{font-family:'Playfair Display',serif;font-size:32px;color:var(--cream);font-weight:500;margin-bottom:24px;text-align:center;position:relative;z-index:5;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
+
+.env-wrap{position:relative;width:320px;height:420px;cursor:pointer;z-index:5}
+@media(max-width:400px){.env-wrap{width:280px;height:380px}}
+
+svg.env-svg{position:absolute;top:0;left:0;width:100%;height:220px;filter:drop-shadow(0 12px 40px rgba(0,0,0,0.7))}
+
+.card-out{position:absolute;left:10px;right:10px;bottom:10px;background:var(--bg2);border-radius:10px;overflow:hidden;border:1px solid var(--bdr);box-shadow:0 24px 60px rgba(0,0,0,0.9);transform:translateY(0px);opacity:0;transition:transform 0.9s cubic-bezier(0.2,0.8,0.3,1) 0.5s,opacity 0.6s ease 0.5s;z-index:10}
+.card-out.risen{transform:translateY(-210px);opacity:1}
+
+.card-vid-wrap{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:var(--bg3)}
+.card-vid-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+.card-msg-area{padding:16px;border-top:1px solid var(--bdr)}
+.msg-text{font-family:'Playfair Display',serif;font-size:14px;color:var(--cream2);font-style:italic;line-height:1.6;margin-bottom:8px}
+.msg-sig{font-size:13px;color:var(--gold);display:flex;align-items:center;gap:6px}
+.msg-emoji{font-size:18px}
+
+.hint{font-family:'Playfair Display',serif;font-size:12px;color:var(--cream);opacity:0.8;margin-top:12px;text-align:center;animation:pulse 2s ease-in-out infinite;position:relative;z-index:5;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
+.hint.gone{visibility:hidden}
+@keyframes pulse{0%,100%{opacity:0.3}50%{opacity:0.9}}
+
+/* SIGNERS & CTA — shown after card reveals */
+.after-card{display:none;width:100%;max-width:400px;position:relative;z-index:5;margin-top:16px}
+.after-card.show{display:block}
+
+.signers-box{background:rgba(37,24,16,0.9);border:1px solid var(--bdr);border-radius:8px;padding:16px;margin-bottom:14px;backdrop-filter:blur(4px)}
+.signers-label{font-size:10px;font-weight:600;color:var(--cream2);text-transform:uppercase;letter-spacing:1px;opacity:0.6;margin-bottom:10px}
+.signer-item{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--bdr)}
 .signer-item:last-child{border-bottom:none}
-.savatar{width:34px;height:34px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--white);flex-shrink:0;text-transform:uppercase}
+.savatar{width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--white);flex-shrink:0;text-transform:uppercase}
 .sname{font-size:13px;font-weight:500;color:var(--cream)}
-.cta-section{text-align:center;margin-bottom:40px}
-.cta-text{font-size:13px;color:var(--cream2);opacity:0.6;margin-bottom:16px}
-.sendback-btn{background:var(--bg2);border:1px solid var(--red);color:var(--red2);border-radius:5px;padding:13px 32px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;transition:all 0.2s}
-.sendback-btn:hover{background:var(--red2);color:var(--white);border-color:var(--red2)}
-.rec-footer{text-align:center;padding-top:32px;border-top:1px solid var(--bdr);width:100%;max-width:480px}
-.rec-footer img{height:24px;opacity:0.4;margin-bottom:8px}
-.rec-footer p{font-size:11px;color:var(--cream2);opacity:0.35}
-@media(max-width:480px){
-  .page{padding:28px 16px 60px}
-  .from-name{font-size:26px}
-  .msg-box,.signers-box{padding:16px 18px}
-  .msg-text{font-size:15px}
-}
+
+.cta-box{background:rgba(37,24,16,0.9);border:1px solid var(--bdr);border-radius:8px;padding:16px;text-align:center;backdrop-filter:blur(4px);margin-bottom:20px}
+.cta-text{font-size:13px;color:var(--cream2);opacity:0.7;margin-bottom:12px}
+.cta-btn{background:var(--red2);color:var(--white);text-decoration:none;padding:11px 24px;border-radius:3px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;display:inline-block;transition:background 0.2s;font-family:'DM Sans',sans-serif}
+.cta-btn:hover{background:var(--red)}
+
+.rec-footer{text-align:center;padding:16px 0 8px;position:relative;z-index:5}
+.rec-footer img{height:22px;opacity:0.35}
+.rec-footer p{font-size:10px;color:var(--cream2);opacity:0.3;margin-top:4px}
 </style>
 </head>
 <body>
 
-<div class="ribbon">
-  <span>✦ You've got a Smartass Support Card ✦</span>
-</div>
+<div class="env-stage" id="envStage">
+  <div class="env-bg"></div>
+  <div class="env-bg-overlay"></div>
+  <div class="ribbon">✦ You've got a Smartass Support Card ✦</div>
 
-<div class="page">
-  <div class="from-label">A card from</div>
-  <div class="from-name" id="from-name">Your friend</div>
-
-  <div class="video-wrap">
-    <iframe id="card-video" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <div class="retro-frame">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
   </div>
 
-  <div class="msg-box">
-    <div class="box-label">Their message</div>
-    <div class="msg-text" id="msg-text"></div>
-    <div class="msg-sig">
-      <span id="sig-name"></span>
-      <span class="msg-emoji" id="sig-emoji"></span>
+  <img class="retro-shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
+  <img class="retro-shape shape-bl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/snofflake_star.png" alt="">
+  <img class="retro-shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+
+  <div class="to-label">A card for</div>
+  <div class="recip-name" id="recip-name">Friend</div>
+
+  <div class="env-wrap" id="envWrap" onclick="openEnv()">
+    <svg class="env-svg" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="60" width="312" height="156" rx="6" fill="#F2E4C8"/>
+      <rect x="4" y="60" width="312" height="30" rx="6" fill="#E8D5B0"/>
+      <line x1="4" y1="216" x2="160" y2="130" stroke="#D4C090" stroke-width="1.2"/>
+      <line x1="316" y1="216" x2="160" y2="130" stroke="#D4C090" stroke-width="1.2"/>
+      <line x1="4" y1="60" x2="4" y2="216" stroke="#D4C090" stroke-width="0.8"/>
+      <line x1="316" y1="60" x2="316" y2="216" stroke="#D4C090" stroke-width="0.8"/>
+      <circle cx="160" cy="148" r="22" fill="#C13B1B"/>
+      <circle cx="160" cy="148" r="18" fill="#D94520"/>
+      <text x="160" y="153" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#F2E4C8" font-weight="bold">✦</text>
+      <g id="flapG" style="transform-origin:160px 60px;transition:transform 0.85s cubic-bezier(0.4,0,0.2,1)">
+        <polygon points="4,60 316,60 160,168" fill="#C8A870" opacity="0.3"/>
+        <polygon points="4,60 316,60 160,168" fill="#EDD9A3"/>
+        <line x1="4" y1="60" x2="160" y2="168" stroke="#D4C090" stroke-width="1"/>
+        <line x1="316" y1="60" x2="160" y2="168" stroke="#D4C090" stroke-width="1"/>
+        <line x1="4" y1="60" x2="316" y2="60" stroke="#C8A870" stroke-width="1"/>
+      </g>
+    </svg>
+
+    <div class="card-out" id="cardOut">
+      <div class="card-vid-wrap">
+        <iframe id="card-video" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="card-msg-area">
+        <div class="msg-text" id="msg-text"></div>
+        <div class="msg-sig">
+          <span id="sig-name"></span>
+          <span class="msg-emoji" id="sig-emoji"></span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="signers-box" id="signers-box" style="display:none">
-    <div class="box-label">Also signed by</div>
-    <div id="signer-list"></div>
-  </div>
+  <div class="hint" id="hint">Tap the envelope to open your card</div>
 
-  <div class="cta-section">
-    <div class="cta-text">Want to send one back?</div>
-    <a href="/" class="sendback-btn">Shop cards →</a>
-  </div>
-
-  <div class="rec-footer">
-    <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards">
-    <p>© 2026 Smartass Support Cards</p>
+  <div class="after-card" id="afterCard">
+    <div class="signers-box" id="signers-box" style="display:none">
+      <div class="signers-label">Also signed by</div>
+      <div id="signer-list"></div>
+    </div>
+    <div class="cta-box">
+      <div class="cta-text">Want to send one back?</div>
+      <a href="/" class="cta-btn">Shop cards →</a>
+    </div>
+    <div class="rec-footer">
+      <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards">
+      <p>© 2026 Smartass Support Cards</p>
+    </div>
   </div>
 </div>
 
 <script>
 const CARDS = [
-  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", purchaseUrl:"https://player.mediadelivery.net/play/655040/e0beb112-ea33-4068-9b70-59966cde2bf4" },
-  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", purchaseUrl:"https://player.mediadelivery.net/play/655040/0d31369f-e31c-493e-8efa-fe9f960af952" },
-  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", purchaseUrl:"https://player.mediadelivery.net/play/655040/dc8ca812-8174-43f6-b04b-6b4b4a940fbb" },
-  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", purchaseUrl:"https://player.mediadelivery.net/play/655040/72328498-2dd9-45fb-8210-d8432857e492" },
-  { id:5, title:"The Lord Replied.", purchaseUrl:"https://player.mediadelivery.net/play/655040/7d26eda2-7c47-4d63-bc89-f90ea280d644" },
-  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", purchaseUrl:"https://player.mediadelivery.net/play/655040/5d5e606f-0b5c-43a7-a489-573403b21e95" },
-  { id:7, title:"You Could Have Done More. But Didn't.", purchaseUrl:"https://player.mediadelivery.net/play/655040/979bd0c5-c7fd-466a-a5dd-89f6abb1322c" },
+  { id:1, purchaseUrl:"https://player.mediadelivery.net/embed/655040/e0beb112-ea33-4068-9b70-59966cde2bf4?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
+  { id:2, purchaseUrl:"https://player.mediadelivery.net/embed/655040/0d31369f-e31c-493e-8efa-fe9f960af952?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
+  { id:3, purchaseUrl:"https://player.mediadelivery.net/embed/655040/dc8ca812-8174-43f6-b04b-6b4b4a940fbb?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
+  { id:4, purchaseUrl:"https://player.mediadelivery.net/embed/655040/72328498-2dd9-45fb-8210-d8432857e492?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
+  { id:5, purchaseUrl:"https://player.mediadelivery.net/embed/655040/7d26eda2-7c47-4d63-bc89-f90ea280d644?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
+  { id:6, purchaseUrl:"https://player.mediadelivery.net/embed/655040/5d5e606f-0b5c-43a7-a489-573403b21e95?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
+  { id:7, purchaseUrl:"https://player.mediadelivery.net/embed/655040/979bd0c5-c7fd-466a-a5dd-89f6abb1322c?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
 ];
+
+let opened = false;
 
 function load() {
   const params = new URLSearchParams(window.location.search);
@@ -108,11 +182,12 @@ function load() {
   const from = params.get('from') || 'Your friend';
   const msg = params.get('msg') || '';
   const emoji = params.get('emoji') || '';
+  const to = params.get('to') || '';
   const signersRaw = params.get('signers') || '';
   const card = CARDS.find(c => c.id === id) || CARDS[0];
 
   document.title = `${from} sent you a card — Smartass Support Cards`;
-  document.getElementById('from-name').textContent = from;
+  document.getElementById('recip-name').textContent = to || 'Friend';
   document.getElementById('card-video').src = card.purchaseUrl;
   document.getElementById('msg-text').textContent = msg ? `"${msg}"` : '';
   document.getElementById('sig-name').textContent = `— ${from}`;
@@ -127,6 +202,20 @@ function load() {
         <div class="sname">${s.trim()}</div>
       </div>`).join('');
   }
+}
+
+function openEnv() {
+  if (opened) return;
+  opened = true;
+  document.getElementById('envWrap').style.cursor = 'default';
+  document.getElementById('hint').classList.add('gone');
+  document.getElementById('flapG').style.transform = 'rotateX(180deg)';
+  setTimeout(() => {
+    document.getElementById('cardOut').classList.add('risen');
+    setTimeout(() => {
+      document.getElementById('afterCard').classList.add('show');
+    }, 600);
+  }, 600);
 }
 
 load();
