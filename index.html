@@ -104,11 +104,23 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
   .hero-mobile{display:flex}
   .hdr{padding:0 16px}
   .hdr-nav a{display:none}
+  .hdr-nav .hdr-cart{display:block}
+  .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
+  .hamburger span{width:22px;height:2px;background:var(--cream2);display:block;transition:all 0.3s}
+  .mobile-menu{display:none;position:fixed;inset:0;background:rgba(28,18,9,0.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:var(--cream);text-decoration:none;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:1px;opacity:0.85}
+  .mobile-menu a:hover{opacity:1;color:var(--gold)}
+  .mobile-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--cream2);font-size:28px;cursor:pointer}
   .section{padding:24px 16px}
   .grid{grid-template-columns:1fr 1fr;gap:14px}
   footer{flex-direction:column;gap:16px;padding:24px 16px;text-align:center}
   .footer-links{justify-content:center;flex-wrap:wrap}
   .sound-note{font-size:11px}
+}
+@media(min-width:769px){
+  .hamburger{display:none}
+  .mobile-menu{display:none !important}
 }
 @media(max-width:400px){
   .grid{grid-template-columns:1fr}
@@ -123,10 +135,24 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
   </div>
   <nav class="hdr-nav">
     <a href="#ecards">eCards</a>
-    <a href="#">Merch</a>
+    <a href="/about.html">About</a>
+    <a href="mailto:sgnandt@gmail.com">Contact</a>
+    <a href="#">SmartAss Podcast</a>
     <button class="hdr-cart">Cart (0)</button>
   </nav>
+  <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="#ecards" onclick="document.getElementById('mobileMenu').classList.remove('open')">eCards</a>
+  <a href="/about.html">About</a>
+  <a href="mailto:sgnandt@gmail.com">Contact</a>
+  <a href="#">SmartAss Podcast</a>
+</div>
 
 <!-- DESKTOP HERO -->
 <section class="hero">
