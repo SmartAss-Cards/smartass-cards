@@ -135,6 +135,10 @@ textarea.finput{resize:none;height:90px;line-height:1.6}
 
     <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Send this card — $2.00</button>
     <div class="error-msg" id="error-msg">Please fill in your name, a message, and the recipient's email.</div>
+    <div class="not-right-wrap" id="not-right-wrap" style="display:none;margin-top:14px;text-align:center">
+      <span style="font-size:12px;color:var(--cream2);opacity:0.65">Not quite right? </span>
+      <a id="not-right-link" href="#" style="font-size:12px;color:var(--gold);text-decoration:none">Try this one →</a>
+    </div>
   </div>
 </div>
 
@@ -163,6 +167,13 @@ function loadCard() {
   document.getElementById('preview-iframe').src = embedBase + '?autoplay=true&loop=true&muted=true&preload=true&responsive=true';
   document.getElementById('card-price').textContent = selCard.price;
   document.getElementById('submit-btn').textContent = `Send this card — ${selCard.price}`;
+
+  // Not quite right suggestions
+  const suggestions = {1:3, 2:5, 4:3, 5:2};
+  if (suggestions[selCard.id]) {
+    document.getElementById('not-right-wrap').style.display = 'block';
+    document.getElementById('not-right-link').href = `/card.html?id=${suggestions[selCard.id]}`;
+  }
   document.title = selCard.title + ' — Smartass Support Cards';
 }
 

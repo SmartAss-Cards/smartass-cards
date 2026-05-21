@@ -79,8 +79,32 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin-bottom:20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
-.cthumb{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;overflow:hidden;cursor:pointer;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;text-decoration:none;display:block}
+/* OCCASION TILES */
+.occasion-section{padding:32px 32px 0}
+.occasion-intro{text-align:center;margin-bottom:20px}
+.occasion-intro p{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Playfair Display',serif}
+.occasion-intro h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--cream);margin-top:4px}
+.occasion-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:16px}
+.otile{background:var(--bg2);border:1px solid var(--gold);border-radius:4px;padding:16px 12px;cursor:pointer;position:relative;text-align:center;transition:background 0.2s;text-decoration:none;display:block}
+.otile::before{content:'';position:absolute;inset:4px;border:0.5px solid rgba(200,146,42,0.3);border-radius:2px;pointer-events:none}
+.otile:hover{background:var(--bg3)}
+.otile-rule{display:flex;align-items:center;gap:6px;margin-bottom:10px;justify-content:center}
+.otile-rule span{font-size:10px;color:var(--gold)}
+.otile-rule::before,.otile-rule::after{content:'';flex:1;height:0.5px;background:var(--gold);opacity:0.5}
+.otile-icon{width:44px;height:44px;object-fit:contain;margin:0 auto 8px;display:block}
+.otile-occasion{font-family:'Playfair Display',serif;font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.otile-line{font-family:'Playfair Display',serif;font-size:12px;font-style:italic;color:var(--cream2);line-height:1.4;margin-bottom:10px}
+.otile-bottom{display:flex;align-items:center;gap:6px;margin-bottom:8px;justify-content:center}
+.otile-bottom::before,.otile-bottom::after{content:'';flex:1;height:0.5px;background:var(--gold);opacity:0.5}
+.otile-bottom span{font-size:9px;color:var(--gold);opacity:0.6}
+.otile-cta{font-size:11px;font-weight:700;color:var(--red2);text-transform:uppercase;letter-spacing:1px;font-family:'DM Sans',sans-serif}
+.occasion-divider{height:1px;background:var(--bdr);margin:32px 32px 0}
+@media(max-width:768px){
+  .occasion-section{padding:24px 16px 0}
+  .occasion-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .occasion-divider{margin:24px 16px 0}
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}cursor:pointer;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;text-decoration:none;display:block}
 .cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 .cprev{position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg3)}
 .cprev iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none}
@@ -199,6 +223,66 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
     </a>
   </div>
 </div>
+
+<!-- OCCASION TILES -->
+<section class="occasion-section">
+  <div class="occasion-intro">
+    <p>✦ find your card ✦</p>
+    <h2>What's the occasion?</h2>
+  </div>
+  <div class="occasion-grid">
+    <a class="otile" href="/card.html?id=1">
+      <div class="otile-rule"><span>✦</span></div>
+      <img class="otile-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/medical_icon.png" alt="Medical">
+      <div class="otile-occasion">Diagnosis</div>
+      <div class="otile-line">Scary news just landed. Say something real.</div>
+      <div class="otile-bottom"><span>No. 1</span></div>
+      <div class="otile-cta">See card →</div>
+    </a>
+    <a class="otile" href="/card.html?id=2">
+      <div class="otile-rule"><span>✦</span></div>
+      <img class="otile-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/broken_heart_icon.png" alt="Breakup">
+      <div class="otile-occasion">Breakup / Job Loss</div>
+      <div class="otile-line">No more grind? Say something kind.</div>
+      <div class="otile-bottom"><span>No. 2</span></div>
+      <div class="otile-cta">See card →</div>
+    </a>
+    <a class="otile" href="/card.html?id=4">
+      <div class="otile-rule"><span>✦</span></div>
+      <img class="otile-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/tree_icon.png" alt="Grief">
+      <div class="otile-occasion">Grief / Loss</div>
+      <div class="otile-line">Words are hard. Let us fumble them for you.</div>
+      <div class="otile-bottom"><span>No. 3</span></div>
+      <div class="otile-cta">See card →</div>
+    </a>
+    <a class="otile" href="/card.html?id=5">
+      <div class="otile-rule"><span>✦</span></div>
+      <img class="otile-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/rain_cloud_icon.png" alt="Depression">
+      <div class="otile-occasion">Depression / Anxiety</div>
+      <div class="otile-line">You can't fix everything. Just let them know they're not alone.</div>
+      <div class="otile-bottom"><span>No. 4</span></div>
+      <div class="otile-cta">See card →</div>
+    </a>
+    <a class="otile" href="/card.html?id=6">
+      <div class="otile-rule"><span>✦</span></div>
+      <img class="otile-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/cake_icon.png" alt="Birthday">
+      <div class="otile-occasion">Birthday</div>
+      <div class="otile-line">Take somebody down a peg or two on their special day.</div>
+      <div class="otile-bottom"><span>No. 5</span></div>
+      <div class="otile-cta">See card →</div>
+    </a>
+    <a class="otile" href="/card.html?id=7">
+      <div class="otile-rule"><span>✦</span></div>
+      <img class="otile-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thumbs_up_icon.png" alt="Thank You">
+      <div class="otile-occasion">Thank You</div>
+      <div class="otile-line">They helped. Send them something damn you.</div>
+      <div class="otile-bottom"><span>No. 6</span></div>
+      <div class="otile-cta">See card →</div>
+    </a>
+  </div>
+</section>
+
+<div class="occasion-divider"></div>
 
 <section class="section" id="ecards">
   <div class="section-head">
