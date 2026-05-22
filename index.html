@@ -114,12 +114,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .cprice{font-size:14px;font-weight:700;color:var(--gold)}
 
 /* FOOTER */
-footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;display:flex;align-items:center;justify-content:space-between;margin-top:0}
-footer img{height:28px;object-fit:contain;opacity:0.7}
-.footer-links{display:flex;gap:20px}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin-top:0}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.footer-brand img{height:28px;object-fit:contain;opacity:0.7;display:block;margin-bottom:8px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
 .footer-links a{font-size:12px;color:var(--cream2);opacity:0.5;text-decoration:none;transition:opacity 0.2s}
 .footer-links a:hover{opacity:1}
 .footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
+.footer-signup-label{font-size:12px;color:var(--cream2);opacity:0.65;margin-bottom:8px;font-weight:500}
+.footer-signup-row{display:flex;gap:8px}
+.footer-email{background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:8px 12px;color:var(--cream);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;width:200px}
+.footer-email:focus{border-color:var(--red)}
+.footer-email::placeholder{color:var(--cream2);opacity:0.4}
+.footer-sub-btn{background:var(--red);color:var(--white);border:none;padding:8px 16px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:0.5px;transition:background 0.2s;white-space:nowrap}
+.footer-sub-btn:hover{background:var(--red2)}
 
 /* MOBILE */
 @media(max-width:768px){
@@ -137,8 +145,10 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
   .mobile-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--cream2);font-size:28px;cursor:pointer}
   .section{padding:24px 16px}
   .grid{grid-template-columns:1fr 1fr;gap:14px}
-  footer{flex-direction:column;gap:16px;padding:24px 16px;text-align:center}
-  .footer-links{justify-content:center;flex-wrap:wrap}
+  footer{padding:24px 16px}
+  .footer-top{flex-direction:column;gap:24px}
+  .footer-links{flex-direction:row;flex-wrap:wrap;gap:12px}
+  .footer-email{width:160px}
   .sound-note{font-size:11px}
 }
 @media(min-width:769px){
@@ -159,6 +169,7 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
   <nav class="hdr-nav">
     <a href="#ecards">eCards</a>
     <a href="/about.html">About</a>
+    <a href="#">Blog</a>
     <a href="mailto:sgnandt@gmail.com">Contact</a>
     <a href="#">SmartAss Podcast</a>
     <button class="hdr-cart">Cart (0)</button>
@@ -174,6 +185,7 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
   <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
   <a href="#ecards" onclick="document.getElementById('mobileMenu').classList.remove('open')">eCards</a>
   <a href="/about.html">About</a>
+  <a href="#">Blog</a>
   <a href="mailto:sgnandt@gmail.com">Contact</a>
   <a href="#">SmartAss Podcast</a>
 </div>
@@ -299,12 +311,25 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
 </section>
 
 <footer>
-  <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards">
-  <div class="footer-links">
-    <a href="/about.html">About</a>
-    <a href="mailto:sgnandt@gmail.com">Contact</a>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards">
+      <div class="footer-copy">© 2026 Smartass Support Cards</div>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="#">Blog</a>
+      <a href="mailto:sgnandt@gmail.com">Contact</a>
+      <a href="#">SmartAss Podcast</a>
+    </div>
+    <div class="footer-signup">
+      <div class="footer-signup-label">Stay in the loop</div>
+      <div class="footer-signup-row">
+        <input type="email" class="footer-email" placeholder="your@email.com">
+        <button class="footer-sub-btn">Join</button>
+      </div>
+    </div>
   </div>
-  <div class="footer-copy">© 2026 Smartass Support Cards</div>
 </footer>
 
 <script>
