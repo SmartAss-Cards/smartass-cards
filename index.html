@@ -79,7 +79,39 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin-bottom:20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
-/* BEST SELLERS */
+/* TICKER */
+.ticker-wrap{background:#1C1209;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:10px 0;overflow:hidden;position:relative}
+.ticker-label{position:absolute;left:0;top:0;bottom:0;background:var(--red2);display:flex;align-items:center;padding:0 16px;z-index:2;white-space:nowrap}
+.ticker-label span{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:2px}
+.ticker-track{display:flex;animation:ticker-scroll 45s linear infinite;width:max-content;padding-left:140px}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);white-space:nowrap;padding:0 32px;display:flex;align-items:center;gap:10px}
+.ticker-dot{color:var(--gold);font-size:14px}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* COMING SOON */
+.coming-wrap{background:var(--bg2);padding:56px 32px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.coming-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:140px;font-weight:900;color:rgba(200,146,42,0.04);white-space:nowrap;pointer-events:none;letter-spacing:-4px;user-select:none}
+.coming-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px}
+.coming-eyebrow::before,.coming-eyebrow::after{content:'';width:40px;height:1px;background:var(--red);opacity:0.5}
+.coming-mom-img{width:120px;height:120px;object-fit:contain;margin:0 auto 20px;display:block;animation:wobble 3s ease-in-out infinite;position:relative;z-index:2}
+@keyframes wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.coming-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--cream);line-height:1.1;margin-bottom:14px;position:relative;z-index:2}
+.coming-title em{color:var(--gold);font-style:italic}
+.coming-sub{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--cream2);opacity:0.8;line-height:1.7;max-width:420px;margin:0 auto 24px;position:relative;z-index:2}
+.coming-badge{display:inline-block;background:var(--red);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:10px 24px;border-radius:2px;margin-bottom:24px;position:relative;z-index:2}
+.coming-email{display:flex;gap:8px;justify-content:center;max-width:340px;margin:0 auto;position:relative;z-index:2}
+.coming-input{background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:11px 14px;color:var(--cream);font-size:13px;font-family:'DM Sans',sans-serif;flex:1;outline:none}
+.coming-input:focus{border-color:var(--red)}
+.coming-input::placeholder{color:var(--cream2);opacity:0.4}
+.coming-btn{background:var(--gold);color:var(--bg);border:none;padding:11px 18px;border-radius:3px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:background 0.2s}
+.coming-btn:hover{background:var(--cream)}
+.coming-disclaimer{font-size:11px;color:var(--cream2);opacity:0.4;margin-top:12px;font-family:'Playfair Display',serif;font-style:italic;position:relative;z-index:2}
+@media(max-width:768px){
+  .coming-title{font-size:26px}
+  .coming-bg-text{font-size:80px}
+  .coming-email{flex-direction:column;padding:0 20px}
+}
 .best-sellers-grid{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;max-width:900px;margin:0 auto}
 .badge-link{display:block;transition:transform 0.2s;cursor:pointer}
 .badge-link:hover{transform:scale(1.05)}
@@ -243,6 +275,36 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
 </div>
 
+<!-- AS SEEN ON TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-label"><span>As Seen On</span></div>
+  <div class="ticker-track" id="tickerTrack">
+    <div class="ticker-item"><span>Instagram People</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Facebook Creeps</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>TikTok Bots</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>The Group Chat</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Your Crackhead Therapist</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>CornHub</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Your Mom's Back</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Big Jim's Roadhouse and Nail Salon</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>All Major Networks Probably Maybe</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>NBA MLB NFL Are Sports Teams</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>New York Hollywood and Los Angeles... Am I Right?</span><span class="ticker-dot">✦</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span>Instagram People</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Facebook Creeps</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>TikTok Bots</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>The Group Chat</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Your Crackhead Therapist</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>CornHub</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Your Mom's Back</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Big Jim's Roadhouse and Nail Salon</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>All Major Networks Probably Maybe</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>NBA MLB NFL Are Sports Teams</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>New York Hollywood and Los Angeles... Am I Right?</span><span class="ticker-dot">✦</span></div>
+  </div>
+</div>
+
 <!-- OCCASION CARDS — Option B -->
 <div style="background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:40px 32px;">
 <div style="max-width:760px;margin:0 auto">
@@ -316,6 +378,23 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
       <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/arrow_button.png" alt="A Spicy Thank You Card">
     </a>
   </div>
+</div>
+
+<div class="occasion-divider"></div>
+
+<!-- COMING SOON — MOMMA CARDS -->
+<div class="coming-wrap">
+  <div class="coming-bg-text">MOM</div>
+  <div class="coming-eyebrow">Coming Soon</div>
+  <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/momma_cartoon.png" alt="Momma" class="coming-mom-img">
+  <div class="coming-title">Cards About <em>Your Mom.</em></div>
+  <p class="coming-sub">If you grew up trash talkin' about people's mommas, then these are for you and your dumb friends. These cards go hard, so be careful.</p>
+  <div class="coming-badge">⚠️ May Cause Drama</div>
+  <div class="coming-email">
+    <input type="email" class="coming-input" placeholder="your@email.com">
+    <button class="coming-btn">Notify Me</button>
+  </div>
+  <div class="coming-disclaimer">We won't spam you. Your mom might though.</div>
 </div>
 
 <div class="occasion-divider"></div>
