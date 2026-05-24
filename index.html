@@ -79,7 +79,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin-bottom:20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
-/* OCCASION CARDS */
+/* BEST SELLERS */
+.best-sellers-grid{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.badge-link{display:block;transition:transform 0.2s;cursor:pointer}
+.badge-link:hover{transform:scale(1.05)}
+.badge-link img{height:180px;object-fit:contain;display:block}
+@media(max-width:768px){
+  .best-sellers-grid{gap:28px}
+  .badge-link img{height:130px}
+}
 .occasion-intro{text-align:center;margin-bottom:6px}
 .occasion-intro p{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Playfair Display',serif}
 .occasion-intro h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--cream);margin-top:4px;margin-bottom:6px}
@@ -289,6 +297,25 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     </a>
   </div>
 </div>
+</div>
+
+<div class="occasion-divider"></div>
+
+<!-- BEST SELLERS -->
+<div style="background:var(--bg);padding:48px 32px;text-align:center;">
+  <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:8px">✦ staff picks ✦</p>
+  <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--cream);margin-bottom:32px">Cards people keep sending</h2>
+  <div class="best-sellers-grid">
+    <a href="/card.html?id=2" class="badge-link">
+      <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/best_seller_button.png" alt="Best Seller — Today Might Suck">
+    </a>
+    <a href="/card.html?id=4" class="badge-link">
+      <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/hungry_button.png" alt="Best Card To Send When You're Hungry">
+    </a>
+    <a href="/card.html?id=7" class="badge-link">
+      <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/arrow_button.png" alt="A Spicy Thank You Card">
+    </a>
+  </div>
 </div>
 
 <div class="occasion-divider"></div>
