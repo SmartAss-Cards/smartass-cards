@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smartass Support Cards — Animated eCards with Personality</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&family=Lobster+Two:ital@1&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -34,7 +34,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 /* HERO — DESKTOP: couple right, text left */
 .hero{background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:420px}
 .hero-left{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
-.hero-savage{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--red2);line-height:1.1;margin-bottom:14px}
+.hero-savage{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--red2);line-height:1.1;margin-bottom:14px}
 .hero-savage .savage-word{color:var(--cream)}
 .hero-sub{font-size:14px;color:var(--cream2);opacity:0.75;line-height:1.65;margin-bottom:24px;max-width:400px}
 .hero-bullets{list-style:none;margin-bottom:30px}
@@ -73,7 +73,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 /* SECTION */
 .section{padding:32px 32px 40px}
 .section-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-.section-head h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--cream)}
+.section-head h2{font-family:'Fontdiner Swanky',cursive;font-size:30px;color:var(--cream)}
 .section-head img{height:22px}
 .filter-strip{display:flex;gap:8px;padding:12px 0 20px;overflow-x:auto}
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
@@ -96,7 +96,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .coming-eyebrow::before,.coming-eyebrow::after{content:'';width:40px;height:1px;background:var(--red);opacity:0.5}
 .coming-mom-img{width:120px;height:120px;object-fit:contain;margin:0 auto 20px;display:block;animation:wobble 3s ease-in-out infinite;position:relative;z-index:2}
 @keyframes wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
-.coming-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--cream);line-height:1.1;margin-bottom:14px;position:relative;z-index:2}
+.coming-title{font-family:'Fontdiner Swanky',cursive;font-size:34px;color:var(--cream);line-height:1.1;margin-bottom:14px;position:relative;z-index:2}
 .coming-title em{color:var(--gold);font-style:italic}
 .coming-sub{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--cream2);opacity:0.8;line-height:1.7;max-width:420px;margin:0 auto 24px;position:relative;z-index:2}
 .coming-badge{display:inline-block;background:var(--red);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:10px 24px;border-radius:2px;margin-bottom:24px;position:relative;z-index:2}
@@ -127,14 +127,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .occ-menu-header{text-align:center;margin-bottom:28px}
 .occ-menu-eyebrow{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--cream2);margin-bottom:4px}
 .occ-menu-title{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);margin-bottom:8px}
-.occ-menu-sub{font-family:'Lobster Two',cursive;font-style:italic;font-size:14px;color:var(--cream2);opacity:0.85;line-height:1.5}
+.occ-menu-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--cream2);opacity:0.85;line-height:1.5}
 .occ-img-shape{display:block;text-decoration:none;margin-bottom:8px;transition:transform 0.2s,filter 0.2s;cursor:pointer}
 .occ-img-shape:hover{transform:scale(1.02);filter:brightness(1.1)}
 .occ-img-shape img{width:100%;display:block;height:auto}
 .occ-img-full{width:100%}
 .occ-img-row{display:flex;gap:8px;margin-bottom:8px}
 .occ-img-half{flex:1}
-.occ-browse-link{display:block;text-align:center;margin-top:16px;font-family:'Fontdiner Swanky',cursive;font-size:20px;color:var(--cream);text-decoration:none;transition:color 0.2s}
+.occ-browse-wrap{text-align:center;margin-top:20px}
+.occ-not-finding{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--cream2);opacity:0.75;margin-bottom:6px}
+.occ-browse-link{display:inline-block;font-family:'Fontdiner Swanky',cursive;font-size:20px;color:var(--cream);text-decoration:none;transition:color 0.2s}
 .occ-browse-link:hover{color:var(--gold)}
 .occasion-divider{height:1px;background:var(--bdr);margin:0}
 @media(max-width:768px){
@@ -339,7 +341,10 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
       <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/plumb_thankyou.png" alt="Thank You">
     </a>
 
-    <a class="occ-browse-link" href="/#ecards">Browse All Cards →</a>
+    <div class="occ-browse-wrap">
+      <div class="occ-not-finding">Not finding the right one?</div>
+      <a class="occ-browse-link" href="/#ecards">Browse All Cards →</a>
+    </div>
   </div>
 </div>
 
@@ -347,8 +352,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 <!-- BEST SELLERS -->
 <div style="background:var(--bg);padding:48px 32px;text-align:center;">
-  <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:8px">✦ staff picks ✦</p>
-  <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--cream);margin-bottom:32px">Cards people keep sending</h2>
+  <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px">✦ staff picks ✦</p>
+  <h2 style="font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream);margin-bottom:32px">Popular &amp; Trending</h2>
   <div class="best-sellers-grid">
     <a href="/card.html?id=2" class="badge-link">
       <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/best_seller_button.png" alt="Best Seller — Today Might Suck">
