@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smartass Support Cards — Animated eCards with Personality</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&family=Pacifico&family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -120,30 +120,37 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
   .best-sellers-grid{gap:28px}
   .badge-link img{height:130px}
 }
-.occasion-intro{text-align:center;margin-bottom:6px}
-.occasion-intro p{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'Playfair Display',serif}
-.occasion-intro h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--cream);margin-top:4px;margin-bottom:6px}
-.occasion-sub{text-align:center;font-size:13px;font-style:italic;color:var(--cream2);opacity:0.7;margin-bottom:24px;font-family:'Playfair Display',serif}
-.occ-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.occ-card{background:var(--bg);border:1px solid var(--bdr);border-radius:10px;padding:20px 16px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;transition:border-color 0.2s,background 0.2s;min-height:180px}
-.occ-card:hover{border-color:var(--gold);background:var(--bg3)}
-.occ-icon{width:52px;height:52px;object-fit:contain;margin-bottom:12px}
-.occ-name{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
-.occ-line{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);line-height:1.4;flex:1;margin-bottom:14px}
-.occ-cta{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--white);flex-shrink:0}
-.occ-wide{grid-column:1/-1;background:var(--bg);border:1px solid var(--bdr);border-radius:10px;padding:20px 24px;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:20px;transition:border-color 0.2s,background 0.2s}
-.occ-wide:hover{border-color:var(--gold);background:var(--bg3)}
-.occ-browse{background:var(--red2);color:var(--white);border:none;padding:10px 20px;border-radius:3px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;flex-shrink:0}
+/* OCCASION MENU */
+.occ-menu-wrap{padding:40px 32px;position:relative;overflow:hidden}
+.occ-menu-wrap::before{content:'';position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/occasion_background.png');background-size:cover;background-position:center;z-index:0}
+.occ-menu-inner{max-width:600px;margin:0 auto;position:relative;z-index:1}
+.occ-menu-header{text-align:center;margin-bottom:28px}
+.occ-menu-eyebrow{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);opacity:0.85;margin-bottom:4px}
+.occ-menu-title{font-family:'Pacifico',cursive;font-size:32px;color:var(--cream);margin-bottom:8px}
+.occ-menu-sub{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);opacity:0.75;line-height:1.5}
+.occ-img-shape{display:block;position:relative;text-decoration:none;margin-bottom:8px;transition:transform 0.2s,filter 0.2s;cursor:pointer}
+.occ-img-shape:hover{transform:scale(1.02);filter:brightness(1.1)}
+.occ-bg-img{width:100%;display:block;height:auto}
+.occ-img-content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 20px}
+.occ-img-icon{width:36px;height:36px;object-fit:contain;flex-shrink:0;filter:brightness(0) invert(1)}
+.occ-img-label{font-family:'Fredoka One',cursive;font-size:20px;color:#FDF8EF;line-height:1.2;text-align:center;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+.occ-img-full{width:100%}
+.occ-img-row{display:flex;gap:8px;margin-bottom:8px}
+.occ-img-half{flex:1}
+.occ-browse-strip{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--bg);border:2px solid #00B4D8;border-radius:6px;padding:16px 20px;text-decoration:none;margin-top:8px;box-shadow:0 0 10px rgba(0,180,216,0.3);transition:background 0.2s}
+.occ-browse-strip:hover{background:var(--bg3)}
+.occ-browse-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--cream);margin-bottom:4px}
+.occ-browse-sub{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);opacity:0.7}
+.occ-browse-btn{background:var(--red2);color:var(--white);border:none;padding:10px 18px;border-radius:3px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;flex-shrink:0}
 .occasion-divider{height:1px;background:var(--bdr);margin:0}
 @media(max-width:768px){
-  .occ-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .occ-card{padding:16px 12px;min-height:160px}
-  .occ-icon{width:40px;height:40px}
-  .occ-name{font-size:11px}
-  .occ-line{font-size:12px}
-  .occ-wide{flex-direction:column;text-align:center;gap:14px}
+  .occ-menu-wrap{padding:28px 16px}
+  .occ-menu-title{font-size:26px}
+  .occ-img-label{font-size:15px}
+  .occ-img-icon{width:26px;height:26px}
+  .occ-browse-strip{flex-direction:column;text-align:center}
 }
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}cursor:pointer;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;text-decoration:none;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
 .cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 .cprev{position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg3)}
 .cprev iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none}
@@ -305,60 +312,78 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
 </div>
 
-<!-- OCCASION CARDS — Option B -->
-<div style="background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:40px 32px;">
-<div style="max-width:760px;margin:0 auto">
-  <div class="occasion-intro">
-    <p>✦ find your card ✦</p>
-    <h2>What's the occasion?</h2>
-  </div>
-  <div class="occasion-sub">These are starting points. Our cards can work for more than one.</div>
-  <div class="occ-grid">
-    <a class="occ-card" href="/card.html?id=1">
-      <img class="occ-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/medical_icon.png" alt="">
-      <div class="occ-name" style="color:#C13B1B">Diagnosis</div>
-      <div class="occ-line">Scary news just landed. Say something real.</div>
-      <div class="occ-cta" style="background:#C13B1B">→</div>
-    </a>
-    <a class="occ-card" href="/card.html?id=2">
-      <img class="occ-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/broken_heart_icon.png" alt="">
-      <div class="occ-name" style="color:#E04820">Breakup / Job Loss</div>
-      <div class="occ-line">No more grind? Say something kind.</div>
-      <div class="occ-cta" style="background:#E04820">→</div>
-    </a>
-    <a class="occ-card" href="/card.html?id=4">
-      <img class="occ-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/tree_icon.png" alt="">
-      <div class="occ-name" style="color:#C8922A">Grief / Loss</div>
-      <div class="occ-line">Words are hard. Let us fumble them for you.</div>
-      <div class="occ-cta" style="background:#C8922A">→</div>
-    </a>
-    <a class="occ-card" href="/card.html?id=5">
-      <img class="occ-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/rain_cloud_icon.png" alt="">
-      <div class="occ-name" style="color:#D9C9A8">Depression / Anxiety</div>
-      <div class="occ-line">You can't fix everything. Just let them know they're not alone.</div>
-      <div class="occ-cta" style="background:#555">→</div>
-    </a>
-    <a class="occ-card" href="/card.html?id=6">
-      <img class="occ-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/cake_icon.png" alt="">
-      <div class="occ-name" style="color:#C13B1B">Birthday</div>
-      <div class="occ-line">Take somebody down a peg or two on their special day.</div>
-      <div class="occ-cta" style="background:#C13B1B">→</div>
-    </a>
-    <a class="occ-card" href="/card.html?id=7">
-      <img class="occ-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thumbs_up_icon.png" alt="">
-      <div class="occ-name" style="color:#C8922A">Thank You</div>
-      <div class="occ-line">They helped. Send them something damn you.</div>
-      <div class="occ-cta" style="background:#C8922A">→</div>
-    </a>
-    <a class="occ-wide" href="/#ecards" style="border:2px solid #00B4D8;box-shadow:0 0 10px rgba(0,180,216,0.4),inset 0 0 10px rgba(0,180,216,0.05)">
-      <div>
-        <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream);margin-bottom:6px">Not finding the right one?</div>
-        <div style="font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--cream2);opacity:0.75">Browse the full collection — there's more where these came from.</div>
+<!-- OCCASION MENU — Image Based -->
+<div class="occ-menu-wrap">
+  <div class="occ-menu-inner">
+    <div class="occ-menu-header">
+      <div class="occ-menu-eyebrow">Find Your Card</div>
+      <div class="occ-menu-title">What's the occasion?</div>
+      <div class="occ-menu-sub">Here's a starting point. Our cards can work for more than one.</div>
+    </div>
+
+    <!-- Full width top — Medical Diagnosis -->
+    <a class="occ-img-shape occ-img-full" href="/card.html?id=1">
+      <img class="occ-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/yellow_medical_diagnosis.png" alt="">
+      <div class="occ-img-content">
+        <img class="occ-img-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/medical_icon.png" alt="">
+        <span class="occ-img-label">Medical Diagnosis</span>
       </div>
-      <button class="occ-browse">Browse All Cards</button>
+    </a>
+
+    <!-- Row 2 -->
+    <div class="occ-img-row">
+      <a class="occ-img-shape occ-img-half" href="/card.html?id=2">
+        <img class="occ-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/red_breakup_jobloss.png" alt="">
+        <div class="occ-img-content">
+          <img class="occ-img-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/broken_heart_icon.png" alt="">
+          <span class="occ-img-label">Breakup/<br>Job Loss</span>
+        </div>
+      </a>
+      <a class="occ-img-shape occ-img-half" href="/card.html?id=4">
+        <img class="occ-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/blue_grief_loss.png" alt="">
+        <div class="occ-img-content">
+          <img class="occ-img-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/tree_icon.png" alt="">
+          <span class="occ-img-label">Grief/Loss</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="occ-img-row">
+      <a class="occ-img-shape occ-img-half" href="/card.html?id=5">
+        <img class="occ-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/purple_depression_anxiety.png" alt="">
+        <div class="occ-img-content">
+          <img class="occ-img-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/rain_cloud_icon.png" alt="">
+          <span class="occ-img-label">Depression/<br>Anxiety</span>
+        </div>
+      </a>
+      <a class="occ-img-shape occ-img-half" href="/card.html?id=6">
+        <img class="occ-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/green_birthday.png" alt="">
+        <div class="occ-img-content">
+          <img class="occ-img-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/cake_icon.png" alt="">
+          <span class="occ-img-label">Birthday</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Full width bottom — Thank You -->
+    <a class="occ-img-shape occ-img-full" href="/card.html?id=7">
+      <img class="occ-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/plumb_thankyou.png" alt="">
+      <div class="occ-img-content">
+        <img class="occ-img-icon" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thumbs_up_icon.png" alt="">
+        <span class="occ-img-label">Thank You</span>
+      </div>
+    </a>
+
+    <!-- Browse all — coded -->
+    <a class="occ-browse-strip" href="/#ecards">
+      <div>
+        <div class="occ-browse-title">Not finding the right one?</div>
+        <div class="occ-browse-sub">Browse the full collection — there's more where these came from.</div>
+      </div>
+      <button class="occ-browse-btn">Browse All Cards</button>
     </a>
   </div>
-</div>
 </div>
 
 <div class="occasion-divider"></div>
