@@ -98,7 +98,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 @keyframes wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 .coming-title{font-family:'Fontdiner Swanky',cursive;font-size:34px;color:var(--cream);line-height:1.1;margin-bottom:14px;position:relative;z-index:2}
 .coming-title em{color:var(--gold);font-style:italic}
-.coming-sub{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--cream2);opacity:0.8;line-height:1.7;max-width:420px;margin:0 auto 24px;position:relative;z-index:2}
+.coming-sub{font-family:'DM Sans',sans-serif;font-size:15px;color:var(--cream2);opacity:0.8;line-height:1.7;max-width:420px;margin:0 auto 24px;position:relative;z-index:2}
 .coming-badge{display:inline-block;background:var(--red);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:10px 24px;border-radius:2px;margin-bottom:24px;position:relative;z-index:2}
 .coming-email{display:flex;gap:8px;justify-content:center;max-width:340px;margin:0 auto;position:relative;z-index:2}
 .coming-input{background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:11px 14px;color:var(--cream);font-size:13px;font-family:'DM Sans',sans-serif;flex:1;outline:none}
@@ -115,10 +115,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .best-sellers-grid{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;max-width:900px;margin:0 auto}
 .badge-link{display:block;transition:transform 0.2s;cursor:pointer}
 .badge-link:hover{transform:scale(1.05)}
-.badge-link img{height:180px;object-fit:contain;display:block}
+.badge-link img{height:220px;object-fit:contain;display:block}
 @media(max-width:768px){
   .best-sellers-grid{gap:28px}
-  .badge-link img{height:130px}
+  .badge-link img{height:160px}
 }
 /* OCCASION MENU */
 .occ-menu-wrap{padding:40px 32px;position:relative;overflow:hidden}
@@ -128,9 +128,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .occ-menu-eyebrow{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--cream2);margin-bottom:4px}
 .occ-menu-title{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);margin-bottom:8px}
 .occ-menu-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--cream2);opacity:0.85;line-height:1.5}
-.occ-img-shape{display:block;text-decoration:none;margin-bottom:8px;transition:transform 0.2s,filter 0.2s;cursor:pointer}
+.occ-img-shape{display:block;text-decoration:none;margin-bottom:8px;transition:transform 0.2s,filter 0.2s;cursor:pointer;position:relative}
 .occ-img-shape:hover{transform:scale(1.02);filter:brightness(1.1)}
 .occ-img-shape img{width:100%;display:block;height:auto}
+.occ-img-shape::after{content:'See card →';position:absolute;bottom:10px;right:14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#FDF8EF;opacity:0;transition:opacity 0.2s;text-shadow:0 1px 4px rgba(0,0,0,0.6)}
+.occ-img-shape:hover::after{opacity:1}
 .occ-img-full{width:100%}
 .occ-img-row{display:flex;gap:8px;margin-bottom:8px}
 .occ-img-half{flex:1}
