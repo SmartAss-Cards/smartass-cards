@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What It Means to Me — Smartass Support Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#1C1209;--bg2:#251810;--bg3:#2E1E12;--bdr:#3D2A1A;--cream:#F2E4C8;--cream2:#D9C9A8;--red:#C13B1B;--red2:#E04820;--gold:#C8922A;--white:#FDF8EF}
+html,body{min-height:100vh}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream)}
+.hdr{background:var(--bg2);border-bottom:1px solid var(--bdr);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.hdr-logo img{height:36px;object-fit:contain}
+.hdr-nav{display:flex;align-items:center;gap:24px}
+.hdr-nav a{color:var(--cream2);text-decoration:none;font-size:13px;font-weight:500;transition:color 0.2s}
+.hdr-nav a:hover{color:var(--cream)}
+.hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:var(--cream2);display:block}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(28,18,9,0.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--cream);text-decoration:none;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:1px}
+.mobile-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--cream2);font-size:28px;cursor:pointer}
+.post-wrap{max-width:740px;margin:0 auto;padding:56px 32px 80px}
+.post-back{display:inline-block;font-size:12px;font-weight:600;color:var(--cream2);text-decoration:none;text-transform:uppercase;letter-spacing:1.5px;opacity:0.6;margin-bottom:32px;transition:opacity 0.2s}
+.post-back:hover{opacity:1}
+.post-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:12px}
+.post-title{font-family:'Fontdiner Swanky',cursive;font-size:40px;color:var(--cream);line-height:1.2;margin-bottom:16px}
+.post-meta{font-size:13px;color:var(--cream2);opacity:0.6;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--bdr)}
+.post-image{width:100%;border-radius:8px;display:block;margin-bottom:36px}
+.post-content p{font-family:'Playfair Display',serif;font-size:17px;line-height:1.8;color:var(--cream2);margin-bottom:24px}
+.post-content strong{color:var(--cream);font-weight:700}
+.post-cta-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:28px;text-align:center;margin-top:48px}
+.post-cta-box p{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--cream2);margin-bottom:16px}
+.post-cta-btn{background:var(--red2);color:var(--white);text-decoration:none;padding:12px 28px;border-radius:3px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;display:inline-block;font-family:'DM Sans',sans-serif}
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.footer-brand img{height:28px;opacity:0.7;display:block;margin-bottom:8px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:12px;color:var(--cream2);opacity:0.5;text-decoration:none;transition:opacity 0.2s}
+.footer-links a:hover{opacity:1}
+.footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
+@media(max-width:768px){
+  .hdr{padding:0 16px}
+  .hdr-nav a{display:none}
+  .hdr-nav .hdr-cart{display:block}
+  .hamburger{display:flex}
+  .post-wrap{padding:32px 16px 60px}
+  .post-title{font-size:28px}
+  footer{padding:24px 16px}
+  .footer-top{flex-direction:column;gap:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-logo">
+    <a href="/"><img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards"></a>
+  </div>
+  <nav class="hdr-nav">
+    <a href="/">eCards</a>
+    <a href="/about.html">About</a>
+    <a href="/blog.html">Blog</a>
+    <a href="mailto:sgnandt@gmail.com">Contact</a>
+    <a href="/podcast.html">SmartAss Podcast</a>
+    <button class="hdr-cart">Cart (0)</button>
+  </nav>
+  <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+    <span></span><span></span><span></span>
+    <span style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--cream2);font-family:'DM Sans',sans-serif;font-weight:600;margin-top:2px;width:100%;text-align:center;display:block;height:auto;background:none">MENU</span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="/">eCards</a>
+  <a href="/about.html">About</a>
+  <a href="/blog.html">Blog</a>
+  <a href="mailto:sgnandt@gmail.com">Contact</a>
+  <a href="/podcast.html">SmartAss Podcast</a>
+</div>
+
+<div class="post-wrap">
+  <a class="post-back" href="/blog.html">← Back to Blog</a>
+  <div class="post-eyebrow">✦ The Blog</div>
+  <h1 class="post-title">What It Means to Me</h1>
+  <div class="post-meta">Victoria Xiong-Gnandt · March 25, 2025</div>
+
+  <img class="post-image" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/chach_law-blog.png" alt="What It Means to Me">
+
+  <div class="post-content">
+    <p>When I was younger, I never knew what to say when someone lost a loved one. I'd freeze up, my mind would go blank. I just couldn't relate. 🤷🏻‍♀️</p>
+    <p>Then life happened. Post-COVID, after suffering dozens of personal losses, I don't freeze up anymore. I've learned that sometimes, the best thing to say is nothing at all. Listening can be enough. ❤️🕊️ But laughter is better.</p>
+    <p>That's why Smartass Cards means so much to me. It's the result of navigating grief, finding connection in the silence, and realizing that sometimes, humor is its own kind of support. 💛😂</p>
+  </div>
+
+  <div class="post-cta-box">
+    <p>Ready to send a card that actually means something?</p>
+    <a href="/" class="post-cta-btn">Shop eCards →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards">
+      <div class="footer-copy">© 2026 Smartass Support Cards</div>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="mailto:sgnandt@gmail.com">Contact</a>
+      <a href="/podcast.html">SmartAss Podcast</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
