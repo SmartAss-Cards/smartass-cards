@@ -123,28 +123,30 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 /* OCCASION MENU */
 .occ-menu-wrap{padding:40px 32px;position:relative;overflow:hidden}
 .occ-menu-wrap::before{content:'';position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/occasion_background.png');background-size:cover;background-position:center;z-index:0}
-.occ-menu-inner{max-width:600px;margin:0 auto;position:relative;z-index:1}
-.occ-menu-header{text-align:center;margin-bottom:28px}
-.occ-menu-eyebrow{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--cream2);margin-bottom:4px}
-.occ-menu-title{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);margin-bottom:8px}
-.occ-menu-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--cream2);opacity:0.85;line-height:1.5}
-.occ-img-shape{display:block;text-decoration:none;margin-bottom:8px;transition:transform 0.2s,filter 0.2s;cursor:pointer;position:relative}
+.occ-menu-inner{max-width:480px;margin:0 auto;position:relative;z-index:1}
+.occ-menu-header{text-align:center;margin-bottom:20px}
+.occ-menu-eyebrow{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--cream2);margin-bottom:4px}
+.occ-menu-title{font-family:'Fontdiner Swanky',cursive;font-size:30px;color:var(--cream);margin-bottom:6px}
+.occ-menu-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--cream2);opacity:0.85;line-height:1.5}
+.occ-img-shape{display:block;text-decoration:none;margin-bottom:6px;transition:transform 0.2s,filter 0.2s;cursor:pointer;position:relative}
 .occ-img-shape:hover{transform:scale(1.02);filter:brightness(1.1)}
 .occ-img-shape img{width:100%;display:block;height:auto}
 .occ-img-shape::after{content:'See card →';position:absolute;bottom:10px;right:14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#FDF8EF;opacity:0;transition:opacity 0.2s;text-shadow:0 1px 4px rgba(0,0,0,0.6)}
 .occ-img-shape:hover::after{opacity:1}
 .occ-img-full{width:100%}
-.occ-img-row{display:flex;gap:8px;margin-bottom:8px}
+.occ-img-row{display:flex;gap:6px;margin-bottom:6px}
 .occ-img-half{flex:1}
-.occ-browse-wrap{text-align:center;margin-top:20px}
-.occ-not-finding{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--cream2);opacity:0.75;margin-bottom:6px}
-.occ-browse-link{display:inline-block;font-family:'Fontdiner Swanky',cursive;font-size:20px;color:var(--cream);text-decoration:none;transition:color 0.2s}
+.occ-browse-wrap{text-align:center;margin-top:16px}
+.occ-not-finding{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);opacity:0.75;margin-bottom:6px}
+.occ-browse-link{display:inline-block;font-family:'Fontdiner Swanky',cursive;font-size:18px;color:var(--cream);text-decoration:none;transition:color 0.2s}
 .occ-browse-link:hover{color:var(--gold)}
 .occasion-divider{height:1px;background:var(--bdr);margin:0}
 @media(max-width:768px){
-  .occ-menu-wrap{padding:28px 16px}
-  .occ-menu-title{font-size:28px}
-  .occ-browse-link{font-size:18px}
+  .occ-menu-wrap{padding:24px 28px}
+  .occ-menu-inner{max-width:100%}
+  .occ-menu-title{font-size:24px}
+  .occ-browse-link{font-size:16px}
+  .occ-img-row{gap:5px}
 }
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
 .cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
