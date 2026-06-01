@@ -127,13 +127,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .occ-menu-eyebrow{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--cream2);opacity:0.7;margin-bottom:4px;text-transform:uppercase;letter-spacing:1.5px}
 .occ-menu-title{font-family:'Fontdiner Swanky',cursive;font-size:28px;color:var(--cream);margin-bottom:6px}
 .occ-menu-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--cream2);opacity:0.7;line-height:1.5}
-.occ-bars{display:flex;flex-direction:column;gap:6px;margin-bottom:0}
-.occ-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-radius:5px;text-decoration:none;transition:filter 0.2s,transform 0.15s;cursor:pointer}
-.occ-bar:hover{filter:brightness(1.12);transform:translateX(3px)}
-.occ-bar-name{font-family:'Fontdiner Swanky',cursive;font-size:17px;color:#FDF8EF}
-.occ-bar-arrow{font-size:18px;color:#FDF8EF;opacity:0.7;transition:opacity 0.2s}
-.occ-bar:hover .occ-bar-arrow{opacity:1}
-.occ-browse-wrap{text-align:center;margin-top:18px}
+.occ-tiles-container{max-width:482px;margin:0 auto}
+.occ-img-shape{display:block;text-decoration:none;margin-bottom:6px;transition:filter 0.2s,transform 0.15s;cursor:pointer}
+.occ-img-shape:hover{filter:brightness(1.12);transform:scale(1.02)}
+.occ-img-shape img{width:100%;display:block;height:auto}
+.occ-img-full{width:100%}
+.occ-img-row{display:flex;gap:6px;margin-bottom:6px}
+.occ-img-half{flex:1}
+.occ-browse-wrap{text-align:center;margin-top:16px}
 .occ-not-finding{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);opacity:0.7;margin-bottom:5px}
 .occ-browse-link{display:inline-block;font-family:'Fontdiner Swanky',cursive;font-size:18px;color:var(--cream);text-decoration:none;transition:color 0.2s}
 .occ-browse-link:hover{color:var(--gold)}
@@ -141,9 +142,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 @media(max-width:768px){
   .occ-menu-wrap{padding:24px 16px}
   .occ-menu-title{font-size:22px}
-  .occ-bar{padding:10px 16px}
-  .occ-bar-name{font-size:15px}
-  .occ-browse-link{font-size:15px}
+  .occ-tiles-container{max-width:100%}
+  .occ-img-row{gap:4px}
 }
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
 .cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
@@ -307,7 +307,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
 </div>
 
-<!-- OCCASION MENU — Coded Color Bars -->
+<!-- OCCASION MENU — Image Based -->
 <div class="occ-menu-wrap">
   <div class="occ-menu-inner">
     <div class="occ-menu-header">
@@ -316,30 +316,28 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
       <div class="occ-menu-sub">Here's a starting point. Our cards can work for more than one.</div>
     </div>
 
-    <div class="occ-bars">
-      <a class="occ-bar" href="/card.html?id=1" style="background:#C87A2A">
-        <span class="occ-bar-name">Medical Diagnosis</span>
-        <span class="occ-bar-arrow">→</span>
+    <div class="occ-tiles-container">
+      <a class="occ-img-shape occ-img-full" href="/card.html?id=1">
+        <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/yellow_medical_diagnosis.png" alt="Medical Diagnosis">
       </a>
-      <a class="occ-bar" href="/card.html?id=2" style="background:#C13B1B">
-        <span class="occ-bar-name">Breakup / Job Loss</span>
-        <span class="occ-bar-arrow">→</span>
-      </a>
-      <a class="occ-bar" href="/card.html?id=4" style="background:#2A5F8A">
-        <span class="occ-bar-name">Grief / Loss</span>
-        <span class="occ-bar-arrow">→</span>
-      </a>
-      <a class="occ-bar" href="/card.html?id=5" style="background:#6B4A8A">
-        <span class="occ-bar-name">Depression / Anxiety</span>
-        <span class="occ-bar-arrow">→</span>
-      </a>
-      <a class="occ-bar" href="/card.html?id=6" style="background:#2A8B7A">
-        <span class="occ-bar-name">Birthday</span>
-        <span class="occ-bar-arrow">→</span>
-      </a>
-      <a class="occ-bar" href="/card.html?id=7" style="background:#6A3A5A">
-        <span class="occ-bar-name">Thank You</span>
-        <span class="occ-bar-arrow">→</span>
+      <div class="occ-img-row">
+        <a class="occ-img-shape occ-img-half" href="/card.html?id=2">
+          <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/red_breakup_jobloss.png" alt="Breakup Job Loss">
+        </a>
+        <a class="occ-img-shape occ-img-half" href="/card.html?id=4">
+          <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/blue_grief_loss.png" alt="Grief Loss">
+        </a>
+      </div>
+      <div class="occ-img-row">
+        <a class="occ-img-shape occ-img-half" href="/card.html?id=5">
+          <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/purple_depression_anxiety.png" alt="Depression Anxiety">
+        </a>
+        <a class="occ-img-shape occ-img-half" href="/card.html?id=6">
+          <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/green_birthday.png" alt="Birthday">
+        </a>
+      </div>
+      <a class="occ-img-shape occ-img-full" href="/card.html?id=7">
+        <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/plumb_thankyou.png" alt="Thank You">
       </a>
     </div>
 
