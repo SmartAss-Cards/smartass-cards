@@ -117,9 +117,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .trending-header{text-align:center;padding:0 32px;margin-bottom:32px}
 .trending-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
 .trending-title{font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream)}
-.carousel-viewport{width:100%;overflow:hidden;position:relative}
-.carousel-track{display:flex;gap:0}
-.carousel-slide{min-width:100%;display:flex;flex-direction:column;align-items:center;padding:0 32px;box-sizing:border-box}
+.carousel-viewport{width:100%;position:relative;min-height:300px}
+.fade-slide{position:absolute;top:0;left:0;width:100%;display:flex;flex-direction:column;align-items:center;padding:0 32px;box-sizing:border-box;opacity:0;transition:opacity 600ms ease;pointer-events:none}
+.fade-slide.active{opacity:1;pointer-events:auto;position:relative}
 .carousel-label{font-family:'Fontdiner Swanky',cursive;font-size:16px;color:var(--gold);margin-bottom:12px;text-align:center;letter-spacing:0.3px}
 .carousel-img-wrap{position:relative;width:220px;height:220px;border-radius:6px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
 .carousel-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
@@ -371,57 +371,46 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="trending-title">Popular &amp; Trending</div>
   </div>
   <div class="carousel-viewport">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide">
-        <div class="carousel-label">Best Seller</div>
-        <a href="/card.html?id=2" class="carousel-card-link">
-          <div class="carousel-img-wrap">
-            <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/today_might_suck_trending.png" alt="Today Might Suck">
-          </div>
-        </a>
-      </div>
-      <div class="carousel-slide">
-        <div class="carousel-label">Best card to send when you're hungry</div>
-        <a href="/card.html?id=4" class="carousel-card-link">
-          <div class="carousel-img-wrap">
-            <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/shouldnt_be_alone_trending.png" alt="You Shouldn't Be Alone Today">
-          </div>
-        </a>
-      </div>
-      <div class="carousel-slide">
-        <div class="carousel-label">A shady Thank You card? Sure</div>
-        <a href="/card.html?id=7" class="carousel-card-link">
-          <div class="carousel-img-wrap">
-            <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_do_more_trending.png" alt="A Shady Thank You Card">
-          </div>
-        </a>
-      </div>
+    <div class="carousel-slide fade-slide active" id="slide-0">
+      <div class="carousel-label">Best Seller</div>
+      <a href="/card.html?id=2" class="carousel-card-link">
+        <div class="carousel-img-wrap">
+          <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/today_might_suck_trending.png" alt="Today Might Suck">
+        </div>
+      </a>
+    </div>
+    <div class="carousel-slide fade-slide" id="slide-1">
+      <div class="carousel-label">Best card to send when you're hungry</div>
+      <a href="/card.html?id=4" class="carousel-card-link">
+        <div class="carousel-img-wrap">
+          <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/shouldnt_be_alone_trending.png" alt="You Shouldn't Be Alone Today">
+        </div>
+      </a>
+    </div>
+    <div class="carousel-slide fade-slide" id="slide-2">
+      <div class="carousel-label">A shady Thank You card? Sure</div>
+      <a href="/card.html?id=7" class="carousel-card-link">
+        <div class="carousel-img-wrap">
+          <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_do_more_trending.png" alt="A Shady Thank You Card">
+        </div>
+      </a>
     </div>
   </div>
 </div>
 
 <script>
 (function(){
-  const track = document.getElementById('carouselTrack');
-  if(!track) return;
-  const slides = track.querySelectorAll('.carousel-slide');
+  const slides = document.querySelectorAll('.fade-slide');
+  if(!slides.length) return;
   let current = 0;
-  const total = slides.length;
-  const pauseDuration = 2500;
-  const slideDuration = 600;
+  const holdMs = 3000;
+  const fadeMs = 600;
 
-  function goTo(index){
-    track.style.transition = 'transform ' + slideDuration + 'ms cubic-bezier(0.4,0,0.2,1)';
-    track.style.transform = 'translateX(-' + (index * 100) + '%)';
-  }
-
-  function next(){
-    current = (current + 1) % total;
-    goTo(current);
-  }
-
-  goTo(0);
-  setInterval(next, pauseDuration + slideDuration);
+  setInterval(function(){
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, holdMs + fadeMs);
 })();
 </script>
 
