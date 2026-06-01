@@ -112,13 +112,23 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
   .coming-bg-text{font-size:80px}
   .coming-email{flex-direction:column;padding:0 20px}
 }
-.best-sellers-grid{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;max-width:900px;margin:0 auto}
-.badge-link{display:block;transition:transform 0.2s;cursor:pointer}
-.badge-link:hover{transform:scale(1.05)}
-.badge-link img{height:220px;object-fit:contain;display:block}
+/* TRENDING CAROUSEL */
+.trending-wrap{background:var(--bg);padding:48px 0 52px;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.trending-header{text-align:center;padding:0 32px;margin-bottom:32px}
+.trending-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
+.trending-title{font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream)}
+.carousel-viewport{width:100%;overflow:hidden;position:relative}
+.carousel-track{display:flex;gap:0}
+.carousel-slide{min-width:100%;display:flex;flex-direction:column;align-items:center;padding:0 32px;box-sizing:border-box}
+.carousel-label{font-family:'Fontdiner Swanky',cursive;font-size:16px;color:var(--gold);margin-bottom:12px;text-align:center;letter-spacing:0.3px}
+.carousel-img-wrap{position:relative;width:220px;height:220px;border-radius:6px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+.carousel-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.carousel-img-wrap::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,0.08);border-radius:6px;pointer-events:none}
+.carousel-card-link{text-decoration:none;display:block;transition:transform 0.2s}
+.carousel-card-link:hover .carousel-img-wrap{box-shadow:0 12px 40px rgba(193,59,27,0.4)}
 @media(max-width:768px){
-  .best-sellers-grid{gap:28px}
-  .badge-link img{height:160px}
+  .carousel-img-wrap{width:180px;height:180px}
+  .trending-wrap{padding:36px 0 40px}
 }
 /* OCCASION MENU */
 .occ-menu-wrap{background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:36px 32px}
@@ -354,22 +364,66 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 <div class="occasion-divider"></div>
 
-<!-- BEST SELLERS -->
-<div style="background:var(--bg);padding:48px 32px;text-align:center;">
-  <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px">✦ staff picks ✦</p>
-  <h2 style="font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream);margin-bottom:32px">Popular &amp; Trending</h2>
-  <div class="best-sellers-grid">
-    <a href="/card.html?id=2" class="badge-link">
-      <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/best_seller_button.png" alt="Best Seller — Today Might Suck">
-    </a>
-    <a href="/card.html?id=4" class="badge-link">
-      <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/hungry_button.png" alt="Best Card To Send When You're Hungry">
-    </a>
-    <a href="/card.html?id=7" class="badge-link">
-      <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/arrow_button.png" alt="A Spicy Thank You Card">
-    </a>
+<!-- TRENDING CAROUSEL -->
+<div class="trending-wrap">
+  <div class="trending-header">
+    <div class="trending-eyebrow">✦ staff picks ✦</div>
+    <div class="trending-title">Popular &amp; Trending</div>
+  </div>
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide">
+        <div class="carousel-label">Best Seller</div>
+        <a href="/card.html?id=2" class="carousel-card-link">
+          <div class="carousel-img-wrap">
+            <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/today_might_suck_trending.png" alt="Today Might Suck">
+          </div>
+        </a>
+      </div>
+      <div class="carousel-slide">
+        <div class="carousel-label">Best card to send when you're hungry</div>
+        <a href="/card.html?id=4" class="carousel-card-link">
+          <div class="carousel-img-wrap">
+            <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/shouldnt_be_alone_trending.png" alt="You Shouldn't Be Alone Today">
+          </div>
+        </a>
+      </div>
+      <div class="carousel-slide">
+        <div class="carousel-label">A shady Thank You card? Sure</div>
+        <a href="/card.html?id=7" class="carousel-card-link">
+          <div class="carousel-img-wrap">
+            <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_do_more_trending.png" alt="A Shady Thank You Card">
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
+
+<script>
+(function(){
+  const track = document.getElementById('carouselTrack');
+  if(!track) return;
+  const slides = track.querySelectorAll('.carousel-slide');
+  let current = 0;
+  const total = slides.length;
+  const pauseDuration = 2500;
+  const slideDuration = 600;
+
+  function goTo(index){
+    track.style.transition = 'transform ' + slideDuration + 'ms cubic-bezier(0.4,0,0.2,1)';
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+  }
+
+  function next(){
+    current = (current + 1) % total;
+    goTo(current);
+  }
+
+  goTo(0);
+  setInterval(next, pauseDuration + slideDuration);
+})();
+</script>
 
 <div class="occasion-divider"></div>
 
