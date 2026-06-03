@@ -130,25 +130,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
   .carousel-img-wrap{width:180px;height:180px}
   .trending-wrap{padding:36px 0 40px}
 }
-/* OCCASION MENU */
+/* OCCASION MENU — MARQUEE */
 .occ-menu-wrap{background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:36px 32px}
-.occ-menu-inner{max-width:560px;margin:0 auto}
-.occ-menu-header{text-align:center;margin-bottom:20px}
-.occ-menu-eyebrow{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--cream2);opacity:0.7;margin-bottom:4px;text-transform:uppercase;letter-spacing:1.5px}
-.occ-menu-title{font-family:'Fontdiner Swanky',cursive;font-size:28px;color:var(--cream);margin-bottom:6px}
-.occ-menu-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--cream2);opacity:0.7;line-height:1.5}
-.occ-tiles-container{width:482px;margin:0 auto}
-.occ-img-shape{display:block;text-decoration:none;margin-bottom:6px;transition:filter 0.2s,transform 0.15s;cursor:pointer}
-.occ-img-shape:hover{filter:brightness(1.12);transform:scale(1.02)}
-.occ-img-shape img{width:100%;display:block;height:auto}
-.occ-img-full{width:482px}
-.occ-img-row{display:flex;gap:6px;margin-bottom:6px;width:482px}
-.occ-img-half{width:238px;flex-shrink:0}
+.marquee-wrap{max-width:480px;margin:0 auto}
+.marquee-inner{position:relative;width:100%}
+.marquee-bg{width:100%;height:auto;display:block}
+.marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s}
+.marquee-tile img{width:100%;height:100%;display:block;object-fit:fill}
+.marquee-tile:hover{transform:scale(1.03);filter:brightness(1.12);z-index:2}
 @media(max-width:520px){
-  .occ-tiles-container{width:70%;max-width:340px;padding:0;margin:0 auto}
-  .occ-img-full{width:100%}
-  .occ-img-row{width:100%}
-  .occ-img-half{width:calc(50% - 3px);flex-shrink:1}
+  .marquee-wrap{max-width:100%;padding:0 16px}
 }
 .occ-browse-wrap{text-align:center;margin-top:16px}
 .occ-not-finding{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);opacity:0.7;margin-bottom:5px}
