@@ -145,8 +145,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .marquee-wrap{max-width:480px;margin:0 auto}
 .marquee-inner{position:relative;width:100%}
 .marquee-bg{width:100%;height:auto;display:block}
-.marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s}
-.marquee-tile img{width:100%;height:100%;display:block;object-fit:fill}
+.marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s;overflow:hidden}
+.marquee-tile img{width:100%;height:100%;display:block;object-fit:cover}
 .marquee-tile:hover{transform:scale(1.03);filter:brightness(1.12);z-index:2}
 @media(max-width:520px){
   .marquee-wrap{max-width:100%;padding:0 16px}
