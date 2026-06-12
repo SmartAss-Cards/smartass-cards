@@ -145,6 +145,15 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
   .carousel-img-wrap{width:180px;height:180px}
   .trending-wrap{padding:36px 0 40px}
 }
+/* SECTION SLAT HEADER */
+.slat-header{background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats.png) center center/cover no-repeat;position:relative;padding:32px 24px;text-align:center}
+.slat-header::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 30%,transparent 70%,var(--bg) 100%);pointer-events:none;z-index:0}
+.slat-header::after{content:"";position:absolute;inset:0;background:rgba(26,15,10,0.45);pointer-events:none;z-index:0}
+.slat-header-content{position:relative;z-index:1}
+.slat-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
+.slat-title{font-family:'Fontdiner Swanky',cursive;font-size:32px;color:var(--cream);line-height:1.1;margin-bottom:6px}
+.slat-sub{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--cream2);opacity:0.75;line-height:1.6;max-width:320px;margin:0 auto}
+
 /* OCCASION HEADING */
 .occ-heading-wrap{text-align:center;padding:20px 24px;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/occasion_frame.png) center center/100% 100% no-repeat}
 .occ-heading-top{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);line-height:1.1;margin-bottom:0}
@@ -359,10 +368,12 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 <!-- OCCASION MENU -->
 <div class="occ-menu-wrap">
-  <div class="occ-heading-wrap">
-    <div class="occ-heading-top">What's the</div>
-    <div class="occ-heading-bottom">Occasion?</div>
-    <p class="occ-subtext">Here's a starting point. Our cards can be used for more than one occasion.</p>
+  <div class="slat-header">
+    <div class="slat-header-content">
+      <div class="slat-eyebrow">Find Your Card</div>
+      <div class="slat-title">What's the Occasion?</div>
+      <p class="slat-sub">Here's a starting point. Our cards can be used for more than one occasion.</p>
+    </div>
   </div>
   <div class="marquee-wrap">
     <div class="marquee-inner">
@@ -383,9 +394,11 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 <!-- POPULAR & TRENDING -->
 <div class="trending-wrap">
-  <div class="trending-header">
-    <div class="trending-eyebrow">✦ staff picks ✦</div>
-    <div class="trending-title">Popular &amp; Trending</div>
+  <div class="slat-header">
+    <div class="slat-header-content">
+      <div class="slat-eyebrow">✦ Staff Picks ✦</div>
+      <div class="slat-title">Popular &amp; Trending</div>
+    </div>
   </div>
   <div class="marquee-wrap pt-wrap">
     <div class="marquee-inner">
