@@ -146,8 +146,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);mi
 .pt-wrap{max-width:420px}
 .marquee-inner{position:relative;width:100%}
 .marquee-bg{width:100%;height:auto;display:block}
-.marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;border-radius:8px;transition:background 0.2s}
-.marquee-tile:hover{background:rgba(255,255,255,0.12)}
+.marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s}
+.marquee-tile img{width:100%;height:100%;display:block;object-fit:contain}
+.marquee-tile:hover{transform:scale(1.04);filter:brightness(1.1);z-index:2}
 @media(max-width:520px){
   .marquee-wrap{max-width:100%;padding:0 16px}
 }
@@ -332,13 +333,14 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   <div class="marquee-wrap">
     <div class="marquee-inner">
       <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/occasion_Menu.png" alt="Occasion Menu">
-      <a class="marquee-tile" href="/card.html?id=1" aria-label="Medical Diagnosis" style="left:8.2667%;top:6.0633%;width:39.6741%;height:21.1041%;"></a>
-      <a class="marquee-tile" href="/card.html?id=2" aria-label="Breakup / Job Loss" style="left:55.5556%;top:6.0633%;width:39.5556%;height:21.0679%;"></a>
-      <a class="marquee-tile" href="/card.html?id=4" aria-label="Grief / Loss" style="left:8.3259%;top:31.6923%;width:38.9333%;height:20.9955%;"></a>
-      <a class="marquee-tile" href="/card.html?id=5" aria-label="Depression / Anxiety" style="left:55.6148%;top:31.6923%;width:39.1111%;height:21.0317%;"></a>
-      <a class="marquee-tile" href="/card.html?id=6" aria-label="Birthday" style="left:8.3259%;top:58.733%;width:39.3185%;height:21.0498%;"></a>
-      <a class="marquee-tile" href="/card.html?id=7" aria-label="Thank You" style="left:55.6444%;top:58.733%;width:39.3185%;height:20.9231%;"></a>
-      <a class="marquee-tile" href="/#ecards" aria-label="Browse All Cards" style="left:18.7259%;top:89.7919%;width:58.637%;height:9.2308%;"></a>
+      <a class="marquee-tile" href="/card.html?id=1" style="left:8.2667%;top:6.0633%;width:39.6741%;height:21.1041%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/medical_diagnosis.png" alt=""></a>
+      <a class="marquee-tile" href="/card.html?id=2" style="left:55.5556%;top:6.0633%;width:39.5556%;height:21.0679%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/breakup_jobloss.png" alt=""></a>
+      <a class="marquee-tile" href="/card.html?id=4" style="left:8.3259%;top:31.6923%;width:38.9333%;height:20.9955%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/grief_loss.png" alt=""></a>
+      <a class="marquee-tile" href="/card.html?id=5" style="left:55.6148%;top:31.6923%;width:39.1111%;height:21.0317%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/depression_anxiety.png" alt=""></a>
+      <a class="marquee-tile" href="/card.html?id=6" style="left:8.3259%;top:58.733%;width:39.3185%;height:21.0498%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/birthday_occasion.png" alt=""></a>
+      <a class="marquee-tile" href="/card.html?id=7" style="left:55.6444%;top:58.733%;width:39.3185%;height:20.9231%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_occasion.png" alt=""></a>
+      <a class="marquee-tile" href="/#ecards" style="left:18.7259%;top:89.7919%;width:58.637%;height:9.2308%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/browse_occasion.png" alt=""></a>
+
     </div>
   </div>
 </div>
@@ -354,10 +356,11 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   <div class="marquee-wrap pt-wrap">
     <div class="marquee-inner">
       <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/popular_trending_BG.png" alt="Popular and Trending">
-      <a class="marquee-tile" href="/card.html?id=4" aria-label="Let's Get Lunch" style="left:70.4504%;top:27.4786%;width:25.2298%;height:11.453%;"></a>
-      <a class="marquee-tile" href="/card.html?id=7" aria-label="Thank You" style="left:31.25%;top:35.8974%;width:25.046%;height:11.453%;"></a>
-      <a class="marquee-tile" href="/card.html?id=2" aria-label="Today Might Suck" style="left:68.6581%;top:44.188%;width:26.2868%;height:11.859%;"></a>
-      <a class="marquee-tile" href="/#ecards" aria-label="Browse" style="left:26.9761%;top:57.5855%;width:50.4596%;height:5.8974%;"></a>
+      <a class="marquee-tile" href="/card.html?id=4" style="left:70.4504%;top:27.4786%;width:25.2298%;height:11.453%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/get_lunch_BUTTON.png" alt=""></a>
+      <a class="marquee-tile" href="/card.html?id=7" style="left:31.25%;top:35.8974%;width:25.046%;height:11.453%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_BUTTON.png" alt=""></a>
+      <a class="marquee-tile" href="/card.html?id=2" style="left:68.6581%;top:44.188%;width:26.2868%;height:11.859%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/today_might_suck_BUTTON.png" alt=""></a>
+      <a class="marquee-tile" href="/#ecards" style="left:26.9761%;top:57.5855%;width:50.4596%;height:5.8974%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/browse_popular.png" alt=""></a>
+
     </div>
   </div>
 </div>
