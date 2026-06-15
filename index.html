@@ -165,12 +165,10 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .occ-subtext::after{right:0}
 
 /* OCCASION MENU — MARQUEE */
-.occ-menu-wrap{background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats.png) center top/cover no-repeat;border-top:none;border-bottom:1px solid var(--bdr);padding:20px 32px 36px;position:relative}
-.occ-menu-wrap::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);pointer-events:none;z-index:0}
-.occ-menu-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,15,10,0.45) 0%,rgba(26,15,10,0.45) 75%,var(--bg) 100%);pointer-events:none;z-index:0}
-.occ-menu-wrap > *{position:relative;z-index:1}
+.occ-menu-wrap{background:var(--bg);border-top:none;border-bottom:1px solid var(--bdr);padding:0}
 .marquee-wrap{max-width:480px;margin:0 auto}
 .pt-wrap{max-width:420px}
+.occ-menu-wrap .marquee-wrap{max-width:100%;margin:0;padding:0}
 .marquee-inner{position:relative;width:100%}
 .marquee-bg{width:100%;height:auto;display:block}
 .marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s}
