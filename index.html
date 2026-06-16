@@ -106,8 +106,10 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .about-btn:hover{background:var(--red2)}
 
 /* COMING SOON */
-.coming-wrap{background:var(--bg2);padding:56px 32px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
-.coming-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:140px;font-weight:900;color:rgba(200,146,42,0.04);white-space:nowrap;pointer-events:none;letter-spacing:-4px;user-select:none}
+.coming-wrap{background:var(--bg2);padding:0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.coming-bg-img{width:100%;height:auto;display:block}
+.coming-content{padding:32px 32px 48px;background:rgba(26,15,10,0.82)}
+.coming-bg-text{display:none}
 .coming-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px}
 .coming-eyebrow::before,.coming-eyebrow::after{content:'';width:40px;height:1px;background:var(--red);opacity:0.5}
 .coming-mom-img{width:120px;height:120px;object-fit:contain;margin:0 auto 20px;display:block;animation:wobble 3s ease-in-out infinite;position:relative;z-index:2}
@@ -412,17 +414,18 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 <!-- COMING SOON — MOMMA CARDS -->
 <div class="coming-wrap">
-  <div class="coming-bg-text">MOM</div>
-  <div class="coming-eyebrow">Coming Soon</div>
-  <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/momma_cartoon.png" alt="Momma" class="coming-mom-img">
-  <div class="coming-title">Cards About <em>Your Mom.</em></div>
-  <p class="coming-sub">If you grew up trash talkin' about people's mommas, then these are for you and your dumb friends. These cards go hard, so be careful.</p>
-  <div class="coming-badge">⚠️ May Cause Drama</div>
-  <div class="coming-email">
-    <input type="email" class="coming-input" placeholder="your@email.com">
-    <button class="coming-btn">Notify Me</button>
+  <img class="coming-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/your_mom_BG.png" alt="Cards About Your Mom">
+  <div class="coming-content">
+    <div class="coming-eyebrow">Coming Soon</div>
+    <div class="coming-title">Cards About <em>Your Mom.</em></div>
+    <p class="coming-sub">If you grew up trash talkin' about people's mommas, then these are for you and your dumb friends. These cards go hard, so be careful.</p>
+    <div class="coming-badge">⚠️ May Cause Drama</div>
+    <div class="coming-email">
+      <input type="email" class="coming-input" placeholder="your@email.com">
+      <button class="coming-btn">Notify Me</button>
+    </div>
+    <div class="coming-disclaimer">We won't spam you. Your mom might though.</div>
   </div>
-  <div class="coming-disclaimer">We won't spam you. Your mom might though.</div>
 </div>
 
 <div class="occasion-divider"></div>
