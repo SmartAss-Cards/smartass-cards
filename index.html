@@ -274,13 +274,15 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <body>
 
 <header class="hdr">
-  <img class="hdr-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/header_.png" alt="Smartass Support Cards">
-  <div class="hdr-overlay">
-    <button class="hdr-cart" onclick="toggleCart()">CART (<span id="cartCount">0</span>)</button>
-    <button class="hdr-menu-btn" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-      <div class="hdr-menu-label">MENU</div>
-    </button>
+  <div style="position:relative;display:block">
+    <img class="hdr-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/header_.png" alt="Smartass Support Cards">
+    <div class="hdr-overlay">
+      <button class="hdr-cart" onclick="toggleCart()">CART (<span id="cartCount">0</span>)</button>
+      <button class="hdr-menu-btn" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+        <div class="hdr-menu-label">MENU</div>
+      </button>
+    </div>
   </div>
 </header>
 
