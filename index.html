@@ -23,7 +23,8 @@ html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.015) 0px,rgba(255,255,255,0.015) 1px,transparent 1px,transparent 8px);color:var(--cream);min-height:100vh}
 
 /* HEADER */
-.hdr{background:var(--bg);border-bottom:1px solid var(--bdr);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.hdr{background:var(--bg);border-bottom:2px solid var(--red);padding:0;position:sticky;top:0;z-index:100}
+.hdr-img{width:100%;height:auto;display:block}
 .hdr-logo img{height:36px;object-fit:contain}
 @media(max-width:768px){.hdr-logo{display:none}}
 .hdr-nav{display:flex;gap:24px;align-items:center}
@@ -271,23 +272,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 </head>
 <body>
 
-<header class="hdr">
-  <div class="hdr-logo">
-    <a href="/"><img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards"></a>
-  </div>
-  <nav class="hdr-nav">
-    <a href="#ecards">eCards</a>
-    <a href="/about.html">About</a>
-    <a href="/blog.html">Blog</a>
-    <a href="mailto:sgnandt@gmail.com">Contact</a>
-    <a href="/podcast.html">SmartAss Podcast</a>
-    <button class="hdr-cart">Cart (0)</button>
-  </nav>
-  <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
-    <span></span><span></span><span></span>
-    <span style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--cream2);font-family:'DM Sans',sans-serif;font-weight:600;margin-top:2px;width:100%;text-align:center;display:block;height:auto;background:none">MENU</span>
-  </button>
-</header>
+<header class="hdr"><img class="hdr-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/header_.png" alt="Smartass Support Cards"></header>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
