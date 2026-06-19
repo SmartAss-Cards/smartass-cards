@@ -187,9 +187,13 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .occ-menu-wrap{background:var(--bg);border-top:none;border-bottom:1px solid var(--bdr);padding:0}
 .marquee-wrap{max-width:480px;margin:0 auto}
 .pt-wrap{max-width:420px}
-.pt-full{max-width:100%;width:100%;margin:0;padding:0}
-.pt-full .marquee-inner{width:100%}
-.pt-full .marquee-bg{width:100%;height:auto;display:block}
+.pt-gallery-wrap{position:relative;width:100%;overflow:hidden}
+.pt-gallery-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
+.pt-slide{min-width:100%;position:relative}
+.pt-prev,.pt-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(26,15,10,0.7);border:1px solid var(--gold);color:var(--gold);font-size:20px;padding:10px 16px;cursor:pointer;z-index:10;border-radius:2px;transition:background 0.2s}
+.pt-prev{left:8px}
+.pt-next{right:8px}
+.pt-prev:hover,.pt-next:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .occ-menu-wrap .marquee-wrap{max-width:100%;margin:0;padding:0}
 .marquee-inner{position:relative;width:100%}
 .marquee-bg{width:100%;height:auto;display:block}
@@ -418,14 +422,42 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="trending-eyebrow">✦ staff picks ✦</div>
     <div class="trending-title">Popular &amp; Trending</div>
   </div>
-  <div class="marquee-wrap pt-full">
-    <div class="marquee-inner">
-      <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/TEST_1999.png" alt="Popular and Trending">
+  <div class="pt-gallery-wrap">
+    <div class="pt-gallery-track" id="ptTrack">
+      <div class="pt-slide">
+        <div class="marquee-inner">
+          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_get_lunch_BG.png" alt="Get Lunch">
+          <a class="marquee-tile" href="/card.html?id=4" style="left:51.1582%;top:12.3815%;width:29.2074%;height:47.7784%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/get_lunch_BUTTON.png" alt="Get Lunch"></a>
+        </div>
+      </div>
+      <div class="pt-slide">
+        <div class="marquee-inner">
+          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_thank_you_bg.png" alt="Thank You">
+          <a class="marquee-tile" href="/card.html?id=7" style="left:51.5201%;top:13.7145%;width:28.4835%;height:46.5047%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_BUTTON.png" alt="Thank You"></a>
+        </div>
+      </div>
+      <div class="pt-slide">
+        <div class="marquee-inner">
+          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_today_might_suck_BG.png" alt="Today Might Suck">
+          <a class="marquee-tile" href="/card.html?id=2" style="left:50.5248%;top:12.7073%;width:29.0807%;height:47.4526%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/today_might_suck_BUTTON.png" alt="Today Might Suck"></a>
+        </div>
+      </div>
     </div>
+    <button class="pt-prev" onclick="ptSlide(-1)">&#8592;</button>
+    <button class="pt-next" onclick="ptSlide(1)">&#8594;</button>
   </div>
 </div>
 
-<div class="occasion-divider"></div>
+<script>
+(function(){
+  var current = 0;
+  var total = 3;
+  window.ptSlide = function(dir) {
+    current = (current + dir + total) % total;
+    document.getElementById('ptTrack').style.transform = 'translateX(-' + (current * 100) + '%)';
+  };
+})();
+</script>
 
 <!-- COMING SOON — MOMMA CARDS -->
 <div class="coming-wrap">
