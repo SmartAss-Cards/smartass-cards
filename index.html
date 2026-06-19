@@ -190,10 +190,7 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .pt-gallery-wrap{position:relative;width:100%;overflow:hidden}
 .pt-gallery-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
 .pt-slide{min-width:100%;position:relative}
-.pt-prev,.pt-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(26,15,10,0.7);border:1px solid var(--gold);color:var(--gold);font-size:20px;padding:10px 16px;cursor:pointer;z-index:10;border-radius:2px;transition:background 0.2s}
-.pt-prev{left:8px}
-.pt-next{right:8px}
-.pt-prev:hover,.pt-next:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+
 .occ-menu-wrap .marquee-wrap{max-width:100%;margin:0;padding:0}
 .marquee-inner{position:relative;width:100%}
 .marquee-bg{width:100%;height:auto;display:block}
@@ -419,7 +416,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <!-- POPULAR & TRENDING -->
 <div class="trending-wrap">
   <div class="trending-header">
-    <div class="trending-eyebrow">✦ staff picks ✦</div>
+    <div class="trending-eyebrow">✦ best sellers ✦</div>
     <div class="trending-title">Popular &amp; Trending</div>
   </div>
   <div class="pt-gallery-wrap">
@@ -443,8 +440,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
         </div>
       </div>
     </div>
-    <button class="pt-prev" onclick="ptSlide(-1)">&#8592;</button>
-    <button class="pt-next" onclick="ptSlide(1)">&#8594;</button>
   </div>
 </div>
 
@@ -452,10 +447,12 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 (function(){
   var current = 0;
   var total = 3;
-  window.ptSlide = function(dir) {
-    current = (current + dir + total) % total;
+  function goTo(index) {
+    current = (index + total) % total;
     document.getElementById('ptTrack').style.transform = 'translateX(-' + (current * 100) + '%)';
-  };
+  }
+  window.ptSlide = function(dir) { goTo(current + dir); };
+  setInterval(function(){ goTo(current + 1); }, 10000);
 })();
 </script>
 
