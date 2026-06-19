@@ -23,8 +23,9 @@ html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.015) 0px,rgba(255,255,255,0.015) 1px,transparent 1px,transparent 8px);color:var(--cream);min-height:100vh}
 
 /* HEADER */
-.hdr{background:var(--bg);border-bottom:2px solid var(--red);padding:0;position:sticky;top:0;z-index:100}
+.hdr{background:transparent;padding:0;position:sticky;top:0;z-index:100;display:block}
 .hdr-img{width:100%;height:auto;display:block}
+.hdr-overlay{position:absolute;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;box-sizing:border-box}
 .hdr-logo img{height:36px;object-fit:contain}
 @media(max-width:768px){.hdr-logo{display:none}}
 .hdr-nav{display:flex;gap:24px;align-items:center}
@@ -272,7 +273,16 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 </head>
 <body>
 
-<header class="hdr"><img class="hdr-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/header_.png" alt="Smartass Support Cards"></header>
+<header class="hdr">
+  <img class="hdr-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/header_.png" alt="Smartass Support Cards">
+  <div class="hdr-overlay">
+    <button class="hdr-cart" onclick="toggleCart()">CART (<span id="cartCount">0</span>)</button>
+    <button class="hdr-menu-btn" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+      <div class="hdr-menu-label">MENU</div>
+    </button>
+  </div>
+</header>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
