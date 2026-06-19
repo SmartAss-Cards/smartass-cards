@@ -188,6 +188,9 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .marquee-wrap{max-width:480px;margin:0 auto}
 .pt-wrap{max-width:420px}
 .pt-gallery-wrap{position:relative;width:100%;overflow:hidden}
+.pt-text-overlay{position:absolute;left:1.1758%;top:21.3341%;width:39.537%;height:30.9316%;display:flex;flex-direction:column;justify-content:center;padding:2% 3%;box-sizing:border-box;pointer-events:none}
+.pt-main-text{font-family:'DM Sans',sans-serif;font-size:clamp(12px,2.2vw,28px);color:var(--cream);line-height:1.3;margin-bottom:8%}
+.pt-send-this{font-family:'DM Sans',sans-serif;font-size:clamp(10px,1.4vw,18px);font-weight:700;letter-spacing:0.91px;color:var(--cream);text-transform:lowercase;border-bottom:1px solid var(--cream);display:inline-block;padding-bottom:2px}
 .pt-gallery-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
 .pt-slide{min-width:100%;position:relative}
 
@@ -423,20 +426,32 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="pt-gallery-track" id="ptTrack">
       <div class="pt-slide">
         <div class="marquee-inner">
-          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_get_lunch_BG.png" alt="Get Lunch">
-          <a class="marquee-tile" href="/card.html?id=4" style="left:51.1582%;top:12.3815%;width:29.2074%;height:47.7784%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/get_lunch_BUTTON.png" alt="Get Lunch"></a>
+          <div class="pt-text-overlay">
+          <div class="pt-main-text">Are you hungry?<br>Know somebody<br>struggling?</div>
+          <div class="pt-send-this">send this</div>
+        </div>
+        <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_get_lunch_BG.png" alt="Get Lunch">
+          <a class="marquee-tile" href="/card.html?id=4" style="left:51.9383%;top:11.7647%;width:29.6528%;height:45.3983%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/get_lunch_BUTTON.png" alt="Get Lunch"></a>
         </div>
       </div>
       <div class="pt-slide">
         <div class="marquee-inner">
-          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_thank_you_bg.png" alt="Thank You">
-          <a class="marquee-tile" href="/card.html?id=7" style="left:51.5201%;top:13.7145%;width:28.4835%;height:46.5047%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_BUTTON.png" alt="Thank You"></a>
+          <div class="pt-text-overlay">
+          <div class="pt-main-text">A salty ass<br>Thank You<br>card?</div>
+          <div class="pt-send-this">send this</div>
+        </div>
+        <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_thank_you_bg.png" alt="Thank You">
+          <a class="marquee-tile" href="/card.html?id=7" style="left:52.3057%;top:13.0312%;width:28.9179%;height:44.188%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_BUTTON.png" alt="Thank You"></a>
         </div>
       </div>
       <div class="pt-slide">
         <div class="marquee-inner">
-          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_today_might_suck_BG.png" alt="Today Might Suck">
-          <a class="marquee-tile" href="/card.html?id=2" style="left:50.5248%;top:12.7073%;width:29.0807%;height:47.4526%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/today_might_suck_BUTTON.png" alt="Today Might Suck"></a>
+          <div class="pt-text-overlay">
+          <div class="pt-main-text">Some real shit.<br>Right here.</div>
+          <div class="pt-send-this">send this</div>
+        </div>
+        <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_today_might_suck_BG.png" alt="Today Might Suck">
+          <a class="marquee-tile" href="/card.html?id=2" style="left:51.2952%;top:12.0743%;width:29.5242%;height:45.0887%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/today_might_suck_BUTTON.png" alt="Today Might Suck"></a>
         </div>
       </div>
     </div>
