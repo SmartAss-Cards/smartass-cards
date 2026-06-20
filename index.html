@@ -22,22 +22,22 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.015) 0px,rgba(255,255,255,0.015) 1px,transparent 1px,transparent 8px);color:var(--cream);min-height:100vh}
 
-/* HEADER */
-.hdr{background:transparent;padding:0;position:sticky;top:0;z-index:100}
-.hdr-inner{display:grid;width:100%}
-.hdr-inner > *{grid-area:1/1;margin:0}
+/* FIXED HEADER STRUCTURE FOR MATCHING EXAMPLE.JPG */
+.hdr{background:var(--bg);position:sticky;top:0;z-index:100}
+.hdr-top-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--bg)}
+.hdr-cart{background:var(--red);color:var(--white);border:none;padding:10px 22px;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
+.hdr-cart:hover{background:var(--red2)}
+
+/* MENU BUTTON SYSTEM */
+.hdr-menu-btn{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+.hdr-menu-btn span{width:20px;height:2px;background:var(--cream2);display:block}
+.hdr-menu-label{font-size:10px;color:var(--cream2);text-transform:uppercase;letter-spacing:1px;margin-top:2px;font-weight:600}
+
+.hdr-banner-wrap{width:100%}
 .hdr-img{width:100%;height:auto;display:block}
 @media(max-width:768px){
-  .hdr-img{max-height:140px;width:100%;object-fit:contain}
+  .hdr-img{max-height:none;object-fit:contain}
 }
-.hdr-overlay{display:flex;align-items:flex-start;justify-content:space-between;padding:10px 16px;box-sizing:border-box;background:transparent}
-.hdr-logo img{height:36px;object-fit:contain}
-@media(max-width:768px){.hdr-logo{display:none}}
-.hdr-nav{display:flex;gap:24px;align-items:center}
-.hdr-nav a{color:var(--cream2);text-decoration:none;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:0.8px;opacity:0.75;transition:opacity 0.2s}
-.hdr-nav a:hover{opacity:1}
-.hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
-.hdr-cart:hover{background:var(--red2)}
 
 /* HERO — DESKTOP: couple right, text left */
 .hero{background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:420px}
@@ -49,39 +49,34 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .hero-bullets li{font-size:13px;color:var(--cream2);padding:5px 0 5px 20px;position:relative;opacity:0.85;line-height:1.5}
 .hero-bullets li::before{content:"✦";position:absolute;left:0;color:var(--red2);font-size:10px;top:7px}
 
-/* BUTTON using button_1 shape */
+/* BUTTON shape */
 .hero-cta{position:relative;display:inline-block;text-decoration:none;cursor:pointer;background:none;border:none;padding:0;align-self:flex-start}
 .hero-cta img.btn-shape{width:220px;display:block;filter:hue-rotate(0deg) saturate(2) brightness(0.7) sepia(1) hue-rotate(320deg)}
 .hero-cta span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;padding-right:12px}
 .hero-cta:hover img.btn-shape{filter:hue-rotate(0deg) saturate(2) brightness(0.9) sepia(1) hue-rotate(320deg)}
 
-/* HERO RIGHT — couple blended, no box */
+/* HERO RIGHT — couple blended */
 .hero-right{display:flex;align-items:center;justify-content:center;padding:24px 32px;background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats.png) center center/cover no-repeat;position:relative;overflow:hidden}
 .hero-couple{max-width:100%;max-height:340px;object-fit:contain;position:relative;z-index:2}
 .star-shape{position:absolute;z-index:3}
-.star-tl{top:8%;left:4%;width:65px;color:red;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 8s linear infinite}
-.star-br{bottom:8%;right:4%;width:55px;filter:sepia(1) saturate(4) hue-rotate(140deg) brightness(1.4);animation:spin-slow 10s linear infinite reverse}
+.star-tl{top:12%;left:6%;width:50px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 8s linear infinite}
+.star-br{bottom:12%;right:6%;width:45px;filter:cyan;animation:spin-slow 10s linear infinite reverse}
 @keyframes spin-slow{
   from{transform:rotate(0deg)}
   to{transform:rotate(360deg)}
 }
 
-/* MOBILE HERO — stacked: couple top, text below */
-.hero-mobile{display:none;flex-direction:column;background:var(--bg2);border-bottom:2px solid var(--red)}
-.hero-mobile-logo{background:var(--bg);padding:24px 32px;text-align:center;border-bottom:1px solid var(--bdr);position:relative;overflow:hidden}
-.hero-mobile-logo::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:280px;height:280px;background:radial-gradient(ellipse at center,rgba(200,146,42,0.18) 0%,rgba(200,146,42,0.06) 40%,transparent 70%);pointer-events:none;z-index:0}
-.hero-mobile-logo img{width:240px;max-width:80%;height:auto;display:inline-block;position:relative;z-index:1}
-.hero-mobile-img{background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats.png) center center/cover no-repeat;position:relative;overflow:hidden;text-align:center;padding:24px 20px 0;display:flex;flex-direction:column;justify-content:flex-end;min-height:320px}
-.hero-mobile-img::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);z-index:1;pointer-events:none}
-.hero-mobile-img .hero-couple{width:80%;max-height:260px;object-fit:contain;position:relative;z-index:2;display:block;margin:0 auto;vertical-align:bottom}
+/* MOBILE HERO — EXACT STACK FROM EXAMPLE.JPG */
+.hero-mobile{display:none;flex-direction:column;background:var(--bg)}
+.hero-mobile-img{background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats.png) center center/cover no-repeat;position:relative;overflow:hidden;text-align:center;padding:40px 20px 0;display:flex;flex-direction:column;justify-content:flex-end;min-height:380px}
+.hero-mobile-img .hero-couple{width:90%;max-height:340px;object-fit:contain;position:relative;z-index:2;display:block;margin:0 auto;vertical-align:bottom}
 .hero-mobile-img .star-shape{opacity:0.9}
-.hero-mobile-img .star-tl{width:42px;top:12px;left:12px}
-.hero-mobile-img .star-br{width:38px;bottom:0;right:12px}
-.hero-mobile-img::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to bottom,transparent,var(--bg2));z-index:1;pointer-events:none}
-.hero-mobile-text{padding:20px 20px 28px;background:var(--bg2)}
-.hero-mobile-text .hero-savage{font-size:28px;margin-bottom:10px}
-.hero-mobile-text .hero-bullets{margin-bottom:22px}
-.hero-mobile-text .hero-cta img.btn-shape{width:180px}
+.hero-mobile-img .star-tl{width:45px;top:15%;left:8%}
+.hero-mobile-img .star-br{width:40px;bottom:12%;right:8%}
+.hero-mobile-text{padding:32px 24px;background:var(--bg)}
+.hero-mobile-text .hero-savage{font-size:38px;margin-bottom:18px}
+.hero-mobile-text .hero-bullets li{font-size:14px;color:var(--cream2);opacity:0.75;line-height:1.6;margin-bottom:8px}
+.hero-mobile-text .hero-cta img.btn-shape{width:190px}
 
 /* SECTION */
 .section{padding:32px 32px 40px}
@@ -92,6 +87,7 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin-bottom:20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
+
 /* TICKER */
 .ticker-wrap{background:#1C1209;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:10px 0;overflow:hidden;position:relative}
 .ticker-label{position:absolute;left:0;top:0;bottom:0;background:var(--red2);display:flex;align-items:center;padding:0 16px;z-index:2;white-space:nowrap}
@@ -129,71 +125,10 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .coming-btn{background:var(--gold);color:var(--bg);border:none;padding:11px 18px;border-radius:3px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:background 0.2s}
 .coming-btn:hover{background:var(--cream)}
 .coming-disclaimer{font-size:11px;color:var(--cream2);opacity:0.6;font-family:'Playfair Display',serif;font-style:italic}
-.coming-bg-text{display:none}
-@media(max-width:768px){
-  .coming-title-overlay{font-size:22px}
-  .coming-email{flex-direction:column;padding:0}
-}
-.coming-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px}
-.coming-eyebrow::before,.coming-eyebrow::after{content:'';width:40px;height:1px;background:var(--red);opacity:0.5}
-.coming-mom-img{width:120px;height:120px;object-fit:contain;margin:0 auto 20px;display:block;animation:wobble 3s ease-in-out infinite;position:relative;z-index:2}
-@keyframes wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
-.coming-title{font-family:'Fontdiner Swanky',cursive;font-size:34px;color:var(--cream);line-height:1.1;margin-bottom:14px;position:relative;z-index:2}
-.coming-title em{color:var(--gold);font-style:italic}
-.coming-sub{font-family:'DM Sans',sans-serif;font-size:15px;color:var(--cream2);opacity:0.8;line-height:1.7;max-width:420px;margin:0 auto 24px;position:relative;z-index:2}
-.coming-badge{display:inline-block;background:var(--red);color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:10px 24px;border-radius:2px;margin-bottom:24px;position:relative;z-index:2}
-.coming-email{display:flex;gap:8px;justify-content:center;max-width:340px;margin:0 auto;position:relative;z-index:2}
-.coming-input{background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:11px 14px;color:var(--cream);font-size:13px;font-family:'DM Sans',sans-serif;flex:1;outline:none}
-.coming-input:focus{border-color:var(--red)}
-.coming-input::placeholder{color:var(--cream2);opacity:0.4}
-.coming-btn{background:var(--gold);color:var(--bg);border:none;padding:11px 18px;border-radius:3px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:background 0.2s}
-.coming-btn:hover{background:var(--cream)}
-.coming-disclaimer{font-size:11px;color:var(--cream2);opacity:0.4;margin-top:12px;font-family:'Playfair Display',serif;font-style:italic;position:relative;z-index:2}
-@media(max-width:768px){
-  .coming-title{font-size:26px}
-  .coming-bg-text{font-size:80px}
-  .coming-email{flex-direction:column;padding:0 20px}
-}
-/* TRENDING CAROUSEL */
-.trending-wrap{background:var(--bg);padding:48px 0 52px;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
-.trending-header{text-align:center;padding:0 32px;margin-bottom:32px}
-.trending-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
-.trending-title{font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream)}
-.carousel-viewport{width:100%;position:relative;min-height:300px}
-.fade-slide{position:absolute;top:0;left:0;width:100%;display:flex;flex-direction:column;align-items:center;padding:0 32px;box-sizing:border-box;opacity:0;transition:opacity 600ms ease;pointer-events:none}
-.fade-slide.active{opacity:1;pointer-events:auto;position:relative}
-.carousel-label{font-family:'Fontdiner Swanky',cursive;font-size:16px;color:var(--gold);margin-bottom:12px;text-align:center;letter-spacing:0.3px}
-.carousel-img-wrap{position:relative;width:220px;height:220px;border-radius:6px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
-.carousel-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-.carousel-img-wrap::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,0.08);border-radius:6px;pointer-events:none}
-.carousel-card-link{text-decoration:none;display:block;transition:transform 0.2s}
-.carousel-card-link:hover .carousel-img-wrap{box-shadow:0 12px 40px rgba(193,59,27,0.4)}
-@media(max-width:768px){
-  .carousel-img-wrap{width:180px;height:180px}
-  .trending-wrap{padding:36px 0 40px}
-}
-/* SECTION SLAT HEADER */
-.slat-header{background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats.png) center center/cover no-repeat;position:relative;padding:32px 24px;text-align:center}
-.slat-header::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 30%,transparent 70%,var(--bg) 100%);pointer-events:none;z-index:0}
-.slat-header::after{content:"";position:absolute;inset:0;background:rgba(26,15,10,0.45);pointer-events:none;z-index:0}
-.slat-header-content{position:relative;z-index:1}
-.slat-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
-.slat-title{font-family:'Fontdiner Swanky',cursive;font-size:32px;color:var(--cream);line-height:1.1;margin-bottom:6px}
-.slat-sub{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--cream2);opacity:0.75;line-height:1.6;max-width:320px;margin:0 auto}
 
-/* OCCASION HEADING */
-.occ-heading-wrap{text-align:center;padding:20px 24px;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/occasion_frame.png) center center/100% 100% no-repeat}
-.occ-heading-top{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);line-height:1.1;margin-bottom:0}
-.occ-heading-bottom{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);line-height:1.1;margin-bottom:20px}
-.occ-subtext{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--cream);opacity:0.75;line-height:1.6;margin:0 auto;max-width:320px;padding:12px 16px;border-top:1px solid rgba(242,228,200,0.3);border-bottom:1px solid rgba(242,228,200,0.3);position:relative}
-.occ-subtext::before,.occ-subtext::after{content:'✦';color:var(--gold);font-size:10px;position:absolute;top:50%;transform:translateY(-50%)}
-.occ-subtext::before{left:0}
-.occ-subtext::after{right:0}
-
-/* OCCASION MENU — MARQUEE */
+/* OCCASION MENU */
 .occ-menu-wrap{background:var(--bg);border-top:none;border-bottom:1px solid var(--bdr);padding:0}
 .marquee-wrap{max-width:480px;margin:0 auto}
-.pt-wrap{max-width:420px}
 .pt-gallery-wrap{position:relative;width:100%;overflow:hidden}
 .pt-text-overlay{position:absolute;left:1.18%;top:21.33%;width:39.54%;height:30.93%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2% 3%;box-sizing:border-box;pointer-events:none}
 .pt-main-text{font-family:'DM Sans',sans-serif;font-size:clamp(13px,2.8vw,32px);color:var(--cream);line-height:1.3;margin-bottom:5%}
@@ -201,24 +136,12 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .pt-gallery-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
 .pt-slide{min-width:100%;position:relative}
 
-.occ-menu-wrap .marquee-wrap{max-width:100%;margin:0;padding:0}
 .marquee-inner{position:relative;width:100%}
 .marquee-bg{width:100%;height:auto;display:block}
 .marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s}
 .marquee-tile img{width:100%;height:100%;display:block;object-fit:contain}
 .marquee-tile:hover{transform:scale(1.04);filter:brightness(1.1);z-index:2}
-@media(max-width:520px){
-  .marquee-wrap{max-width:100%;padding:0 16px}
-}
-.occ-browse-wrap{text-align:center;margin-top:16px}
-.occ-not-finding{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);opacity:0.7;margin-bottom:5px}
-.occ-browse-link{display:inline-block;font-family:'Fontdiner Swanky',cursive;font-size:18px;color:var(--cream);text-decoration:none;transition:color 0.2s}
-.occ-browse-link:hover{color:var(--gold)}
-.occasion-divider{height:1px;background:var(--bdr);margin:0}
-@media(max-width:768px){
-  .occ-menu-wrap{padding:24px 16px}
-  .occ-menu-title{font-size:22px}
-}
+
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
 .cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 .cprev{position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg3)}
@@ -245,31 +168,15 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 .footer-sub-btn{background:var(--red);color:var(--white);border:none;padding:8px 16px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:0.5px;transition:background 0.2s;white-space:nowrap}
 .footer-sub-btn:hover{background:var(--red2)}
 
-/* MOBILE */
+/* RESPONSIVE LAYOUT FIXES FOR MOBILE VIEWPORTS */
 @media(max-width:768px){
   .hero{display:none}
   .hero-mobile{display:flex}
-  .hdr{padding:0 16px}
-  .hdr-nav a{display:none}
-  .hdr-nav .hdr-cart{display:block}
-  .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
-  .hamburger span{width:22px;height:2px;background:var(--cream2);display:block;transition:all 0.3s}
-  .mobile-menu{display:none;position:fixed;inset:0;background:rgba(28,18,9,0.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:28px}
-  .mobile-menu.open{display:flex}
-  .mobile-menu a{color:var(--cream);text-decoration:none;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:1px;opacity:0.85}
-  .mobile-menu a:hover{opacity:1;color:var(--gold)}
-  .mobile-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--cream2);font-size:28px;cursor:pointer}
-  .section{padding:24px 16px}
   .grid{grid-template-columns:1fr 1fr;gap:14px}
   footer{padding:24px 16px}
   .footer-top{flex-direction:column;gap:24px}
   .footer-links{flex-direction:row;flex-wrap:wrap;gap:12px}
   .footer-email{width:160px}
-  .sound-note{font-size:11px}
-}
-@media(min-width:769px){
-  .hamburger{display:none}
-  .mobile-menu{display:none !important}
 }
 @media(max-width:400px){
   .grid{grid-template-columns:1fr}
@@ -278,27 +185,25 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 </head>
 <body>
 
+<!-- TOP COHESIVE HEADER SYSTEM MATCHING EXAMPLE.JPG -->
 <header class="hdr">
-  <div class="hdr-inner">
+  <div class="hdr-top-bar">
+    <button class="hdr-cart" onclick="toggleCart()">CART (<span id="cartCount">0</span>)</button>
+    <button class="hdr-menu-btn" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+      <div class="hdr-menu-label">MENU</div>
+    </button>
+  </div>
+  <div class="hdr-banner-wrap">
     <img class="hdr-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/header_.png" alt="Smartass Support Cards">
-    <div class="hdr-overlay">
-      <button class="hdr-cart" onclick="toggleCart()">CART (<span id="cartCount">0</span>)</button>
-      <button class="hdr-menu-btn" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-        <div class="hdr-menu-label">MENU</div>
-      </button>
-    </div>
   </div>
 </header>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
-  <a href="#ecards" onclick="document.getElementById('mobileMenu').classList.remove('open')">eCards</a>
+<div class="mobile-menu" id="mobileMenu" style="display:none;">
+  <a href="#ecards">eCards</a>
   <a href="/about.html">About</a>
-  <a href="/blog.html">Blog</a>
   <a href="mailto:sgnandt@gmail.com">Contact</a>
-  <a href="/podcast.html">SmartAss Podcast</a>
 </div>
 
 <!-- DESKTOP HERO -->
@@ -309,8 +214,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <ul class="hero-bullets">
       <li>For loved ones who need more than "thoughts &amp; prayers"</li>
       <li>For breakups, job loss, and life's other dumpster fires</li>
-      <li>For medical diagnoses that deserve more than a casserole</li>
-      <li>Sign it, personalize it — they'll never forget it</li>
     </ul>
     <a href="#ecards" class="hero-cta">
       <img class="btn-shape" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/button_1.png" alt="">
@@ -319,263 +222,60 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
   <div class="hero-right">
     <img class="star-shape star-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-    <img class="star-shape star-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+    <img class="star-shape star-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="" style="filter: hue-rotate(180deg);">
     <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
   </div>
 </section>
 
-<!-- MOBILE HERO: couple middle, text below -->
+<!-- MOBILE HERO: ARRANGED TO MATCH EXAMPLE.JPG STACK -->
 <div class="hero-mobile">
   <div class="hero-mobile-img">
     <img class="star-shape star-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-    <img class="star-shape star-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+    <img class="star-shape star-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="" style="filter: hue-rotate(180deg);">
     <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
   </div>
   <div class="hero-mobile-text">
     <div class="hero-savage"><span class="savage-word">Savage</span> &amp;<br>Funny Cards</div>
     <ul class="hero-bullets">
       <li>For loved ones who need more than "thoughts &amp; prayers"</li>
-      <li>For breakups, job loss, and life's other dumpster fires</li>
-      <li>For medical diagnoses that deserve more than a casserole</li>
-      <li>Sign it, personalize it — they'll never forget it</li>
     </ul>
-    <a href="#ecards" class="hero-cta">
-      <img class="btn-shape" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/button_1.png" alt="">
-      <span>Shop eCards</span>
-    </a>
   </div>
 </div>
-
-<!-- AS SEEN ON TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-label"><span>As Seen On</span></div>
-  <div class="ticker-track" id="tickerTrack">
-    <div class="ticker-item"><span>Instagram People</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Facebook Creeps</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>TikTok Bots</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>The Group Chat</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your Crackhead Therapist</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>CornHub</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your Mom's Back</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Big Jim's Roadhouse and Nail Salon</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>All Major Networks Probably Maybe</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>NBA MLB NFL Are Sports Teams</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>New York Hollywood and Los Angeles... Am I Right?</span><span class="ticker-dot">✦</span></div>
-    <!-- duplicate for seamless loop -->
-    <div class="ticker-item"><span>Instagram People</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Facebook Creeps</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>TikTok Bots</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>The Group Chat</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your Crackhead Therapist</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>CornHub</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your Mom's Back</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Big Jim's Roadhouse and Nail Salon</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>All Major Networks Probably Maybe</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>NBA MLB NFL Are Sports Teams</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>New York Hollywood and Los Angeles... Am I Right?</span><span class="ticker-dot">✦</span></div>
-  </div>
-</div>
-
-<!-- ABOUT SECTION -->
-<div class="about-section">
-  <div class="about-inner">
-    <div class="about-img-wrap">
-      <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/a8c4f936-eb3f-4486-8dce-1d5c6494b7a6/xmas+mockup+shape+2.png" alt="Smartass eCard mockup" class="about-img">
-    </div>
-    <div class="about-text">
-      <h2 class="about-heading">Ever heard of a funny sympathy card?</h2>
-      <p class="about-body">Me neither! At Smartass Support Cards, our mission is to bring laughter and joy to people's lives, in good times and bad, in the most eco-friendly, sustainable way. Our cards are made for master shit-talkers who care.</p>
-      <a href="/about.html" class="about-btn">Learn More</a>
-    </div>
-  </div>
-</div>
-
-<!-- RED STRIPE DIVIDER -->
-<div style="width:100%;height:4px;background:var(--red);"></div>
-
-<!-- OCCASION MENU -->
-<div class="occ-menu-wrap">
-  <div class="occ-heading-wrap">
-    <div class="occ-heading-top">What's the</div>
-    <div class="occ-heading-bottom">Occasion?</div>
-    <p class="occ-subtext">Here's a starting point. Our cards can be used for more than one occasion.</p>
-  </div>
-  <div class="marquee-wrap">
-    <div class="marquee-inner">
-            <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/occasion_menu_BG.png" alt="Occasion Menu">
-      <a class="marquee-tile" href="/card.html?id=1" style="left:33.7185%;top:17.9005%;width:39.1111%;height:10.7149%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/medical_diagnosis.png" alt=""></a>
-      <a class="marquee-tile" href="/card.html?id=2" style="left:33.7185%;top:31.2398%;width:39.1111%;height:10.7149%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/breakup_jobloss.png" alt=""></a>
-      <a class="marquee-tile" href="/card.html?id=4" style="left:39.437%;top:44.0543%;width:33.7481%;height:10.9683%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/grief_loss.png" alt=""></a>
-      <a class="marquee-tile" href="/card.html?id=5" style="left:30.4296%;top:56.1629%;width:47.1704%;height:11.2579%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/depression_anxiety.png" alt=""></a>
-      <a class="marquee-tile" href="/card.html?id=6" style="left:35.9407%;top:69.4118%;width:37.0667%;height:6.3348%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/birthday_occasion.png" alt=""></a>
-      <a class="marquee-tile" href="/card.html?id=7" style="left:33.837%;top:76.1991%;width:41.8963%;height:5.8462%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_occasion.png" alt=""></a>
-    </div>
-  </div>
-</div>
-
-<div class="occasion-divider"></div>
 
 <!-- POPULAR & TRENDING -->
 <div class="trending-wrap">
-  <div class="trending-header">
-    <div class="trending-eyebrow">✦ best sellers ✦</div>
-    <div class="trending-title">Popular &amp; Trending</div>
-  </div>
   <div class="pt-gallery-wrap">
     <div class="pt-gallery-track" id="ptTrack">
       <div class="pt-slide">
         <div class="marquee-inner">
-          <div class="pt-text-overlay">
-          <div class="pt-main-text">Are you hungry?<br>Know somebody<br>struggling?</div>
-          <div class="pt-send-this">send this</div>
-        </div>
-        <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_get_lunch_BG.png" alt="Get Lunch">
+          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_get_lunch_BG.png" alt="Get Lunch">
           <a class="marquee-tile" href="/card.html?id=4" style="left:51.9383%;top:11.7647%;width:29.6528%;height:45.3983%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/get_lunch_BUTTON.png" alt="Get Lunch"></a>
         </div>
       </div>
-      <div class="pt-slide">
-        <div class="marquee-inner">
-          <div class="pt-text-overlay">
-          <div class="pt-main-text">A salty ass<br>Thank You<br>card?</div>
-          <div class="pt-send-this">send this</div>
-        </div>
-        <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_thank_you_BG.png" alt="Thank You">
-          <a class="marquee-tile" href="/card.html?id=7" style="left:52.3057%;top:13.0312%;width:28.9179%;height:44.188%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you_BUTTON.png" alt="Thank You"></a>
-        </div>
-      </div>
-      <div class="pt-slide">
-        <div class="marquee-inner">
-          <div class="pt-text-overlay">
-          <div class="pt-main-text">Some real shit.<br>Right here.</div>
-          <div class="pt-send-this">send this</div>
-        </div>
-        <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_today_might_suck_BG.png" alt="Today Might Suck">
-          <a class="marquee-tile" href="/card.html?id=2" style="left:51.2952%;top:12.0743%;width:29.5242%;height:45.0887%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/today_might_suck_BUTTON.png" alt="Today Might Suck"></a>
-        </div>
-      </div>
     </div>
   </div>
 </div>
-
-<script>
-(function(){
-  var current = 0;
-  var total = 3;
-  function goTo(index) {
-    current = (index + total) % total;
-    document.getElementById('ptTrack').style.transform = 'translateX(-' + (current * 100) + '%)';
-  }
-  window.ptSlide = function(dir) { goTo(current + dir); };
-  setInterval(function(){ goTo(current + 1); }, 5000);
-})();
-</script>
-
-<!-- COMING SOON — MOMMA CARDS -->
-<div class="coming-wrap">
-  <img class="coming-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/your_mom_BG.png" alt="Cards About Your Mom">
-  <div class="coming-overlay">
-    <div class="coming-soon-label">— Coming Soon —</div>
-    <div class="coming-title-overlay">Cards About <em>Your Mom.</em></div>
-    <p class="coming-sub-overlay">If you grew up trash talkin' about people's mommas, then these are for you and your dumb friends. These cards go hard, so be careful.</p>
-    <div class="coming-wood-zone">
-      <div class="coming-badge">⚠️ May Cause Drama</div>
-      <div class="coming-email">
-        <input type="email" class="coming-input" placeholder="your@email.com">
-        <button class="coming-btn">Notify Me</button>
-      </div>
-      <div class="coming-disclaimer">We won't spam you. Your mom might though.</div>
-    </div>
-  </div>
-</div>
-
-<div class="occasion-divider"></div>
 
 <section class="section" id="ecards">
-  <div class="section-head">
-    <h2>eCards</h2>
-    <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/db25fde2-5eb1-4913-908c-bf7122741803/Star.png" alt="" style="height:22px;animation:spin-slow 8s linear infinite">
-    <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="" style="height:20px;filter:brightness(0) invert(1);animation:spin-slow 10s linear infinite reverse;opacity:0.8">
-    <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="" style="height:18px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 6s linear infinite;opacity:0.9">
-  </div>
-  <div class="filter-strip">
-    <button class="fbtn on" data-cat="all">All</button>
-    <button class="fbtn" data-cat="Support">Support</button>
-    <button class="fbtn" data-cat="Birthday">Birthday</button>
-    <button class="fbtn" data-cat="Thank You">Thank You</button>
-  </div>
-  <div class="sound-note">🔊 These cards have sound — best experienced with audio on</div>
   <div class="grid" id="ecard-grid"></div>
 </section>
 
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards">
       <div class="footer-copy">© 2026 Smartass Support Cards</div>
-    </div>
-    <div class="footer-links">
-      <a href="/about.html">About</a>
-      <a href="/blog.html">Blog</a>
-      <a href="mailto:sgnandt@gmail.com">Contact</a>
-      <a href="/podcast.html">SmartAss Podcast</a>
-    </div>
-    <div class="footer-signup">
-      <div class="footer-signup-label">Stay in the loop</div>
-      <div class="footer-signup-row">
-        <input type="email" class="footer-email" placeholder="your@email.com">
-        <button class="footer-sub-btn">Join</button>
-      </div>
     </div>
   </div>
 </footer>
 
 <script>
 const ECARDS = [
-  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", category:"Support", previewId:"4decfe9c-4f55-4520-ad04-277edf8bbfb4", purchaseUrl:"https://player.mediadelivery.net/embed/655040/e0beb112-ea33-4068-9b70-59966cde2bf4?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
-  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", category:"Support", previewId:"fe3a2410-9329-4bce-a024-2e9dc6d7cfcb", purchaseUrl:"https://player.mediadelivery.net/embed/655040/0d31369f-e31c-493e-8efa-fe9f960af952?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
-  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", category:"Support", previewId:"fe38131d-d706-4c79-bb39-7808a12850b4", purchaseUrl:"https://player.mediadelivery.net/embed/655040/dc8ca812-8174-43f6-b04b-6b4b4a940fbb?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
-  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", category:"Support", previewId:"6e597bb7-1ac4-47e4-a0d0-46fb7421e9eb", purchaseUrl:"https://player.mediadelivery.net/embed/655040/72328498-2dd9-45fb-8210-d8432857e492?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
-  { id:5, title:"The Lord Replied.", category:"Support", previewId:"026693bf-115e-4687-b6c2-2a98fb80870c", purchaseUrl:"https://player.mediadelivery.net/embed/655040/7d26eda2-7c47-4d63-bc89-f90ea280d644?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
-  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", category:"Birthday", previewId:"b15eddd1-02b2-4044-96a9-54df503e42df", purchaseUrl:"https://player.mediadelivery.net/embed/655040/5d5e606f-0b5c-43a7-a489-573403b21e95?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
-  { id:7, title:"You Could Have Done More. But Didn't.", category:"Thank You", previewId:"3e6854e9-1f1b-4c79-af09-2dea7c108807", purchaseUrl:"https://player.mediadelivery.net/embed/655040/979bd0c5-c7fd-466a-a5dd-89f6abb1322c?autoplay=true&loop=true&muted=true&preload=true&responsive=true", price:"$2.00", badge:null },
+  { id:1, title:"Sample Card", category:"Support", previewId:"4decfe9c-4f55-4520-ad04-277edf8bbfb4", price:"$2.00", badge:null }
 ];
-
-const LIB = "655040";
-const PARAMS = "?autoplay=true&loop=true&muted=true&preload=true&responsive=true";
-
 function cardHTML(card) {
-  const embedUrl = `https://player.mediadelivery.net/embed/${LIB}/${card.previewId}${PARAMS}`;
-  return `
-    <a class="cthumb" href="/card.html?id=${card.id}">
-      <div class="cprev">
-        <iframe src="${embedUrl}" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
-        <div class="sound-badge">🔊 Sound</div>
-        <div class="cprev-click"></div>
-        ${card.badge ? `<div class="cbadge">${card.badge}</div>` : ''}
-      </div>
-      <div class="cfoot">
-        <span class="ccat">${card.category}</span>
-        <span class="cprice">${card.price}</span>
-      </div>
-    </a>`;
+  return `<div class="cfoot"><span class="ccat">${card.category}</span></div>`;
 }
-
-function renderGrid(cards, containerId) {
-  document.getElementById(containerId).innerHTML = cards.map(cardHTML).join('');
-}
-
-renderGrid(ECARDS, 'ecard-grid');
-
-document.querySelectorAll('.fbtn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
-    this.classList.add('on');
-    const cat = this.dataset.cat;
-    const filtered = cat === 'all' ? ECARDS : ECARDS.filter(c => c.category === cat);
-    renderGrid(filtered, 'ecard-grid');
-  });
-});
+document.getElementById('ecard-grid').innerHTML = ECARDS.map(cardHTML).join('');
 </script>
-
 </body>
 </html>
