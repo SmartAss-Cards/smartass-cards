@@ -354,12 +354,12 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <!-- PAGE 2 -->
 <div class="page2-wrap">
   <div class="page2-inner">
+    <div class="page2-img-wrap">
+      <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/phones_.png" alt="Smartass Support Cards" class="page2-img">
+    </div>
     <h2 class="about-heading">Ever heard of a funny sympathy card?</h2>
     <p class="about-body">Me neither! At Smartass Support Cards, our mission is to bring laughter and joy to people's lives, in good times and bad, in the most eco-friendly, sustainable way. Our cards are made for master shit-talkers who care.</p>
-    <div class="page2-img-wrap">
-      <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/view_master.png" alt="Smartass Support Cards" class="page2-img">
-    </div>
-    <a href="#ecards" class="page2-cta">Shop eCards</a>
+    <a href="/about.html" class="page2-cta">About Us</a>
   </div>
 </div>
 
@@ -568,6 +568,14 @@ function renderGrid(cards, containerId) {
 }
 
 renderGrid(ECARDS, 'ecard-grid');
+
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+function toggleCart() {
+  alert('Cart coming soon!');
+}
 
 document.querySelectorAll('.fbtn').forEach(btn => {
   btn.addEventListener('click', function() {
