@@ -99,15 +99,16 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* PAGE 2 */
-.page2-wrap{background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:48px 32px;text-align:center}
-.page2-inner{max-width:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px}
-.page2-img-wrap{width:100%;margin:0 -32px;width:calc(100% + 64px);position:relative}
+.page2-wrap{background:var(--bg2);border-top:none;border-bottom:1px solid var(--bdr);padding:0 32px 40px;text-align:center}
+.page2-inner{max-width:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px}
+.page2-img-wrap{width:100%;margin:0 -32px 4px;width:calc(100% + 64px);position:relative}
 .page2-img{width:100%;height:auto;display:block}
 .page2-heading-wrap{position:relative;display:flex;align-items:flex-start;justify-content:center;width:100%}
 .page2-star{color:var(--gold);font-size:22px;line-height:1;display:inline-block}
-.page2-star-tl{position:absolute;top:12px;left:8px;z-index:2;font-size:26px}
-.page2-star-tr{position:absolute;top:-8px;right:-8px;font-size:18px}
-.page2-cta{display:inline-block;background:#667449;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:14px 36px;border-radius:3px;text-decoration:none;transition:background 0.2s}
+.page2-star-tl{position:absolute;top:18px;left:12px;z-index:2;font-size:38px}
+.page2-star-tr{position:absolute;top:-6px;right:0;font-size:30px}
+.page2-inner .about-body{max-width:85%;margin:0 auto}
+.page2-cta{display:inline-block;background:#667449;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:14px 36px;border-radius:3px;text-decoration:none;transition:background 0.2s;margin-top:-4px}
 .page2-cta:hover{background:#556038}
 
 /* ABOUT SECTION */
@@ -363,7 +364,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
       <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/view_master.png" alt="Smartass Support Cards" class="page2-img">
     </div>
     <div class="page2-heading-wrap">
-      <h2 class="about-heading">Ever heard of a funny sympathy card?</h2>
+      <h2 class="about-heading">Ever heard of a <span style="color:var(--gold)">funny</span> sympathy card?</h2>
       <span class="page2-star page2-star-tr">✦</span>
     </div>
     <p class="about-body">Me neither! At Smartass Support Cards, our mission is to bring laughter and joy to people's lives, in good times and bad, in the most eco-friendly, sustainable way. Our cards are made for master shit-talkers who care.</p>
