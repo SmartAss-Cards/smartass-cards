@@ -201,9 +201,9 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 
 /* OCCASION MENU — MARQUEE */
 .occ-menu-wrap{background:var(--bg);border-top:none;border-bottom:1px solid var(--bdr);padding:0;width:100%}
-.occ-menu-wrap .marquee-wrap{max-width:100%;width:100%;margin:0;padding:0}
-.occ-menu-wrap .marquee-inner{width:100%;display:block}
-.occ-menu-wrap .marquee-bg{width:100%;height:auto;display:block;max-width:100%}
+.occ-full-wrap{width:100%;margin:0;padding:0}
+.occ-full-wrap .marquee-inner{width:100%;display:block}
+.occ-full-wrap .marquee-bg{width:100%;height:auto;display:block}
 .marquee-wrap{max-width:480px;margin:0 auto}
 .pt-wrap{max-width:420px}
 .pt-gallery-wrap{position:relative;width:100%;overflow:hidden}
@@ -213,7 +213,6 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .pt-gallery-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
 .pt-slide{min-width:100%;position:relative}
 
-.occ-menu-wrap .marquee-wrap{max-width:100%;margin:0;padding:0}
 .marquee-inner{position:relative;width:100%}
 .marquee-bg{width:100%;height:auto;display:block}
 .marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s}
@@ -228,7 +227,7 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .occ-browse-link:hover{color:var(--gold)}
 .occasion-divider{height:1px;background:var(--bdr);margin:0}
 @media(max-width:768px){
-  .occ-menu-wrap{padding:24px 16px}
+  .occ-menu-wrap{padding:0}
   .occ-menu-title{font-size:22px}
 }
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
@@ -415,7 +414,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="occ-heading-bottom">Occasion?</div>
     <p class="occ-subtext">Here's a starting point. Our cards can be used for more than one occasion.</p>
   </div>
-  <div class="marquee-wrap">
+  <div class="occ-full-wrap">
     <div class="marquee-inner">
       <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/test_1999.png" alt="Occasion Menu">
     </div>
