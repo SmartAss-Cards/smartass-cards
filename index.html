@@ -200,10 +200,10 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .occ-subtext::after{right:0}
 
 /* OCCASION MENU — MARQUEE */
-.occ-menu-wrap{background:var(--bg);border-top:none;border-bottom:1px solid var(--bdr);padding:0}
-.occ-menu-wrap .marquee-wrap{max-width:100%;margin:0;padding:0}
-.occ-menu-wrap .marquee-inner{width:100%}
-.occ-menu-wrap .marquee-bg{width:100%;height:auto;display:block}
+.occ-menu-wrap{background:var(--bg);border-top:none;border-bottom:1px solid var(--bdr);padding:0;width:100%}
+.occ-menu-wrap .marquee-wrap{max-width:100%;width:100%;margin:0;padding:0}
+.occ-menu-wrap .marquee-inner{width:100%;display:block}
+.occ-menu-wrap .marquee-bg{width:100%;height:auto;display:block;max-width:100%}
 .marquee-wrap{max-width:480px;margin:0 auto}
 .pt-wrap{max-width:420px}
 .pt-gallery-wrap{position:relative;width:100%;overflow:hidden}
@@ -410,6 +410,11 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 <!-- OCCASION MENU -->
 <div class="occ-menu-wrap">
+  <div class="occ-heading-wrap">
+    <div class="occ-heading-top">What's the</div>
+    <div class="occ-heading-bottom">Occasion?</div>
+    <p class="occ-subtext">Here's a starting point. Our cards can be used for more than one occasion.</p>
+  </div>
   <div class="marquee-wrap">
     <div class="marquee-inner">
       <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/test_1999.png" alt="Occasion Menu">
