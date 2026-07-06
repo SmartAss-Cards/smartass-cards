@@ -20,7 +20,18 @@
   --white:#FDF8EF;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.015) 0px,rgba(255,255,255,0.015) 1px,transparent 1px,transparent 8px);color:var(--cream);min-height:100vh}
+body{
+  font-family:'DM Sans',sans-serif;
+  background-color:var(--bg);
+  /* Seamless overlay blending your monochromatic cream 8.png motif subtly over the dark brown background grid */
+  background-image: 
+    linear-gradient(rgba(28, 18, 9, 0.98), rgba(28, 18, 9, 0.98)), 
+    url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/a276c01c8df6cf8241800221f2d8c4b2569ec3fe/site_BG.png);
+  background-size: auto, 450px 450px;
+  background-repeat: repeat;
+  color:var(--cream);
+  min-height:100vh;
+}
 
 /* HEADER */
 .hdr{background:#1C1209;position:relative;width:100%}
@@ -164,7 +175,19 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
   .coming-email{flex-direction:column;padding:0 20px}
 }
 /* TRENDING CAROUSEL */
-.trending-wrap{background:var(--bg);padding:48px 0 52px;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.trending-wrap{
+  background-color:var(--bg);
+  /* Carry the diamond matrix texture through the carousel block backgrounds cleanly */
+  background-image: 
+    linear-gradient(rgba(28, 18, 9, 0.98), rgba(28, 18, 9, 0.98)), 
+    url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/a276c01c8df6cf8241800221f2d8c4b2569ec3fe/site_BG.png);
+  background-size: auto, 450px 450px;
+  background-repeat: repeat;
+  padding:48px 0 52px;
+  overflow:hidden;
+  border-top:1px solid var(--bdr);
+  border-bottom:1px solid var(--bdr);
+}
 .trending-header{text-align:center;padding:0 32px;margin-bottom:32px}
 .trending-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
 .trending-title{font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream)}
@@ -201,7 +224,19 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .occ-subtext::after{right:0}
 
 /* OCCASION MENU — MARQUEE */
-.occ-menu-wrap{background:var(--bg);border-top:none;border-bottom:1px solid var(--bdr);padding:0;width:100%}
+.occ-menu-wrap{
+  background-color:var(--bg);
+  /* Background pattern loop */
+  background-image: 
+    linear-gradient(rgba(28, 18, 9, 0.98), rgba(28, 18, 9, 0.98)), 
+    url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/a276c01c8df6cf8241800221f2d8c4b2569ec3fe/site_BG.png);
+  background-size: auto, 450px 450px;
+  background-repeat: repeat;
+  border-top:none;
+  border-bottom:1px solid var(--bdr);
+  padding:0;
+  width:100%
+}
 .occ-full-wrap{width:100%;margin:0;padding:0}
 .occ-full-wrap .marquee-inner{width:100%;display:block}
 .occ-full-wrap .marquee-bg{width:100%;height:auto;display:block}
