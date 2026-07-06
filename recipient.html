@@ -134,6 +134,14 @@ body{font-family:'DM Sans',sans-serif;background:#1C1209;color:#F2E4C8}
 }
 .cta-btn:hover{background:#C13B1B}
 
+/* LOADING / ERROR STATES */
+.state-box{position:relative;z-index:5;text-align:center;padding:80px 24px;max-width:420px;margin:0 auto}
+.state-title{font-family:'Playfair Display',serif;font-size:24px;color:#F2E4C8;margin-bottom:12px;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
+.state-sub{font-size:14px;color:#D9C9A8;opacity:0.85;line-height:1.7;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
+.state-sub a{color:#C8922A}
+.spinner{width:36px;height:36px;border:3px solid rgba(200,146,42,0.25);border-top-color:#C8922A;border-radius:50%;margin:0 auto 20px;animation:spin-load 0.9s linear infinite}
+@keyframes spin-load{to{transform:rotate(360deg)}}
+
 /* FOOTER */
 .rec-footer{text-align:center;padding:8px 0 20px;position:relative;z-index:5}
 .rec-footer img{height:22px;opacity:0.35}
@@ -159,7 +167,13 @@ body{font-family:'DM Sans',sans-serif;background:#1C1209;color:#F2E4C8}
 
   <div class="ribbon">✦ You've got a Smartass Support Card ✦</div>
 
-  <div class="content">
+  <div class="state-box" id="state-box">
+    <div class="spinner" id="state-spinner"></div>
+    <div class="state-title" id="state-title">Unwrapping your card…</div>
+    <div class="state-sub" id="state-sub">This usually takes just a moment.</div>
+  </div>
+
+  <div class="content" id="content" style="display:none">
     <div class="from-label">A card from</div>
     <div class="from-name" id="from-name">Your friend</div>
 
@@ -194,42 +208,73 @@ body{font-family:'DM Sans',sans-serif;background:#1C1209;color:#F2E4C8}
 </div>
 
 <script>
-const CARDS = [
-  { id:1, purchaseUrl:"https://player.mediadelivery.net/embed/655040/e0beb112-ea33-4068-9b70-59966cde2bf4?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
-  { id:2, purchaseUrl:"https://player.mediadelivery.net/embed/655040/0d31369f-e31c-493e-8efa-fe9f960af952?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
-  { id:3, purchaseUrl:"https://player.mediadelivery.net/embed/655040/dc8ca812-8174-43f6-b04b-6b4b4a940fbb?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
-  { id:4, purchaseUrl:"https://player.mediadelivery.net/embed/655040/72328498-2dd9-45fb-8210-d8432857e492?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
-  { id:5, purchaseUrl:"https://player.mediadelivery.net/embed/655040/7d26eda2-7c47-4d63-bc89-f90ea280d644?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
-  { id:6, purchaseUrl:"https://player.mediadelivery.net/embed/655040/5d5e606f-0b5c-43a7-a489-573403b21e95?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
-  { id:7, purchaseUrl:"https://player.mediadelivery.net/embed/655040/979bd0c5-c7fd-466a-a5dd-89f6abb1322c?autoplay=true&loop=false&muted=false&preload=true&responsive=true" },
-];
+function showError(title, sub) {
+  document.getElementById('state-spinner').style.display = 'none';
+  document.getElementById('state-title').textContent = title;
+  document.getElementById('state-sub').innerHTML = sub;
+}
 
-function load() {
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get('id')) || 1;
-  const from = params.get('from') || 'Your friend';
-  const msg = params.get('msg') || '';
-  const emoji = params.get('emoji') || '';
-  const to = params.get('to') || '';
-  const signersRaw = params.get('signers') || '';
-  const card = CARDS.find(c => c.id === id) || CARDS[0];
+function renderCard(data) {
+  document.getElementById('state-box').style.display = 'none';
+  document.getElementById('content').style.display = 'flex';
 
-  document.title = `${from} sent you a card — Smartass Support Cards`;
+  const from = data.from || 'Your friend';
+  document.title = from + ' sent you a card — Smartass Support Cards';
   document.getElementById('from-name').textContent = from;
-  document.getElementById('card-video').src = card.purchaseUrl;
-  document.getElementById('msg-text').textContent = msg ? `"${msg}"` : '';
-  document.getElementById('sig-name').textContent = `— ${from}`;
-  document.getElementById('sig-emoji').textContent = emoji;
+  document.getElementById('card-video').src = data.videoUrl;
+  document.getElementById('msg-text').textContent = data.msg ? '"' + data.msg + '"' : '';
+  document.getElementById('sig-name').textContent = '— ' + from;
+  document.getElementById('sig-emoji').textContent = data.emoji || '';
 
-  const signers = signersRaw ? signersRaw.split(',').filter(s => s.trim()) : [];
+  const signers = (data.signers || '').split(',').map(s => s.trim()).filter(Boolean);
   if (signers.length > 0) {
     document.getElementById('signers-box').style.display = 'block';
-    document.getElementById('signer-list').innerHTML = signers.map(s => `
-      <div class="signer-item">
-        <div class="savatar">${s.trim().charAt(0)}</div>
-        <div class="sname">${s.trim()}</div>
-      </div>`).join('');
+    const list = document.getElementById('signer-list');
+    signers.forEach(name => {
+      const item = document.createElement('div');
+      item.className = 'signer-item';
+      const avatar = document.createElement('div');
+      avatar.className = 'savatar';
+      avatar.textContent = name.charAt(0);
+      const label = document.createElement('div');
+      label.className = 'sname';
+      label.textContent = name;
+      item.appendChild(avatar);
+      item.appendChild(label);
+      list.appendChild(item);
+    });
   }
+}
+
+async function load() {
+  const token = new URLSearchParams(window.location.search).get('t');
+  if (!token) {
+    showError("Hmm, this link looks broken.",
+      'Check that you copied the whole link from your email, or <a href="/">send someone a card of your own</a>.');
+    return;
+  }
+
+  // Payment confirmation can lag by a few seconds right after checkout,
+  // so retry politely for up to ~90 seconds before giving up.
+  const maxAttempts = 30;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    try {
+      const res = await fetch('/api/card?t=' + encodeURIComponent(token));
+      if (res.status === 200) {
+        renderCard(await res.json());
+        return;
+      }
+      if (res.status !== 202) break; // invalid or missing — stop retrying
+      if (attempt === 3) {
+        document.getElementById('state-sub').textContent =
+          'Confirming the payment — this can take up to a minute. Hang tight.';
+      }
+    } catch (err) { /* network hiccup — retry */ }
+    await new Promise(r => setTimeout(r, 3000));
+  }
+
+  showError("We couldn't open this card.",
+    'The link may be invalid, expired, or the payment didn\'t go through. If you think that\'s wrong, reply to the email you received or <a href="mailto:sgnandt@gmail.com">contact us</a>.');
 }
 
 load();
