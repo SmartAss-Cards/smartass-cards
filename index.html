@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smartass Support Cards — Animated eCards with Personality</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<meta name="description" content="Savage, funny animated eCards with sound — for sympathy, breakups, job loss, birthdays, and thank yous. Because life's too short for empty platitudes.">
+<meta property="og:title" content="Smartass Support Cards — Animated eCards with Personality">
+<meta property="og:description" content="Savage &amp; funny animated eCards with sound. For loved ones who need more than thoughts &amp; prayers.">
+<meta property="og:image" content="https://smartass-cards.pages.dev/header_.png">
+<meta property="og:type" content="website">
+<!-- TODO: add a favicon file to your repo root, then uncomment:
+<link rel="icon" href="/favicon.png"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=DM+Sans:wght@400;500;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -20,7 +29,7 @@
   --white:#FDF8EF;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/site_BG.png);background-repeat:repeat;color:var(--cream);min-height:100vh}
+body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);min-height:100vh}
 
 /* HEADER */
 .hdr{background:#1C1209;position:relative;width:100%}
@@ -31,7 +40,7 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .hdr-cart:hover{background:var(--red2)}
 
 /* HERO — DESKTOP: couple right, text left */
-.hero{background-color:var(--bg2);background-image:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/site_BG.png);background-repeat:repeat;display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:420px}
+.hero{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:420px}
 .hero-left{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
 .hero-savage{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--red2);line-height:1.1;margin-bottom:14px}
 .hero-savage .savage-word{color:var(--cream)}
@@ -47,29 +56,15 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .hero-cta:hover img.btn-shape{filter:hue-rotate(0deg) saturate(2) brightness(0.9) sepia(1) hue-rotate(320deg)}
 
 /* HERO RIGHT — couple blended, no box */
-.hero-right{display:flex;align-items:center;justify-content:center;padding:24px 32px;background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats.png) center center/cover no-repeat;position:relative;overflow:hidden}
+.hero-right{display:flex;align-items:center;justify-content:center;padding:24px 32px;background:url(/wood_slats.png) center center/cover no-repeat;position:relative;overflow:hidden}
 .hero-couple{max-width:100%;max-height:340px;object-fit:contain;position:relative;z-index:2}
 .star-shape{position:absolute;z-index:3}
-.star-tl{top:8%;left:4%;width:65px;color:red;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 8s linear infinite}
+.star-tl{top:8%;left:4%;width:65px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 8s linear infinite}
 .star-br{bottom:8%;right:4%;width:55px;filter:sepia(1) saturate(4) hue-rotate(140deg) brightness(1.4);animation:spin-slow 10s linear infinite reverse}
 @keyframes spin-slow{
   from{transform:rotate(0deg)}
   to{transform:rotate(360deg)}
 }
-
-/* MOBILE HERO — stacked: couple top, text below */
-.hero-mobile{display:none;flex-direction:column;background-color:var(--bg2);background-image:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/site_BG.png);background-repeat:repeat;border-bottom:2px solid var(--red)}
-.hero-mobile-img{background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats.png) center center/cover no-repeat;position:relative;overflow:hidden;text-align:center;padding:24px 20px 0;display:flex;flex-direction:column;justify-content:flex-end;min-height:320px}
-.hero-mobile-img::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);z-index:1;pointer-events:none}
-.hero-mobile-img .hero-couple{width:80%;max-height:260px;object-fit:contain;position:relative;z-index:2;display:block;margin:0 auto;vertical-align:bottom}
-.hero-mobile-img .star-shape{opacity:0.9}
-.hero-mobile-img .star-tl{width:42px;top:12px;left:12px}
-.hero-mobile-img .star-br{width:38px;bottom:0;right:12px}
-.hero-mobile-img::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to bottom,transparent,var(--bg2));z-index:1;pointer-events:none}
-.hero-mobile-text{padding:20px 20px 28px;background:var(--bg2)}
-.hero-mobile-text .hero-savage{font-size:28px;margin-bottom:10px}
-.hero-mobile-text .hero-bullets{margin-bottom:22px}
-.hero-mobile-text .hero-cta img.btn-shape{width:180px}
 
 /* SECTION */
 .section{padding:32px 32px 40px}
@@ -84,16 +79,16 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .ticker-wrap{background:#1C1209;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:10px 0;overflow:hidden;position:relative}
 .ticker-label{position:absolute;left:0;top:0;bottom:0;background:var(--red2);display:flex;align-items:center;padding:0 16px;z-index:2;white-space:nowrap}
 .ticker-label span{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:2px}
-.ticker-track{display:flex;animation:ticker-scroll 45s linear infinite;width:max-content;padding-left:140px}
+.ticker-track{display:flex;animation:ticker-scroll 45s linear infinite;width:max-content}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);white-space:nowrap;padding:0 32px;display:flex;align-items:center;gap:10px}
 .ticker-dot{color:var(--gold);font-size:14px}
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* PAGE 2 */
-.page2-wrap{background-color:var(--bg2);background-image:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/site_BG.png);background-repeat:repeat;border-top:none;border-bottom:1px solid var(--bdr);padding:0 32px 40px;text-align:center}
+.page2-wrap{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;border-top:none;border-bottom:1px solid var(--bdr);padding:0 32px 40px;text-align:center}
 .page2-inner{max-width:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px}
-.page2-img-wrap{width:100%;margin:0 -32px 4px;width:calc(100% + 64px);position:relative}
+.page2-img-wrap{margin:0 -32px 4px;width:calc(100% + 64px);position:relative}
 .page2-img{width:100%;height:auto;display:block}
 .page2-heading-wrap{position:relative;display:flex;align-items:flex-start;justify-content:center;width:100%}
 .page2-star{color:var(--gold);font-size:22px;line-height:1;display:inline-block}
@@ -108,7 +103,7 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .about-body{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--cream2);opacity:0.85;line-height:1.7;margin-bottom:24px}
 
 /* COMING SOON */
-.coming-wrap{background-color:var(--bg2);background-image:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/site_BG.png);background-repeat:repeat;padding:0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.coming-wrap{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;padding:0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
 .coming-bg-img{width:100%;height:auto;display:block}
 .coming-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;box-sizing:border-box}
 .coming-soon-label{margin-top:3%;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 4px rgba(0,0,0,0.9),0 0 12px rgba(0,0,0,0.9);background:rgba(26,15,10,0.55);padding:6px 18px;border-radius:2px}
@@ -129,7 +124,7 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
   .coming-email{flex-direction:column;padding:0}
 }
 /* TRENDING CAROUSEL */
-.trending-wrap{background-color:var(--bg);background-image:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/site_BG.png);background-repeat:repeat;padding:48px 0 52px;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.trending-wrap{background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;padding:48px 0 52px;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
 .trending-header{text-align:center;padding:0 32px;margin-bottom:32px}
 .trending-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
 .trending-title{font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream)}
@@ -137,7 +132,10 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
   .trending-wrap{padding:36px 0 40px}
 }
 /* OCCASION HEADING */
-.occ-heading-wrap{text-align:center;padding:20px 24px;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/occasion_frame.png) center center/100% 100% no-repeat}
+/* TODO: occasion_frame.png is NOT in your GitHub repo (the URL returns 404, so this
+   background has silently never rendered). Either upload the file to the repo root,
+   or delete the background declaration below. */
+.occ-heading-wrap{text-align:center;padding:20px 24px;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;background:url(/occasion_frame.png) center center/100% 100% no-repeat}
 .occ-heading-top{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);line-height:1.1;margin-bottom:0}
 .occ-heading-bottom{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);line-height:1.1;margin-bottom:20px}
 .occ-click-text{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-top:8px;margin-bottom:0}
@@ -147,24 +145,34 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .occ-subtext::after{right:0}
 
 /* OCCASION MENU — MARQUEE */
-.occ-menu-wrap{background-color:var(--bg);background-image:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/site_BG.png);background-repeat:repeat;border-top:none;border-bottom:1px solid var(--bdr);padding:0;width:100%}
+.occ-menu-wrap{background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;border-top:none;border-bottom:1px solid var(--bdr);padding:0;width:100%}
 .occ-full-wrap{width:100%;margin:0;padding:0}
 .occ-full-wrap .marquee-inner{width:100%;display:block}
 .occ-full-wrap .marquee-bg{width:100%;height:auto;display:block}
 .pt-gallery-wrap{position:relative;width:100%;overflow:hidden}
 .pt-gallery-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
 .pt-slide{min-width:100%;position:relative}
+.pt-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;background:rgba(28,18,9,0.75);border:1px solid var(--gold);color:var(--gold);width:40px;height:40px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;transition:background 0.2s,color 0.2s}
+.pt-arrow:hover{background:var(--gold);color:var(--bg)}
+.pt-prev{left:12px}
+.pt-next{right:12px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){
+  .ticker-track,.star-shape,.section-head img{animation:none !important}
+  .pt-gallery-track{transition:none}
+}
 
 .marquee-inner{position:relative;width:100%}
 .marquee-bg{width:100%;height:auto;display:block}
 .marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s}
-.marquee-tile img{width:100%;height:100%;display:block;object-fit:fill}
+.marquee-tile img{width:100%;height:100%;display:block;object-fit:contain}
 .marquee-tile:hover{transform:scale(1.04);filter:brightness(1.1);z-index:2}
 .occasion-divider{height:1px;background:var(--bdr);margin:0}
 @media(max-width:768px){
   .occ-menu-wrap{padding:0}
 }
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+.cthumb{display:block;text-decoration:none;background:var(--bg2);border:2px solid var(--bdr);border-radius:8px;overflow:hidden;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s}
 .cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 .cprev{position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg3)}
 .cprev iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none}
@@ -180,7 +188,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 .footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
 .footer-brand img{height:28px;object-fit:contain;opacity:0.7;display:block;margin-bottom:8px}
 .footer-links{display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:12px;color:var(--cream2);opacity:0.5;text-decoration:none;transition:opacity 0.2s}
+.footer-links a{font-size:12px;color:var(--cream2);opacity:0.7;text-decoration:none;transition:opacity 0.2s}
 .footer-links a:hover{opacity:1}
 .footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
 .footer-signup-label{font-size:12px;color:var(--cream2);opacity:0.65;margin-bottom:8px;font-weight:500}
@@ -193,9 +201,17 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero{display:none}
-  .hero-mobile{display:flex}
-  .hdr{padding:0 16px}
+  .hero{grid-template-columns:1fr}
+  .hero-right{order:-1;align-items:flex-end;min-height:320px;padding:24px 20px 0}
+  .hero-right::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);z-index:1;pointer-events:none}
+  .hero-right::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to bottom,transparent,var(--bg2));z-index:1;pointer-events:none}
+  .hero-right .hero-couple{width:80%;max-height:260px;margin:0 auto}
+  .hero-right .star-tl{width:42px;top:12px;left:12px;opacity:0.9}
+  .hero-right .star-br{width:38px;bottom:0;right:12px;opacity:0.9}
+  .hero-left{padding:24px 20px 32px}
+  .hero-savage{font-size:28px}
+  .hero-sub{display:none}
+  .hero-cta img.btn-shape{width:180px}
   .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
   .hamburger span{width:22px;height:2px;background:var(--cream2);display:block;transition:all 0.3s}
   .mobile-menu{display:none;position:fixed;inset:0;background:rgba(28,18,9,0.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:28px}
@@ -225,20 +241,20 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <header class="hdr">
   <div class="hdr-top-bar">
     <button class="hdr-cart" onclick="toggleCart()">CART (<span id="cartCount">0</span>)</button>
-    <button class="hamburger" onclick="toggleMenu()">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 
   <div class="hdr-banner-wrap">
-    <img class="hdr-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/header_.png" alt="Smartass Support Cards">
+    <img class="hdr-img" src="/header_.png" alt="Smartass Support Cards — Funny Cards For When Life Sucks" width="1902" height="613">
   </div>
 </header>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
-  <a href="#ecards" onclick="document.getElementById('mobileMenu').classList.remove('open')">eCards</a>
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="#ecards" onclick="closeMenu()">eCards</a>
   <a href="/about.html">About</a>
   <a href="/blog.html">Blog</a>
   <a href="mailto:sgnandt@gmail.com">Contact</a>
@@ -248,7 +264,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <!-- DESKTOP HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-savage"><span class="savage-word">Savage</span> &amp;<br>Funny Cards</div>
+    <h1 class="hero-savage"><span class="savage-word">Savage</span> &amp;<br>Funny Cards</h1>
     <p class="hero-sub">Specializing in funny sympathy &amp; support e‑cards because life is too short for empty platitudes.</p>
     <ul class="hero-bullets">
       <li>For loved ones who need more than "thoughts &amp; prayers"</li>
@@ -257,45 +273,23 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
       <li>Sign it, personalize it — they'll never forget it</li>
     </ul>
     <a href="#ecards" class="hero-cta">
-      <img class="btn-shape" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/button_1.png" alt="">
+      <img class="btn-shape" src="/button_1.png" alt="">
       <span>Shop eCards</span>
     </a>
   </div>
   <div class="hero-right">
-    <img class="star-shape star-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-    <img class="star-shape star-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+    <img class="star-shape star-tl" src="/thick_star.png" alt="">
+    <img class="star-shape star-br" src="/science_shape.png" alt="">
     <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
   </div>
 </section>
-
-<!-- MOBILE HERO: couple middle, text below -->
-<div class="hero-mobile">
-  <div class="hero-mobile-img">
-    <img class="star-shape star-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-    <img class="star-shape star-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
-    <img class="hero-couple" src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/33b9155b-ba2b-4078-98af-f03026464ed7/couple+ipad+2.png" alt="Send a Smartass card">
-  </div>
-  <div class="hero-mobile-text">
-    <div class="hero-savage"><span class="savage-word">Savage</span> &amp;<br>Funny Cards</div>
-    <ul class="hero-bullets">
-      <li>For loved ones who need more than "thoughts &amp; prayers"</li>
-      <li>For breakups, job loss, and life's other dumpster fires</li>
-      <li>For medical diagnoses that deserve more than a casserole</li>
-      <li>Sign it, personalize it — they'll never forget it</li>
-    </ul>
-    <a href="#ecards" class="hero-cta">
-      <img class="btn-shape" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/button_1.png" alt="">
-      <span>Shop eCards</span>
-    </a>
-  </div>
-</div>
 
 <!-- PAGE 2 -->
 <div class="page2-wrap">
   <div class="page2-inner">
     <div class="page2-img-wrap">
       <span class="page2-star page2-star-tl">✦</span>
-      <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/hands_holding_phones.png" alt="Smartass Support Cards" class="page2-img">
+      <img src="/hands_holding_phones.png" alt="Two hands holding phones showing Smartass cards" class="page2-img" width="1022" height="745">
     </div>
     <div class="page2-heading-wrap">
       <h2 class="about-heading">Ever heard of a <span style="color:#E04820">funny</span> sympathy card?</h2>
@@ -310,18 +304,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <div class="ticker-wrap">
   <div class="ticker-label"><span>As Seen On</span></div>
   <div class="ticker-track" id="tickerTrack">
-    <div class="ticker-item"><span>Instagram People</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Facebook Creeps</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>TikTok Bots</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>The Group Chat</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your Crackhead Therapist</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>CornHub</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your Mom's Back</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Big Jim's Roadhouse and Nail Salon</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>All Major Networks Probably Maybe</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>NBA MLB NFL Are Sports Teams</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>New York Hollywood and Los Angeles... Am I Right?</span><span class="ticker-dot">✦</span></div>
-    <!-- duplicate for seamless loop -->
     <div class="ticker-item"><span>Instagram People</span><span class="ticker-dot">✦</span></div>
     <div class="ticker-item"><span>Facebook Creeps</span><span class="ticker-dot">✦</span></div>
     <div class="ticker-item"><span>TikTok Bots</span><span class="ticker-dot">✦</span></div>
@@ -349,13 +331,13 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
   <div class="occ-full-wrap">
     <div class="marquee-inner">
-      <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/occasion_menu_BG.png" alt="Occasion Menu">
-      <a class="marquee-tile" href="/card.html?id=1" style="left:25.9058%;top:0.266%;width:51.6304%;height:18.8239%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/medical_diagnosis.png" alt="Medical Diagnosis"></a>
-      <a class="marquee-tile" href="/card.html?id=2" style="left:35.9149%;top:12.7364%;width:48.2563%;height:24.9113%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/job_loss_breakup.png" alt="Breakup Job Loss"></a>
-      <a class="marquee-tile" href="/card.html?id=4" style="left:22.4638%;top:27.0981%;width:48.981%;height:24.0839%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/grief_loss.png" alt="Grief Loss"></a>
-      <a class="marquee-tile" href="/card.html?id=5" style="left:35.2582%;top:38.6229%;width:48.3016%;height:26.9208%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/depression_anxiety.png" alt="Depression Anxiety"></a>
-      <a class="marquee-tile" href="/card.html?id=6" style="left:23.1658%;top:56.1761%;width:48.4149%;height:23.2565%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/birthday.png" alt="Birthday"></a>
-      <a class="marquee-tile" href="/card.html?id=7" style="left:35.0996%;top:70.6856%;width:48.4375%;height:23.4929%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thank_you.png" alt="Thank You"></a>
+      <img class="marquee-bg" src="/occasion_menu_BG.png" alt="Occasion Menu" width="1100" height="843">
+      <a class="marquee-tile" href="/card.html?id=1" style="left:25.9058%;top:0.266%;width:51.6304%;height:18.8239%;"><img src="/medical_diagnosis.png" alt="Medical Diagnosis"></a>
+      <a class="marquee-tile" href="/card.html?id=2" style="left:35.9149%;top:12.7364%;width:48.2563%;height:24.9113%;"><img src="/job_loss_breakup.png" alt="Breakup Job Loss"></a>
+      <a class="marquee-tile" href="/card.html?id=4" style="left:22.4638%;top:27.0981%;width:48.981%;height:24.0839%;"><img src="/grief_loss.png" alt="Grief Loss"></a>
+      <a class="marquee-tile" href="/card.html?id=5" style="left:35.2582%;top:38.6229%;width:48.3016%;height:26.9208%;"><img src="/depression_anxiety.png" alt="Depression Anxiety"></a>
+      <a class="marquee-tile" href="/card.html?id=6" style="left:23.1658%;top:56.1761%;width:48.4149%;height:23.2565%;"><img src="/birthday.png" alt="Birthday"></a>
+      <a class="marquee-tile" href="/card.html?id=7" style="left:35.0996%;top:70.6856%;width:48.4375%;height:23.4929%;"><img src="/thank_you.png" alt="Thank You"></a>
     </div>
   </div>
 </div>
@@ -372,42 +354,57 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="pt-gallery-track" id="ptTrack">
       <div class="pt-slide">
         <div class="marquee-inner">
-          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_get_lunch_BG.png" alt="Get Lunch">
-          <a class="marquee-tile" href="/card.html?id=4" style="left:14.4957%;top:8.8657%;width:57.4132%;height:76.3862%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_get_lunch_BUTTON.png" alt="Get Lunch"></a>
+          <img class="marquee-bg" src="/pop_get_lunch_BG.png" alt="Get Lunch" width="1100" height="718">
+          <a class="marquee-tile" href="/card.html?id=4" style="left:14.4957%;top:8.8657%;width:57.4132%;height:76.3862%;"><img src="/pop_get_lunch_BUTTON.png" alt="Get Lunch"></a>
         </div>
       </div>
       <div class="pt-slide">
         <div class="marquee-inner">
-          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_thank_you_BG.png" alt="Thank You">
-          <a class="marquee-tile" href="/card.html?id=7" style="left:14.4957%;top:7.8525%;width:57.1009%;height:76.2173%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_thank_you_BUTTON.png" alt="Thank You"></a>
+          <img class="marquee-bg" src="/pop_thank_you_BG.png" alt="Thank You" width="1100" height="718">
+          <a class="marquee-tile" href="/card.html?id=7" style="left:14.4957%;top:7.8525%;width:57.1009%;height:76.2173%;"><img src="/pop_thank_you_BUTTON.png" alt="Thank You"></a>
         </div>
       </div>
       <div class="pt-slide">
         <div class="marquee-inner">
-          <img class="marquee-bg" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_today_might_suck_BG.png" alt="Today Might Suck">
-          <a class="marquee-tile" href="/card.html?id=2" style="left:14.4957%;top:8.8657%;width:56.7702%;height:75.9640%;"><img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/pop_today_might_suck_BUTTON.png" alt="Today Might Suck"></a>
+          <img class="marquee-bg" src="/pop_today_might_suck_BG.png" alt="Today Might Suck" width="1100" height="718">
+          <a class="marquee-tile" href="/card.html?id=2" style="left:14.4957%;top:8.8657%;width:56.7702%;height:75.9640%;"><img src="/pop_today_might_suck_BUTTON.png" alt="Today Might Suck"></a>
         </div>
       </div>
     </div>
+    <button class="pt-arrow pt-prev" onclick="ptSlide(-1)" aria-label="Previous card">‹</button>
+    <button class="pt-arrow pt-next" onclick="ptSlide(1)" aria-label="Next card">›</button>
   </div>
 </div>
 
 <script>
 (function(){
-  var current = 0;
-  var total = 3;
+  var current = 0, total = 3, timer = null;
+  var track = document.getElementById('ptTrack');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function goTo(index) {
     current = (index + total) % total;
-    document.getElementById('ptTrack').style.transform = 'translateX(-' + (current * 100) + '%)';
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
   }
-  window.ptSlide = function(dir) { goTo(current + dir); };
-  setInterval(function(){ goTo(current + 1); }, 5000);
+  function startTimer() {
+    if (reduceMotion) return;
+    clearInterval(timer);
+    timer = setInterval(function(){ goTo(current + 1); }, 5000);
+  }
+  window.ptSlide = function(dir) { goTo(current + dir); startTimer(); };
+  var wrap = document.querySelector('.pt-gallery-wrap');
+  var startX = 0;
+  wrap.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  wrap.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) window.ptSlide(dx < 0 ? 1 : -1);
+  }, {passive:true});
+  startTimer();
 })();
 </script>
 
 <!-- COMING SOON — MOMMA CARDS -->
 <div class="coming-wrap">
-  <img class="coming-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/your_mom_BG.png" alt="Cards About Your Mom">
+  <img class="coming-bg-img" src="/your_mom_BG.png" alt="Cards About Your Mom" width="800" height="1309">
   <div class="coming-overlay">
     <div class="coming-soon-label">— Coming Soon —</div>
     <div class="coming-title-overlay">Cards About <em>Your Mom.</em></div>
@@ -415,8 +412,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="coming-wood-zone">
       <div class="coming-badge">⚠️ May Cause Drama</div>
       <div class="coming-email">
-        <input type="email" class="coming-input" placeholder="your@email.com">
-        <button class="coming-btn">Notify Me</button>
+        <input type="email" class="coming-input" placeholder="your@email.com" aria-label="Email address" onkeydown="if(event.key==='Enter'){event.preventDefault();handleSignup(this.nextElementSibling)}">
+        <button class="coming-btn" data-label="Notify Me" onclick="handleSignup(this)">Notify Me</button>
       </div>
       <div class="coming-disclaimer">We won't spam you. Your mom might though.</div>
     </div>
@@ -429,8 +426,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   <div class="section-head">
     <h2>eCards</h2>
     <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/db25fde2-5eb1-4913-908c-bf7122741803/Star.png" alt="" style="height:22px;animation:spin-slow 8s linear infinite">
-    <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="" style="height:20px;filter:brightness(0) invert(1);animation:spin-slow 10s linear infinite reverse;opacity:0.8">
-    <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="" style="height:18px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 6s linear infinite;opacity:0.9">
+    <img src="/thick_star.png" alt="" style="height:20px;filter:brightness(0) invert(1);animation:spin-slow 10s linear infinite reverse;opacity:0.8">
+    <img src="/thick_star.png" alt="" style="height:18px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 6s linear infinite;opacity:0.9">
   </div>
   <div class="filter-strip">
     <button class="fbtn on" data-cat="all">All</button>
@@ -457,8 +454,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="footer-signup">
       <div class="footer-signup-label">Stay in the loop</div>
       <div class="footer-signup-row">
-        <input type="email" class="footer-email" placeholder="your@email.com">
-        <button class="footer-sub-btn">Join</button>
+        <input type="email" class="footer-email" placeholder="your@email.com" aria-label="Email address" onkeydown="if(event.key==='Enter'){event.preventDefault();handleSignup(this.nextElementSibling)}">
+        <button class="footer-sub-btn" data-label="Join" onclick="handleSignup(this)">Join</button>
       </div>
     </div>
   </div>
@@ -478,12 +475,20 @@ const ECARDS = [
 const LIB = "655040";
 const PARAMS = "?autoplay=true&loop=true&muted=true&preload=true&responsive=true";
 
+// TODO: paste your Bunny Stream CDN hostname here to switch the grid to
+// lightweight static thumbnails instead of 7 autoplaying video players.
+// Find it in Bunny.net -> Stream -> your library -> API -> "CDN Hostname"
+// (looks like "vz-a1b2c3d4-e5f.b-cdn.net"). Leave empty "" to keep videos.
+const BUNNY_CDN_HOST = "";
+
 function cardHTML(card) {
-  const embedUrl = `https://player.mediadelivery.net/embed/${LIB}/${card.previewId}${PARAMS}`;
+  const preview = BUNNY_CDN_HOST
+    ? `<img src="https://${BUNNY_CDN_HOST}/${card.previewId}/thumbnail.jpg" alt="${card.title}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`
+    : `<iframe src="https://player.mediadelivery.net/embed/${LIB}/${card.previewId}${PARAMS}" title="${card.title} preview" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>`;
   return `
     <a class="cthumb" href="/card.html?id=${card.id}">
       <div class="cprev">
-        <iframe src="${embedUrl}" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
+        ${preview}
         <div class="sound-badge">🔊 Sound</div>
         <div class="cprev-click"></div>
         ${card.badge ? `<div class="cbadge">${card.badge}</div>` : ''}
@@ -502,12 +507,59 @@ function renderGrid(cards, containerId) {
 renderGrid(ECARDS, 'ecard-grid');
 
 function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
+  var open = document.getElementById('mobileMenu').classList.toggle('open');
+  document.querySelector('.hamburger').setAttribute('aria-expanded', open);
+}
+
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
 }
 
 function toggleCart() {
   alert('Cart coming soon!');
 }
+
+// TODO: paste your form endpoint here to make email signups live.
+// Easiest path: create a free form at formspree.io, then paste its URL,
+// e.g. "https://formspree.io/f/abcdwxyz". Leave empty "" until then.
+const SIGNUP_ENDPOINT = "";
+
+function handleSignup(btn) {
+  var input = btn.parentElement.querySelector('input[type=email]');
+  var email = (input.value || '').trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    input.style.borderColor = 'var(--red2)';
+    input.focus();
+    return;
+  }
+  input.style.borderColor = 'var(--bdr)';
+  if (!SIGNUP_ENDPOINT) {
+    btn.textContent = 'Almost live!';
+    setTimeout(function(){ btn.textContent = btn.dataset.label; }, 2500);
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = '...';
+  fetch(SIGNUP_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  }).then(function(r){
+    if (!r.ok) throw new Error('bad response');
+    btn.textContent = "You're in!";
+    input.value = '';
+  }).catch(function(){
+    btn.textContent = 'Try again';
+    btn.disabled = false;
+  });
+}
+
+// Duplicate ticker items once in JS for a seamless loop (single source of truth in HTML)
+(function(){
+  var t = document.getElementById('tickerTrack');
+  t.innerHTML += t.innerHTML;
+})();
 
 document.querySelectorAll('.fbtn').forEach(btn => {
   btn.addEventListener('click', function() {
