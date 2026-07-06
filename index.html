@@ -23,7 +23,6 @@ html{scroll-behavior:smooth}
 body{
   font-family:'DM Sans',sans-serif;
   background-color:var(--bg);
-  /* Pulling the raw asset cleanly with no extra code-based opacity layers */
   background-image: url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/a276c01c8df6cf8241800221f2d8c4b2569ec3fe/site_BG.png);
   background-size: 450px 450px;
   background-repeat: repeat;
@@ -97,6 +96,7 @@ body{
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin-bottom:20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
+
 /* TICKER */
 .ticker-wrap{background:#1C1209;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:10px 0;overflow:hidden;position:relative}
 .ticker-label{position:absolute;left:0;top:0;bottom:0;background:var(--red2);display:flex;align-items:center;padding:0 16px;z-index:2;white-space:nowrap}
@@ -132,7 +132,7 @@ body{
 
 /* COMING SOON */
 .coming-wrap{background:var(--bg2);padding:0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
-.coming-bg-img(width:100%;height:auto;display:block}
+.coming-bg-img{width:100%;height:auto;display:block} /* Fixed typo here */
 .coming-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;box-sizing:border-box}
 .coming-soon-label{margin-top:3%;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 4px rgba(0,0,0,0.9),0 0 12px rgba(0,0,0,0.9);background:rgba(26,15,10,0.55);padding:6px 18px;border-radius:2px}
 .coming-title-overlay{margin-top:auto;font-family:'Fontdiner Swanky',cursive;font-size:28px;color:var(--cream);line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,0.95),0 0 20px rgba(0,0,0,0.95);background:rgba(26,15,10,0.55);padding:10px 20px;border-radius:4px;margin-bottom:4%}
@@ -172,10 +172,10 @@ body{
   .coming-bg-text{font-size:80px}
   .coming-email{flex-direction:column;padding:0 20px}
 }
+
 /* TRENDING CAROUSEL */
 .trending-wrap{
   background-color:var(--bg);
-  /* Pulling the raw asset here as well */
   background-image: url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/a276c01c8df6cf8241800221f2d8c4b2569ec3fe/site_BG.png);
   background-size: 450px 450px;
   background-repeat: repeat;
@@ -200,6 +200,7 @@ body{
   .carousel-img-wrap{width:180px;height:180px}
   .trending-wrap{padding:36px 0 40px}
 }
+
 /* SECTION SLAT HEADER */
 .slat-header{background:url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/wood_slats.png) center center/cover no-repeat;position:relative;padding:32px 24px;text-align:center}
 .slat-header::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 30%,transparent 70%,var(--bg) 100%);pointer-events:none;z-index:0}
@@ -222,7 +223,6 @@ body{
 /* OCCASION MENU — MARQUEE */
 .occ-menu-wrap{
   background-color:var(--bg);
-  /* Pulling the raw asset here as well */
   background-image: url(https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/a276c01c8df6cf8241800221f2d8c4b2569ec3fe/site_BG.png);
   background-size: 450px 450px;
   background-repeat: repeat;
@@ -330,7 +330,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
 </header>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
   <a href="#ecards" onclick="document.getElementById('mobileMenu').classList.remove('open')">eCards</a>
@@ -340,7 +339,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   <a href="/podcast.html">SmartAss Podcast</a>
 </div>
 
-<!-- DESKTOP HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-savage"><span class="savage-word">Savage</span> &amp;<br>Funny Cards</div>
@@ -363,7 +361,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
 </section>
 
-<!-- MOBILE HERO: couple middle, text below -->
 <div class="hero-mobile">
   <div class="hero-mobile-img">
     <img class="star-shape star-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
@@ -385,7 +382,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
 </div>
 
-<!-- PAGE 2 -->
 <div class="page2-wrap">
   <div class="page2-inner">
     <div class="page2-img-wrap">
@@ -401,7 +397,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
 </div>
 
-<!-- AS SEEN ON TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-label"><span>As Seen On</span></div>
   <div class="ticker-track" id="tickerTrack">
@@ -416,7 +411,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="ticker-item"><span>All Major Networks Probably Maybe</span><span class="ticker-dot">✦</span></div>
     <div class="ticker-item"><span>NBA MLB NFL Are Sports Teams</span><span class="ticker-dot">✦</span></div>
     <div class="ticker-item"><span>New York Hollywood and Los Angeles... Am I Right?</span><span class="ticker-dot">✦</span></div>
-    <!-- duplicate for seamless loop -->
     <div class="ticker-item"><span>Instagram People</span><span class="ticker-dot">✦</span></div>
     <div class="ticker-item"><span>Facebook Creeps</span><span class="ticker-dot">✦</span></div>
     <div class="ticker-item"><span>TikTok Bots</span><span class="ticker-dot">✦</span></div>
@@ -431,10 +425,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   </div>
 </div>
 
-<!-- RED STRIPE DIVIDER -->
 <div style="width:100%;height:4px;background:var(--red);"></div>
 
-<!-- OCCASION MENU -->
 <div class="occ-menu-wrap">
   <div class="occ-heading-wrap">
     <div class="occ-heading-top">What's the</div>
@@ -457,7 +449,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 <div class="occasion-divider"></div>
 
-<!-- POPULAR & TRENDING -->
 <div class="trending-wrap">
   <div class="trending-header">
     <div class="trending-eyebrow">✦ best sellers ✦</div>
@@ -500,7 +491,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 })();
 </script>
 
-<!-- COMING SOON — MOMMA CARDS -->
 <div class="coming-wrap">
   <img class="coming-bg-img" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/your_mom_BG.png" alt="Cards About Your Mom">
   <div class="coming-overlay">
