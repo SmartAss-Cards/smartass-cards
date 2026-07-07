@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartass Support Cards — Animated eCards with Personality</title>
+<meta name="description" content="Savage, funny animated eCards with sound — for sympathy, breakups, job loss, birthdays, and thank yous. Because life's too short for empty platitudes.">
+<meta property="og:title" content="Smartass Support Cards — Animated eCards with Personality">
+<meta property="og:description" content="Savage &amp; funny animated eCards with sound. For loved ones who need more than thoughts &amp; prayers.">
+<meta property="og:image" content="https://smartass-cards.pages.dev/header_.png">
+<meta property="og:type" content="website">
+<!-- TODO: add a favicon file to your repo root, then uncomment:
+<link rel="icon" href="/favicon.png"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=DM+Sans:wght@400;500;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#261710;
+  --bg2:#302013;
+  --bg3:#3A2517;
+  --bdr:#4E3620;
+  --cream:#F4EAD5;
+  --cream2:#E0D0AE;
+  --red:#E0503C;
+  --red2:#F26A50;
+  --gold:#E2A63E;
+  --teal:#3FBFB4;
+  --teal2:#227B73;
+  --white:#FDF8EF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);min-height:100vh;border:12px solid var(--red)}
+
+/* HEADER */
+.hdr{background:var(--bg);position:relative;width:100%}
+.hdr-top-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--bg)}
+.hdr-banner-wrap{width:100%}
+.hdr-img{width:100%;height:auto;display:block}
+.hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
+.hdr-cart:hover{background:var(--red2)}
+
+/* HERO — DESKTOP: couple right, text left */
+.hero{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:420px}
+.hero-left{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
+.hero-savage{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--red2);line-height:1.1;margin-bottom:14px}
+.hero-savage .savage-word{color:var(--cream)}
+.hero-sub{font-size:14px;color:var(--cream2);opacity:0.75;line-height:1.65;margin-bottom:24px;max-width:400px}
+.hero-bullets{list-style:none;margin-bottom:30px}
+.hero-bullets li{font-size:13px;color:var(--cream2);padding:5px 0 5px 20px;position:relative;opacity:0.85;line-height:1.5}
+.hero-bullets li::before{content:"✦";position:absolute;left:0;color:var(--red2);font-size:10px;top:7px}
+
+/* BUTTON using button_1 shape */
+.hero-cta{position:relative;display:inline-block;text-decoration:none;cursor:pointer;background:none;border:none;padding:0;align-self:flex-start}
+.hero-cta img.btn-shape{width:220px;display:block;filter:saturate(2.4) brightness(0.85) sepia(1) hue-rotate(325deg)}
+.hero-cta span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;padding-right:12px}
+.hero-cta:hover img.btn-shape{filter:saturate(2.4) brightness(1.05) sepia(1) hue-rotate(325deg)}
+
+/* HERO RIGHT — couple blended, no box */
+.hero-right{display:flex;align-items:center;justify-content:center;padding:24px 32px;background:url(/wood_slats.png) center center/cover no-repeat;position:relative;overflow:hidden}
+.hero-couple{max-width:100%;max-height:340px;object-fit:contain;position:relative;z-index:2}
+.star-shape{position:absolute;z-index:3}
+.star-tl{top:8%;left:4%;width:65px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 8s linear infinite}
+.star-br{bottom:8%;right:4%;width:55px;filter:sepia(1) saturate(4) hue-rotate(140deg) brightness(1.4);animation:spin-slow 10s linear infinite reverse}
+@keyframes spin-slow{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* SECTION */
+.section{padding:32px 32px 40px}
+.section-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}
+.section-head h2{font-family:'Fontdiner Swanky',cursive;font-size:30px;color:var(--cream)}
+.section-head img{height:22px}
+.section-eyebrow{text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
+.filter-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px 0 20px}
+/* eCards section — cream variant */
+#ecards{background:var(--cream)}
+#ecards .section-eyebrow{color:var(--red)}
+#ecards .section-head h2{color:var(--bg)}
+#ecards .fbtn{border-color:#A98D5F;color:#5A4128}
+#ecards .fbtn.on,#ecards .fbtn:hover{background:var(--teal2);border-color:var(--teal2);color:var(--white)}
+.fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+.sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin:0 auto 20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
+/* TICKER */
+.ticker-wrap{background:var(--bg);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:10px 0;overflow:hidden;position:relative}
+.ticker-label{position:absolute;left:0;top:0;bottom:0;background:var(--teal);display:flex;align-items:center;padding:0 16px;z-index:2;white-space:nowrap}
+.ticker-label span{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;color:var(--bg);text-transform:uppercase;letter-spacing:2px}
+.ticker-track{display:flex;animation:ticker-scroll 45s linear infinite;width:max-content}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);white-space:nowrap;padding:0 32px;display:flex;align-items:center;gap:10px}
+.ticker-dot{color:var(--gold);font-size:14px}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* PAGE 2 */
+.page2-wrap{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;border-top:none;border-bottom:1px solid var(--bdr);padding:0 32px 40px;text-align:center}
+.page2-inner{max-width:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px}
+.page2-img-wrap{margin:0 -32px 4px;width:calc(100% + 64px);position:relative}
+.page2-img{width:100%;height:auto;display:block}
+.page2-heading-wrap{position:relative;display:flex;align-items:flex-start;justify-content:center;width:100%}
+.page2-star{color:var(--gold);font-size:22px;line-height:1;display:inline-block}
+.page2-star-tl{position:absolute;top:18px;left:12px;z-index:2;font-size:38px;color:var(--cream)}
+.page2-star-tr{position:absolute;top:-6px;right:0;font-size:30px}
+.page2-inner .about-body{max-width:85%;margin:0 auto}
+.page2-cta{display:inline-block;background:var(--gold);color:var(--bg);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:14px 36px;border-radius:3px;text-decoration:none;transition:background 0.2s;margin-top:-4px}
+.page2-cta:hover{background:var(--cream)}
+
+/* ABOUT TEXT (used inside .page2-inner) */
+.about-heading{font-family:'Fontdiner Swanky',cursive;font-size:28px;color:var(--cream);line-height:1.2;margin-bottom:16px}
+.about-body{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--cream2);opacity:0.85;line-height:1.7;margin-bottom:24px}
+
+/* COMING SOON */
+.coming-wrap{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;padding:0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.coming-bg-img{width:100%;height:auto;display:block}
+.coming-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;box-sizing:border-box}
+.coming-soon-label{margin-top:3%;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 4px rgba(0,0,0,0.9),0 0 12px rgba(0,0,0,0.9);background:rgba(26,15,10,0.55);padding:6px 18px;border-radius:2px}
+.coming-title-overlay{margin-top:auto;font-family:'Fontdiner Swanky',cursive;font-size:28px;color:var(--cream);line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,0.95),0 0 20px rgba(0,0,0,0.95);background:rgba(26,15,10,0.55);padding:10px 20px;border-radius:4px;margin-bottom:4%}
+.coming-title-overlay em{color:var(--gold);font-style:italic}
+.coming-sub-overlay{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--cream);line-height:1.6;max-width:85%;text-shadow:0 1px 6px rgba(0,0,0,0.95);background:rgba(26,15,10,0.6);padding:8px 16px;border-radius:4px;margin-bottom:3%}
+.coming-wood-zone{width:100%;display:flex;flex-direction:column;align-items:center;padding:16px 24px 24px;box-sizing:border-box;gap:12px}
+.coming-badge{display:inline-block;background:var(--red);color:var(--white);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:8px 20px;border-radius:2px}
+.coming-email{display:flex;gap:8px;justify-content:center;width:100%;max-width:320px}
+.coming-input{background:rgba(26,15,10,0.85);border:1px solid var(--bdr);border-radius:3px;padding:11px 14px;color:var(--cream);font-size:13px;font-family:'DM Sans',sans-serif;flex:1;outline:none}
+.coming-input:focus{border-color:var(--red)}
+.coming-input::placeholder{color:var(--cream2);opacity:0.5}
+.coming-btn{background:var(--gold);color:var(--bg);border:none;padding:11px 18px;border-radius:3px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:background 0.2s}
+.coming-btn:hover{background:var(--cream)}
+.coming-disclaimer{font-size:11px;color:var(--cream2);opacity:0.6;font-family:'Playfair Display',serif;font-style:italic}
+@media(max-width:768px){
+  .coming-title-overlay{font-size:22px}
+  .coming-email{flex-direction:column;padding:0}
+}
+/* TRENDING CAROUSEL */
+.trending-wrap{background-color:var(--cream);padding:48px 0 52px;overflow:hidden;border-top:4px solid var(--teal);border-bottom:4px solid var(--teal)}
+.trending-header{text-align:center;padding:0 32px;margin-bottom:32px}
+.trending-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
+.trending-wrap .trending-eyebrow{color:var(--red)}
+.trending-title{font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream)}
+.trending-wrap .trending-title{color:var(--bg)}
+@media(max-width:768px){
+  .trending-wrap{padding:36px 0 40px}
+  .pt-gallery-wrap{margin:0 12px}
+}
+/* OCCASION HEADING */
+/* TODO: occasion_frame.png is NOT in your GitHub repo (the URL returns 404, so this
+   background has silently never rendered). Either upload the file to the repo root,
+   or delete the background declaration below. */
+.occ-heading-wrap{text-align:center;padding:20px 24px;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;background:url(/occasion_frame.png) center center/100% 100% no-repeat}
+.occ-heading-top{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);line-height:1.1;margin-bottom:0}
+.occ-heading-bottom{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);line-height:1.1;margin-bottom:20px}
+.occ-click-text{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-top:8px;margin-bottom:0}
+.occ-subtext{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--cream);opacity:0.75;line-height:1.6;margin:0 auto;max-width:320px;padding:12px 16px;border-top:1px solid rgba(242,228,200,0.3);border-bottom:1px solid rgba(242,228,200,0.3);position:relative}
+.occ-subtext::before,.occ-subtext::after{content:'✦';color:var(--gold);font-size:10px;position:absolute;top:50%;transform:translateY(-50%)}
+.occ-subtext::before{left:0}
+.occ-subtext::after{right:0}
+
+/* OCCASION MENU — MARQUEE */
+.occ-menu-wrap{background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;border-top:none;border-bottom:1px solid var(--bdr);padding:0;width:100%}
+.occ-full-wrap{width:100%;margin:0;padding:0}
+.occ-full-wrap .marquee-inner{width:100%;display:block}
+.occ-full-wrap .marquee-bg{width:100%;height:auto;display:block}
+.pt-gallery-wrap{position:relative;margin:0 24px;overflow:hidden;border:3px solid var(--red);border-radius:10px}
+.pt-gallery-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
+.pt-slide{min-width:100%;position:relative}
+.pt-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;background:rgba(38,23,16,0.75);border:1px solid var(--gold);color:var(--gold);width:40px;height:40px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;transition:background 0.2s,color 0.2s}
+.pt-arrow:hover{background:var(--gold);color:var(--bg)}
+.pt-prev{left:12px}
+.pt-next{right:12px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){
+  .ticker-track,.star-shape,.section-head img{animation:none !important}
+  .pt-gallery-track{transition:none}
+}
+
+.marquee-inner{position:relative;width:100%}
+.marquee-bg{width:100%;height:auto;display:block}
+.marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s}
+.marquee-tile img{width:100%;height:100%;display:block;object-fit:contain}
+.marquee-tile:hover{transform:scale(1.04);filter:brightness(1.1);z-index:2}
+.occasion-divider{height:12px;background:var(--red);margin:0}
+@media(max-width:768px){
+  .occ-menu-wrap{padding:0}
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+.cthumb{display:block;text-decoration:none;background:var(--bg2);border:2px solid var(--bdr);border-radius:8px;overflow:hidden;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s}
+.cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+.cprev{position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg3)}
+.cprev iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none}
+.cprev-click{position:absolute;inset:0;z-index:2}
+.sound-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.65);color:var(--cream);font-size:10px;padding:3px 8px;border-radius:100px;z-index:3;display:flex;align-items:center;gap:4px;font-family:'DM Sans',sans-serif}
+.cbadge{position:absolute;top:10px;right:10px;background:var(--red);color:var(--white);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:4px 10px;border-radius:100px;z-index:3;font-family:'DM Sans',sans-serif}
+.cfoot{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bdr)}
+.ccat{font-size:11px;color:var(--cream2);opacity:0.65}
+.cprice{font-size:14px;font-weight:700;color:var(--gold)}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin-top:0}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.footer-brand img{height:28px;object-fit:contain;opacity:0.7;display:block;margin-bottom:8px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:12px;color:var(--cream2);opacity:0.7;text-decoration:none;transition:opacity 0.2s}
+.footer-links a:hover{opacity:1}
+.footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
+.footer-signup-label{font-size:12px;color:var(--cream2);opacity:0.65;margin-bottom:8px;font-weight:500}
+.footer-signup-row{display:flex;gap:8px}
+.footer-email{background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:8px 12px;color:var(--cream);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;width:200px}
+.footer-email:focus{border-color:var(--red)}
+.footer-email::placeholder{color:var(--cream2);opacity:0.4}
+.footer-sub-btn{background:var(--red);color:var(--white);border:none;padding:8px 16px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:0.5px;transition:background 0.2s;white-space:nowrap}
+.footer-sub-btn:hover{background:var(--red2)}
+
+/* MOBILE */
+@media(max-width:768px){
+  body{border-width:8px}
+  .hero{grid-template-columns:1fr}
+  .hero-right{order:-1;align-items:flex-end;min-height:320px;padding:24px 20px 0}
+  .hero-right::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);z-index:1;pointer-events:none}
+  .hero-right::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to bottom,transparent,var(--bg2));z-index:1;pointer-events:none}
+  .hero-right .hero-couple{width:80%;max-height:260px;margin:0 auto}
+  .hero-right .star-tl{width:42px;top:12px;left:12px;opacity:0.9}
+  .hero-right .star-br{width:38px;bottom:0;right:12px;opacity:0.9}
+  .hero-left{padding:24px 20px 32px}
+  .hero-savage{font-size:28px}
+  .hero-sub{display:none}
+  .hero-cta img.btn-shape{width:180px}
+  .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
+  .hamburger span{width:22px;height:2px;background:var(--cream2);display:block;transition:all 0.3s}
+  .mobile-menu{display:none;position:fixed;inset:0;background:rgba(38,23,16,0.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:var(--cream);text-decoration:none;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:1px;opacity:0.85}
+  .mobile-menu a:hover{opacity:1;color:var(--gold)}
+  .mobile-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--cream2);font-size:28px;cursor:pointer}
+  .section{padding:24px 16px}
+  .grid{grid-template-columns:1fr 1fr;gap:14px}
+  footer{padding:24px 16px}
+  .footer-top{flex-direction:column;gap:24px}
+  .footer-links{flex-direction:row;flex-wrap:wrap;gap:12px}
+  .footer-email{width:160px}
+  .sound-note{font-size:11px}
+}
+@media(min-width:769px){
+  .hamburger{display:none}
+  .mobile-menu{display:none !important}
+}
+@media(max-width:400px){
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-top-bar">
+    <button class="hdr-cart" onclick="toggleCart()">CART (<span id="cartCount">0</span>)</button>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="hdr-banner-wrap">
+    <img class="hdr-img" src="/header_.png" alt="Smartass Support Cards — Funny Cards For When Life Sucks" width="1902" height="613">
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="#ecards" onclick="closeMenu()">eCards</a>
+  <a href="/about.html">About</a>
+  <a href="/blog.html">Blog</a>
+  <a href="mailto:sgnandt@gmail.com">Contact</a>
+  <a href="/podcast.html">SmartAss Podcast</a>
+</div>
+
+<!-- DESKTOP HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <h1 class="hero-savage"><span class="savage-word">Savage</span> &amp;<br>Funny Cards</h1>
+    <p class="hero-sub">Specializing in funny sympathy &amp; support e‑cards because life is too short for empty platitudes.</p>
+    <ul class="hero-bullets">
+      <li>For loved ones who need more than "thoughts &amp; prayers"</li>
+      <li>For breakups, job loss, and life's other dumpster fires</li>
+      <li>For medical diagnoses that deserve more than a casserole</li>
+      <li>Sign it, personalize it — they'll never forget it</li>
+    </ul>
+    <a href="#ecards" class="hero-cta">
+      <img class="btn-shape" src="/button_1.png" alt="">
+      <span>Shop eCards</span>
+    </a>
+  </div>
+  <div class="hero-right">
+    <img class="star-shape star-tl" src="/thick_star.png" alt="">
+    <img class="star-shape star-br" src="/science_shape.png" alt="">
+    <img class="hero-couple" src="/couple_ipad.png" alt="Send a Smartass card">
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<div class="page2-wrap">
+  <div class="page2-inner">
+    <div class="page2-img-wrap">
+      <span class="page2-star page2-star-tl">✦</span>
+      <img src="/hands_holding_phones.png" alt="Two hands holding phones showing Smartass cards" class="page2-img" width="1022" height="745">
+    </div>
+    <div class="page2-heading-wrap">
+      <h2 class="about-heading">Ever heard of a <span style="color:var(--red2)">funny</span> sympathy card?</h2>
+      <span class="page2-star page2-star-tr">✦</span>
+    </div>
+    <p class="about-body">Me neither! At Smartass Support Cards, our mission is to bring laughter and joy to people's lives, in good times and bad, in the most eco-friendly, sustainable way. Our cards are made for master shit-talkers who care.</p>
+    <a href="/about.html" class="page2-cta">About Us</a>
+  </div>
+</div>
+
+<!-- AS SEEN ON TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-label"><span>As Seen On</span></div>
+  <div class="ticker-track" id="tickerTrack">
+    <div class="ticker-item"><span>Instagram People</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Facebook Creeps</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>TikTok Bots</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>The Group Chat</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Your Crackhead Therapist</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>CornHub</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Your Mom's Back</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Big Jim's Roadhouse and Nail Salon</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>All Major Networks Probably Maybe</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>NBA MLB NFL Are Sports Teams</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>New York Hollywood and Los Angeles... Am I Right?</span><span class="ticker-dot">✦</span></div>
+  </div>
+</div>
+
+<!-- RED STRIPE DIVIDER -->
+<div style="width:100%;height:12px;background:var(--red);"></div>
+
+<!-- OCCASION MENU -->
+<div class="occ-menu-wrap">
+  <div class="occ-heading-wrap">
+    <div class="occ-heading-top">What's the</div>
+    <div class="occ-heading-bottom">Occasion?</div>
+    <p class="occ-subtext">Here's a starting point. Our cards can be used for more than one occasion.</p>
+    <p class="occ-click-text">click on an occasion below</p>
+  </div>
+  <div class="occ-full-wrap">
+    <div class="marquee-inner">
+      <img class="marquee-bg" src="/occasion_menu_BG.png" alt="Occasion Menu" width="1100" height="843">
+      <a class="marquee-tile" href="/card.html?id=1" style="left:25.9058%;top:0.266%;width:51.6304%;height:18.8239%;"><img src="/medical_diagnosis.png" alt="Medical Diagnosis"></a>
+      <a class="marquee-tile" href="/card.html?id=2" style="left:35.9149%;top:12.7364%;width:48.2563%;height:24.9113%;"><img src="/job_loss_breakup.png" alt="Breakup Job Loss"></a>
+      <a class="marquee-tile" href="/card.html?id=4" style="left:22.4638%;top:27.0981%;width:48.981%;height:24.0839%;"><img src="/grief_loss.png" alt="Grief Loss"></a>
+      <a class="marquee-tile" href="/card.html?id=5" style="left:35.2582%;top:38.6229%;width:48.3016%;height:26.9208%;"><img src="/depression_anxiety.png" alt="Depression Anxiety"></a>
+      <a class="marquee-tile" href="/card.html?id=6" style="left:23.1658%;top:56.1761%;width:48.4149%;height:23.2565%;"><img src="/birthday.png" alt="Birthday"></a>
+      <a class="marquee-tile" href="/card.html?id=7" style="left:35.0996%;top:70.6856%;width:48.4375%;height:23.4929%;"><img src="/thank_you.png" alt="Thank You"></a>
+    </div>
+  </div>
+</div>
+
+<div class="occasion-divider"></div>
+
+<!-- POPULAR & TRENDING -->
+<div class="trending-wrap">
+  <div class="trending-header">
+    <div class="trending-eyebrow">✦ best sellers ✦</div>
+    <div class="trending-title">Popular &amp; Trending</div>
+  </div>
+  <div class="pt-gallery-wrap">
+    <div class="pt-gallery-track" id="ptTrack">
+      <div class="pt-slide">
+        <div class="marquee-inner">
+          <img class="marquee-bg" src="/pop_get_lunch_BG.png" alt="Get Lunch" width="1100" height="718">
+          <a class="marquee-tile" href="/card.html?id=4" style="left:14.4957%;top:8.8657%;width:57.4132%;height:76.3862%;"><img src="/pop_get_lunch_BUTTON.png" alt="Get Lunch"></a>
+        </div>
+      </div>
+      <div class="pt-slide">
+        <div class="marquee-inner">
+          <img class="marquee-bg" src="/pop_thank_you_BG.png" alt="Thank You" width="1100" height="718">
+          <a class="marquee-tile" href="/card.html?id=7" style="left:14.4957%;top:7.8525%;width:57.1009%;height:76.2173%;"><img src="/pop_thank_you_BUTTON.png" alt="Thank You"></a>
+        </div>
+      </div>
+      <div class="pt-slide">
+        <div class="marquee-inner">
+          <img class="marquee-bg" src="/pop_today_might_suck_BG.png" alt="Today Might Suck" width="1100" height="718">
+          <a class="marquee-tile" href="/card.html?id=2" style="left:14.4957%;top:8.8657%;width:56.7702%;height:75.9640%;"><img src="/pop_today_might_suck_BUTTON.png" alt="Today Might Suck"></a>
+        </div>
+      </div>
+    </div>
+    <button class="pt-arrow pt-prev" onclick="ptSlide(-1)" aria-label="Previous card">‹</button>
+    <button class="pt-arrow pt-next" onclick="ptSlide(1)" aria-label="Next card">›</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var current = 0, total = 3, timer = null;
+  var track = document.getElementById('ptTrack');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function goTo(index) {
+    current = (index + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+  }
+  function startTimer() {
+    if (reduceMotion) return;
+    clearInterval(timer);
+    timer = setInterval(function(){ goTo(current + 1); }, 5000);
+  }
+  window.ptSlide = function(dir) { goTo(current + dir); startTimer(); };
+  var wrap = document.querySelector('.pt-gallery-wrap');
+  var startX = 0;
+  wrap.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  wrap.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) window.ptSlide(dx < 0 ? 1 : -1);
+  }, {passive:true});
+  startTimer();
+})();
+</script>
+
+<!-- COMING SOON — MOMMA CARDS -->
+<div class="coming-wrap">
+  <img class="coming-bg-img" src="/your_mom_BG.png" alt="Cards About Your Mom" width="800" height="1309">
+  <div class="coming-overlay">
+    <div class="coming-soon-label">— Coming Soon —</div>
+    <div class="coming-title-overlay">Cards About <em>Your Mom.</em></div>
+    <p class="coming-sub-overlay">If you grew up trash talkin' about people's mommas, then these are for you and your dumb friends. These cards go hard, so be careful.</p>
+    <div class="coming-wood-zone">
+      <div class="coming-badge">⚠️ May Cause Drama</div>
+      <div class="coming-email">
+        <input type="email" class="coming-input" placeholder="your@email.com" aria-label="Email address" onkeydown="if(event.key==='Enter'){event.preventDefault();handleSignup(this.nextElementSibling)}">
+        <button class="coming-btn" data-label="Notify Me" onclick="handleSignup(this)">Notify Me</button>
+      </div>
+      <div class="coming-disclaimer">We won't spam you. Your mom might though.</div>
+    </div>
+  </div>
+</div>
+
+<div class="occasion-divider" style="background:var(--teal)"></div>
+
+<section class="section" id="ecards">
+  <div class="section-eyebrow">✦ pick your poison ✦</div>
+  <div class="section-head">
+    <h2>eCards</h2>
+    <img src="/star.png" alt="" style="height:22px;animation:spin-slow 8s linear infinite">
+    <img src="/thick_star.png" alt="" style="height:20px;filter:brightness(0);animation:spin-slow 10s linear infinite reverse;opacity:0.8">
+    <img src="/thick_star.png" alt="" style="height:18px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 6s linear infinite;opacity:0.9">
+  </div>
+  <div class="filter-strip">
+    <button class="fbtn on" data-cat="all">All</button>
+    <button class="fbtn" data-cat="Support">Support</button>
+    <button class="fbtn" data-cat="Birthday">Birthday</button>
+    <button class="fbtn" data-cat="Thank You">Thank You</button>
+  </div>
+  <div class="sound-note">🔊 These cards have sound — best experienced with audio on</div>
+  <div class="grid" id="ecard-grid"></div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="/logo.png" alt="Smartass Support Cards">
+      <div class="footer-copy">© 2026 Smartass Support Cards</div>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="mailto:sgnandt@gmail.com">Contact</a>
+      <a href="/podcast.html">SmartAss Podcast</a>
+    </div>
+    <div class="footer-signup">
+      <div class="footer-signup-label">Stay in the loop</div>
+      <div class="footer-signup-row">
+        <input type="email" class="footer-email" placeholder="your@email.com" aria-label="Email address" onkeydown="if(event.key==='Enter'){event.preventDefault();handleSignup(this.nextElementSibling)}">
+        <button class="footer-sub-btn" data-label="Join" onclick="handleSignup(this)">Join</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ECARDS = [
+  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", category:"Support", previewId:"4decfe9c-4f55-4520-ad04-277edf8bbfb4", price:"$2.00", badge:null },
+  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", category:"Support", previewId:"fe3a2410-9329-4bce-a024-2e9dc6d7cfcb", price:"$2.00", badge:null },
+  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", category:"Support", previewId:"fe38131d-d706-4c79-bb39-7808a12850b4", price:"$2.00", badge:null },
+  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", category:"Support", previewId:"6e597bb7-1ac4-47e4-a0d0-46fb7421e9eb", price:"$2.00", badge:null },
+  { id:5, title:"The Lord Replied.", category:"Support", previewId:"026693bf-115e-4687-b6c2-2a98fb80870c", price:"$2.00", badge:null },
+  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", category:"Birthday", previewId:"b15eddd1-02b2-4044-96a9-54df503e42df", price:"$2.00", badge:null },
+  { id:7, title:"You Could Have Done More. But Didn't.", category:"Thank You", previewId:"3e6854e9-1f1b-4c79-af09-2dea7c108807", price:"$2.00", badge:null },
+];
+
+const LIB = "655040";
+const PARAMS = "?autoplay=true&loop=true&muted=true&preload=true&responsive=true";
+
+// TODO: paste your Bunny Stream CDN hostname here to switch the grid to
+// lightweight static thumbnails instead of 7 autoplaying video players.
+// Find it in Bunny.net -> Stream -> your library -> API -> "CDN Hostname"
+// (looks like "vz-a1b2c3d4-e5f.b-cdn.net"). Leave empty "" to keep videos.
+const BUNNY_CDN_HOST = "";
+
+function cardHTML(card) {
+  const preview = BUNNY_CDN_HOST
+    ? `<img src="https://${BUNNY_CDN_HOST}/${card.previewId}/thumbnail.jpg" alt="${card.title}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`
+    : `<iframe src="https://player.mediadelivery.net/embed/${LIB}/${card.previewId}${PARAMS}" title="${card.title} preview" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>`;
+  return `
+    <a class="cthumb" href="/card.html?id=${card.id}">
+      <div class="cprev">
+        ${preview}
+        <div class="sound-badge">🔊 Sound</div>
+        <div class="cprev-click"></div>
+        ${card.badge ? `<div class="cbadge">${card.badge}</div>` : ''}
+      </div>
+      <div class="cfoot">
+        <span class="ccat">${card.category}</span>
+        <span class="cprice">${card.price}</span>
+      </div>
+    </a>`;
+}
+
+function renderGrid(cards, containerId) {
+  document.getElementById(containerId).innerHTML = cards.map(cardHTML).join('');
+}
+
+renderGrid(ECARDS, 'ecard-grid');
+
+function toggleMenu() {
+  var open = document.getElementById('mobileMenu').classList.toggle('open');
+  document.querySelector('.hamburger').setAttribute('aria-expanded', open);
+}
+
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+}
+
+function toggleCart() {
+  alert('Cart coming soon!');
+}
+
+// Signups post to a Cloudflare Pages Function (/functions/api/subscribe.js in the repo)
+// which adds the email to your Resend Audience. Requires RESEND_API_KEY and
+// RESEND_AUDIENCE_ID environment variables in the Cloudflare Pages dashboard.
+const SIGNUP_ENDPOINT = "/api/subscribe";
+
+function handleSignup(btn) {
+  var input = btn.parentElement.querySelector('input[type=email]');
+  var email = (input.value || '').trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    input.style.borderColor = 'var(--red2)';
+    input.focus();
+    return;
+  }
+  input.style.borderColor = 'var(--bdr)';
+  if (!SIGNUP_ENDPOINT) {
+    btn.textContent = 'Almost live!';
+    setTimeout(function(){ btn.textContent = btn.dataset.label; }, 2500);
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = '...';
+  fetch(SIGNUP_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  }).then(function(r){
+    if (!r.ok) throw new Error('bad response');
+    btn.textContent = "You're in!";
+    input.value = '';
+  }).catch(function(){
+    btn.textContent = 'Try again';
+    btn.disabled = false;
+  });
+}
+
+// Duplicate ticker items once in JS for a seamless loop (single source of truth in HTML)
+(function(){
+  var t = document.getElementById('tickerTrack');
+  t.innerHTML += t.innerHTML;
+})();
+
+document.querySelectorAll('.fbtn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
+    this.classList.add('on');
+    const cat = this.dataset.cat;
+    const filtered = cat === 'all' ? ECARDS : ECARDS.filter(c => c.category === cat);
+    renderGrid(filtered, 'ecard-grid');
+  });
+});
+</script>
+
+</body>
+</html>
