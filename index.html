@@ -68,13 +68,14 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 
 /* SECTION */
 .section{padding:32px 32px 40px}
-.section-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.section-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}
 .section-head h2{font-family:'Fontdiner Swanky',cursive;font-size:30px;color:var(--cream)}
 .section-head img{height:22px}
-.filter-strip{display:flex;gap:8px;padding:12px 0 20px;overflow-x:auto}
+.section-eyebrow{text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
+.filter-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px 0 20px}
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
-.sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin-bottom:20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
+.sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin:0 auto 20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
 /* TICKER */
 .ticker-wrap{background:#1C1209;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:10px 0;overflow:hidden;position:relative}
 .ticker-label{position:absolute;left:0;top:0;bottom:0;background:var(--red2);display:flex;align-items:center;padding:0 16px;z-index:2;white-space:nowrap}
@@ -124,12 +125,15 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
   .coming-email{flex-direction:column;padding:0}
 }
 /* TRENDING CAROUSEL */
-.trending-wrap{background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;padding:48px 0 52px;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.trending-wrap{background-color:var(--cream);padding:48px 0 52px;overflow:hidden;border-top:4px solid var(--gold);border-bottom:4px solid var(--gold)}
 .trending-header{text-align:center;padding:0 32px;margin-bottom:32px}
 .trending-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
+.trending-wrap .trending-eyebrow{color:var(--red)}
 .trending-title{font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream)}
+.trending-wrap .trending-title{color:var(--bg)}
 @media(max-width:768px){
   .trending-wrap{padding:36px 0 40px}
+  .pt-gallery-wrap{margin:0 12px}
 }
 /* OCCASION HEADING */
 /* TODO: occasion_frame.png is NOT in your GitHub repo (the URL returns 404, so this
@@ -149,7 +153,7 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .occ-full-wrap{width:100%;margin:0;padding:0}
 .occ-full-wrap .marquee-inner{width:100%;display:block}
 .occ-full-wrap .marquee-bg{width:100%;height:auto;display:block}
-.pt-gallery-wrap{position:relative;width:100%;overflow:hidden}
+.pt-gallery-wrap{position:relative;margin:0 24px;overflow:hidden;border:3px solid var(--red);border-radius:10px}
 .pt-gallery-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
 .pt-slide{min-width:100%;position:relative}
 .pt-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;background:rgba(28,18,9,0.75);border:1px solid var(--gold);color:var(--gold);width:40px;height:40px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;transition:background 0.2s,color 0.2s}
@@ -423,6 +427,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <div class="occasion-divider"></div>
 
 <section class="section" id="ecards">
+  <div class="section-eyebrow">✦ pick your poison ✦</div>
   <div class="section-head">
     <h2>eCards</h2>
     <img src="/star.png" alt="" style="height:22px;animation:spin-slow 8s linear infinite">
