@@ -107,7 +107,10 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* PAGE 2 */
-.page2-wrap{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;border-top:none;border-bottom:1px solid var(--bdr);padding:0 32px 40px;text-align:center}
+.page2-wrap{background-color:#F2E4C8;border-top:none;border-bottom:1px solid var(--bdr);padding:0 32px 40px;text-align:center}
+.page2-wrap .about-heading{color:var(--bg)}
+.page2-wrap .about-body{color:#5A4128;opacity:1}
+.page2-wrap .page2-star-tl{color:var(--red)}
 .page2-inner{max-width:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px}
 .page2-img-wrap{margin:0 -32px 4px;width:calc(100% + 64px);position:relative}
 .page2-img{width:100%;height:auto;display:block}
@@ -153,7 +156,6 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 .trending-wrap .trending-title{color:var(--red);font-size:34px}
 @media(max-width:768px){
   .trending-wrap{padding:36px 0 40px}
-  .pt-gallery-wrap{margin:0 12px}
 }
 /* OCCASION HEADING */
 /* TODO: occasion_frame.png is NOT in your GitHub repo (the URL returns 404, so this
@@ -173,7 +175,7 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 .occ-full-wrap{width:100%;margin:0;padding:0}
 .occ-full-wrap .marquee-inner{width:100%;display:block}
 .occ-full-wrap .marquee-bg{width:100%;height:auto;display:block}
-.pt-gallery-wrap{position:relative;margin:0 24px;overflow:hidden;border:3px solid var(--red);border-radius:10px}
+.pt-gallery-wrap{position:relative;margin:0 auto;max-width:1100px;overflow:hidden;border:3px solid var(--red)}
 .pt-gallery-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
 .pt-slide{min-width:100%;position:relative}
 .pt-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;background:rgba(38,23,16,0.75);border:1px solid var(--gold);color:var(--gold);width:40px;height:40px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;transition:background 0.2s,color 0.2s}
@@ -183,7 +185,7 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){
   .ticker-track,.star-shape,.section-head img{animation:none !important}
-  .pt-gallery-track{transition:none}
+  .pt-gallery-track,.ec-track{transition:none}
 }
 
 .marquee-inner{position:relative;width:100%}
@@ -196,6 +198,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   .occ-menu-wrap{padding:0}
 }
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+/* eCards gallery carousel */
+.ec-gallery-wrap{position:relative;overflow:hidden;max-width:720px;margin:0 auto;border:3px solid var(--red);background:var(--bg2)}
+.ec-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
+.ec-slide{min-width:85%;box-sizing:border-box;border-right:3px solid var(--red)}
+.ec-card{display:block;text-decoration:none;background:var(--bg2)}
 .cthumb{display:block;text-decoration:none;background:var(--bg2);border:2px solid var(--bdr);border-radius:8px;overflow:hidden;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s}
 .cthumb:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 .cprev{position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg3)}
@@ -462,7 +469,11 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <button class="fbtn" data-cat="Thank You">Thank You</button>
   </div>
   <div class="sound-note">🔊 These cards have sound — best experienced with audio on</div>
-  <div class="grid" id="ecard-grid"></div>
+  <div class="ec-gallery-wrap" id="ecGallery">
+    <div class="ec-track" id="ecTrack"></div>
+    <button class="pt-arrow pt-prev" onclick="ecSlide(-1)" aria-label="Previous card">‹</button>
+    <button class="pt-arrow pt-next" onclick="ecSlide(1)" aria-label="Next card">›</button>
+  </div>
 </section>
 
 <footer>
@@ -507,30 +518,58 @@ const PARAMS = "?autoplay=true&loop=true&muted=true&preload=true&responsive=true
 // (looks like "vz-a1b2c3d4-e5f.b-cdn.net"). Leave empty "" to keep videos.
 const BUNNY_CDN_HOST = "";
 
-function cardHTML(card) {
+function slideHTML(card) {
   const preview = BUNNY_CDN_HOST
     ? `<img src="https://${BUNNY_CDN_HOST}/${card.previewId}/thumbnail.jpg" alt="${card.title}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`
     : `<iframe src="https://player.mediadelivery.net/embed/${LIB}/${card.previewId}${PARAMS}" title="${card.title} preview" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>`;
   return `
-    <a class="cthumb" href="/card.html?id=${card.id}">
-      <div class="cprev">
-        ${preview}
-        <div class="sound-badge">🔊 Sound</div>
-        <div class="cprev-click"></div>
-        ${card.badge ? `<div class="cbadge">${card.badge}</div>` : ''}
-      </div>
-      <div class="cfoot">
-        <span class="ccat">${card.category}</span>
-        <span class="cprice">${card.price}</span>
-      </div>
-    </a>`;
+    <div class="ec-slide">
+      <a class="ec-card" href="/card.html?id=${card.id}">
+        <div class="cprev">
+          ${preview}
+          <div class="sound-badge">🔊 Sound</div>
+          <div class="cprev-click"></div>
+          ${card.badge ? `<div class="cbadge">${card.badge}</div>` : ''}
+        </div>
+        <div class="cfoot">
+          <span class="ccat">${card.category}</span>
+          <span class="cprice">${card.price}</span>
+        </div>
+      </a>
+    </div>`;
 }
 
-function renderGrid(cards, containerId) {
-  document.getElementById(containerId).innerHTML = cards.map(cardHTML).join('');
+var ecCards = ECARDS.slice(), ecIndex = 0;
+
+function ecGo(i) {
+  var total = ecCards.length;
+  if (!total) return;
+  ecIndex = ((i % total) + total) % total;
+  var maxOffset = Math.max(0, total * 85 - 100);
+  var offset = Math.min(ecIndex * 85, maxOffset);
+  document.getElementById('ecTrack').style.transform = 'translateX(-' + offset + '%)';
 }
 
-renderGrid(ECARDS, 'ecard-grid');
+window.ecSlide = function(dir) { ecGo(ecIndex + dir); };
+
+function renderEcGallery(cards) {
+  ecCards = cards;
+  ecIndex = 0;
+  document.getElementById('ecTrack').innerHTML = cards.map(slideHTML).join('');
+  ecGo(0);
+}
+
+renderEcGallery(ECARDS);
+
+(function(){
+  var wrap = document.getElementById('ecGallery');
+  var startX = 0;
+  wrap.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  wrap.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) window.ecSlide(dx < 0 ? 1 : -1);
+  }, {passive:true});
+})();
 
 function toggleMenu() {
   var open = document.getElementById('mobileMenu').classList.toggle('open');
@@ -593,7 +632,7 @@ document.querySelectorAll('.fbtn').forEach(btn => {
     this.classList.add('on');
     const cat = this.dataset.cat;
     const filtered = cat === 'all' ? ECARDS : ECARDS.filter(c => c.category === cat);
-    renderGrid(filtered, 'ecard-grid');
+    renderEcGallery(filtered);
   });
 });
 </script>
