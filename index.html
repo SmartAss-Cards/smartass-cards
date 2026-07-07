@@ -22,6 +22,7 @@
   --bg3:#3A2517;
   --bdr:#4E3620;
   --cream:#F4EAD5;
+  --paper:#FBF4E4;
   --cream2:#E0D0AE;
   --red:#E0503C;
   --red2:#F26A50;
@@ -31,7 +32,8 @@
   --white:#FDF8EF;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);min-height:100vh;border:12px solid var(--red)}
+body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);min-height:100vh;border:12px solid var(--red);position:relative}
+body::before{content:"";position:absolute;inset:-7px;border:2px solid var(--paper);pointer-events:none;z-index:999}
 
 /* HEADER */
 .hdr{background:var(--bg);position:relative;width:100%}
@@ -76,7 +78,7 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .section-eyebrow{text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
 .filter-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px 0 20px}
 /* eCards section — cream variant */
-#ecards{background:var(--cream)}
+#ecards{background:var(--paper)}
 #ecards .section-eyebrow{color:var(--red)}
 #ecards .section-head h2{color:var(--bg)}
 #ecards .fbtn{border-color:#A98D5F;color:#5A4128}
@@ -133,7 +135,7 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
   .coming-email{flex-direction:column;padding:0}
 }
 /* TRENDING CAROUSEL */
-.trending-wrap{background-color:var(--cream);padding:48px 0 52px;overflow:hidden;border-top:4px solid var(--teal);border-bottom:4px solid var(--teal)}
+.trending-wrap{background-color:var(--paper);padding:48px 0 52px;overflow:hidden;border-top:4px solid var(--teal);border-bottom:4px solid var(--teal)}
 .trending-header{text-align:center;padding:0 32px;margin-bottom:32px}
 .trending-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
 .trending-wrap .trending-eyebrow{color:var(--red)}
@@ -214,6 +216,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 /* MOBILE */
 @media(max-width:768px){
   body{border-width:8px}
+  body::before{inset:-5px}
   .hero{grid-template-columns:1fr}
   .hero-right{order:-1;align-items:flex-end;min-height:320px;padding:24px 20px 0}
   .hero-right::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);z-index:1;pointer-events:none}
