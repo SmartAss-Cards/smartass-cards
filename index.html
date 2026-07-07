@@ -29,7 +29,7 @@
   --white:#FDF8EF;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);min-height:100vh}
+body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);min-height:100vh;border:12px solid var(--red)}
 
 /* HEADER */
 .hdr{background:#1C1209;position:relative;width:100%}
@@ -73,6 +73,12 @@ body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-imag
 .section-head img{height:22px}
 .section-eyebrow{text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
 .filter-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px 0 20px}
+/* eCards section — cream variant */
+#ecards{background:var(--cream)}
+#ecards .section-eyebrow{color:var(--red)}
+#ecards .section-head h2{color:var(--bg)}
+#ecards .fbtn{border-color:#A98D5F;color:#5A4128}
+#ecards .fbtn.on,#ecards .fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin:0 auto 20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
@@ -171,7 +177,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .marquee-tile{position:absolute;display:block;text-decoration:none;cursor:pointer;transition:transform 0.15s,filter 0.2s}
 .marquee-tile img{width:100%;height:100%;display:block;object-fit:contain}
 .marquee-tile:hover{transform:scale(1.04);filter:brightness(1.1);z-index:2}
-.occasion-divider{height:1px;background:var(--bdr);margin:0}
+.occasion-divider{height:12px;background:var(--red);margin:0}
 @media(max-width:768px){
   .occ-menu-wrap{padding:0}
 }
@@ -205,6 +211,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 /* MOBILE */
 @media(max-width:768px){
+  body{border-width:8px}
   .hero{grid-template-columns:1fr}
   .hero-right{order:-1;align-items:flex-end;min-height:320px;padding:24px 20px 0}
   .hero-right::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);z-index:1;pointer-events:none}
@@ -323,7 +330,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 </div>
 
 <!-- RED STRIPE DIVIDER -->
-<div style="width:100%;height:4px;background:var(--red);"></div>
+<div style="width:100%;height:12px;background:var(--red);"></div>
 
 <!-- OCCASION MENU -->
 <div class="occ-menu-wrap">
@@ -431,7 +438,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   <div class="section-head">
     <h2>eCards</h2>
     <img src="/star.png" alt="" style="height:22px;animation:spin-slow 8s linear infinite">
-    <img src="/thick_star.png" alt="" style="height:20px;filter:brightness(0) invert(1);animation:spin-slow 10s linear infinite reverse;opacity:0.8">
+    <img src="/thick_star.png" alt="" style="height:20px;filter:brightness(0);animation:spin-slow 10s linear infinite reverse;opacity:0.8">
     <img src="/thick_star.png" alt="" style="height:18px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 6s linear infinite;opacity:0.9">
   </div>
   <div class="filter-strip">
