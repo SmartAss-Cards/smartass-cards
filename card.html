@@ -4,22 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Personalize Your Card — Smartass Support Cards</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#1C1209;
-  --bg2:#251810;
-  --bg3:#2E1E12;
-  --bdr:#3D2A1A;
-  --cream:#F2E4C8;
-  --cream2:#D9C9A8;
-  --red:#C13B1B;
-  --red2:#E04820;
-  --gold:#C8922A;
-  --white:#FDF8EF;
-}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh}
 .hdr{background:var(--bg);border-bottom:1px solid var(--bdr);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
 .hdr-logo img{height:36px;object-fit:contain}
 .back-link{color:var(--cream2);text-decoration:none;font-size:13px;font-weight:500;opacity:0.7;display:flex;align-items:center;gap:6px;transition:opacity 0.2s}
@@ -61,8 +48,9 @@ textarea.finput{resize:none;height:90px;line-height:1.6}
 .price-val{font-size:22px;font-weight:700;color:var(--gold)}
 .submit-btn{width:100%;background:var(--red2);color:var(--white);border:none;border-radius:5px;padding:15px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
 .submit-btn:hover{background:var(--red)}
-.error-msg{font-size:12px;color:#E04820;margin-top:8px;display:none}
+.error-msg{font-size:12px;color:#F26A50;margin-top:8px;display:none}
 @media(max-width:768px){
+
   .layout{grid-template-columns:1fr}
   .preview-col{position:relative;top:0;height:auto;min-height:300px;padding:24px 20px}
   .video-wrap{max-width:280px}
@@ -76,7 +64,7 @@ textarea.finput{resize:none;height:90px;line-height:1.6}
 
 <header class="hdr">
   <div class="hdr-logo">
-    <a href="/"><img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards"></a>
+    <a href="/"><img src="/logo.png" alt="Smartass Support Cards"></a>
   </div>
   <a href="/" class="back-link">← Back to cards</a>
 </header>

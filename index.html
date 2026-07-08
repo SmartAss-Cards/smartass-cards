@@ -16,27 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=DM+Sans:wght@400;500;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --frame:12px;
-  --bg:#261710;
-  --bg2:#302013;
-  --bg3:#3A2517;
-  --bdr:#4E3620;
-  --cream:#F4EAD5;
-  --paper:#FFF8E7;
-  --cream2:#E0D0AE;
-  --red:#E0503C;
-  --red2:#F26A50;
-  --gold:#E2A63E;
-  --teal:#3FBFB4;
-  --teal2:#227B73;
-  --white:#FDF8EF;
-}
-html{scroll-behavior:smooth;color-scheme:dark light}
-body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);min-height:100vh;border:var(--frame) solid var(--red);position:relative}
-body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);right:calc((var(--frame) + 3px)/-2);bottom:calc((var(--frame) + 3px)/-2);left:calc((var(--frame) + 3px)/-2);border:3px solid #F2E4C8;pointer-events:none;z-index:999}
 
 /* HEADER */
 .hdr{background:var(--bg);position:relative;width:100%}
@@ -45,9 +26,6 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 .hdr-img{width:100%;height:auto;display:block}
 .hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
 .hdr-cart:hover{background:var(--red2)}
-.desktop-nav{display:flex;gap:28px}
-.desktop-nav a{color:var(--cream2);text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
-.desktop-nav a:hover{color:var(--gold)}
 .hdr-tagline{font-family:'Playfair Display',serif;font-style:italic;text-align:center;color:var(--gold);font-size:15px;padding:10px 16px;background:var(--bg);border-bottom:2px solid var(--red);margin:0}
 
 /* HERO — DESKTOP: couple right, text left */
@@ -82,8 +60,6 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 .section-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}
 .section-head h2{font-family:'Fontdiner Swanky',cursive;font-size:42px;color:var(--cream)}
 .section-head img{height:22px}
-.section-eyebrow{text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
-.sec-num{color:var(--red2);margin-right:12px;padding-right:12px;border-right:1px solid var(--gold)}
 #ecards .sec-num{color:var(--teal2);border-right-color:var(--red)}
 .page2-wrap .section-eyebrow{color:var(--red)}
 .filter-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px 0 20px}
@@ -96,10 +72,15 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 .fbtn{background:transparent;border:1px solid var(--bdr);color:var(--cream2);padding:6px 18px;border-radius:100px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:all 0.2s}
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin:0 auto 20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
+.ec-browse-wrap{text-align:center;margin-top:30px}
+.ec-browse-btn{display:inline-block;background:var(--red);color:var(--white);text-decoration:none;padding:13px 30px;border-radius:3px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.ec-browse-btn:hover{background:var(--red2)}
+
 /* TICKER */
 .ticker-wrap{background:var(--teal);border-top:3px solid var(--bg);border-bottom:3px solid var(--bg);padding:10px 0;overflow:hidden;position:relative}
 .ticker-label{position:absolute;left:0;top:0;bottom:0;background:var(--bg);display:flex;align-items:center;padding:0 16px;z-index:2;white-space:nowrap}
-.ticker-label span{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:2px}
+.ticker-arrow{font-size:16px;color:var(--red2);line-height:1;display:block;animation:arrow-nudge 1.6s ease-in-out infinite}
+@keyframes arrow-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
 .ticker-track{display:flex;animation:ticker-scroll 45s linear infinite;width:max-content}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--bg);white-space:nowrap;padding:0 32px;display:flex;align-items:center;gap:10px}
@@ -142,7 +123,7 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 .coming-input::placeholder{color:var(--cream2);opacity:0.5}
 .coming-btn{background:var(--gold);color:var(--bg);border:none;padding:11px 18px;border-radius:3px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:background 0.2s}
 .coming-btn:hover{background:var(--cream)}
-.coming-disclaimer{font-size:11px;color:var(--cream2);opacity:0.6;font-family:'Playfair Display',serif;font-style:italic}
+.coming-disclaimer{font-size:11px;color:var(--cream);font-family:'Playfair Display',serif;font-style:italic;background:rgba(26,15,10,0.65);padding:6px 14px;border-radius:3px;text-shadow:0 1px 4px rgba(0,0,0,0.8)}
 @media(max-width:768px){
   .coming-title-overlay{font-size:22px}
   .coming-email{flex-direction:column;padding:0}
@@ -211,21 +192,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .ccat{font-size:11px;color:var(--cream2);opacity:0.65}
 .cprice{font-size:14px;font-weight:700;color:var(--gold)}
 
-/* FOOTER */
-footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin-top:0}
-.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.footer-brand img{height:28px;object-fit:contain;opacity:0.7;display:block;margin-bottom:8px}
-.footer-links{display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:12px;color:var(--cream2);opacity:0.7;text-decoration:none;transition:opacity 0.2s}
-.footer-links a:hover{opacity:1}
-.footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
-.footer-signup-label{font-size:12px;color:var(--cream2);opacity:0.65;margin-bottom:8px;font-weight:500}
-.footer-signup-row{display:flex;gap:8px}
-.footer-email{background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:8px 12px;color:var(--cream);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;width:200px}
-.footer-email:focus{border-color:var(--red)}
-.footer-email::placeholder{color:var(--cream2);opacity:0.4}
-.footer-sub-btn{background:var(--red);color:var(--white);border:none;padding:8px 16px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:0.5px;transition:background 0.2s;white-space:nowrap}
-.footer-sub-btn:hover{background:var(--red2)}
 
 /* MOBILE */
 @media(max-width:768px){
@@ -308,7 +274,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <section class="hero">
   <div class="hero-left">
     <h1 class="hero-savage"><span class="savage-word">Savage</span> &amp;<br>Funny Cards</h1>
-    <p class="hero-sub">Specializing in funny sympathy &amp; support e‑cards because life is too short for empty platitudes.</p>
+    <p class="hero-sub">Specializing in funny sympathy, support, &amp; mental health e-cards that sound like something an actual human being would say.</p>
     <ul class="hero-bullets">
       <li>For loved ones who need more than "thoughts &amp; prayers"</li>
       <li>For breakups, job loss, and life's other dumpster fires</li>
@@ -346,19 +312,14 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 <!-- AS SEEN ON TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker-label"><span>As Seen On</span></div>
+  <div class="ticker-label"><span class="ticker-arrow">➤</span></div>
   <div class="ticker-track" id="tickerTrack">
-    <div class="ticker-item"><span>Instagram People</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Facebook Creeps</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>TikTok Bots</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>The Group Chat</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your Crackhead Therapist</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>CornHub</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your Mom's Back</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Big Jim's Roadhouse and Nail Salon</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>All Major Networks Probably Maybe</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>NBA MLB NFL Are Sports Teams</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>New York Hollywood and Los Angeles... Am I Right?</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>We&rsquo;re always adding new cards!</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Check back or get on the mailing list</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Your mom already did.</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>We&rsquo;re always adding new cards!</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Check back or get on the mailing list</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item"><span>Your mom already did.</span><span class="ticker-dot">✦</span></div>
   </div>
 </div>
 
@@ -448,7 +409,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 </script>
 
 <!-- COMING SOON — MOMMA CARDS -->
-<div class="coming-wrap">
+<div class="coming-wrap" id="momma">
   <img class="coming-bg-img" src="/your_mom_BG.png" alt="Cards About Your Mom" width="800" height="1309">
   <div class="coming-overlay">
     <div class="coming-soon-label"><span class="sec-num">04</span>— Coming Soon —</div>
@@ -460,7 +421,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
         <input type="email" class="coming-input" placeholder="your@email.com" aria-label="Email address" onkeydown="if(event.key==='Enter'){event.preventDefault();handleSignup(this.nextElementSibling)}">
         <button class="coming-btn" data-label="Notify Me" onclick="handleSignup(this)">Notify Me</button>
       </div>
-      <div class="coming-disclaimer">We won't spam you. Your mom will though.</div>
+      <div class="coming-disclaimer">We won't spam you. Your mom might though.</div>
     </div>
   </div>
 </div>
@@ -486,6 +447,10 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="ec-track" id="ecTrack"></div>
     <button class="pt-arrow pt-prev" onclick="ecSlide(-1)" aria-label="Previous card">‹</button>
     <button class="pt-arrow pt-next" onclick="ecSlide(1)" aria-label="Next card">›</button>
+  </div>
+
+  <div class="ec-browse-wrap">
+    <a href="#momma" class="ec-browse-btn">More Cards Dropping Soon — Get Notified</a>
   </div>
 </section>
 
@@ -527,11 +492,8 @@ const ECARDS = [
 const LIB = "655040";
 const PARAMS = "?autoplay=true&loop=true&muted=true&preload=true&responsive=true";
 
-// TODO: paste your Bunny Stream CDN hostname here to switch the grid to
-// lightweight static thumbnails instead of 7 autoplaying video players.
-// Find it in Bunny.net -> Stream -> your library -> API -> "CDN Hostname"
-// (looks like "vz-a1b2c3d4-e5f.b-cdn.net"). Leave empty "" to keep videos.
-const BUNNY_CDN_HOST = "";
+// Bunny Stream CDN hostname — serves lightweight static thumbnails in the gallery.
+const BUNNY_CDN_HOST = "vz-fdc9ff64-0c4.b-cdn.net";
 
 function slideHTML(card) {
   const preview = BUNNY_CDN_HOST

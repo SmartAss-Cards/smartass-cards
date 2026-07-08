@@ -4,124 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us — Smartass Support Cards</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#1C1209;
-  --bg2:#251810;
-  --bg3:#2E1E12;
-  --bdr:#3D2A1A;
-  --cream:#F2E4C8;
-  --cream2:#D9C9A8;
-  --red:#C13B1B;
-  --red2:#E04820;
-  --gold:#C8922A;
-  --white:#FDF8EF;
-}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh}
-.hdr{background:var(--bg);border-bottom:1px solid var(--bdr);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
-.hdr-logo img{height:36px;object-fit:contain}
-.hdr-nav{display:flex;gap:24px;align-items:center}
-.hdr-nav a{color:var(--cream2);text-decoration:none;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:0.8px;opacity:0.75;transition:opacity 0.2s}
-.hdr-nav a:hover{opacity:1}
-.hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase}
-
-/* PAGE */
-.page{max-width:720px;margin:0 auto;padding:64px 32px 80px}
-
-/* EYEBROW */
-.eyebrow{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
-
-/* HEADING */
-.page-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--cream);line-height:1.1;margin-bottom:40px}
-.page-title em{color:var(--red2);font-style:italic}
-
-/* DIVIDER */
-.divider{height:1px;background:var(--bdr);margin:40px 0}
-
-/* BODY TEXT */
-.body-text{font-size:16px;color:var(--cream2);line-height:1.8;margin-bottom:24px;opacity:0.9}
-.body-text strong{color:var(--cream);font-weight:600}
-
-/* CLOSING LINE */
-.closing{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--cream);line-height:1.6;margin-bottom:32px;border-left:3px solid var(--red2);padding-left:20px}
-
-/* SIGNATURE */
-.signature{font-size:14px;color:var(--cream2);opacity:0.7;margin-bottom:48px}
-.signature span{display:block;line-height:1.8}
-
-/* PHOTO */
-.founders-photo{width:100%;border-radius:10px;overflow:hidden;margin-bottom:16px;border:1px solid var(--bdr)}
-.founders-photo img{width:100%;object-fit:cover;display:block}
-.founders-caption{font-size:13px;color:var(--cream2);opacity:0.55;text-align:center;margin-bottom:48px}
-
-/* CTA */
-.cta-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:28px 32px;text-align:center}
-.cta-box p{font-size:14px;color:var(--cream2);opacity:0.7;margin-bottom:16px;line-height:1.6}
-.cta-btn{background:var(--red2);color:var(--white);text-decoration:none;padding:12px 28px;border-radius:3px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;display:inline-block;transition:background 0.2s}
-.cta-btn:hover{background:var(--red)}
-
-/* FOOTER */
-footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;display:flex;align-items:center;justify-content:space-between}
-footer img{height:28px;object-fit:contain;opacity:0.7}
-.footer-links{display:flex;gap:20px}
-.footer-links a{font-size:12px;color:var(--cream2);opacity:0.5;text-decoration:none;transition:opacity 0.2s}
-.footer-links a:hover{opacity:1}
-.footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
-
-@media(max-width:768px){
-  .hdr{padding:0 16px}
-  .hdr-nav a{display:none}
-  .page{padding:40px 20px 60px}
-  .page-title{font-size:30px}
-  .closing{font-size:16px}
-  footer{flex-direction:column;gap:16px;padding:24px 16px;text-align:center}
-  .footer-links{justify-content:center;flex-wrap:wrap}
-}
-</style>
+<meta name="description" content="Why we make savage, funny sympathy and support e-cards: the story behind Smartass Support Cards.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-<header class="hdr">
-  <div class="hdr-logo">
-    <a href="/"><img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards"></a>
-  </div>
-  <nav class="hdr-nav">
-    <a href="/">eCards</a>
+<header class="site-hdr">
+  <a class="site-logo" href="/"><img src="/logo.png" alt="Smartass Support Cards"></a>
+  <nav class="desktop-nav" aria-label="Main">
+    <a href="/#ecards">eCards</a>
     <a href="/about.html">About</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/podcast.html">Podcast</a>
     <a href="mailto:sgnandt@gmail.com">Contact</a>
-    <a href="/podcast.html">SmartAss Podcast</a>
-    <button class="hdr-cart">Cart (0)</button>
   </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="/#ecards" onclick="closeMenu()">eCards</a>
+  <a href="/about.html">About</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/podcast.html">Podcast</a>
+  <a href="mailto:sgnandt@gmail.com">Contact</a>
+</div>
 
 <div class="page">
 
-  <div class="eyebrow">✦ Our Story</div>
+  <div class="section-eyebrow">✦ our story ✦</div>
   <h1 class="page-title">About <em>Smartass</em><br>Support Cards</h1>
 
-  <p class="body-text">I lost a lot in a short stretch of time. People, pets, the whole thing. I started SmartAss.Cards (with my wife Vikki) because when life got really dark, the messages that actually helped weren't the tasteful, safe ones. They were the ones that said things like "You're still not funny" or "GFY" (be careful looking that up).</p>
+  <p class="body-text">My wife, Victoria, and I created Smartass Support Cards to offer an authentic alternative for those navigating grief, depression, anxiety, or any of life's toughest challenges.</p>
 
-  <p class="body-text">Why did they help? Because that's how certain people who care for one another talk. And it turns out, it's incredibly healing — not just for grief, but for depression, anxiety, pet loss, all of it.</p>
+  <p class="body-text">After losing five close family members all in the span of just five years, I found the most healing messages weren't the traditional, safe, and tasteful condolence cards. No.</p>
 
-  <p class="body-text">SmartAss.Cards are for people who love someone enough to make them laugh when everything has gone to crap. They're not for everyone. But if you're reading this, they're probably for you.</p>
+  <p class="body-text">When life got really dark, the messages that actually helped were the ones that said things like, "You're still not funny," "You still look like Beaker from the Muppets," or just a plain old "Go f**k yourself" with a bunch of heart emojis. I laughed so hard that the tears were of joy. Even just for a bit.</p>
+
+  <p class="body-text">Why did they help? Because that's how certain people who care for one another talk. And it turns out, it's incredibly healing — not just for grief, but for depression, anxiety, pet loss, all of it. People don't always want to be reminded about their ailments; they want to feel human again. Alive. That's exactly what those messages did for me. It's what I've already been doing for people my whole life!</p>
+
+  <p class="body-text">SmartAss.Cards are for people who love someone enough to make them laugh when everything has gone to crap. They're not for everyone. But if you're reading this, they probably are for you.</p>
 
   <p class="body-text">And definitely for your mom.</p>
 
-  <p class="body-text">You know what I mean.</p>
-
   <div class="divider"></div>
 
-  <div class="closing">"Let us put your foot in your mouth for you."</div>
+  <div class="closing">"Let us fumble your words for you."</div>
 
   <div class="signature">
     <span>— Shawn Gnandt, Co-Founder</span>
-    <span>Vikki Xiong-Gnandt, Co-Founder</span>
+    <span>Victoria Xiong-Gnandt, Co-Founder</span>
   </div>
 
   <div class="founders-photo">
-    <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/shawn%20%26%20Vikki.png" alt="Shawn and Vikki Gnandt, Founders of Smartass Support Cards">
+    <img src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/shawn%20%26%20Vikki.png" alt="Shawn and Victoria Gnandt, Founders of Smartass Support Cards">
   </div>
 
   <div class="cta-box">
@@ -132,13 +71,27 @@ footer img{height:28px;object-fit:contain;opacity:0.7}
 </div>
 
 <footer>
-  <img src="https://images.squarespace-cdn.com/content/v1/6744860d0caea30524e77cd6/3640bf45-f2a6-4471-bc56-5d72af36f428/Logo1.png?format=300w" alt="Smartass Support Cards">
-  <div class="footer-links">
-    <a href="/about.html">About</a>
-    <a href="mailto:sgnandt@gmail.com">Contact</a>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="/logo.png" alt="Smartass Support Cards">
+      <div class="footer-copy">© 2026 Smartass Support Cards</div>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="mailto:sgnandt@gmail.com">Contact</a>
+      <a href="/podcast.html">SmartAss Podcast</a>
+    </div>
+    <div class="footer-signup">
+      <div class="footer-signup-label">Stay in the loop</div>
+      <div class="footer-signup-row">
+        <input type="email" class="footer-email" placeholder="your@email.com" aria-label="Email address" onkeydown="if(event.key==='Enter'){event.preventDefault();handleSignup(this.nextElementSibling)}">
+        <button class="footer-sub-btn" data-label="Join" onclick="handleSignup(this)">Join</button>
+      </div>
+    </div>
   </div>
-  <div class="footer-copy">© 2026 Smartass Support Cards</div>
 </footer>
 
+<script src="/site.js"></script>
 </body>
 </html>

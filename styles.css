@@ -1,0 +1,143 @@
+/* ============================================================
+   SMARTASS SUPPORT CARDS — shared site styles
+   Linked by every page. Edit brand colors/components ONCE here.
+   Page-specific styles live in each page's own <style> block.
+   ============================================================ */
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --frame:12px;
+  --bg:#261710;
+  --bg2:#302013;
+  --bg3:#3A2517;
+  --bdr:#4E3620;
+  --cream:#F4EAD5;
+  --paper:#FFF8E7;
+  --cream2:#E0D0AE;
+  --red:#E0503C;
+  --red2:#F26A50;
+  --gold:#E2A63E;
+  --teal:#3FBFB4;
+  --teal2:#227B73;
+  --white:#FDF8EF;
+}
+
+html{scroll-behavior:smooth;color-scheme:dark light}
+html,body{min-height:100vh}
+body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);border:var(--frame) solid var(--red);position:relative}
+body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);right:calc((var(--frame) + 3px)/-2);bottom:calc((var(--frame) + 3px)/-2);left:calc((var(--frame) + 3px)/-2);border:3px solid #F2E4C8;pointer-events:none;z-index:999}
+
+/* ---------- SHARED NAV / SUBPAGE HEADER ---------- */
+.site-hdr{background:var(--bg2);border-bottom:3px solid var(--teal);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.site-logo img{height:38px;object-fit:contain;display:block}
+.desktop-nav{display:flex;gap:28px}
+.desktop-nav a{color:var(--cream2);text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
+.desktop-nav a:hover{color:var(--gold)}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
+.hamburger span{width:22px;height:2px;background:var(--cream2);display:block;transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(38,23,16,0.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--cream);text-decoration:none;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:1px;opacity:0.85}
+.mobile-menu a:hover{opacity:1;color:var(--gold)}
+.mobile-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--cream2);font-size:28px;cursor:pointer}
+
+/* ---------- EYEBROWS / SECTION NUMBERS ---------- */
+.section-eyebrow{text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
+.sec-num{color:var(--red2);margin-right:12px;padding-right:12px;border-right:1px solid var(--gold)}
+
+/* ---------- SHARED FOOTER ---------- */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin-top:0}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.footer-brand img{height:28px;object-fit:contain;opacity:0.7;display:block;margin-bottom:8px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:12px;color:var(--cream2);opacity:0.7;text-decoration:none;transition:opacity 0.2s}
+.footer-links a:hover{opacity:1}
+.footer-copy{font-size:11px;color:var(--cream2);opacity:0.4}
+.footer-signup-label{font-size:12px;color:var(--cream2);opacity:0.65;margin-bottom:8px;font-weight:500}
+.footer-signup-row{display:flex;gap:8px}
+.footer-email{background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:8px 12px;color:var(--cream);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;width:200px}
+.footer-email:focus{border-color:var(--red)}
+.footer-email::placeholder{color:var(--cream2);opacity:0.4}
+.footer-sub-btn{background:var(--red);color:var(--white);border:none;padding:8px 16px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:0.5px;transition:background 0.2s;white-space:nowrap}
+.footer-sub-btn:hover{background:var(--red2)}
+
+/* ---------- SUBPAGE SHELL (about, blog posts, etc.) ---------- */
+.page{max-width:760px;margin:0 auto;padding:56px 32px 80px}
+.page .section-eyebrow{text-align:left}
+.page-title{font-family:'Fontdiner Swanky',cursive;font-size:44px;color:var(--cream);line-height:1.15;margin-bottom:36px}
+.page-title em{color:var(--red2);font-style:normal}
+.divider{height:1px;background:var(--bdr);margin:40px 0}
+
+/* about page components */
+.body-text{font-size:16px;color:var(--cream2);line-height:1.8;margin-bottom:24px;opacity:0.92}
+.body-text strong{color:var(--cream);font-weight:600}
+.closing{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--cream);line-height:1.6;margin-bottom:32px;border-left:3px solid var(--teal);padding-left:20px}
+.signature{font-size:14px;color:var(--cream2);opacity:0.7;margin-bottom:48px}
+.signature span{display:block;line-height:1.8}
+.founders-photo{width:100%;border-radius:10px;overflow:hidden;margin-bottom:16px;border:1px solid var(--bdr)}
+.founders-photo img{width:100%;object-fit:cover;display:block}
+.founders-caption{font-size:13px;color:var(--cream2);opacity:0.55;text-align:center;margin-bottom:48px}
+.cta-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:28px 32px;text-align:center}
+.cta-box p{font-size:14px;color:var(--cream2);opacity:0.7;margin-bottom:16px;line-height:1.6}
+.cta-btn{background:var(--red2);color:var(--white);text-decoration:none;padding:12px 28px;border-radius:3px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;display:inline-block;transition:background 0.2s;font-family:'DM Sans',sans-serif}
+.cta-btn:hover{background:var(--red)}
+
+/* ---------- BLOG INDEX ---------- */
+.blog-hero{padding:56px 32px 40px;text-align:center;border-bottom:4px solid var(--teal)}
+.blog-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:12px}
+.blog-title{font-family:'Fontdiner Swanky',cursive;font-size:44px;color:var(--cream);margin-bottom:12px}
+.blog-sub{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--cream2);opacity:0.75}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;max-width:1100px;margin:0 auto;padding:48px 32px 64px}
+.post-card{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-color 0.2s,background 0.2s}
+.post-card:hover{border-color:var(--gold);background:var(--bg3)}
+.post-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.post-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.post-card .post-meta{font-size:11px;color:var(--cream2);opacity:0.55;margin-bottom:10px;font-weight:500}
+.post-card .post-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream);line-height:1.4;margin-bottom:10px}
+.post-card .post-excerpt{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);opacity:0.75;line-height:1.6;flex:1;margin-bottom:16px}
+.post-card .post-cta{font-size:12px;font-weight:700;color:var(--red2);text-transform:uppercase;letter-spacing:1px;font-family:'DM Sans',sans-serif}
+
+/* ---------- BLOG ARTICLE ---------- */
+.post-wrap{max-width:740px;margin:0 auto;padding:56px 32px 80px}
+.post-back{display:inline-block;font-size:12px;font-weight:600;color:var(--cream2);text-decoration:none;text-transform:uppercase;letter-spacing:1.5px;opacity:0.6;margin-bottom:32px;transition:opacity 0.2s}
+.post-back:hover{opacity:1}
+.post-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:12px}
+.post-wrap .post-title{font-family:'Fontdiner Swanky',cursive;font-size:40px;color:var(--cream);line-height:1.2;margin-bottom:16px}
+.post-wrap .post-meta{font-size:13px;color:var(--cream2);opacity:0.6;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--bdr)}
+.post-image{width:100%;border-radius:8px;display:block;margin-bottom:36px}
+.post-content p{font-family:'Playfair Display',serif;font-size:17px;line-height:1.8;color:var(--cream2);margin-bottom:24px}
+.post-content h2{font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--gold);margin-bottom:14px;margin-top:32px}
+.post-content h3{font-family:'Fontdiner Swanky',cursive;font-size:22px;color:var(--gold);margin-bottom:14px;margin-top:8px}
+.post-content ul{margin-left:24px;margin-bottom:24px}
+.post-content ul li{font-family:'Playfair Display',serif;font-size:16px;line-height:1.8;color:var(--cream2);margin-bottom:8px}
+.post-content blockquote{border-left:3px solid var(--gold);padding-left:20px;margin:24px 0}
+.post-content blockquote p{font-style:italic;opacity:0.85}
+.post-content strong{color:var(--cream);font-weight:700}
+.post-content em{font-style:italic}
+.post-cta-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:28px;text-align:center;margin-top:48px}
+.post-cta-box p{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--cream2);margin-bottom:16px}
+.post-cta-btn{background:var(--red2);color:var(--white);text-decoration:none;padding:12px 28px;border-radius:3px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;display:inline-block;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.post-cta-btn:hover{background:var(--red)}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:768px){
+  .site-hdr{padding:0 16px}
+  .desktop-nav{display:none}
+  .hamburger{display:flex}
+  .page{padding:40px 20px 60px}
+  .page-title{font-size:32px}
+  .closing{font-size:17px}
+  .blog-hero{padding:40px 16px 28px}
+  .blog-title{font-size:32px}
+  .blog-grid{grid-template-columns:1fr;padding:28px 16px 48px;gap:20px}
+  .post-wrap{padding:32px 16px 60px}
+  .post-wrap .post-title{font-size:28px}
+  footer{padding:24px 16px}
+  .footer-top{flex-direction:column;gap:24px}
+}
+@media(min-width:769px){
+  .hamburger{display:none}
+  .mobile-menu{display:none !important}
+}

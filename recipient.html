@@ -4,148 +4,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>You've Got a Smartass Card</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{min-height:100vh;overflow-x:hidden}
-body{font-family:'DM Sans',sans-serif;background:#1C1209;color:#F2E4C8}
-
-.page{
-  min-height:100vh;
+body{overflow-x:hidden}
+.page{min-height:100vh;
   display:flex;
   flex-direction:column;
   align-items:center;
   padding:0 0 60px;
   position:relative;
-  overflow:hidden;
-}
-
-/* BACKGROUND */
-.bg{position:fixed;inset:0;background-image:url('https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/victorian_wallpaper.png');background-size:cover;background-position:center;opacity:0.85;z-index:0}
-.bg-overlay{position:fixed;inset:0;background:linear-gradient(to bottom,rgba(28,18,9,0.4) 0%,rgba(28,18,9,0.25) 50%,rgba(28,18,9,0.7) 100%);z-index:0}
-
-/* RETRO FRAME */
-.retro-frame{position:fixed;inset:36px 12px 12px 12px;border:1px solid rgba(200,146,42,0.45);pointer-events:none;z-index:3}
-.retro-frame::before{content:'';position:absolute;inset:5px;border:1px solid rgba(200,146,42,0.2)}
+  overflow:hidden;}
+.bg{position:fixed;inset:var(--frame);background-image:url('https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/victorian_wallpaper.png');background-size:cover;background-position:center;opacity:0.85;z-index:0}
+.bg-overlay{position:fixed;inset:var(--frame);background:linear-gradient(to bottom,rgba(38,23,16,0.4) 0%,rgba(38,23,16,0.25) 50%,rgba(38,23,16,0.7) 100%);z-index:0}
+.retro-frame{position:fixed;inset:calc(36px + var(--frame)) calc(12px + var(--frame)) calc(12px + var(--frame)) calc(12px + var(--frame));border:1px solid rgba(226,166,62,0.45);pointer-events:none;z-index:3}
+.retro-frame::before{content:'';position:absolute;inset:5px;border:1px solid rgba(226,166,62,0.2)}
 .corner{position:absolute;width:18px;height:18px}
-.corner-tl{top:-1px;left:-1px;border-top:2px solid #C8922A;border-left:2px solid #C8922A}
-.corner-tr{top:-1px;right:-1px;border-top:2px solid #C8922A;border-right:2px solid #C8922A}
-.corner-bl{bottom:-1px;left:-1px;border-bottom:2px solid #C8922A;border-left:2px solid #C8922A}
-.corner-br{bottom:-1px;right:-1px;border-bottom:2px solid #C8922A;border-right:2px solid #C8922A}
-
-/* RETRO SHAPES */
+.corner-tl{top:-1px;left:-1px;border-top:2px solid #E2A63E;border-left:2px solid #E2A63E}
+.corner-tr{top:-1px;right:-1px;border-top:2px solid #E2A63E;border-right:2px solid #E2A63E}
+.corner-bl{bottom:-1px;left:-1px;border-bottom:2px solid #E2A63E;border-left:2px solid #E2A63E}
+.corner-br{bottom:-1px;right:-1px;border-bottom:2px solid #E2A63E;border-right:2px solid #E2A63E}
 .retro-shape{position:fixed;pointer-events:none;z-index:4}
-.shape-tl{top:48px;left:18px;width:44px;animation:spin1 12s linear infinite}
-.shape-bl{bottom:18px;left:20px;width:32px;animation:flicker 4s ease-in-out infinite 1s}
-.shape-br{bottom:16px;right:18px;width:40px;animation:spin1 16s linear infinite reverse}
-@keyframes spin1{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes flicker{0%,100%{opacity:0.35;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+.shape-tl{top:calc(48px + var(--frame));left:calc(18px + var(--frame));width:44px;animation:spin1 12s linear infinite}
+.shape-bl{bottom:calc(18px + var(--frame));left:calc(20px + var(--frame));width:32px;animation:flicker 4s ease-in-out infinite 1s}
+.shape-br{bottom:calc(16px + var(--frame));right:calc(18px + var(--frame));width:40px;animation:spin1 16s linear infinite reverse}
+@keyframes spin1{from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+@keyframes flicker{0%,100%{opacity:0.35;transform:scale(1)}
+50%{opacity:1;transform:scale(1.12)}
+}
 
 /* RIBBON */
-.ribbon{
-  width:100%;padding:9px;
+.ribbon{width:100%;padding:9px;
   text-align:center;font-size:10px;font-weight:700;
   color:#FDF8EF;letter-spacing:2px;text-transform:uppercase;
-  background:#E04820;
+  background:#F26A50;
   position:relative;z-index:5;
   font-family:'DM Sans',sans-serif;
-  flex-shrink:0;
-}
-
-/* CONTENT */
-.content{
-  position:relative;z-index:5;
+  flex-shrink:0;}
+.content{position:relative;z-index:5;
   width:100%;
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:32px 20px 0;
-}
-
-.from-label{
-  font-family:'Playfair Display',serif;
+  padding:32px 20px 0;}
+.from-label{font-family:'Playfair Display',serif;
   font-size:11px;letter-spacing:2px;text-transform:uppercase;
-  color:#C8922A;margin-bottom:6px;text-align:center;
-  text-shadow:0 1px 6px rgba(0,0,0,0.9);
-}
-.from-name{
-  font-family:'Playfair Display',serif;
-  font-size:32px;color:#F2E4C8;font-weight:500;
+  color:#E2A63E;margin-bottom:6px;text-align:center;
+  text-shadow:0 1px 6px rgba(0,0,0,0.9);}
+.from-name{font-family:'Playfair Display',serif;
+  font-size:32px;color:#F4EAD5;font-weight:500;
   margin-bottom:24px;text-align:center;
-  text-shadow:0 2px 10px rgba(0,0,0,0.9);
-}
-
-/* CARD */
-.card{
-  width:min(380px,90vw);
-  background:#251810;
+  text-shadow:0 2px 10px rgba(0,0,0,0.9);}
+.card{width:min(380px,90vw);
+  background:#302013;
   border-radius:12px;
   overflow:hidden;
-  border:1px solid #3D2A1A;
+  border:1px solid #4E3620;
   box-shadow:0 24px 60px rgba(0,0,0,0.8);
-  margin-bottom:20px;
-}
-.card-vid{width:100%;aspect-ratio:1;position:relative;background:#1C1209}
+  margin-bottom:20px;}
+.card-vid{width:100%;aspect-ratio:1;position:relative;background:#261710}
 .card-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-.card-msg{padding:18px 20px;border-top:1px solid #3D2A1A}
-.msg-text{
-  font-family:'Playfair Display',serif;
-  font-size:15px;color:#D9C9A8;
-  font-style:italic;line-height:1.7;margin-bottom:10px;
-}
-.msg-sig{font-size:13px;color:#C8922A;display:flex;align-items:center;gap:6px}
+.card-msg{padding:18px 20px;border-top:1px solid #4E3620}
+.msg-text{font-family:'Playfair Display',serif;
+  font-size:15px;color:#E0D0AE;
+  font-style:italic;line-height:1.7;margin-bottom:10px;}
+.msg-sig{font-size:13px;color:#E2A63E;display:flex;align-items:center;gap:6px}
 .msg-emoji{font-size:20px}
-
-/* SIGNERS */
-.signers-box{
-  width:min(380px,90vw);
+.signers-box{width:min(380px,90vw);
   background:rgba(37,24,16,0.88);
-  border:1px solid #3D2A1A;
+  border:1px solid #4E3620;
   border-radius:10px;
   padding:18px 20px;
   margin-bottom:16px;
-  backdrop-filter:blur(4px);
-}
-.signers-label{font-size:10px;font-weight:600;color:#D9C9A8;text-transform:uppercase;letter-spacing:1px;opacity:0.6;margin-bottom:12px}
-.signer-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #3D2A1A}
+  backdrop-filter:blur(4px);}
+.signers-label{font-size:10px;font-weight:600;color:#E0D0AE;text-transform:uppercase;letter-spacing:1px;opacity:0.6;margin-bottom:12px}
+.signer-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #4E3620}
 .signer-item:last-child{border-bottom:none}
-.savatar{width:32px;height:32px;border-radius:50%;background:#C13B1B;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#FDF8EF;flex-shrink:0;text-transform:uppercase}
-.sname{font-size:13px;font-weight:500;color:#F2E4C8}
-
-/* CTA */
-.cta-box{
-  width:min(380px,90vw);
+.savatar{width:32px;height:32px;border-radius:50%;background:#E0503C;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#FDF8EF;flex-shrink:0;text-transform:uppercase}
+.sname{font-size:13px;font-weight:500;color:#F4EAD5}
+.cta-box{width:min(380px,90vw);
   background:rgba(37,24,16,0.88);
-  border:1px solid #3D2A1A;
+  border:1px solid #4E3620;
   border-radius:10px;
   padding:18px 20px;
   text-align:center;
   backdrop-filter:blur(4px);
-  margin-bottom:24px;
-}
-.cta-text{font-size:13px;color:#D9C9A8;opacity:0.7;margin-bottom:14px}
-.cta-btn{
-  background:#E04820;color:#FDF8EF;
+  margin-bottom:24px;}
+.cta-text{font-size:13px;color:#E0D0AE;opacity:0.7;margin-bottom:14px}
+.cta-btn{background:#F26A50;color:#FDF8EF;
   text-decoration:none;padding:12px 28px;
   border-radius:3px;font-size:13px;font-weight:700;
   text-transform:uppercase;letter-spacing:0.8px;
   display:inline-block;transition:background 0.2s;
-  font-family:'DM Sans',sans-serif;
-}
-.cta-btn:hover{background:#C13B1B}
-
-/* LOADING / ERROR STATES */
+  font-family:'DM Sans',sans-serif;}
+.cta-btn:hover{background:#E0503C}
 .state-box{position:relative;z-index:5;text-align:center;padding:80px 24px;max-width:420px;margin:0 auto}
-.state-title{font-family:'Playfair Display',serif;font-size:24px;color:#F2E4C8;margin-bottom:12px;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
-.state-sub{font-size:14px;color:#D9C9A8;opacity:0.85;line-height:1.7;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
-.state-sub a{color:#C8922A}
-.spinner{width:36px;height:36px;border:3px solid rgba(200,146,42,0.25);border-top-color:#C8922A;border-radius:50%;margin:0 auto 20px;animation:spin-load 0.9s linear infinite}
-@keyframes spin-load{to{transform:rotate(360deg)}}
+.state-title{font-family:'Playfair Display',serif;font-size:24px;color:#F4EAD5;margin-bottom:12px;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
+.state-sub{font-size:14px;color:#E0D0AE;opacity:0.85;line-height:1.7;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
+.state-sub a{color:#E2A63E}
+.spinner{width:36px;height:36px;border:3px solid rgba(226,166,62,0.25);border-top-color:#E2A63E;border-radius:50%;margin:0 auto 20px;animation:spin-load 0.9s linear infinite}
+@keyframes spin-load{to{transform:rotate(360deg)}
+}
 
 /* FOOTER */
 .rec-footer{text-align:center;padding:8px 0 20px;position:relative;z-index:5}
 .rec-footer img{height:22px;opacity:0.35}
-.rec-footer p{font-size:10px;color:#D9C9A8;opacity:0.3;margin-top:4px}
+.rec-footer p{font-size:10px;color:#E0D0AE;opacity:0.3;margin-top:4px}
 </style>
 </head>
 <body>
