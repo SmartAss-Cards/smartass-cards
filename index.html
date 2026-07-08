@@ -35,13 +35,6 @@
   --white:#FDF8EF;
 }
 html{scroll-behavior:smooth;color-scheme:dark light}
-@media(prefers-color-scheme:dark){
-  html{color-scheme:dark}
-  body{background-color:var(--bg);color:var(--cream)}
-  .trending-wrap{background-color:#F2E4C8}
-  #ecards{background:#F2E4C8}
-  body::before{border-color:#F2E4C8}
-}
 body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);min-height:100vh;border:var(--frame) solid var(--red);position:relative}
 body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);right:calc((var(--frame) + 3px)/-2);bottom:calc((var(--frame) + 3px)/-2);left:calc((var(--frame) + 3px)/-2);border:3px solid #F2E4C8;pointer-events:none;z-index:999}
 
@@ -52,11 +45,15 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 .hdr-img{width:100%;height:auto;display:block}
 .hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
 .hdr-cart:hover{background:var(--red2)}
+.desktop-nav{display:flex;gap:28px}
+.desktop-nav a{color:var(--cream2);text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
+.desktop-nav a:hover{color:var(--gold)}
+.hdr-tagline{font-family:'Playfair Display',serif;font-style:italic;text-align:center;color:var(--gold);font-size:15px;padding:10px 16px;background:var(--bg);border-bottom:2px solid var(--red);margin:0}
 
 /* HERO — DESKTOP: couple right, text left */
 .hero{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:420px}
 .hero-left{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
-.hero-savage{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--red2);line-height:1.1;margin-bottom:14px}
+.hero-savage{font-family:'Fontdiner Swanky',cursive;font-size:52px;color:var(--red2);line-height:1.05;margin-bottom:14px}
 .hero-savage .savage-word{color:var(--cream)}
 .hero-sub{font-size:14px;color:var(--cream2);opacity:0.75;line-height:1.65;margin-bottom:24px;max-width:400px}
 .hero-bullets{list-style:none;margin-bottom:30px}
@@ -81,11 +78,14 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 }
 
 /* SECTION */
-.section{padding:32px 32px 40px}
+.section{padding:56px 32px 72px}
 .section-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}
-.section-head h2{font-family:'Fontdiner Swanky',cursive;font-size:30px;color:var(--cream)}
+.section-head h2{font-family:'Fontdiner Swanky',cursive;font-size:42px;color:var(--cream)}
 .section-head img{height:22px}
 .section-eyebrow{text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
+.sec-num{color:var(--red2);margin-right:12px;padding-right:12px;border-right:1px solid var(--gold)}
+#ecards .sec-num{color:var(--teal2);border-right-color:var(--red)}
+.page2-wrap .section-eyebrow{color:var(--red)}
 .filter-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px 0 20px}
 /* eCards section — cream variant */
 #ecards{background:#F2E4C8}
@@ -97,13 +97,13 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
 .fbtn.on,.fbtn:hover{background:var(--red);border-color:var(--red);color:var(--white)}
 .sound-note{font-size:12px;color:var(--cream2);opacity:0.7;margin:0 auto 20px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;width:fit-content}
 /* TICKER */
-.ticker-wrap{background:var(--bg);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:10px 0;overflow:hidden;position:relative}
-.ticker-label{position:absolute;left:0;top:0;bottom:0;background:var(--teal);display:flex;align-items:center;padding:0 16px;z-index:2;white-space:nowrap}
-.ticker-label span{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;color:var(--bg);text-transform:uppercase;letter-spacing:2px}
+.ticker-wrap{background:var(--teal);border-top:3px solid var(--bg);border-bottom:3px solid var(--bg);padding:10px 0;overflow:hidden;position:relative}
+.ticker-label{position:absolute;left:0;top:0;bottom:0;background:var(--bg);display:flex;align-items:center;padding:0 16px;z-index:2;white-space:nowrap}
+.ticker-label span{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:2px}
 .ticker-track{display:flex;animation:ticker-scroll 45s linear infinite;width:max-content}
 .ticker-track:hover{animation-play-state:paused}
-.ticker-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--cream2);white-space:nowrap;padding:0 32px;display:flex;align-items:center;gap:10px}
-.ticker-dot{color:var(--gold);font-size:14px}
+.ticker-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--bg);white-space:nowrap;padding:0 32px;display:flex;align-items:center;gap:10px}
+.ticker-dot{color:var(--red);font-size:14px}
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* PAGE 2 */
@@ -148,22 +148,19 @@ body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);righ
   .coming-email{flex-direction:column;padding:0}
 }
 /* TRENDING CAROUSEL */
-.trending-wrap{background-color:#F2E4C8;padding:48px 0 52px;overflow:hidden;border-top:4px solid var(--teal);border-bottom:4px solid var(--teal)}
+.trending-wrap{background-color:#F2E4C8;padding:64px 0 72px;overflow:hidden;border-top:4px solid var(--teal);border-bottom:4px solid var(--teal)}
 .trending-header{text-align:center;padding:0 32px;margin-bottom:32px}
 .trending-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;margin-bottom:8px}
 .trending-wrap .trending-eyebrow{color:var(--red)}
 .trending-title{font-family:'Fontdiner Swanky',cursive;font-size:24px;color:var(--cream)}
-.trending-wrap .trending-title{color:var(--red);font-size:34px}
+.trending-wrap .trending-title{color:var(--red);font-size:42px}
 @media(max-width:768px){
   .trending-wrap{padding:36px 0 40px}
 }
 /* OCCASION HEADING */
-/* TODO: occasion_frame.png is NOT in your GitHub repo (the URL returns 404, so this
-   background has silently never rendered). Either upload the file to the repo root,
-   or delete the background declaration below. */
-.occ-heading-wrap{text-align:center;padding:20px 24px;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;background:url(/occasion_frame.png) center center/100% 100% no-repeat}
-.occ-heading-top{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);line-height:1.1;margin-bottom:0}
-.occ-heading-bottom{font-family:'Fontdiner Swanky',cursive;font-size:36px;color:var(--cream);line-height:1.1;margin-bottom:20px}
+.occ-heading-wrap{text-align:center;padding:20px 24px;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;position:relative}
+.occ-heading-top{font-family:'Fontdiner Swanky',cursive;font-size:44px;color:var(--cream);line-height:1.1;margin-bottom:0}
+.occ-heading-bottom{font-family:'Fontdiner Swanky',cursive;font-size:44px;color:var(--cream);line-height:1.1;margin-bottom:20px}
 .occ-click-text{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-top:8px;margin-bottom:0}
 .occ-subtext{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--cream);opacity:0.75;line-height:1.6;margin:0 auto;max-width:320px;padding:12px 16px;border-top:1px solid rgba(242,228,200,0.3);border-bottom:1px solid rgba(242,228,200,0.3);position:relative}
 .occ-subtext::before,.occ-subtext::after{content:'✦';color:var(--gold);font-size:10px;position:absolute;top:50%;transform:translateY(-50%)}
@@ -241,8 +238,13 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   .hero-right .star-tl{width:42px;top:12px;left:12px;opacity:0.9}
   .hero-right .star-br{width:38px;bottom:0;right:12px;opacity:0.9}
   .hero-left{padding:24px 20px 32px}
-  .hero-savage{font-size:28px}
-  .hero-sub{display:none}
+  .hero-savage{font-size:32px}
+  .hero-sub{font-size:13px;margin-bottom:18px}
+  .desktop-nav{display:none}
+  .hdr-tagline{font-size:13px}
+  .section-head h2{font-size:30px}
+  .trending-wrap .trending-title{font-size:32px}
+  .occ-heading-top,.occ-heading-bottom{font-size:36px}
   .hero-cta img.btn-shape{width:180px}
   .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
   .hamburger span{width:22px;height:2px;background:var(--cream2);display:block;transition:all 0.3s}
@@ -272,6 +274,14 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 
 <header class="hdr">
   <div class="hdr-top-bar">
+    <!-- TODO (when Stripe goes live): wire this cart button up — it currently just
+         shows a placeholder alert via toggleCart() at the bottom of this file. -->
+    <nav class="desktop-nav" aria-label="Main">
+      <a href="#ecards">eCards</a>
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/podcast.html">Podcast</a>
+    </nav>
     <button class="hdr-cart" onclick="toggleCart()">CART (<span id="cartCount">0</span>)</button>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -281,6 +291,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
   <div class="hdr-banner-wrap">
     <img class="hdr-img" src="/header_.png" alt="Smartass Support Cards — Funny Cards For When Life Sucks" width="1902" height="613">
   </div>
+  <p class="hdr-tagline">Because life's too short for empty platitudes.</p>
 </header>
 
 <!-- MOBILE MENU -->
@@ -323,6 +334,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
       <span class="page2-star page2-star-tl">✦</span>
       <img src="/hands_holding_phones.png" alt="Two hands holding phones showing Smartass cards" class="page2-img" width="1022" height="745">
     </div>
+    <div class="section-eyebrow"><span class="sec-num">01</span>✦ who we are ✦</div>
     <div class="page2-heading-wrap">
       <h2 class="about-heading">Ever heard of a <span style="color:var(--red2)">funny</span> sympathy card?</h2>
       <span class="page2-star page2-star-tr">✦</span>
@@ -356,6 +368,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <!-- OCCASION MENU -->
 <div class="occ-menu-wrap">
   <div class="occ-heading-wrap">
+    <div class="section-eyebrow"><span class="sec-num">02</span>✦ find your vibe ✦</div>
     <div class="occ-heading-top">What's the</div>
     <div class="occ-heading-bottom">Occasion?</div>
     <p class="occ-subtext">Here's a starting point. Our cards can be used for more than one occasion.</p>
@@ -379,7 +392,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <!-- POPULAR & TRENDING -->
 <div class="trending-wrap">
   <div class="trending-header">
-    <div class="trending-eyebrow">✦ best sellers ✦</div>
+    <div class="trending-eyebrow"><span class="sec-num">03</span>✦ best sellers ✦</div>
     <div class="trending-title">Popular &amp; Trending</div>
   </div>
   <div class="pt-gallery-wrap">
@@ -438,7 +451,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <div class="coming-wrap">
   <img class="coming-bg-img" src="/your_mom_BG.png" alt="Cards About Your Mom" width="800" height="1309">
   <div class="coming-overlay">
-    <div class="coming-soon-label">— Coming Soon —</div>
+    <div class="coming-soon-label"><span class="sec-num">04</span>— Coming Soon —</div>
     <div class="coming-title-overlay">Cards About <em>Your Mom.</em></div>
     <p class="coming-sub-overlay">If you grew up trash talkin' about people's mommas, then these are for you and your dumb friends. These cards go hard, so be careful.</p>
     <div class="coming-wood-zone">
@@ -455,12 +468,12 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
 <div class="occasion-divider" style="background:var(--teal)"></div>
 
 <section class="section" id="ecards">
-  <div class="section-eyebrow">✦ pick your poison ✦</div>
+  <div class="section-eyebrow"><span class="sec-num">05</span>✦ pick your poison ✦</div>
   <div class="section-head">
+    <img src="/thick_star.png" alt="" style="height:18px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 6s linear infinite;opacity:0.9">
     <h2>eCards</h2>
     <img src="/star.png" alt="" style="height:22px;animation:spin-slow 8s linear infinite">
     <img src="/thick_star.png" alt="" style="height:20px;filter:brightness(0);animation:spin-slow 10s linear infinite reverse;opacity:0.8">
-    <img src="/thick_star.png" alt="" style="height:18px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 6s linear infinite;opacity:0.9">
   </div>
   <div class="filter-strip">
     <button class="fbtn on" data-cat="all">All</button>
@@ -485,6 +498,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:32px;margin
     <div class="footer-links">
       <a href="/about.html">About</a>
       <a href="/blog.html">Blog</a>
+      <!-- TODO (after Resend domain verification): swap this gmail address for a
+           branded one like hello@smartass.cards — here AND in the mobile menu above. -->
       <a href="mailto:sgnandt@gmail.com">Contact</a>
       <a href="/podcast.html">SmartAss Podcast</a>
     </div>
