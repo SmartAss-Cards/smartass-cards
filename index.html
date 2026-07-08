@@ -492,13 +492,26 @@ const ECARDS = [
 const LIB = "655040";
 const PARAMS = "?autoplay=true&loop=true&muted=true&preload=true&responsive=true";
 
-// Bunny Stream CDN hostname — serves lightweight static thumbnails in the gallery.
-const BUNNY_CDN_HOST = "vz-fdc9ff64-0c4.b-cdn.net";
+// GALLERY THUMBNAILS — local static images, uploaded to the GitHub repo root.
+// Each card looks for /thumb_{id}.jpg (e.g. card id 3 -> /thumb_3.jpg).
+// If that image doesn't exist (yet), the slide AUTOMATICALLY falls back to the
+// streaming video player below — so nothing ever looks broken, and you can add
+// thumbnails one card at a time whenever you like. Bunny's own thumbnail URLs
+// are not used here because the Stream library keeps Token Authentication on.
+
+// Swaps a slide back to the video player when its thumbnail image is missing.
+function thumbFallback(img) {
+  var ifr = document.createElement('iframe');
+  ifr.src = 'https://player.mediadelivery.net/embed/' + LIB + '/' + img.dataset.vid + PARAMS;
+  ifr.title = img.alt + ' preview';
+  ifr.loading = 'lazy';
+  ifr.setAttribute('allow', 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;');
+  ifr.setAttribute('allowfullscreen', '');
+  img.replaceWith(ifr);
+}
 
 function slideHTML(card) {
-  const preview = BUNNY_CDN_HOST
-    ? `<img src="https://${BUNNY_CDN_HOST}/${card.previewId}/thumbnail.jpg" alt="${card.title}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`
-    : `<iframe src="https://player.mediadelivery.net/embed/${LIB}/${card.previewId}${PARAMS}" title="${card.title} preview" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>`;
+  const preview = `<img src="/thumb_${card.id}.jpg" alt="${card.title}" loading="lazy" data-vid="${card.previewId}" onerror="thumbFallback(this)" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`;
   return `
     <div class="ec-slide">
       <a class="ec-card" href="/card.html?id=${card.id}">
