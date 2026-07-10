@@ -24,9 +24,9 @@
 .hdr-top-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--bg)}
 .hdr-banner-wrap{width:100%}
 .hdr-img{width:100%;height:auto;display:block}
-.hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
+.hdr-cart{background:var(--red);color:var(--white);border:none;padding:8px 20px;border-radius:3px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s;display:none /* TODO: remove display:none when Stripe cart goes live */}
 .hdr-cart:hover{background:var(--red2)}
-.hdr-tagline{font-family:'Playfair Display',serif;font-style:italic;text-align:center;color:var(--gold);font-size:15px;padding:10px 16px;background:var(--bg);border-bottom:2px solid var(--red);margin:0}
+.hdr-tagline{font-family:'Playfair Display',serif;font-style:italic;text-align:center;color:var(--gold);font-size:17px;padding:12px 16px;background:var(--bg);border-bottom:2px solid var(--red);margin:0}
 
 /* HERO — DESKTOP: couple right, text left */
 .hero{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--red);min-height:420px}
@@ -38,11 +38,12 @@
 .hero-bullets li{font-size:13px;color:var(--cream2);padding:5px 0 5px 20px;position:relative;opacity:0.85;line-height:1.5}
 .hero-bullets li::before{content:"✦";position:absolute;left:0;color:var(--red2);font-size:10px;top:7px}
 
-/* BUTTON using button_1 shape */
-.hero-cta{position:relative;display:inline-block;text-decoration:none;cursor:pointer;background:none;border:none;padding:0;align-self:flex-start}
-.hero-cta img.btn-shape{width:220px;display:block;filter:saturate(2.4) brightness(0.85) sepia(1) hue-rotate(325deg)}
-.hero-cta span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;padding-right:12px}
-.hero-cta:hover img.btn-shape{filter:saturate(2.4) brightness(1.05) sepia(1) hue-rotate(325deg)}
+/* HERO CTA — solid brand red.
+   TODO: if you re-export button_1.png in true red (#E0503C), the old
+   image-button markup is in index.backup — this solid version reads
+   stronger than the filtered PNG did (it rendered washed-out mauve). */
+.hero-cta{display:inline-block;background:var(--red);color:var(--white);text-decoration:none;padding:15px 36px;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;align-self:flex-start;transition:background 0.2s;border:none;cursor:pointer}
+.hero-cta:hover{background:var(--red2)}
 
 /* HERO RIGHT — couple blended, no box */
 .hero-right{display:flex;align-items:center;justify-content:center;padding:24px 32px;background:url(/wood_slats.png) center center/cover no-repeat;position:relative;overflow:hidden}
@@ -109,6 +110,7 @@
 
 /* COMING SOON */
 .coming-wrap{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;padding:0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.coming-inner{position:relative;max-width:800px;margin:0 auto}
 .coming-bg-img{width:100%;height:auto;display:block}
 .coming-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;box-sizing:border-box}
 .coming-soon-label{margin-top:3%;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 4px rgba(0,0,0,0.9),0 0 12px rgba(0,0,0,0.9);background:rgba(26,15,10,0.55);padding:6px 18px;border-radius:2px}
@@ -162,7 +164,7 @@
 .pt-next{right:12px}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){
-  .ticker-track,.star-shape,.section-head img{animation:none !important}
+  .ticker-track,.star-shape,.section-head img,.ticker-arrow{animation:none !important}
   .pt-gallery-track,.ec-track{transition:none}
 }
 
@@ -175,7 +177,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 @media(max-width:768px){
   .occ-menu-wrap{padding:0}
 }
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
 /* eCards gallery carousel */
 .ec-gallery-wrap{position:relative;overflow:hidden;max-width:720px;margin:0 auto;border:3px solid var(--red);background:var(--bg2)}
 .ec-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
@@ -189,7 +190,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .cprev-click{position:absolute;inset:0;z-index:2}
 .sound-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.65);color:var(--cream);font-size:10px;padding:3px 8px;border-radius:100px;z-index:3;display:flex;align-items:center;gap:4px;font-family:'DM Sans',sans-serif}
 .cbadge{position:absolute;top:10px;right:10px;background:var(--red);color:var(--white);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:4px 10px;border-radius:100px;z-index:3;font-family:'DM Sans',sans-serif}
-.cfoot{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bdr)}
+.cfoot{padding:10px 14px 12px;display:flex;justify-content:space-between;align-items:center}
+.ctitle{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--cream);line-height:1.4;padding:12px 14px 0;border-top:1px solid var(--bdr);text-align:left}
 .ccat{font-size:11px;color:var(--cream2);opacity:0.65}
 .cprice{font-size:14px;font-weight:700;color:var(--gold)}
 
@@ -197,9 +199,12 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .examples-wrap{background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;padding:48px 32px 56px;text-align:center}
 .examples-wrap .section-eyebrow{margin-bottom:8px}
 .examples-wrap .section-head{margin-bottom:24px}
-.examples-img{width:100%;max-width:640px;height:auto;display:block;margin:0 auto;border-radius:6px;border:3px solid var(--red);transition:transform 0.2s,box-shadow 0.2s}
+.examples-img{width:100%;max-width:720px;height:auto;display:block;margin:0 auto;border-radius:6px;border:3px solid var(--red);transition:transform 0.2s,box-shadow 0.2s}
 a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 .examples-cta{margin-top:28px}
+/* FOOTER polish (index) */
+.footer-tagline{font-family:'Playfair Display',serif;font-style:italic;text-align:center;color:var(--gold);font-size:17px;margin-bottom:28px}
+footer .footer-brand img{height:36px;opacity:1}
 @media(max-width:768px){
   .examples-wrap{padding:32px 16px 40px}
   .examples-cta{margin-top:20px}
@@ -233,7 +238,6 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
   .mobile-menu a:hover{opacity:1;color:var(--gold)}
   .mobile-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--cream2);font-size:28px;cursor:pointer}
   .section{padding:24px 16px}
-  .grid{grid-template-columns:1fr 1fr;gap:14px}
   footer{padding:24px 16px}
   .footer-top{flex-direction:column;gap:24px}
   .footer-links{flex-direction:row;flex-wrap:wrap;gap:12px}
@@ -243,9 +247,6 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
 @media(min-width:769px){
   .hamburger{display:none}
   .mobile-menu{display:none !important}
-}
-@media(max-width:400px){
-  .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -260,6 +261,7 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
       <a href="/about.html">About</a>
       <a href="/blog.html">Blog</a>
       <a href="/podcast.html">Podcast</a>
+      <a href="mailto:sgnandt@gmail.com">Contact</a>
     </nav>
     <button class="hdr-cart" onclick="toggleCart()">CART (<span id="cartCount">0</span>)</button>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
@@ -294,10 +296,7 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
       <li>For medical diagnoses that deserve more than a casserole</li>
       <li>Sign it, personalize it — they'll never forget it</li>
     </ul>
-    <a href="#ecards" class="hero-cta">
-      <img class="btn-shape" src="/button_1.png" alt="">
-      <span>Shop eCards</span>
-    </a>
+    <a href="#ecards" class="hero-cta">Shop eCards</a>
   </div>
   <div class="hero-right">
     <img class="star-shape star-tl" src="/thick_star.png" alt="">
@@ -327,9 +326,6 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
 <div class="ticker-wrap">
   <div class="ticker-label"><span class="ticker-arrow">➤</span></div>
   <div class="ticker-track" id="tickerTrack">
-    <div class="ticker-item"><span>We&rsquo;re always adding new cards!</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Check back or get on the mailing list</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your mom already did.</span><span class="ticker-dot">✦</span></div>
     <div class="ticker-item"><span>We&rsquo;re always adding new cards!</span><span class="ticker-dot">✦</span></div>
     <div class="ticker-item"><span>Check back or get on the mailing list</span><span class="ticker-dot">✦</span></div>
     <div class="ticker-item"><span>Your mom already did.</span><span class="ticker-dot">✦</span></div>
@@ -423,8 +419,9 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
 
 <!-- COMING SOON — MOMMA CARDS -->
 <div class="coming-wrap" id="momma">
-  <img class="coming-bg-img" src="/your_mom_BG.png" alt="Cards About Your Mom" width="800" height="1309">
-  <div class="coming-overlay">
+  <div class="coming-inner">
+    <img class="coming-bg-img" src="/your_mom_BG.png" alt="Cards About Your Mom" width="800" height="1309">
+    <div class="coming-overlay">
     <div class="coming-soon-label"><span class="sec-num">04</span>— Coming Soon —</div>
     <div class="coming-title-overlay">Cards About <em>Your Mom.</em></div>
     <p class="coming-sub-overlay">If you grew up trash talkin' about people's mommas, then these are for you and your dumb friends. These cards go hard, so be careful.</p>
@@ -435,6 +432,7 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
         <button class="coming-btn" data-label="Notify Me" onclick="handleSignup(this)">Notify Me</button>
       </div>
       <div class="coming-disclaimer">We won't spam you. Your mom might though.</div>
+    </div>
     </div>
   </div>
 </div>
@@ -455,7 +453,7 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
     <button class="fbtn" data-cat="Birthday">Birthday</button>
     <button class="fbtn" data-cat="Thank You">Thank You</button>
   </div>
-  <div class="sound-note">🔊 These cards have sound — best experienced with audio on</div>
+  <div class="sound-note">🔊 Best experienced with sound on</div>
   <div class="ec-gallery-wrap" id="ecGallery">
     <div class="ec-track" id="ecTrack"></div>
     <button class="pt-arrow pt-prev" onclick="ecSlide(-1)" aria-label="Previous card">‹</button>
@@ -483,6 +481,7 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
 <div class="occasion-divider" style="background:var(--teal)"></div>
 
 <footer>
+  <div class="footer-tagline">&ldquo;Let us fumble your words for you.&rdquo;</div>
   <div class="footer-top">
     <div class="footer-brand">
       <img src="/logo.png" alt="Smartass Support Cards">
@@ -549,6 +548,7 @@ function slideHTML(card) {
           <div class="cprev-click"></div>
           ${card.badge ? `<div class="cbadge">${card.badge}</div>` : ''}
         </div>
+        <div class="ctitle">${card.title}</div>
         <div class="cfoot">
           <span class="ccat">${card.category}</span>
           <span class="cprice">${card.price}</span>
