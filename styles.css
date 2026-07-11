@@ -27,7 +27,7 @@
 html{scroll-behavior:smooth;color-scheme:only light}
 html,body{min-height:100vh}
 body{font-family:'DM Sans',sans-serif;background-color:var(--bg);background-image:url(/site_BG.png);background-repeat:repeat;color:var(--cream);border:var(--frame) solid var(--red);position:relative}
-body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);right:calc((var(--frame) + 3px)/-2);bottom:calc((var(--frame) + 3px)/-2);left:calc((var(--frame) + 3px)/-2);border:3px solid #F2E4C8;pointer-events:none;z-index:999}
+body::before{content:"";position:absolute;top:calc((var(--frame) + 3px)/-2);right:calc((var(--frame) + 3px)/-2);bottom:calc((var(--frame) + 3px)/-2);left:calc((var(--frame) + 3px)/-2);border:3px solid #FFFFFF;pointer-events:none;z-index:999}
 
 /* ---------- SHARED NAV / SUBPAGE HEADER ---------- */
 .site-hdr{background:var(--bg2);border-bottom:3px solid var(--teal);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}

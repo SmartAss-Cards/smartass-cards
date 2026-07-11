@@ -66,7 +66,7 @@
 .page2-wrap .section-eyebrow{color:var(--red)}
 .filter-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px 0 20px}
 /* eCards section — cream variant */
-#ecards{background:#F2E4C8}
+#ecards{background:#F2E4C8 !important;background-image:none !important}
 #ecards .section-eyebrow{color:var(--red)}
 #ecards .section-head h2{color:var(--bg)}
 #ecards .fbtn{border-color:#A98D5F;color:#5A4128}
@@ -90,7 +90,7 @@
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* PAGE 2 */
-.page2-wrap{background-color:#F2E4C8;border-top:none;border-bottom:1px solid var(--bdr);padding:0 32px 40px;text-align:center}
+.page2-wrap{background-color:#F2E4C8 !important;background-image:none !important;border-top:none;border-bottom:1px solid var(--bdr);padding:0 32px 40px;text-align:center}
 .page2-wrap .about-heading{color:var(--bg)}
 .page2-wrap .about-body{color:#5A4128;opacity:1}
 .page2-wrap .page2-star-tl{color:var(--red)}
@@ -308,7 +308,7 @@ footer .footer-brand a:hover img{transform:translateY(-2px)}
 </section>
 
 <!-- PAGE 2 -->
-<div class="page2-wrap">
+<div class="page2-wrap" style="background-color:#F2E4C8">
   <div class="page2-inner">
     <div class="page2-img-wrap">
       <span class="page2-star page2-star-tl">✦</span>
@@ -328,9 +328,9 @@ footer .footer-brand a:hover img{transform:translateY(-2px)}
 <div class="ticker-wrap">
   <div class="ticker-label"><span class="ticker-arrow">➤</span></div>
   <div class="ticker-track" id="tickerTrack">
-    <div class="ticker-item"><span>We&rsquo;re always adding new cards!</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Check back or get on the mailing list</span><span class="ticker-dot">✦</span></div>
-    <div class="ticker-item"><span>Your mom already did.</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item" style="color:#1A0F0A;font-size:17px;font-weight:700"><span>We&rsquo;re always adding new cards!</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item" style="color:#1A0F0A;font-size:17px;font-weight:700"><span>Check back or get on the mailing list</span><span class="ticker-dot">✦</span></div>
+    <div class="ticker-item" style="color:#1A0F0A;font-size:17px;font-weight:700"><span>Your mom already did.</span><span class="ticker-dot">✦</span></div>
   </div>
 </div>
 
@@ -441,7 +441,7 @@ footer .footer-brand a:hover img{transform:translateY(-2px)}
 
 <div class="occasion-divider" style="background:var(--teal)"></div>
 
-<section class="section" id="ecards">
+<section class="section" id="ecards" style="background-color:#F2E4C8">
   <div class="section-eyebrow"><span class="sec-num">05</span>✦ pick your poison ✦</div>
   <div class="section-head">
     <img src="/thick_star.png" alt="" style="height:18px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 6s linear infinite;opacity:0.9">
