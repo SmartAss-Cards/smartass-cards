@@ -11,8 +11,8 @@
 <meta property="og:description" content="Savage &amp; funny animated eCards with sound. For loved ones who need more than thoughts &amp; prayers.">
 <meta property="og:image" content="https://smartass-cards.pages.dev/header_.png">
 <meta property="og:type" content="website">
-<!-- TODO: add a favicon file to your repo root, then uncomment:
-<link rel="icon" href="/favicon.png"> -->
+<link rel="icon" type="image/png" href="/favicon-tab.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=DM+Sans:wght@400;500;700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
@@ -204,7 +204,8 @@ a:hover > .examples-img{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,
 .examples-cta{margin-top:28px}
 /* FOOTER polish (index) */
 .footer-tagline{font-family:'Playfair Display',serif;font-style:italic;text-align:center;color:var(--gold);font-size:17px;margin-bottom:28px}
-footer .footer-brand img{height:36px;opacity:1}
+footer .footer-brand img{height:40px;width:auto;opacity:1;transition:transform 0.2s}
+footer .footer-brand a:hover img{transform:translateY(-2px)}
 @media(max-width:768px){
   .examples-wrap{padding:32px 16px 40px}
   .examples-cta{margin-top:20px}
@@ -270,7 +271,7 @@ footer .footer-brand img{height:36px;opacity:1}
   </div>
 
   <div class="hdr-banner-wrap">
-    <img class="hdr-img" src="/header_.png" alt="Smartass Support Cards — Funny Cards For When Life Sucks" width="1902" height="613">
+    <a href="/index.html" aria-label="Smartass Support Cards home"><img class="hdr-img" src="/header_.png" alt="Smartass Support Cards — Funny Cards For When Life Sucks" width="1902" height="613"></a>
   </div>
   <p class="hdr-tagline">Because life's too short for empty platitudes.</p>
 </header>
@@ -484,7 +485,7 @@ footer .footer-brand img{height:36px;opacity:1}
   <div class="footer-tagline">&ldquo;Let us fumble your words for you.&rdquo;</div>
   <div class="footer-top">
     <div class="footer-brand">
-      <img src="/logo.png" alt="Smartass Support Cards">
+      <a href="/index.html" aria-label="Back to home page"><img src="/favicon.png" alt="Smartass Support Cards — back to home"></a>
       <div class="footer-copy">© 2026 Smartass Support Cards</div>
     </div>
     <div class="footer-links">
@@ -507,13 +508,13 @@ footer .footer-brand img{height:36px;opacity:1}
 
 <script>
 const ECARDS = [
-  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", category:"Support", previewId:"4decfe9c-4f55-4520-ad04-277edf8bbfb4", price:"$2.00", badge:null },
-  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", category:"Support", previewId:"fe3a2410-9329-4bce-a024-2e9dc6d7cfcb", price:"$2.00", badge:null },
-  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", category:"Support", previewId:"fe38131d-d706-4c79-bb39-7808a12850b4", price:"$2.00", badge:null },
-  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", category:"Support", previewId:"6e597bb7-1ac4-47e4-a0d0-46fb7421e9eb", price:"$2.00", badge:null },
-  { id:5, title:"The Lord Replied.", category:"Support", previewId:"026693bf-115e-4687-b6c2-2a98fb80870c", price:"$2.00", badge:null },
-  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", category:"Birthday", previewId:"b15eddd1-02b2-4044-96a9-54df503e42df", price:"$2.00", badge:null },
-  { id:7, title:"You Could Have Done More. But Didn't.", category:"Thank You", previewId:"3e6854e9-1f1b-4c79-af09-2dea7c108807", price:"$2.00", badge:null },
+  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", tease:"You’re bigger than this but…", category:"Support", previewId:"4decfe9c-4f55-4520-ad04-277edf8bbfb4", price:"$2.00", badge:null },
+  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", tease:"Today might suck but…", category:"Support", previewId:"fe3a2410-9329-4bce-a024-2e9dc6d7cfcb", price:"$2.00", badge:null },
+  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", tease:"Thinking of you…", category:"Support", previewId:"fe38131d-d706-4c79-bb39-7808a12850b4", price:"$2.00", badge:null },
+  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", tease:"Let’s get lunch…", category:"Support", previewId:"6e597bb7-1ac4-47e4-a0d0-46fb7421e9eb", price:"$2.00", badge:null },
+  { id:5, title:"The Lord Replied.", tease:"and the Lord replied…", category:"Support", previewId:"026693bf-115e-4687-b6c2-2a98fb80870c", price:"$2.00", badge:null },
+  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", tease:"Happy Birthday…", category:"Birthday", previewId:"b15eddd1-02b2-4044-96a9-54df503e42df", price:"$2.00", badge:null },
+  { id:7, title:"You Could Have Done More. But Didn't.", tease:"Thank You…", category:"Thank You", previewId:"3e6854e9-1f1b-4c79-af09-2dea7c108807", price:"$2.00", badge:null },
 ];
 
 const LIB = "655040";
@@ -548,7 +549,7 @@ function slideHTML(card) {
           <div class="cprev-click"></div>
           ${card.badge ? `<div class="cbadge">${card.badge}</div>` : ''}
         </div>
-        <div class="ctitle">${card.title}</div>
+        <div class="ctitle">${card.tease}</div>
         <div class="cfoot">
           <span class="ccat">${card.category}</span>
           <span class="cprice">${card.price}</span>
