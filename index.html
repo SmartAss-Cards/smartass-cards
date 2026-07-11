@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark light">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
 <meta name="theme-color" content="#E0503C">
 <title>Smartass Support Cards — Animated eCards with Personality</title>
 <meta name="description" content="Savage, funny animated eCards with sound — for sympathy, breakups, job loss, birthdays, and thank yous. Because life's too short for empty platitudes.">
@@ -46,8 +47,8 @@
 .hero-cta:hover{background:var(--red2)}
 
 /* HERO RIGHT — couple blended, no box */
-.hero-right{display:flex;align-items:center;justify-content:center;padding:24px 32px;background:url(/wood_slats.png) center center/cover no-repeat;position:relative;overflow:hidden}
-.hero-couple{max-width:100%;max-height:340px;object-fit:contain;position:relative;z-index:2}
+.hero-right{display:flex;align-items:flex-end;justify-content:center;padding:24px 32px 0;background:url(/wood_slats.png) center bottom/cover no-repeat;position:relative;overflow:hidden}
+.hero-couple{max-width:100%;max-height:none;width:min(90%,460px);object-fit:contain;object-position:bottom;position:relative;z-index:2;display:block;margin:0 auto}
 .star-shape{position:absolute;z-index:3}
 .star-tl{top:8%;left:4%;width:65px;filter:sepia(1) saturate(3) hue-rotate(310deg);animation:spin-slow 8s linear infinite}
 .star-br{bottom:8%;right:4%;width:55px;filter:sepia(1) saturate(4) hue-rotate(140deg) brightness(1.4);animation:spin-slow 10s linear infinite reverse}
@@ -84,7 +85,7 @@
 @keyframes arrow-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
 .ticker-track{display:flex;animation:ticker-scroll 45s linear infinite;width:max-content}
 .ticker-track:hover{animation-play-state:paused}
-.ticker-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--bg);white-space:nowrap;padding:0 32px;display:flex;align-items:center;gap:10px}
+.ticker-item{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;font-style:italic;color:#1A0F0A !important;white-space:nowrap;padding:0 32px;display:flex;align-items:center;gap:10px}
 .ticker-dot{color:var(--red);font-size:14px}
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -111,7 +112,7 @@
 /* COMING SOON */
 .coming-wrap{background-color:var(--bg2);background-image:url(/site_BG.png);background-repeat:repeat;padding:0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
 .coming-inner{position:relative;max-width:800px;margin:0 auto}
-.coming-bg-img{width:100%;height:auto;display:block}
+.coming-bg-img{width:100%;height:auto;display:block;aspect-ratio:800/960;object-fit:cover;object-position:top}
 .coming-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;box-sizing:border-box}
 .coming-soon-label{margin-top:3%;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 4px rgba(0,0,0,0.9),0 0 12px rgba(0,0,0,0.9);background:rgba(26,15,10,0.55);padding:6px 18px;border-radius:2px}
 .coming-title-overlay{margin-top:auto;font-family:'Fontdiner Swanky',cursive;font-size:28px;color:var(--cream);line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,0.95),0 0 20px rgba(0,0,0,0.95);background:rgba(26,15,10,0.55);padding:10px 20px;border-radius:4px;margin-bottom:4%}
