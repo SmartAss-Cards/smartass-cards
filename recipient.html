@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You've Got a Smartass Card</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+body{overflow-x:hidden}
+.page{min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0 0 60px;
+  position:relative;
+  overflow:hidden;}
+.bg{position:fixed;inset:var(--frame);background-image:url('https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/victorian_wallpaper.png');background-size:cover;background-position:center;opacity:0.85;z-index:0}
+.bg-overlay{position:fixed;inset:var(--frame);background:linear-gradient(to bottom,rgba(38,23,16,0.4) 0%,rgba(38,23,16,0.25) 50%,rgba(38,23,16,0.7) 100%);z-index:0}
+.retro-frame{position:fixed;inset:calc(36px + var(--frame)) calc(12px + var(--frame)) calc(12px + var(--frame)) calc(12px + var(--frame));border:1px solid rgba(226,166,62,0.45);pointer-events:none;z-index:3}
+.retro-frame::before{content:'';position:absolute;inset:5px;border:1px solid rgba(226,166,62,0.2)}
+.corner{position:absolute;width:18px;height:18px}
+.corner-tl{top:-1px;left:-1px;border-top:2px solid #E2A63E;border-left:2px solid #E2A63E}
+.corner-tr{top:-1px;right:-1px;border-top:2px solid #E2A63E;border-right:2px solid #E2A63E}
+.corner-bl{bottom:-1px;left:-1px;border-bottom:2px solid #E2A63E;border-left:2px solid #E2A63E}
+.corner-br{bottom:-1px;right:-1px;border-bottom:2px solid #E2A63E;border-right:2px solid #E2A63E}
+.retro-shape{position:fixed;pointer-events:none;z-index:4}
+.shape-tl{top:calc(48px + var(--frame));left:calc(18px + var(--frame));width:44px;animation:spin1 12s linear infinite}
+.shape-bl{bottom:calc(18px + var(--frame));left:calc(20px + var(--frame));width:32px;animation:flicker 4s ease-in-out infinite 1s}
+.shape-br{bottom:calc(16px + var(--frame));right:calc(18px + var(--frame));width:40px;animation:spin1 16s linear infinite reverse}
+@keyframes spin1{from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+@keyframes flicker{0%,100%{opacity:0.35;transform:scale(1)}
+50%{opacity:1;transform:scale(1.12)}
+}
+
+/* RIBBON */
+.ribbon{width:100%;padding:9px;
+  text-align:center;font-size:13px;font-weight:700;
+  color:#FDF8EF;letter-spacing:2px;text-transform:uppercase;
+  background:#F26A50;
+  position:relative;z-index:5;
+  font-family:'DM Sans',sans-serif;
+  flex-shrink:0;}
+.content{position:relative;z-index:5;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:32px 20px 0;}
+.from-label{font-family:'DM Sans',sans-serif;font-weight:700;
+  font-size:13px;letter-spacing:2px;text-transform:uppercase;
+  color:#E2A63E;margin-bottom:6px;text-align:center;
+  text-shadow:0 1px 6px rgba(0,0,0,0.9);}
+.from-name{font-family:'Fontdiner Swanky',cursive;
+  font-size:34px;color:#F4EAD5;font-weight:400;
+  margin-bottom:24px;text-align:center;
+  text-shadow:0 2px 10px rgba(0,0,0,0.9);}
+.card{width:min(380px,90vw);
+  background:#302013;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #4E3620;
+  box-shadow:0 24px 60px rgba(0,0,0,0.8);
+  margin-bottom:20px;}
+.card-vid{width:100%;aspect-ratio:1;position:relative;background:#261710}
+.card-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.card-msg{padding:18px 20px;border-top:1px solid #4E3620}
+.msg-text{font-family:'DM Sans',sans-serif;
+  font-size:18px;color:#F4EAD5;
+  font-style:italic;line-height:1.7;margin-bottom:10px;}
+.msg-sig{font-size:16px;font-weight:500;color:#E2A63E;display:flex;align-items:center;gap:6px}
+.msg-emoji{font-size:20px}
+.signers-box{width:min(380px,90vw);
+  background:rgba(37,24,16,0.88);
+  border:1px solid #4E3620;
+  border-radius:10px;
+  padding:18px 20px;
+  margin-bottom:16px;
+  backdrop-filter:blur(4px);}
+.signers-label{font-size:13px;font-weight:700;color:#E0D0AE;text-transform:uppercase;letter-spacing:1px;opacity:0.9;margin-bottom:12px}
+.signer-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #4E3620}
+.signer-item:last-child{border-bottom:none}
+.savatar{width:32px;height:32px;border-radius:50%;background:#E0503C;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#FDF8EF;flex-shrink:0;text-transform:uppercase}
+.sname{font-size:16px;font-weight:500;color:#F4EAD5}
+.cta-box{width:min(380px,90vw);
+  background:rgba(37,24,16,0.88);
+  border:1px solid #4E3620;
+  border-radius:10px;
+  padding:18px 20px;
+  text-align:center;
+  backdrop-filter:blur(4px);
+  margin-bottom:24px;}
+.cta-text{font-size:16px;color:#F4EAD5;opacity:0.9;margin-bottom:14px}
+.cta-btn{background:#F26A50;color:#FDF8EF;
+  text-decoration:none;padding:12px 28px;
+  border-radius:3px;font-size:15px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.8px;
+  display:inline-block;transition:background 0.2s;
+  font-family:'DM Sans',sans-serif;}
+.cta-btn:hover{background:#E0503C}
+.state-box{position:relative;z-index:5;text-align:center;padding:80px 24px;max-width:420px;margin:0 auto}
+.state-title{font-family:'Fontdiner Swanky',cursive;font-size:26px;color:#F4EAD5;margin-bottom:12px;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
+.state-sub{font-size:17px;color:#F4EAD5;line-height:1.7;text-shadow:0 1px 6px rgba(0,0,0,0.9)}
+.state-sub a{color:#E2A63E}
+.spinner{width:36px;height:36px;border:3px solid rgba(226,166,62,0.25);border-top-color:#E2A63E;border-radius:50%;margin:0 auto 20px;animation:spin-load 0.9s linear infinite}
+@keyframes spin-load{to{transform:rotate(360deg)}
+}
+
+/* FOOTER */
+.rec-footer{text-align:center;padding:8px 0 20px;position:relative;z-index:5}
+.rec-footer img{height:26px;width:auto;opacity:0.85;transition:opacity 0.2s}
+.rec-footer a:hover img{opacity:1}
+.rec-footer p{font-size:13px;color:#E0D0AE;opacity:0.7;margin-top:4px}
+</style>
+<link rel="icon" type="image/png" href="/favicon-tab.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+
+<div class="page">
+  <div class="bg"></div>
+  <div class="bg-overlay"></div>
+
+  <div class="retro-frame">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+  </div>
+
+  <img class="retro-shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
+  <img class="retro-shape shape-bl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/snofflake_star.png" alt="">
+  <img class="retro-shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+
+  <div class="ribbon">✦ You've got a Smartass Support Card ✦</div>
+
+  <div class="state-box" id="state-box">
+    <div class="spinner" id="state-spinner"></div>
+    <div class="state-title" id="state-title">Unwrapping your card…</div>
+    <div class="state-sub" id="state-sub">This usually takes just a moment.</div>
+  </div>
+
+  <div class="content" id="content" style="display:none">
+    <div class="from-label">A card from</div>
+    <div class="from-name" id="from-name">Your friend</div>
+
+    <div class="card">
+      <div class="card-vid">
+        <iframe id="card-video" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="card-msg">
+        <div class="msg-text" id="msg-text"></div>
+        <div class="msg-sig">
+          <span id="sig-name"></span>
+          <span class="msg-emoji" id="sig-emoji"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="signers-box" id="signers-box" style="display:none">
+      <div class="signers-label">Also signed by</div>
+      <div id="signer-list"></div>
+    </div>
+
+    <div class="cta-box">
+      <div class="cta-text">Want to send one back?</div>
+      <a href="/" class="cta-btn">Shop cards →</a>
+    </div>
+  </div>
+
+  <div class="rec-footer">
+    <a href="/index.html" aria-label="Smartass Support Cards home"><img src="/favicon.png" alt="Smartass Support Cards — visit our site"></a>
+    <p>© 2026 Smartass Support Cards</p>
+  </div>
+</div>
+
+<script>
+function showError(title, sub) {
+  document.getElementById('state-spinner').style.display = 'none';
+  document.getElementById('state-title').textContent = title;
+  document.getElementById('state-sub').innerHTML = sub;
+}
+
+function renderCard(data) {
+  document.getElementById('state-box').style.display = 'none';
+  document.getElementById('content').style.display = 'flex';
+
+  const from = data.from || 'Your friend';
+  document.title = from + ' sent you a card — Smartass Support Cards';
+  document.getElementById('from-name').textContent = from;
+  document.getElementById('card-video').src = data.videoUrl;
+  document.getElementById('msg-text').textContent = data.msg ? '"' + data.msg + '"' : '';
+  document.getElementById('sig-name').textContent = '— ' + from;
+  document.getElementById('sig-emoji').textContent = data.emoji || '';
+
+  const signers = (data.signers || '').split(',').map(s => s.trim()).filter(Boolean);
+  if (signers.length > 0) {
+    document.getElementById('signers-box').style.display = 'block';
+    const list = document.getElementById('signer-list');
+    signers.forEach(name => {
+      const item = document.createElement('div');
+      item.className = 'signer-item';
+      const avatar = document.createElement('div');
+      avatar.className = 'savatar';
+      avatar.textContent = name.charAt(0);
+      const label = document.createElement('div');
+      label.className = 'sname';
+      label.textContent = name;
+      item.appendChild(avatar);
+      item.appendChild(label);
+      list.appendChild(item);
+    });
+  }
+}
+
+async function load() {
+  const token = new URLSearchParams(window.location.search).get('t');
+  if (!token) {
+    showError("Hmm, this link looks broken.",
+      'Check that you copied the whole link from your email, or <a href="/">send someone a card of your own</a>.');
+    return;
+  }
+
+  // Payment confirmation can lag by a few seconds right after checkout,
+  // so retry politely for up to ~90 seconds before giving up.
+  const maxAttempts = 30;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    try {
+      const res = await fetch('/api/card?t=' + encodeURIComponent(token));
+      if (res.status === 200) {
+        renderCard(await res.json());
+        return;
+      }
+      if (res.status !== 202) break; // invalid or missing — stop retrying
+      if (attempt === 3) {
+        document.getElementById('state-sub').textContent =
+          'Confirming the payment — this can take up to a minute. Hang tight.';
+      }
+    } catch (err) { /* network hiccup — retry */ }
+    await new Promise(r => setTimeout(r, 3000));
+  }
+
+  showError("We couldn't open this card.",
+    'The link may be invalid, expired, or the payment didn\'t go through. If you think that\'s wrong, reply to the email you received or <a href="mailto:sgnandt@gmail.com">contact us</a>.');
+}
+
+load();
+</script>
+</body>
+</html>
