@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remembering with Laughter — Smartass Support Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" type="image/png" href="/favicon-tab.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>footer .footer-brand img{height:40px;width:auto;opacity:1;transition:transform 0.2s}footer .footer-brand a:hover img{transform:translateY(-2px)}</style>
+</head>
+<body>
+
+<header class="site-hdr">
+  <a class="site-logo" href="/index.html"><img src="/favicon.png" alt="Smartass Support Cards — home"></a>
+  <nav class="desktop-nav" aria-label="Main">
+    <a href="/#ecards">eCards</a>
+    <a href="/about.html">About</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/podcast.html">Podcast</a>
+    <a href="mailto:sgnandt@gmail.com">Contact</a>
+  </nav>
+  <div class="hdr-actions">
+    <a class="buy-now" href="/#ecards">Buy Now</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="/#ecards" onclick="closeMenu()">eCards</a>
+  <a href="/about.html">About</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/podcast.html">Podcast</a>
+  <a href="mailto:sgnandt@gmail.com">Contact</a>
+</div>
+
+<div class="post-wrap">
+  <a class="post-back" href="/blog.html">← Back to Blog</a>
+  <div class="post-eyebrow">✦ The Blog</div>
+  <h1 class="post-title">Remembering with Laughter</h1>
+  <div class="post-meta">Victoria Xiong-Gnandt · March 21, 2025</div>
+
+  <img class="post-image" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/personality_trait_blog.png" alt="Remembering with Laughter">
+
+  <div class="post-content">
+    <p>I definitely picked up thriftiness from my grandmother (Eleanor). I would watch her reuse stamps by washing or steaming the envelope, peeling the stamp off, and hanging it to dry on a ghetto-ass laundry line made of thread and held up with a paper clip.</p>
+    <p>Back in the day — before texting and emailing — we would get letters from her, and if you looked closer, it would be the same stamp from a letter or card that my mom or I had sent her!</p>
+    <p>While it was always funny, I respected the hell out of it — even as a kid. That's because I probably knew, even back then, that I'd end up being just as thrifty. For example, socks and underwear <strong>must</strong> have holes in them before they can be thrown out.</p>
+  </div>
+
+  <div class="post-cta-box">
+    <p>Ready to send a card that actually means something?</p>
+    <a href="/" class="post-cta-btn">Shop eCards →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/index.html" aria-label="Back to home page"><img src="/favicon.png" alt="Smartass Support Cards — back to home"></a>
+      <div class="footer-copy">© 2026 Smartass Support Cards</div>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="mailto:sgnandt@gmail.com">Contact</a>
+      <a href="/podcast.html">SmartAss Podcast</a>
+    </div>
+    <div class="footer-signup">
+      <div class="footer-signup-label">Stay in the loop</div>
+      <div class="footer-signup-row">
+        <input type="email" class="footer-email" placeholder="your@email.com" aria-label="Email address" onkeydown="if(event.key==='Enter'){event.preventDefault();handleSignup(this.nextElementSibling)}">
+        <button class="footer-sub-btn" data-label="Join" onclick="handleSignup(this)">Join</button>
+      </div>
+    </div>
+  </div>
+  <nav class="footer-social" aria-label="Social media">
+    <span class="footer-social-label">Follow us</span>
+    <a href="https://www.instagram.com/smartass_cards/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.threads.com/@smartass_cards" target="_blank" rel="noopener">Threads</a>
+    <a href="https://www.facebook.com/people/Smartass-Support-Cards/61566586211867/" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.youtube.com/@SmartassCards" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.linkedin.com/company/smartass-support-cards" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+</footer>
+
+<script src="/site.js"></script>
+
+</body>
+</html>
