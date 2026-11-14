@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personalize Your Card — Smartass Support Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.hdr{background:var(--bg);border-bottom:1px solid var(--bdr);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.hdr-logo img{height:40px;width:auto;object-fit:contain;display:block}
+.back-link{color:var(--cream);text-decoration:none;font-size:15px;font-weight:700;opacity:0.9;display:flex;align-items:center;gap:6px;transition:opacity 0.2s}
+.back-link:hover{opacity:1}
+.steps{background:var(--bg2);border-bottom:1px solid var(--bdr);padding:12px 32px;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--cream2);opacity:0.9}
+.step-dot{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.step-dot.done{background:var(--bdr);color:var(--gold)}
+.step-dot.active{background:var(--red2);color:var(--white)}
+.step-dot.pending{background:var(--bdr);color:var(--cream2);opacity:0.5}
+.step-line{flex:1;height:1px;background:var(--bdr)}
+.layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 112px)}
+.preview-col{background:var(--bg2);border-right:1px solid var(--bdr);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 32px;position:sticky;top:112px;height:calc(100vh - 112px)}
+.video-wrap{width:100%;max-width:380px;aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;background:var(--bg3)}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.preview-hint{font-size:13px;color:var(--cream);opacity:0.85;margin-top:16px;text-align:center;text-transform:uppercase;letter-spacing:0.8px}
+.sig-overlay{margin-top:14px;width:100%;max-width:380px;background:rgba(0,0,0,0.4);border-radius:6px;padding:10px 14px;min-height:48px;transition:all 0.3s}
+.live-msg{font-size:15px;color:var(--cream2);font-style:italic;opacity:0;transition:opacity 0.3s;line-height:1.5;margin-bottom:4px}
+.live-sig{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;font-style:italic;color:var(--cream);opacity:0;transition:opacity 0.3s}
+.live-msg.vis,.live-sig.vis{opacity:1}
+.form-col{padding:40px 40px 60px;overflow-y:auto}
+.form-title{font-family:'Fontdiner Swanky',cursive;font-size:32px;font-weight:400;color:var(--cream);margin-bottom:6px}
+.form-sub{font-size:16px;color:var(--cream2);opacity:0.9;margin-bottom:32px;line-height:1.6}
+.flabel{display:block;font-size:13px;font-weight:700;color:var(--cream);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.finput{width:100%;background:var(--bg2);border:1px solid var(--bdr);border-radius:5px;padding:12px 14px;color:var(--cream);font-size:16px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s;margin-bottom:20px}
+.finput:focus{border-color:var(--red)}
+.finput::placeholder{color:var(--cream2);opacity:0.55}
+textarea.finput{resize:none;height:110px;line-height:1.6}
+.char-count{font-size:13px;color:var(--cream2);opacity:0.7;text-align:right;margin-top:-16px;margin-bottom:20px}
+.emoji-grid{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:24px}
+.ebtn{background:var(--bg2);border:1px solid var(--bdr);border-radius:6px;padding:7px 10px;font-size:18px;cursor:pointer;transition:all 0.15s;line-height:1}
+.ebtn:hover,.ebtn.on{border-color:var(--red);background:var(--bg3);transform:scale(1.1)}
+.rec-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:18px 20px;margin-bottom:24px}
+.rec-box-label{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.invite-btn{width:100%;background:transparent;border:1px dashed var(--bdr);border-radius:5px;color:var(--cream);font-size:15px;padding:11px 14px;cursor:pointer;font-family:'DM Sans',sans-serif;text-align:left;margin-top:10px;transition:all 0.2s;display:flex;align-items:center;gap:8px}
+.invite-btn:hover{border-color:var(--red);color:var(--cream)}
+.stag{display:inline-flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--bdr);border-radius:100px;padding:6px 14px;font-size:15px;color:var(--cream);margin:3px}
+.stag button{background:none;border:none;color:var(--cream2);font-size:18px;line-height:1;cursor:pointer;padding:0 2px}
+.stag button:hover{color:var(--red2)}
+/* co-signer entry (replaces the old browser prompt) */
+.signer-add{display:none;margin-top:12px}
+.signer-add.open{display:block}
+.signer-row{display:flex;gap:8px}
+.signer-row .finput{margin-bottom:0;flex:1;min-width:0}
+.signer-add-btn{background:var(--gold);color:var(--bg);border:none;border-radius:5px;padding:0 18px;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.signer-add-btn:hover{background:var(--cream)}
+.signer-hint{font-size:14px;color:var(--cream2);opacity:0.85;line-height:1.5;margin-top:8px}
+.signer-err{font-size:14px;color:#F26A50;margin-top:6px;display:none}
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:16px}
+.price-label{font-size:16px;color:var(--cream2);opacity:0.9}
+.price-val{font-size:22px;font-weight:700;color:var(--gold)}
+.submit-btn{width:100%;background:var(--red2);color:var(--white);border:none;border-radius:5px;padding:17px;font-size:16px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s}
+.submit-btn:hover{background:var(--red)}
+.error-msg{font-size:15px;color:#F26A50;margin-top:8px;display:none}
+@media(max-width:768px){
+
+  .layout{grid-template-columns:1fr}
+  .preview-col{position:relative;top:0;height:auto;min-height:300px;padding:24px 20px}
+  .video-wrap{max-width:280px}
+  .form-col{padding:24px 20px 48px}
+  .hdr{padding:0 16px}
+  .steps{padding:10px 16px}
+}
+</style>
+<link rel="icon" type="image/png" href="/favicon-tab.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-logo">
+    <a href="/index.html" aria-label="Back to home page"><img src="/favicon.png" alt="Smartass Support Cards — back to home"></a>
+  </div>
+  <a href="/" class="back-link">← Back to cards</a>
+</header>
+
+<div class="steps">
+  <div class="step-dot done">✓</div>
+  <div class="step-line"></div>
+  <div class="step-dot active">2</div>
+  <div class="step-line"></div>
+  <div class="step-dot pending">3</div>
+  <span style="margin-left:8px">Personalize your card</span>
+</div>
+
+<div class="layout">
+  <div class="preview-col">
+    <div class="video-wrap">
+      <iframe id="preview-iframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="sig-overlay">
+      <div class="live-msg" id="live-msg"></div>
+      <div class="live-sig" id="live-sig"></div>
+    </div>
+    <div class="preview-hint">Watermarked preview — full card delivered after purchase</div>
+  </div>
+
+  <div class="form-col">
+    <div class="form-title">Make it personal</div>
+    <div class="form-sub">Add your message and sign it. They'll see all of this when they open the card.</div>
+
+    <label class="flabel">Your name</label>
+    <input type="text" class="finput" id="inp-name" placeholder="e.g. Sarah" maxlength="40" oninput="updateLive()">
+
+    <label class="flabel">Your message</label>
+    <textarea class="finput" id="inp-msg" placeholder="Write something real. Or funny. Ideally both." maxlength="280" oninput="updateLive();updateCount()"></textarea>
+    <div class="char-count"><span id="char-count">0</span>/280</div>
+
+    <label class="flabel">Add an emoji (optional)</label>
+    <div class="emoji-grid" id="emoji-grid"></div>
+
+    <div class="rec-box">
+      <div class="rec-box-label">Who's it for?</div>
+      <label class="flabel">Recipient's name</label>
+      <input type="text" class="finput" id="inp-recip-name" placeholder="e.g. Alex">
+      <label class="flabel">Recipient's email</label>
+      <input type="email" class="finput" id="inp-recip-email" placeholder="They'll receive a link to the card here">
+      <button type="button" class="invite-btn" id="signer-toggle" aria-expanded="false" aria-controls="signer-add" onclick="toggleSignerBox()">
+        <span style="font-size:18px;line-height:1">+</span> Add co-signer names (optional)
+      </button>
+      <div class="signer-add" id="signer-add">
+        <label class="flabel" for="inp-signer">Co-signer's name</label>
+        <div class="signer-row">
+          <input type="text" class="finput" id="inp-signer" placeholder="e.g. Jamie" maxlength="40" onkeydown="if(event.key==='Enter'){event.preventDefault();addSigner()}">
+          <button type="button" class="signer-add-btn" onclick="addSigner()">Add</button>
+        </div>
+        <div class="signer-hint">Names only. They show on the card under &ldquo;Also signed by.&rdquo; Nobody gets emailed an invite.</div>
+        <div class="signer-err" id="signer-err" role="alert"></div>
+      </div>
+      <div id="signer-tags" style="margin-top:8px"></div>
+    </div>
+
+    <div class="price-row">
+      <span class="price-label">Card total</span>
+      <span class="price-val" id="card-price">$2.00</span>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Send this card — $2.00</button>
+    <div class="error-msg" id="error-msg">Please fill in your name, a message, and the recipient's email.</div>
+    <div class="not-right-wrap" id="not-right-wrap" style="display:none;margin-top:14px;text-align:center">
+      <span style="font-size:15px;color:var(--cream2);opacity:0.9">Not quite right? </span>
+      <a id="not-right-link" href="#" style="font-size:15px;font-weight:700;color:var(--gold);text-decoration:none">Try this one →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Preview (watermarked) videos only. The paid full-video URLs live ONLY on the
+// server in functions/api/card.js — never add them to this page.
+const CARDS = [
+  { id:1, title:"You're Bigger Than This. But I'm Still Better Than You.", previewUrl:"https://player.mediadelivery.net/play/655040/4decfe9c-4f55-4520-ad04-277edf8bbfb4", price:"$2.00" },
+  { id:2, title:"Today Might Suck. But Tomorrow? Tomorrow Might Suck Too.", previewUrl:"https://player.mediadelivery.net/play/655040/fe3a2410-9329-4bce-a024-2e9dc6d7cfcb", price:"$2.00" },
+  { id:3, title:"Thinking of You. Anything More and I Have To Charge.", previewUrl:"https://player.mediadelivery.net/play/655040/fe38131d-d706-4c79-bb39-7808a12850b4", price:"$2.00" },
+  { id:4, title:"Let's Get Lunch. Your Turn To Buy.", previewUrl:"https://player.mediadelivery.net/play/655040/6e597bb7-1ac4-47e4-a0d0-46fb7421e9eb", price:"$2.00" },
+  { id:5, title:"The Lord Replied.", previewUrl:"https://player.mediadelivery.net/play/655040/026693bf-115e-4687-b6c2-2a98fb80870c", price:"$2.00" },
+  { id:6, title:"I Stopped Celebrating Mine When I Grew Up.", previewUrl:"https://player.mediadelivery.net/play/655040/b15eddd1-02b2-4044-96a9-54df503e42df", price:"$2.00" },
+  { id:7, title:"You Could Have Done More. But Didn't.", previewUrl:"https://player.mediadelivery.net/play/655040/3e6854e9-1f1b-4c79-af09-2dea7c108807", price:"$2.00" },
+];
+
+const EMOJIS = ["❤️","💀","🔥","😂","🤦","💪","🙏","✨","🫂","😭","🥂","💩","🎉","😤","🌈"];
+
+let selEmoji = "";
+let selCard = null;
+let signers = [];
+
+function loadCard() {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id'));
+  selCard = CARDS.find(c => c.id === id) || CARDS[0];
+  const embedBase = selCard.previewUrl.replace('player.mediadelivery.net/play/', 'player.mediadelivery.net/embed/');
+  document.getElementById('preview-iframe').src = embedBase + '?autoplay=true&loop=true&muted=true&preload=true&responsive=true';
+  document.getElementById('card-price').textContent = selCard.price;
+  document.getElementById('submit-btn').textContent = `Send this card — ${selCard.price}`;
+
+  // Not quite right suggestions
+  const suggestions = {1:3, 2:5, 4:3, 5:2};
+  if (suggestions[selCard.id]) {
+    document.getElementById('not-right-wrap').style.display = 'block';
+    document.getElementById('not-right-link').href = `/card.html?id=${suggestions[selCard.id]}`;
+  }
+  document.title = selCard.title + ' — Smartass Support Cards';
+}
+
+function renderEmojis() {
+  document.getElementById('emoji-grid').innerHTML = EMOJIS.map(e =>
+    `<button class="ebtn" onclick="pickEmoji('${e}', this)">${e}</button>`
+  ).join('');
+}
+
+function pickEmoji(e, btn) {
+  selEmoji = selEmoji === e ? "" : e;
+  document.querySelectorAll('.ebtn').forEach(b => b.classList.remove('on'));
+  if (selEmoji) btn.classList.add('on');
+  updateLive();
+}
+
+function updateLive() {
+  const name = document.getElementById('inp-name').value.trim();
+  const msg = document.getElementById('inp-msg').value.trim();
+  const sig = document.getElementById('live-sig');
+  const msgEl = document.getElementById('live-msg');
+  sig.textContent = name ? `— ${name} ${selEmoji}` : '';
+  sig.classList.toggle('vis', !!name);
+  const display = msg.length > 80 ? msg.slice(0,80) + '…' : msg;
+  msgEl.textContent = display ? `"${display}"` : '';
+  msgEl.classList.toggle('vis', !!msg);
+}
+
+function updateCount() {
+  document.getElementById('char-count').textContent = document.getElementById('inp-msg').value.length;
+}
+
+const MAX_SIGNERS = 6;
+
+function toggleSignerBox() {
+  const open = document.getElementById('signer-add').classList.toggle('open');
+  document.getElementById('signer-toggle').setAttribute('aria-expanded', open);
+  if (open) document.getElementById('inp-signer').focus();
+}
+
+function signerError(text) {
+  const el = document.getElementById('signer-err');
+  el.textContent = text;
+  el.style.display = text ? 'block' : 'none';
+}
+
+// Co-signers are display names only — no invitation emails are sent.
+// Email addresses are rejected so nobody's address ends up shown on the card.
+function addSigner() {
+  const input = document.getElementById('inp-signer');
+  // commas are stripped because the names are stored as one comma-separated list
+  const name = input.value.replace(/,/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!name) { signerError(''); input.focus(); return; }
+  if (name.includes('@')) { signerError('Just a name, please — no email addresses.'); input.focus(); return; }
+  if (signers.length >= MAX_SIGNERS) { signerError('That\'s the limit — ' + MAX_SIGNERS + ' co-signers per card.'); return; }
+  signerError('');
+  signers.push(name);
+  input.value = '';
+  input.focus();
+  renderSigners();
+}
+
+function removeSigner(i) {
+  signers.splice(i,1);
+  signerError('');
+  renderSigners();
+}
+
+// Built with DOM nodes + textContent (not innerHTML) so typed names can't inject markup.
+function renderSigners() {
+  const wrap = document.getElementById('signer-tags');
+  wrap.textContent = '';
+  signers.forEach((s,i) => {
+    const tag = document.createElement('span');
+    tag.className = 'stag';
+    tag.appendChild(document.createTextNode(s + ' '));
+    const x = document.createElement('button');
+    x.type = 'button';
+    x.textContent = '×';
+    x.setAttribute('aria-label', 'Remove ' + s);
+    x.onclick = () => removeSigner(i);
+    tag.appendChild(x);
+    wrap.appendChild(tag);
+  });
+}
+
+async function handleSubmit() {
+  const name = document.getElementById('inp-name').value.trim();
+  const msg = document.getElementById('inp-msg').value.trim();
+  const email = document.getElementById('inp-recip-email').value.trim();
+  const recipName = document.getElementById('inp-recip-name').value.trim();
+  const errEl = document.getElementById('error-msg');
+  if (!name || !msg || !email) { errEl.style.display = 'block'; return; }
+  errEl.style.display = 'none';
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Redirecting to payment...';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        cardId: selCard.id,
+        cardTitle: selCard.title,
+        from: name,
+        msg: msg,
+        emoji: selEmoji,
+        to: recipName,
+        recipientEmail: email,
+        signers: signers.join(',')
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      errEl.textContent = data.error || 'Something went wrong. Please try again.';
+      errEl.style.display = 'block';
+      btn.textContent = `Send this card — ${selCard.price}`;
+      btn.disabled = false;
+    }
+  } catch (err) {
+    errEl.textContent = 'Connection error. Please try again.';
+    errEl.style.display = 'block';
+    btn.textContent = `Send this card — ${selCard.price}`;
+    btn.disabled = false;
+  }
+}
+
+loadCard();
+renderEmojis();
+</script>
+</body>
+</html>
