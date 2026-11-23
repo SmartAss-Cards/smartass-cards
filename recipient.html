@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>You've Got a Smartass Card</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Fontdiner+Swanky&family=Caveat:wght@500;700&family=Special+Elite&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <style>
 body{overflow-x:hidden}
@@ -15,7 +15,7 @@ body{overflow-x:hidden}
   padding:0 0 60px;
   position:relative;
   overflow:hidden;}
-.bg{position:fixed;inset:var(--frame);background-image:url('https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/victorian_wallpaper.png');background-size:cover;background-position:center;opacity:0.85;z-index:0}
+.bg{position:fixed;inset:var(--frame);background-image:url('/victorian_wallpaper.png');background-size:cover;background-position:center;opacity:0.85;z-index:0}
 .bg-overlay{position:fixed;inset:var(--frame);background:linear-gradient(to bottom,rgba(38,23,16,0.4) 0%,rgba(38,23,16,0.25) 50%,rgba(38,23,16,0.7) 100%);z-index:0}
 .retro-frame{position:fixed;inset:calc(36px + var(--frame)) calc(12px + var(--frame)) calc(12px + var(--frame)) calc(12px + var(--frame));border:1px solid rgba(226,166,62,0.45);pointer-events:none;z-index:3}
 .retro-frame::before{content:'';position:absolute;inset:5px;border:1px solid rgba(226,166,62,0.2)}
@@ -67,10 +67,12 @@ to{transform:rotate(360deg)}
 .card-vid{width:100%;aspect-ratio:1;position:relative;background:#261710}
 .card-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 .card-msg{padding:18px 20px;border-top:1px solid #4E3620}
+.card-msg{background:#FFF8E7}
 .msg-text{font-family:'DM Sans',sans-serif;
-  font-size:18px;color:#F4EAD5;
-  font-style:italic;line-height:1.7;margin-bottom:10px;}
-.msg-sig{font-size:16px;font-weight:500;color:#E2A63E;display:flex;align-items:center;gap:6px}
+  font-size:18px;color:#3E2A1E;
+  line-height:1.6;margin-bottom:10px;white-space:pre-wrap;word-wrap:break-word;}
+.msg-gif{max-width:100%;max-height:300px;border-radius:8px;display:block;margin-top:12px}
+.msg-sig{font-size:16px;font-weight:700;color:#D6603E}
 .msg-emoji{font-size:20px}
 .signers-box{width:min(380px,90vw);
   background:rgba(37,24,16,0.88);
@@ -130,9 +132,9 @@ to{transform:rotate(360deg)}
     <div class="corner corner-br"></div>
   </div>
 
-  <img class="retro-shape shape-tl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/thick_star.png" alt="">
-  <img class="retro-shape shape-bl" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/snofflake_star.png" alt="">
-  <img class="retro-shape shape-br" src="https://raw.githubusercontent.com/SmartAss-Cards/smartass-cards/main/science_shape.png" alt="">
+  <img class="retro-shape shape-tl" src="/thick_star.png" alt="">
+  <img class="retro-shape shape-bl" src="/snofflake_star.png" alt="">
+  <img class="retro-shape shape-br" src="/science_shape.png" alt="">
 
   <div class="ribbon">✦ You've got a Smartass Support Card ✦</div>
 
@@ -152,16 +154,9 @@ to{transform:rotate(360deg)}
       </div>
       <div class="card-msg">
         <div class="msg-text" id="msg-text"></div>
-        <div class="msg-sig">
-          <span id="sig-name"></span>
-          <span class="msg-emoji" id="sig-emoji"></span>
-        </div>
+        <div class="msg-sig" id="sig-name"></div>
+        <img class="msg-gif" id="msg-gif" alt="" style="display:none">
       </div>
-    </div>
-
-    <div class="signers-box" id="signers-box" style="display:none">
-      <div class="signers-label">Also signed by</div>
-      <div id="signer-list"></div>
     </div>
 
     <div class="cta-box">
@@ -187,32 +182,38 @@ function renderCard(data) {
   document.getElementById('state-box').style.display = 'none';
   document.getElementById('content').style.display = 'flex';
 
+  if (data.noteExpired) {
+    document.title = 'A Smartass Support Card';
+    document.querySelector('.from-label').style.display = 'none';
+    document.getElementById('from-name').textContent = 'A Smartass Support Card';
+    document.getElementById('card-video').src = data.videoUrl;
+    var m = document.getElementById('msg-text');
+    m.textContent = 'The personal note on this card was removed 90 days after delivery, to protect everyone\'s privacy. The card itself is all yours.';
+    m.style.fontStyle = 'italic'; m.style.fontSize = '15px'; m.style.opacity = '0.8';
+    document.getElementById('sig-name').style.display = 'none';
+    return;
+  }
   const from = data.from || 'Your friend';
   document.title = from + ' sent you a card — Smartass Support Cards';
   document.getElementById('from-name').textContent = from;
   document.getElementById('card-video').src = data.videoUrl;
-  document.getElementById('msg-text').textContent = data.msg ? '"' + data.msg + '"' : '';
-  document.getElementById('sig-name').textContent = '— ' + from;
-  document.getElementById('sig-emoji').textContent = data.emoji || '';
-
-  const signers = (data.signers || '').split(',').map(s => s.trim()).filter(Boolean);
-  if (signers.length > 0) {
-    document.getElementById('signers-box').style.display = 'block';
-    const list = document.getElementById('signer-list');
-    signers.forEach(name => {
-      const item = document.createElement('div');
-      item.className = 'signer-item';
-      const avatar = document.createElement('div');
-      avatar.className = 'savatar';
-      avatar.textContent = name.charAt(0);
-      const label = document.createElement('div');
-      label.className = 'sname';
-      label.textContent = name;
-      item.appendChild(avatar);
-      item.appendChild(label);
-      list.appendChild(item);
-    });
+  // Message styling chosen by the buyer (same options as the shop)
+  var FONTS = { hand:["'Caveat', cursive","24px"], type:["'Special Elite', monospace","17px"], play:["'Fredoka', sans-serif","19px"], retro:["'Fontdiner Swanky', cursive","18px"], plain:["'DM Sans', Arial, sans-serif","17px"] };
+  var f = FONTS[data.font] || FONTS.plain;
+  var msgEl = document.getElementById('msg-text');
+  msgEl.textContent = data.msg || '';
+  msgEl.style.fontFamily = f[0]; msgEl.style.fontSize = f[1];
+  msgEl.style.color = /^#[0-9a-fA-F]{6}$/.test(data.color || '') ? data.color : '#3E2A1E';
+  msgEl.style.textAlign = data.align || 'left';
+  var sig = document.getElementById('sig-name');
+  sig.textContent = '— ' + from; sig.style.textAlign = data.align || 'left';
+  if (data.gifUrl && /^https:\/\/[a-z0-9.-]*giphy\.com\//i.test(data.gifUrl)) {
+    var gif = document.getElementById('msg-gif');
+    gif.src = data.gifUrl; gif.style.display = 'block';
+    gif.style.marginLeft = data.align === 'left' ? '0' : 'auto';
+    gif.style.marginRight = data.align === 'right' ? '0' : 'auto';
   }
+
 }
 
 async function load() {
@@ -243,7 +244,7 @@ async function load() {
   }
 
   showError("We couldn't open this card.",
-    'The link may be invalid, expired, or the payment didn\'t go through. If you think that\'s wrong, reply to the email you received or <a href="mailto:sgnandt@gmail.com">contact us</a>.');
+    'The link may be invalid, expired, or the payment didn\'t go through. If you think that\'s wrong, reply to the email you received or <a href="mailto:info@smartass.cards">contact us</a>.');
 }
 
 load();
