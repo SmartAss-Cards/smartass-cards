@@ -1,58 +1,38 @@
-// Cloudflare Pages Function: GET /api/card?t=TOKEN
-// Upload this file to your repo as: functions/api/card.js
-// Returns the card data for a valid, PAID token. The full-video URLs live
-// only here on the server — they never appear in any public page source.
-// Required KV binding: CARDS_KV
+// GET /api/card?t=TOKEN — opens a paid card for the recipient.
+// Returns a signed Bunny.net video link that expires after a few hours.
+// Env vars: BUNNY_TOKEN_KEY (Bunny Stream > your library > Security > Token Authentication Key)
+import { CARDS, SHOP } from "../_cards.js";
 
-const VIDEO_URLS = {
-  "1": "https://player.mediadelivery.net/embed/655040/e0beb112-ea33-4068-9b70-59966cde2bf4?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
-  "2": "https://player.mediadelivery.net/embed/655040/0d31369f-e31c-493e-8efa-fe9f960af952?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
-  "3": "https://player.mediadelivery.net/embed/655040/dc8ca812-8174-43f6-b04b-6b4b4a940fbb?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
-  "4": "https://player.mediadelivery.net/embed/655040/72328498-2dd9-45fb-8210-d8432857e492?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
-  "5": "https://player.mediadelivery.net/embed/655040/7d26eda2-7c47-4d63-bc89-f90ea280d644?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
-  "6": "https://player.mediadelivery.net/embed/655040/5d5e606f-0b5c-43a7-a489-573403b21e95?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
-  "7": "https://player.mediadelivery.net/embed/655040/979bd0c5-c7fd-466a-a5dd-89f6abb1322c?autoplay=true&loop=false&muted=false&preload=true&responsive=true",
-};
+async function sha256Hex(s) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
 
-export async function onRequestGet(context) {
-  const { request, env } = context;
-  const json = (body, status) =>
-    new Response(JSON.stringify(body), {
-      status, headers: { "Content-Type": "application/json" },
-    });
-
-  if (!env.CARDS_KV) {
-    return json({ error: "Card storage not configured" }, 503);
-  }
-
+export async function onRequestGet({ request, env }) {
   const token = new URL(request.url).searchParams.get("t") || "";
-  if (!/^[a-f0-9]{32}$/.test(token)) {
-    return json({ error: "Invalid link" }, 404);
-  }
+  const headers = { "Content-Type": "application/json", "Cache-Control": "no-store" };
+  if (!/^[a-f0-9]{32}$/.test(token)) return new Response("{}", { status: 404, headers });
 
   const stored = await env.CARDS_KV.get(`card:${token}`);
-  if (!stored) {
-    return json({ error: "Card not found" }, 404);
+  if (!stored) return new Response("{}", { status: 404, headers });
+  const order = JSON.parse(stored);
+  if (order.status !== "paid") return new Response("{}", { status: 202, headers });
+
+  const card = CARDS.find(c => c.id === order.cardId);
+  if (!card) return new Response("{}", { status: 404, headers });
+
+  const expires = Math.floor(Date.now() / 1000) + 60 * 60 * 6; // 6 hours
+  const sig = await sha256Hex(env.BUNNY_TOKEN_KEY + card.fullId + expires);
+  const videoUrl = `https://iframe.mediadelivery.net/embed/${SHOP.bunnyLibrary}/${card.fullId}?token=${sig}&expires=${expires}&autoplay=true&responsive=true`;
+
+  // The personal note is stored separately and disappears on its own after the note period.
+  const noteRaw = await env.CARDS_KV.get(`note:${token}`);
+  if (!noteRaw) {
+    return new Response(JSON.stringify({ videoUrl, noteExpired: true }), { status: 200, headers });
   }
-
-  const card = JSON.parse(stored);
-
-  // Payment confirmed by the Stripe webhook? If not yet, tell the page to retry.
-  if (card.status !== "paid") {
-    return json({ pending: true }, 202);
-  }
-
-  const videoUrl = VIDEO_URLS[card.cardId];
-  if (!videoUrl) {
-    return json({ error: "Card not found" }, 404);
-  }
-
-  return json({
-    videoUrl: videoUrl,
-    from: card.from || "",
-    msg: card.msg || "",
-    emoji: card.emoji || "",
-    to: card.to || "",
-    signers: card.signers || "",
-  }, 200);
+  const note = JSON.parse(noteRaw);
+  return new Response(JSON.stringify({
+    from: note.from, to: note.to, msg: note.msg, videoUrl,
+    font: note.font || "plain", color: note.color || "#3E2A1E", align: note.align || "left", gifUrl: note.gifUrl || "",
+  }), { status: 200, headers });
 }
